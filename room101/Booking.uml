@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_QFsVcJHZEeWdDZpBD8uk_g" name="Booking">
-  <packagedElement xmi:type="uml:Activity" xmi:id="_13VFwJHFEeWmZc2v9Hi-Hw" name="stem" node="_6UAP8JHGEeWmZc2v9Hi-Hw _EnBX4JHHEeWmZc2v9Hi-Hw _Kz2tkJHHEeWmZc2v9Hi-Hw _O2Z9AJHHEeWmZc2v9Hi-Hw _eUD90JHHEeWmZc2v9Hi-Hw _vTGVAJHLEeWmZc2v9Hi-Hw _NlIJEJHMEeWmZc2v9Hi-Hw _sZvzMJHUEeWmZc2v9Hi-Hw _32Ux8JHZEeWdDZpBD8uk_g _p5a6gJUAEeWIkcCLXqqZiQ _vAFSUJUAEeWIkcCLXqqZiQ _K8LJwJUBEeWIkcCLXqqZiQ _XvRhcJUEEeWIkcCLXqqZiQ _sJSHgJUEEeWIkcCLXqqZiQ _tF5gwJUEEeWIkcCLXqqZiQ _ywmkUJUFEeWIkcCLXqqZiQ _BRKqwJUGEeWIkcCLXqqZiQ">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_13VFwJHFEeWmZc2v9Hi-Hw" name="stem" node="_6UAP8JHGEeWmZc2v9Hi-Hw _EnBX4JHHEeWmZc2v9Hi-Hw _Kz2tkJHHEeWmZc2v9Hi-Hw _O2Z9AJHHEeWmZc2v9Hi-Hw _eUD90JHHEeWmZc2v9Hi-Hw _vTGVAJHLEeWmZc2v9Hi-Hw _NlIJEJHMEeWmZc2v9Hi-Hw _sZvzMJHUEeWmZc2v9Hi-Hw _32Ux8JHZEeWdDZpBD8uk_g _p5a6gJUAEeWIkcCLXqqZiQ _vAFSUJUAEeWIkcCLXqqZiQ _K8LJwJUBEeWIkcCLXqqZiQ _XvRhcJUEEeWIkcCLXqqZiQ _sJSHgJUEEeWIkcCLXqqZiQ _tF5gwJUEEeWIkcCLXqqZiQ _ywmkUJUFEeWIkcCLXqqZiQ _BRKqwJUGEeWIkcCLXqqZiQ _hKxccJUNEeWIkcCLXqqZiQ _kWrXwJUNEeWIkcCLXqqZiQ _ofu30JUNEeWIkcCLXqqZiQ _z_lmUJUNEeWIkcCLXqqZiQ">
     <edge xmi:type="uml:ControlFlow" xmi:id="_RQYLYJUEEeWIkcCLXqqZiQ" target="_sZvzMJHUEeWmZc2v9Hi-Hw" source="_Kz2tkJHHEeWmZc2v9Hi-Hw"/>
     <edge xmi:type="uml:ControlFlow" xmi:id="_bWe4sJUEEeWIkcCLXqqZiQ" target="_p5a6gJUAEeWIkcCLXqqZiQ" source="_vAFSUJUAEeWIkcCLXqqZiQ"/>
     <edge xmi:type="uml:ControlFlow" xmi:id="_b8lPYJUEEeWIkcCLXqqZiQ" target="_eUD90JHHEeWmZc2v9Hi-Hw" source="_p5a6gJUAEeWIkcCLXqqZiQ"/>
@@ -22,6 +22,9 @@
     <edge xmi:type="uml:ControlFlow" xmi:id="_348IYJULEeWIkcCLXqqZiQ" target="_Kz2tkJHHEeWmZc2v9Hi-Hw" source="_XvRhcJUEEeWIkcCLXqqZiQ"/>
     <edge xmi:type="uml:ControlFlow" xmi:id="_wNXHUJUMEeWIkcCLXqqZiQ" target="_ywmkUJUFEeWIkcCLXqqZiQ" source="_BRKqwJUGEeWIkcCLXqqZiQ"/>
     <edge xmi:type="uml:ControlFlow" xmi:id="_OLpgAJUNEeWIkcCLXqqZiQ" target="_eUD90JHHEeWmZc2v9Hi-Hw" source="_tF5gwJUEEeWIkcCLXqqZiQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_wmbSIJUNEeWIkcCLXqqZiQ" target="_kWrXwJUNEeWIkcCLXqqZiQ" source="_hKxccJUNEeWIkcCLXqqZiQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_xIoAQJUNEeWIkcCLXqqZiQ" target="_kWrXwJUNEeWIkcCLXqqZiQ" source="_ofu30JUNEeWIkcCLXqqZiQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_1DmoEJUNEeWIkcCLXqqZiQ" target="_z_lmUJUNEeWIkcCLXqqZiQ" source="_kWrXwJUNEeWIkcCLXqqZiQ"/>
     <node xmi:type="uml:OpaqueAction" xmi:id="_6UAP8JHGEeWmZc2v9Hi-Hw" name="Actor select check-in and check-out date" incoming="_fRWEYJUHEeWIkcCLXqqZiQ _2826oJULEeWIkcCLXqqZiQ" outgoing="_NN40EJUJEeWIkcCLXqqZiQ"/>
     <node xmi:type="uml:FlowFinalNode" xmi:id="_EnBX4JHHEeWmZc2v9Hi-Hw" name="End" incoming="_BAgjIJUHEeWIkcCLXqqZiQ"/>
     <node xmi:type="uml:OpaqueAction" xmi:id="_Kz2tkJHHEeWmZc2v9Hi-Hw" name="The actor selects the number of rooms" incoming="_SLhg0JULEeWIkcCLXqqZiQ _348IYJULEeWIkcCLXqqZiQ" outgoing="_RQYLYJUEEeWIkcCLXqqZiQ"/>
@@ -39,5 +42,9 @@
     <node xmi:type="uml:DecisionNode" xmi:id="_tF5gwJUEEeWIkcCLXqqZiQ" name="System checks email and phonenumber" incoming="_fa8P0JUIEeWIkcCLXqqZiQ" outgoing="_uhvMoJUEEeWIkcCLXqqZiQ _OLpgAJUNEeWIkcCLXqqZiQ"/>
     <node xmi:type="uml:OpaqueAction" xmi:id="_ywmkUJUFEeWIkcCLXqqZiQ" name="Actor enters passport number and address for next destination" incoming="_WWgs0JUGEeWIkcCLXqqZiQ _wNXHUJUMEeWIkcCLXqqZiQ" outgoing="_3EO1UJUIEeWIkcCLXqqZiQ"/>
     <node xmi:type="uml:DecisionNode" xmi:id="_BRKqwJUGEeWIkcCLXqqZiQ" name="Check validity of passport and address" incoming="_3EO1UJUIEeWIkcCLXqqZiQ" outgoing="_wv1XsJULEeWIkcCLXqqZiQ _wNXHUJUMEeWIkcCLXqqZiQ"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_hKxccJUNEeWIkcCLXqqZiQ" name="Cancel" outgoing="_wmbSIJUNEeWIkcCLXqqZiQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_kWrXwJUNEeWIkcCLXqqZiQ" name="Release any rooms locked by this actor" incoming="_wmbSIJUNEeWIkcCLXqqZiQ _xIoAQJUNEeWIkcCLXqqZiQ" outgoing="_1DmoEJUNEeWIkcCLXqqZiQ"/>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_ofu30JUNEeWIkcCLXqqZiQ" name="Booking lock timeout" outgoing="_xIoAQJUNEeWIkcCLXqqZiQ"/>
+    <node xmi:type="uml:FlowFinalNode" xmi:id="_z_lmUJUNEeWIkcCLXqqZiQ" name="FlowFinalNode1" incoming="_1DmoEJUNEeWIkcCLXqqZiQ"/>
   </packagedElement>
 </uml:Package>
