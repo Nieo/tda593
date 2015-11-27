@@ -1,2 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_1iicgJRtEeWgE4yFiV1SwA" name="RootElement"/>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_1iicgJRtEeWgE4yFiV1SwA" name="RootElement">
+  <packagedElement xmi:type="uml:Package" xmi:id="_PKZngJRuEeWgE4yFiV1SwA" name="HotelSystem">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_E3pv4JRvEeWgE4yFiV1SwA" name="Check-in">
+      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_hLOTMJRvEeWgE4yFiV1SwA" name="Check-in"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_f5ry0JRvEeWgE4yFiV1SwA" name="Check-out"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_R4ll4JSLEeWgE4yFiV1SwA" name="Login"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_T3dtYJSLEeWgE4yFiV1SwA" name="Add bookable room"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Ylh_AJSLEeWgE4yFiV1SwA" name="Remove Bookable room"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_cE8sMJSLEeWgE4yFiV1SwA" name="Change type of room"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_eYfcIJSLEeWgE4yFiV1SwA" name="Calculate cost"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_tDXVIJSLEeWgE4yFiV1SwA" name="Add new room type"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_u_rQ0JSLEeWgE4yFiV1SwA" name="Remove room type"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_y5YtUJSLEeWgE4yFiV1SwA" name="Add new room attribute"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_2EuA4JSLEeWgE4yFiV1SwA" name="Remove room attribute"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_64JToJSLEeWgE4yFiV1SwA" name="Add room attribute to room type"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="__XhB8JSLEeWgE4yFiV1SwA" name="Remove room attribute from room type"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_DqBY8JSMEeWgE4yFiV1SwA" name="File support ticket"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_IrJJcJSMEeWgE4yFiV1SwA" name="Read support ticket"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OJyjcJSMEeWgE4yFiV1SwA" name="Comment support ticket"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_QhR_QJSMEeWgE4yFiV1SwA" name="Complete support ticket"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_UFYYIJSMEeWgE4yFiV1SwA" name="Search for room type"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_XOv80JSMEeWgE4yFiV1SwA" name="Sending feedback"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_ZOF-YJSMEeWgE4yFiV1SwA" name="Reading feedback"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_bhkc4JSMEeWgE4yFiV1SwA" name="Book rooms"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fK6iIJSMEeWgE4yFiV1SwA" name="Cacel booking"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_j5UK8JSMEeWgE4yFiV1SwA" name="Check cleaning needed"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_mr0u0JSMEeWgE4yFiV1SwA" name="Mark cleaned"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_paiX0JSMEeWgE4yFiV1SwA" name="List rooms to be cleaned"/>
+  </packagedElement>
+</uml:Model>
