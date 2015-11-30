@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_3UMNoJddEeWSwtW3Z_xnZg" name="RootElement">
+  <packagedElement xmi:type="uml:Component" xmi:id="_AKSEkJdeEeWSwtW3Z_xnZg" name="Booking">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_4XtG0JdiEeWSwtW3Z_xnZg" client="_AKSEkJdeEeWSwtW3Z_xnZg" supplier="_BwiJUJdhEeWSwtW3Z_xnZg" contract="_BwiJUJdhEeWSwtW3Z_xnZg"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_6Jms0JdjEeWSwtW3Z_xnZg" client="_AKSEkJdeEeWSwtW3Z_xnZg" supplier="_KjDc8JdjEeWSwtW3Z_xnZg" contract="_KjDc8JdjEeWSwtW3Z_xnZg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_M9MWYJdeEeWSwtW3Z_xnZg" name="HotelSetup"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_RGd44JdeEeWSwtW3Z_xnZg" name="Housekeeping"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_jvJrQJdeEeWSwtW3Z_xnZg" name="Guest">
+    <packagedElement xmi:type="uml:Usage" xmi:id="_5CLAIJdiEeWSwtW3Z_xnZg" client="_jvJrQJdeEeWSwtW3Z_xnZg" supplier="_BwiJUJdhEeWSwtW3Z_xnZg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_DTrzkJdgEeWSwtW3Z_xnZg" name="Staff"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_E08K8JdgEeWSwtW3Z_xnZg" name="Clerk">
+    <generalization xmi:type="uml:Generalization" xmi:id="_IWCWUJdkEeWSwtW3Z_xnZg" general="_DTrzkJdgEeWSwtW3Z_xnZg"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_6lrk0JdjEeWSwtW3Z_xnZg" client="_E08K8JdgEeWSwtW3Z_xnZg" supplier="_KjDc8JdjEeWSwtW3Z_xnZg"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_uFVNMJdkEeWSwtW3Z_xnZg" client="_E08K8JdgEeWSwtW3Z_xnZg" supplier="_BwiJUJdhEeWSwtW3Z_xnZg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_KR_CcJdgEeWSwtW3Z_xnZg" name="System Administrator"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_VFlu8JdgEeWSwtW3Z_xnZg" name="Manager">
+    <generalization xmi:type="uml:Generalization" xmi:id="_I8pDUJdkEeWSwtW3Z_xnZg" general="_E08K8JdgEeWSwtW3Z_xnZg"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_KBr_0JdkEeWSwtW3Z_xnZg" general="_KR_CcJdgEeWSwtW3Z_xnZg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_BwiJUJdhEeWSwtW3Z_xnZg" name="Make a booking">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_pr2PAJdlEeWSwtW3Z_xnZg" name="Attribute154"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_z0kLcJdlEeWSwtW3Z_xnZg" name="getAvailableRooms">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_OSc_gJdmEeWSwtW3Z_xnZg" name="Bengt"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_Nof10JdhEeWSwtW3Z_xnZg" name="Database"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_KjDc8JdjEeWSwtW3Z_xnZg" name="Check-in/-out konifurgh"/>
+</uml:Model>
