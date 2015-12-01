@@ -21,11 +21,30 @@
     <generalization xmi:type="uml:Generalization" xmi:id="_KBr_0JdkEeWSwtW3Z_xnZg" general="_KR_CcJdgEeWSwtW3Z_xnZg"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_BwiJUJdhEeWSwtW3Z_xnZg" name="Make a booking">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_pr2PAJdlEeWSwtW3Z_xnZg" name="Attribute154"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_z0kLcJdlEeWSwtW3Z_xnZg" name="getAvailableRooms">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_OSc_gJdmEeWSwtW3Z_xnZg" name="Bengt"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_OSc_gJdmEeWSwtW3Z_xnZg" name="startDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_46r7QJdmEeWSwtW3Z_xnZg" name="endDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_AZNs4JdoEeWSwtW3Z_xnZg" name="nbrOfAdults">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_fNGQ0JdoEeWSwtW3Z_xnZg" name="nbrOfChildren">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wPIZAJdpEeWSwtW3Z_xnZg" name="listOfAvailableRooms" type="_vit-8JdpEeWSwtW3Z_xnZg" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_AFlUUJdqEeWSwtW3Z_xnZg" name="Operation1"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Component" xmi:id="_Nof10JdhEeWSwtW3Z_xnZg" name="Database"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_KjDc8JdjEeWSwtW3Z_xnZg" name="Check-in/-out konifurgh"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_KjDc8JdjEeWSwtW3Z_xnZg" name="Check-in/-out konfigurgh"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_tLr2IJdpEeWSwtW3Z_xnZg" name="Room"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_vit-8JdpEeWSwtW3Z_xnZg" name="RoomList">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_vit-8ZdpEeWSwtW3Z_xnZg" name="Room" type="_tLr2IJdpEeWSwtW3Z_xnZg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0fYtQJdpEeWSwtW3Z_xnZg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0fbwkJdpEeWSwtW3Z_xnZg" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
 </uml:Model>
