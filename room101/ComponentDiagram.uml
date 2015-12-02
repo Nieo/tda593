@@ -216,9 +216,11 @@
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_6rbxMJhYEeWMcJhD21JL8g" name="addRoomAttribute">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Oljg0JhaEeWMcJhD21JL8g" name="roomType" type="_MVa2wJhFEeW-X4rHQuyyLA"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ntutcJjOEeW-X4rHQuyyLA" name="roomAttribute" type="_-BqdQJhEEeW-X4rHQuyyLA"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_UppmsJhZEeWMcJhD21JL8g" name="removeRoomAttribute">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_TDGqMJhaEeWMcJhD21JL8g" name="roomType" type="_MVa2wJhFEeW-X4rHQuyyLA"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_qxINAJjOEeW-X4rHQuyyLA" name="roomAttribute" type="_-BqdQJhEEeW-X4rHQuyyLA"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_BvneQJhcEeWMcJhD21JL8g" name="RoomAttributeHandling">
@@ -301,7 +303,9 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_72NPUJhlEeWMcJhD21JL8g" name="markAsCompleted">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_CNlBEJhmEeWMcJhD21JL8g" name="supportTicket"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_CNlBEJhmEeWMcJhD21JL8g" name="supportTicket">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedParameter>
     </ownedOperation>
   </packagedElement>
 </uml:Model>
