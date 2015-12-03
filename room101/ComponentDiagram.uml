@@ -7,10 +7,10 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Component" xmi:id="_M9MWYJdeEeWSwtW3Z_xnZg" name="HotelSetup">
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_nhkb0JhBEeW-X4rHQuyyLA" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_AW2v0JhBEeW-X4rHQuyyLA" contract="_AW2v0JhBEeW-X4rHQuyyLA"/>
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_tadJsJhgEeWMcJhD21JL8g" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_SGEMcJhVEeWMcJhD21JL8g" contract="_SGEMcJhVEeWMcJhD21JL8g"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_twcn0JhgEeWMcJhD21JL8g" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_NcBu8JhEEeW-X4rHQuyyLA" contract="_NcBu8JhEEeW-X4rHQuyyLA"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_uMQaEJhgEeWMcJhD21JL8g" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_BvneQJhcEeWMcJhD21JL8g" contract="_BvneQJhcEeWMcJhD21JL8g"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_UOCdMJhjEeWMcJhD21JL8g" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_CboLgJhjEeWMcJhD21JL8g" contract="_CboLgJhjEeWMcJhD21JL8g"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_uxsOoJmuEeWYBuYql6Mw0g" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_SGEMcJhVEeWMcJhD21JL8g" contract="_SGEMcJhVEeWMcJhD21JL8g"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Component" xmi:id="_jvJrQJdeEeWSwtW3Z_xnZg" name="Guest">
     <packagedElement xmi:type="uml:Usage" xmi:id="_QQUqcJhjEeWMcJhD21JL8g" client="_jvJrQJdeEeWSwtW3Z_xnZg" supplier="_BwiJUJdhEeWSwtW3Z_xnZg"/>
