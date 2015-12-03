@@ -26,6 +26,7 @@
     <generalization xmi:type="uml:Generalization" xmi:id="_IWCWUJdkEeWSwtW3Z_xnZg" general="_DTrzkJdgEeWSwtW3Z_xnZg"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_6lrk0JdjEeWSwtW3Z_xnZg" client="_E08K8JdgEeWSwtW3Z_xnZg" supplier="_KjDc8JdjEeWSwtW3Z_xnZg"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_uFVNMJdkEeWSwtW3Z_xnZg" client="_E08K8JdgEeWSwtW3Z_xnZg" supplier="_BwiJUJdhEeWSwtW3Z_xnZg"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_lEp1sJm7EeWYBuYql6Mw0g" client="_E08K8JdgEeWSwtW3Z_xnZg" supplier="_4GLbUJm6EeWYBuYql6Mw0g"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Component" xmi:id="_KR_CcJdgEeWSwtW3Z_xnZg" name="System Administrator">
     <packagedElement xmi:type="uml:Usage" xmi:id="_qtFkgJhgEeWMcJhD21JL8g" client="_KR_CcJdgEeWSwtW3Z_xnZg" supplier="_SGEMcJhVEeWMcJhD21JL8g"/>
@@ -384,6 +385,30 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_72NPUJhlEeWMcJhD21JL8g" name="markAsCompleted">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_CNlBEJhmEeWMcJhD21JL8g" name="supportTicket">
         <type xmi:type="uml:Class" href="ClassDiagram.uml#_-j4ugJddEeW0s9Al2d2tiA"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_jk36cJm6EeWYBuYql6Mw0g" name="PaymentSystem">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_kgvQUJm7EeWYBuYql6Mw0g" client="_jk36cJm6EeWYBuYql6Mw0g" supplier="_4GLbUJm6EeWYBuYql6Mw0g" contract="_4GLbUJm6EeWYBuYql6Mw0g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_4GLbUJm6EeWYBuYql6Mw0g" name="Payment">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zZ2ZoJm7EeWYBuYql6Mw0g" name="verifyCreditCard">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-L05AJm8EeWYBuYql6Mw0g" name="creditCard">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GfxsMJm9EeWYBuYql6Mw0g" name="success" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_DobhEJm8EeWYBuYql6Mw0g" name="debitCard">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_IZ5PgJm9EeWYBuYql6Mw0g" name="creditCard">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_K99HsJm9EeWYBuYql6Mw0g" name="amount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_MIirgJm9EeWYBuYql6Mw0g" name="success" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
