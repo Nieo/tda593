@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_wsfqMJgIEeWFIMQTp_WAug" name="RootElement">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_wsitgJgIEeWFIMQTp_WAug" name="Interaction1">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_KiCAoJgQEeWFIMQTp_WAug" name="" type="_J1cncJgQEeWFIMQTp_WAug"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_OqCX0ZgQEeWFIMQTp_WAug" name="" type="_McJrUJgNEeWFIMQTp_WAug"/>
+    <nestedClassifier xmi:type="uml:Actor" xmi:id="_McJrUJgNEeWFIMQTp_WAug" name="Clerk"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_J1cncJgQEeWFIMQTp_WAug" name="System">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_leMFEJgQEeWFIMQTp_WAug" name="findBooking"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_44uLIJgQEeWFIMQTp_WAug" name="checkOut"/>
+    </nestedClassifier>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_KiBZkJgQEeWFIMQTp_WAug" name="" represents="_KiCAoJgQEeWFIMQTp_WAug" coveredBy="_lezJEZgQEeWFIMQTp_WAug _uiy5IJgQEeWFIMQTp_WAug _45cj4JgQEeWFIMQTp_WAug"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_OqCX0JgQEeWFIMQTp_WAug" name="" represents="_OqCX0ZgQEeWFIMQTp_WAug" coveredBy="_lezJEJgQEeWFIMQTp_WAug _uiy5IZgQEeWFIMQTp_WAug _45b80JgQEeWFIMQTp_WAug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_45cj4JgQEeWFIMQTp_WAug" name="checkOut_MessageRecv" covered="_KiBZkJgQEeWFIMQTp_WAug" message="_45bVwJgQEeWFIMQTp_WAug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_lezJEJgQEeWFIMQTp_WAug" name="findBooking_MessageSend" covered="_OqCX0JgQEeWFIMQTp_WAug" message="_leyiAJgQEeWFIMQTp_WAug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_lezJEZgQEeWFIMQTp_WAug" name="findBooking_MessageRecv" covered="_KiBZkJgQEeWFIMQTp_WAug" message="_leyiAJgQEeWFIMQTp_WAug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_uiy5IJgQEeWFIMQTp_WAug" name="calculateTotalCost_MessageSend" covered="_KiBZkJgQEeWFIMQTp_WAug" message="_uiySEJgQEeWFIMQTp_WAug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_uiy5IZgQEeWFIMQTp_WAug" name="calculateTotalCost_MessageRecv" covered="_OqCX0JgQEeWFIMQTp_WAug" message="_uiySEJgQEeWFIMQTp_WAug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_45b80JgQEeWFIMQTp_WAug" name="checkOut_MessageSend" covered="_OqCX0JgQEeWFIMQTp_WAug" message="_45bVwJgQEeWFIMQTp_WAug"/>
+    <message xmi:type="uml:Message" xmi:id="_leyiAJgQEeWFIMQTp_WAug" name="findBooking_Message" receiveEvent="_lezJEZgQEeWFIMQTp_WAug" sendEvent="_lezJEJgQEeWFIMQTp_WAug" signature="_leMFEJgQEeWFIMQTp_WAug"/>
+    <message xmi:type="uml:Message" xmi:id="_uiySEJgQEeWFIMQTp_WAug" name="calculateTotalCost_Message" receiveEvent="_uiy5IZgQEeWFIMQTp_WAug" sendEvent="_uiy5IJgQEeWFIMQTp_WAug"/>
+    <message xmi:type="uml:Message" xmi:id="_45bVwJgQEeWFIMQTp_WAug" name="checkOut_Message" receiveEvent="_45cj4JgQEeWFIMQTp_WAug" sendEvent="_45b80JgQEeWFIMQTp_WAug" signature="_44uLIJgQEeWFIMQTp_WAug"/>
+  </packagedElement>
+</uml:Model>
