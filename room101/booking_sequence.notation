@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_IqroAJgREeWFIMQTp_WAug" type="PapyrusUMLSequenceDiagram" name="Sequence Diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_IqroAZgREeWFIMQTp_WAug" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_IqroApgREeWFIMQTp_WAug" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_IqroA5gREeWFIMQTp_WAug" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_TJxdEJgREeWFIMQTp_WAug" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_TJxdEpgREeWFIMQTp_WAug" type="5002"/>
+        <element xmi:type="uml:Lifeline" href="booking.uml#_TJw2AJgREeWFIMQTp_WAug"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TJxdEZgREeWFIMQTp_WAug" x="486" y="12" width="100" height="695"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_jY_dsJgREeWFIMQTp_WAug" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_jY_dspgREeWFIMQTp_WAug" type="5002"/>
+        <element xmi:type="uml:Lifeline" href="booking.uml#_jY-PkJgREeWFIMQTp_WAug"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jY_dsZgREeWFIMQTp_WAug" x="290" y="14" width="100" height="693"/>
+      </children>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IqroBJgREeWFIMQTp_WAug"/>
+    </children>
+    <element xmi:type="uml:Interaction" href="booking.uml#_IqqZ4JgREeWFIMQTp_WAug"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IqroBZgREeWFIMQTp_WAug"/>
+  </children>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_IqroBpgREeWFIMQTp_WAug" name="diagram_compatibility_version" stringValue="1.1.0"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_IqroB5gREeWFIMQTp_WAug"/>
+  <styles xmi:type="style:PapyrusViewStyle" xmi:id="_IqroCJgREeWFIMQTp_WAug">
+    <owner xmi:type="uml:Model" href="booking.uml#_IqmvgJgREeWFIMQTp_WAug"/>
+  </styles>
+  <element xmi:type="uml:Interaction" href="booking.uml#_IqqZ4JgREeWFIMQTp_WAug"/>
+</notation:Diagram>
