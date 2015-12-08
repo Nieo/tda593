@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_aJsrkJdsEeWFIMQTp_WAug" name="RootElement">
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_aLBhQJdsEeWFIMQTp_WAug" name="Check-in">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_sZqMYJeiEeWFIMQTp_WAug" name="" type="_rSmdsJeiEeWFIMQTp_WAug"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_wIl8QZeiEeWFIMQTp_WAug" name="" type="_v1W3MJeiEeWFIMQTp_WAug"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_20Ot0JeiEeWFIMQTp_WAug" name="" type="_1Cu7AJeiEeWFIMQTp_WAug"/>
+    <nestedClassifier xmi:type="uml:Actor" xmi:id="_rSmdsJeiEeWFIMQTp_WAug" name="Actor"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_v1W3MJeiEeWFIMQTp_WAug" name="System">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_yCvvoJgBEeWFIMQTp_WAug" name="checkIn(guest, room)"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Actor" xmi:id="_1Cu7AJeiEeWFIMQTp_WAug" name="Clerk"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_wIl8QJeiEeWFIMQTp_WAug" name="System" represents="_wIl8QZeiEeWFIMQTp_WAug" coveredBy="_yDbsIZgBEeWFIMQTp_WAug"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_20OGwJeiEeWFIMQTp_WAug" name="" represents="_20Ot0JeiEeWFIMQTp_WAug" coveredBy="_yDbsIJgBEeWFIMQTp_WAug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_yDbsIJgBEeWFIMQTp_WAug" name="checkIn(guest, room)_MessageSend" covered="_20OGwJeiEeWFIMQTp_WAug" message="_yDbFEJgBEeWFIMQTp_WAug"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_yDbsIZgBEeWFIMQTp_WAug" name="checkIn(guest, room)_MessageRecv" covered="_wIl8QJeiEeWFIMQTp_WAug" message="_yDbFEJgBEeWFIMQTp_WAug"/>
+    <message xmi:type="uml:Message" xmi:id="_yDbFEJgBEeWFIMQTp_WAug" name="checkIn(guest, room)" receiveEvent="_yDbsIZgBEeWFIMQTp_WAug" sendEvent="_yDbsIJgBEeWFIMQTp_WAug" signature="_yCvvoJgBEeWFIMQTp_WAug"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_mTuhAJeDEeWFIMQTp_WAug" name="Actor"/>
+</uml:Model>

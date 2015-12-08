@@ -210,8 +210,8 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_CboLgJhjEeWMcJhD21JL8g" name="Cleaning">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_VI7_MJhjEeWMcJhD21JL8g" name="checkIfRoomCleaned">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_z3cT4JhjEeWMcJhD21JL8g" name="room">
-        <type xmi:type="uml:Class" href="ClassDiagram.uml#_UTJDgJdOEeW0s9Al2d2tiA"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_z3cT4JhjEeWMcJhD21JL8g" name="roomID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_2h_CgJmrEeWYBuYql6Mw0g" name="isCleaned" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>

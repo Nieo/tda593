@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_1dlPAJ24EeWmKrHRoFpSoA" name="RootElement">
+  <packagedElement xmi:type="uml:Device" xmi:id="_Sej1cJ26EeWmKrHRoFpSoA" name="Hotel Server">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EkMsAp29EeWmKrHRoFpSoA" name="web browser" type="_-H5W8J28EeWmKrHRoFpSoA" association="_EkME8J29EeWmKrHRoFpSoA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_lF-VIp29EeWmKrHRoFpSoA" name="staff application" type="_ckNvcJ29EeWmKrHRoFpSoA" association="_lF9uEJ29EeWmKrHRoFpSoA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-ijdM529EeWmKrHRoFpSoA" name="database" type="_5JZnMJ29EeWmKrHRoFpSoA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_9Z32gJ3AEeWmKrHRoFpSoA" name="database" type="_5JZnMJ29EeWmKrHRoFpSoA" association="_9Z3PcJ3AEeWmKrHRoFpSoA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_EkME8J29EeWmKrHRoFpSoA" name="HTTP" memberEnd="_EkMsAp29EeWmKrHRoFpSoA _EkNTEJ29EeWmKrHRoFpSoA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EkMsAJ29EeWmKrHRoFpSoA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EkMsAZ29EeWmKrHRoFpSoA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_EkNTEJ29EeWmKrHRoFpSoA" name="hotel server" type="_Sej1cJ26EeWmKrHRoFpSoA" association="_EkME8J29EeWmKrHRoFpSoA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Node" xmi:id="_ckNvcJ29EeWmKrHRoFpSoA" name="Staff Application"/>
+  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_lF9uEJ29EeWmKrHRoFpSoA" name="TCP/IP" memberEnd="_lF-VIp29EeWmKrHRoFpSoA _lF-VI529EeWmKrHRoFpSoA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lF-VIJ29EeWmKrHRoFpSoA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lF-VIZ29EeWmKrHRoFpSoA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_lF-VI529EeWmKrHRoFpSoA" name="hotel server" type="_Sej1cJ26EeWmKrHRoFpSoA" association="_lF9uEJ29EeWmKrHRoFpSoA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_5JZnMJ29EeWmKrHRoFpSoA" name="Database"/>
+  <packagedElement xmi:type="uml:Node" xmi:id="_-H5W8J28EeWmKrHRoFpSoA" name="Guest Application"/>
+  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_9Z3PcJ3AEeWmKrHRoFpSoA" name="TCP/IP" memberEnd="_9Z32gJ3AEeWmKrHRoFpSoA _9Z32gZ3AEeWmKrHRoFpSoA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9Z3PcZ3AEeWmKrHRoFpSoA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9Z3Pcp3AEeWmKrHRoFpSoA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_9Z32gZ3AEeWmKrHRoFpSoA" name="hotel server" type="_Sej1cJ26EeWmKrHRoFpSoA" association="_9Z3PcJ3AEeWmKrHRoFpSoA"/>
+  </packagedElement>
+</uml:Model>
