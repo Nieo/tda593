@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ">
+  <uml:Model xmi:id="_KIK5oJ23EeWw5JeoDW_dpQ" name="RootElement">
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_65JDUJ25EeWlXO9ziCqwhA" name="RoomStateMachine">
+      <region xmi:type="uml:Region" xmi:id="_8B5bIJ25EeWlXO9ziCqwhA" name="Region1">
+        <transition xmi:type="uml:Transition" xmi:id="_EzP8AJ26EeWlXO9ziCqwhA" source="_-7uvAJ25EeWlXO9ziCqwhA" target="_AfExEJ26EeWlXO9ziCqwhA"/>
+        <transition xmi:type="uml:Transition" xmi:id="__qeO4J26EeWlXO9ziCqwhA" name="check out" source="_GUtHsJ26EeWlXO9ziCqwhA" target="_2AVr4J26EeWlXO9ziCqwhA"/>
+        <transition xmi:type="uml:Transition" xmi:id="_CXZvMJ27EeWlXO9ziCqwhA" name="clean" source="_2AVr4J26EeWlXO9ziCqwhA" target="_AfExEJ26EeWlXO9ziCqwhA"/>
+        <transition xmi:type="uml:Transition" xmi:id="_FX_LUJ27EeWlXO9ziCqwhA" name="check in" source="_AfExEJ26EeWlXO9ziCqwhA" target="_GUtHsJ26EeWlXO9ziCqwhA"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_-7uvAJ25EeWlXO9ziCqwhA" name=""/>
+        <subvertex xmi:type="uml:State" xmi:id="_AfExEJ26EeWlXO9ziCqwhA" name="clean"/>
+        <subvertex xmi:type="uml:State" xmi:id="_GUtHsJ26EeWlXO9ziCqwhA" name="checked in">
+          <region xmi:type="uml:Region" xmi:id="_M4PtMJ26EeWlXO9ziCqwhA" name="dirty unoccupied">
+            <transition xmi:type="uml:Transition" xmi:id="_gZrFcJ26EeWlXO9ziCqwhA" source="_M4TXkJ26EeWlXO9ziCqwhA" target="_Qs5qkJ26EeWlXO9ziCqwhA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_hw-2oJ26EeWlXO9ziCqwhA" name="mess" source="_Qs5qkJ26EeWlXO9ziCqwhA" target="_TlGmwJ26EeWlXO9ziCqwhA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_qrAyYJ26EeWlXO9ziCqwhA" name="guest leaves" source="_TlGmwJ26EeWlXO9ziCqwhA" target="_Y_hBAJ26EeWlXO9ziCqwhA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_tGad0J26EeWlXO9ziCqwhA" name="guest enters" source="_Y_hBAJ26EeWlXO9ziCqwhA" target="_TlGmwJ26EeWlXO9ziCqwhA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_xs3rkJ26EeWlXO9ziCqwhA" name="clean" source="_Y_hBAJ26EeWlXO9ziCqwhA" target="_Qs5qkJ26EeWlXO9ziCqwhA"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_M4TXkJ26EeWlXO9ziCqwhA"/>
+            <subvertex xmi:type="uml:State" xmi:id="_Qs5qkJ26EeWlXO9ziCqwhA" name="clean"/>
+            <subvertex xmi:type="uml:State" xmi:id="_TlGmwJ26EeWlXO9ziCqwhA" name="dirty occupied"/>
+            <subvertex xmi:type="uml:State" xmi:id="_Y_hBAJ26EeWlXO9ziCqwhA" name="dirty unoccupied"/>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_2AVr4J26EeWlXO9ziCqwhA" name="dirty"/>
+      </region>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_CNRYQJ26EeWlXO9ziCqwhA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CNSmYJ26EeWlXO9ziCqwhA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
+  </uml:Model>
+  <ActionLanguage:TextualRepresentation xmi:id="_CTEeQJ26EeWlXO9ziCqwhA" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_IA8nEJ26EeWlXO9ziCqwhA" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_aitSEJ26EeWlXO9ziCqwhA" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_lfvAUJ26EeWlXO9ziCqwhA" language="org.eclipse.papyrus.uml.textedit.transition.xtext.UmlTransition"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_zS3ZAJ26EeWlXO9ziCqwhA" language="org.eclipse.papyrus.uml.textedit.transition.xtext.UmlTransition"/>
+</xmi:XMI>
