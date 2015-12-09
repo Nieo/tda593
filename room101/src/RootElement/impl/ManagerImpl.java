@@ -5,8 +5,8 @@ package RootElement.impl;
 import RootElement.Manager;
 import RootElement.Room;
 import RootElement.RootElementPackage;
-
 import RootElement.SysAdmin;
+
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.util.EList;

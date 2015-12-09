@@ -74,28 +74,4 @@ public interface Staff extends EObject {
 	 */
 	void setName(String value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void readSupportTicket();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void closeSupportTicket();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model cleanedDataType="org.eclipse.uml2.types.Boolean" cleanedRequired="true" cleanedOrdered="false"
-	 * @generated
-	 */
-	void setRoomCleaned(boolean cleaned);
-
 } // Staff

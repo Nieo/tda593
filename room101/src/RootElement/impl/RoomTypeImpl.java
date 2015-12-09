@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link RootElement.impl.RoomTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.impl.RoomTypeImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link RootElement.impl.RoomTypeImpl#getPrice <em>Price</em>}</li>
+ *   <li>{@link RootElement.impl.RoomTypeImpl#getRoomattribute <em>Roomattribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +85,16 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 * @ordered
 	 */
 	protected int price = PRICE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRoomattribute() <em>Roomattribute</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoomattribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RoomAttribute> roomattribute;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,6 +174,18 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RoomAttribute> getRoomattribute() {
+		if (roomattribute == null) {
+			roomattribute = new EObjectResolvingEList<RoomAttribute>(RoomAttribute.class, this, RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE);
+		}
+		return roomattribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -172,6 +195,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 				return getAttributes();
 			case RootElementPackage.ROOM_TYPE__PRICE:
 				return getPrice();
+			case RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE:
+				return getRoomattribute();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -195,6 +220,10 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 			case RootElementPackage.ROOM_TYPE__PRICE:
 				setPrice((Integer)newValue);
 				return;
+			case RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE:
+				getRoomattribute().clear();
+				getRoomattribute().addAll((Collection<? extends RoomAttribute>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -216,6 +245,9 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 			case RootElementPackage.ROOM_TYPE__PRICE:
 				setPrice(PRICE_EDEFAULT);
 				return;
+			case RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE:
+				getRoomattribute().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -234,6 +266,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 				return attributes != null && !attributes.isEmpty();
 			case RootElementPackage.ROOM_TYPE__PRICE:
 				return price != PRICE_EDEFAULT;
+			case RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE:
+				return roomattribute != null && !roomattribute.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

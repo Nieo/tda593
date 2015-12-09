@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link RootElement.impl.SupportTicketImpl#getProblemDescription <em>Problem Description</em>}</li>
  *   <li>{@link RootElement.impl.SupportTicketImpl#getRoomID <em>Room ID</em>}</li>
- *   <li>{@link RootElement.impl.SupportTicketImpl#getAddressTo <em>Address To</em>}</li>
  *   <li>{@link RootElement.impl.SupportTicketImpl#isFixed <em>Fixed</em>}</li>
  * </ul>
  *
@@ -68,26 +67,6 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 	 * @ordered
 	 */
 	protected String roomID = ROOM_ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getAddressTo() <em>Address To</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAddressTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ADDRESS_TO_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAddressTo() <em>Address To</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAddressTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected String addressTo = ADDRESS_TO_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isFixed() <em>Fixed</em>}' attribute.
@@ -175,27 +154,6 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAddressTo() {
-		return addressTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAddressTo(String newAddressTo) {
-		String oldAddressTo = addressTo;
-		addressTo = newAddressTo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SUPPORT_TICKET__ADDRESS_TO, oldAddressTo, addressTo));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isFixed() {
 		return fixed;
 	}
@@ -224,8 +182,6 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 				return getProblemDescription();
 			case RootElementPackage.SUPPORT_TICKET__ROOM_ID:
 				return getRoomID();
-			case RootElementPackage.SUPPORT_TICKET__ADDRESS_TO:
-				return getAddressTo();
 			case RootElementPackage.SUPPORT_TICKET__FIXED:
 				return isFixed();
 		}
@@ -245,9 +201,6 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 				return;
 			case RootElementPackage.SUPPORT_TICKET__ROOM_ID:
 				setRoomID((String)newValue);
-				return;
-			case RootElementPackage.SUPPORT_TICKET__ADDRESS_TO:
-				setAddressTo((String)newValue);
 				return;
 			case RootElementPackage.SUPPORT_TICKET__FIXED:
 				setFixed((Boolean)newValue);
@@ -270,9 +223,6 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 			case RootElementPackage.SUPPORT_TICKET__ROOM_ID:
 				setRoomID(ROOM_ID_EDEFAULT);
 				return;
-			case RootElementPackage.SUPPORT_TICKET__ADDRESS_TO:
-				setAddressTo(ADDRESS_TO_EDEFAULT);
-				return;
 			case RootElementPackage.SUPPORT_TICKET__FIXED:
 				setFixed(FIXED_EDEFAULT);
 				return;
@@ -292,8 +242,6 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 				return PROBLEM_DESCRIPTION_EDEFAULT == null ? problemDescription != null : !PROBLEM_DESCRIPTION_EDEFAULT.equals(problemDescription);
 			case RootElementPackage.SUPPORT_TICKET__ROOM_ID:
 				return ROOM_ID_EDEFAULT == null ? roomID != null : !ROOM_ID_EDEFAULT.equals(roomID);
-			case RootElementPackage.SUPPORT_TICKET__ADDRESS_TO:
-				return ADDRESS_TO_EDEFAULT == null ? addressTo != null : !ADDRESS_TO_EDEFAULT.equals(addressTo);
 			case RootElementPackage.SUPPORT_TICKET__FIXED:
 				return fixed != FIXED_EDEFAULT;
 		}
@@ -314,8 +262,6 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 		result.append(problemDescription);
 		result.append(", roomID: ");
 		result.append(roomID);
-		result.append(", addressTo: ");
-		result.append(addressTo);
 		result.append(", fixed: ");
 		result.append(fixed);
 		result.append(')');

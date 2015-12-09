@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link RootElement.Guest#getPhoneNumber <em>Phone Number</em>}</li>
- *   <li>{@link RootElement.Guest#getAddress <em>Address</em>}</li>
+ *   <li>{@link RootElement.Guest#getNextDestination <em>Next Destination</em>}</li>
  *   <li>{@link RootElement.Guest#getNationality <em>Nationality</em>}</li>
  *   <li>{@link RootElement.Guest#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.Guest#getMail <em>Mail</em>}</li>
@@ -53,30 +53,30 @@ public interface Guest extends EObject {
 	void setPhoneNumber(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * Returns the value of the '<em><b>Next Destination</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Address</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Next Destination</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Address</em>' attribute.
-	 * @see #setAddress(String)
-	 * @see RootElement.RootElementPackage#getGuest_Address()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @return the value of the '<em>Next Destination</em>' attribute.
+	 * @see #setNextDestination(String)
+	 * @see RootElement.RootElementPackage#getGuest_NextDestination()
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
-	String getAddress();
+	String getNextDestination();
 
 	/**
-	 * Sets the value of the '{@link RootElement.Guest#getAddress <em>Address</em>}' attribute.
+	 * Sets the value of the '{@link RootElement.Guest#getNextDestination <em>Next Destination</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Address</em>' attribute.
-	 * @see #getAddress()
+	 * @param value the new value of the '<em>Next Destination</em>' attribute.
+	 * @see #getNextDestination()
 	 * @generated
 	 */
-	void setAddress(String value);
+	void setNextDestination(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Nationality</b></em>' attribute.
@@ -141,7 +141,7 @@ public interface Guest extends EObject {
 	 * @return the value of the '<em>Mail</em>' attribute.
 	 * @see #setMail(String)
 	 * @see RootElement.RootElementPackage#getGuest_Mail()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getMail();
@@ -167,7 +167,7 @@ public interface Guest extends EObject {
 	 * @return the value of the '<em>Social Security Number</em>' attribute.
 	 * @see #setSocialSecurityNumber(String)
 	 * @see RootElement.RootElementPackage#getGuest_SocialSecurityNumber()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getSocialSecurityNumber();

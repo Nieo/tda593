@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RootElement.RoomType#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.RoomType#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link RootElement.RoomType#getPrice <em>Price</em>}</li>
+ *   <li>{@link RootElement.RoomType#getRoomattribute <em>Roomattribute</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getRoomType()
@@ -92,5 +93,21 @@ public interface RoomType extends EObject {
 	 * @generated
 	 */
 	void setPrice(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Roomattribute</b></em>' reference list.
+	 * The list contents are of type {@link RootElement.RoomAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Roomattribute</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Roomattribute</em>' reference list.
+	 * @see RootElement.RootElementPackage#getRoomType_Roomattribute()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	EList<RoomAttribute> getRoomattribute();
 
 } // RoomType

@@ -2,28 +2,31 @@
  */
 package RootElement.impl;
 
-import RootElement.Janitor;
+import RootElement.PaymentHandler;
 import RootElement.RootElementPackage;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Janitor</b></em>'.
+ * An implementation of the model object '<em><b>Payment Handler</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class JanitorImpl extends StaffImpl implements Janitor {
+public class PaymentHandlerImpl extends MinimalEObjectImpl.Container implements PaymentHandler {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JanitorImpl() {
+	protected PaymentHandlerImpl() {
 		super();
 	}
 
@@ -34,7 +37,7 @@ public class JanitorImpl extends StaffImpl implements Janitor {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RootElementPackage.Literals.JANITOR;
+		return RootElementPackage.Literals.PAYMENT_HANDLER;
 	}
 
 	/**
@@ -42,7 +45,18 @@ public class JanitorImpl extends StaffImpl implements Janitor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void addDirtyRoom() {
+	public boolean verifyCreditCard(String creditCard) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean debitCard(String creditCard, int amount) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -56,11 +70,12 @@ public class JanitorImpl extends StaffImpl implements Janitor {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RootElementPackage.JANITOR___ADD_DIRTY_ROOM:
-				addDirtyRoom();
-				return null;
+			case RootElementPackage.PAYMENT_HANDLER___VERIFY_CREDIT_CARD__STRING:
+				return verifyCreditCard((String)arguments.get(0));
+			case RootElementPackage.PAYMENT_HANDLER___DEBIT_CARD__STRING_INT:
+				return debitCard((String)arguments.get(0), (Integer)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
-} //JanitorImpl
+} //PaymentHandlerImpl

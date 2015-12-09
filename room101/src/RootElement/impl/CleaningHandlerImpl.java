@@ -2,25 +2,27 @@
  */
 package RootElement.impl;
 
-import RootElement.Clerk;
+import RootElement.CleaningHandler;
 import RootElement.RootElementPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Clerk</b></em>'.
+ * An implementation of the model object '<em><b>Cleaning Handler</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ClerkImpl extends StaffImpl implements Clerk {
+public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements CleaningHandler {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ClerkImpl() {
+	protected CleaningHandlerImpl() {
 		super();
 	}
 
@@ -31,7 +33,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RootElementPackage.Literals.CLERK;
+		return RootElementPackage.Literals.CLEANING_HANDLER;
 	}
 
-} //ClerkImpl
+} //CleaningHandlerImpl
