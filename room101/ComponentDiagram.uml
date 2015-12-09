@@ -5,8 +5,7 @@
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_uMQaEJhgEeWMcJhD21JL8g" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_BvneQJhcEeWMcJhD21JL8g" contract="_BvneQJhcEeWMcJhD21JL8g"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_UOCdMJhjEeWMcJhD21JL8g" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_CboLgJhjEeWMcJhD21JL8g" contract="_CboLgJhjEeWMcJhD21JL8g"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_uxsOoJmuEeWYBuYql6Mw0g" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_SGEMcJhVEeWMcJhD21JL8g" contract="_SGEMcJhVEeWMcJhD21JL8g"/>
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_-zwCQJ26EeWgH5KZ_xCcgQ" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_2Pf-sJ25EeWgH5KZ_xCcgQ" contract="_2Pf-sJ25EeWgH5KZ_xCcgQ"/>
-    <nestedClassifier xmi:type="uml:Component" xmi:id="_AKSEkJdeEeWSwtW3Z_xnZg" name="Booking"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_M4e_sJ5oEeW2ZrS6EkHJUA" client="_M9MWYJdeEeWSwtW3Z_xnZg" supplier="_AmK5gJ5oEeW2ZrS6EkHJUA" contract="_AmK5gJ5oEeW2ZrS6EkHJUA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Component" xmi:id="_jvJrQJdeEeWSwtW3Z_xnZg" name="Guest">
     <packagedElement xmi:type="uml:Usage" xmi:id="_Fy9BwJhlEeWMcJhD21JL8g" client="_jvJrQJdeEeWSwtW3Z_xnZg" supplier="_AIxGIJhlEeWMcJhD21JL8g"/>
@@ -150,7 +149,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cZC40JmtEeWYBuYql6Mw0g" value="*"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_6rbxMJhYEeWMcJhD21JL8g" name="addRoomAttribute">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6rbxMJhYEeWMcJhD21JL8g" name="addAttributeToRoomType">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Oljg0JhaEeWMcJhD21JL8g" name="roomType">
         <type xmi:type="uml:Class" href="ClassDiagram.uml#_xgeMcJdmEeWbKp0h3hoGyg"/>
       </ownedParameter>
@@ -161,7 +160,7 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_UppmsJhZEeWMcJhD21JL8g" name="removeRoomAttribute">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_UppmsJhZEeWMcJhD21JL8g" name="removeAttributeFromRoomType">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_TDGqMJhaEeWMcJhD21JL8g" name="roomType">
         <type xmi:type="uml:Class" href="ClassDiagram.uml#_xgeMcJdmEeWbKp0h3hoGyg"/>
       </ownedParameter>
@@ -393,6 +392,24 @@
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_2Pf-zJ25EeWgH5KZ_xCcgQ" name="success" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_AKSEkJdeEeWSwtW3Z_xnZg" name="Booking">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_01Nz8J5nEeW2ZrS6EkHJUA" client="_AKSEkJdeEeWSwtW3Z_xnZg" supplier="_KjDc8JdjEeWSwtW3Z_xnZg" contract="_KjDc8JdjEeWSwtW3Z_xnZg"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_LvWNYJ5oEeW2ZrS6EkHJUA" client="_AKSEkJdeEeWSwtW3Z_xnZg" supplier="_AmK5gJ5oEeW2ZrS6EkHJUA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_AmK5gJ5oEeW2ZrS6EkHJUA" name="RoomFetcher">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_AmK5gZ5oEeW2ZrS6EkHJUA" name="getBookableRooms">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_AmK5gp5oEeW2ZrS6EkHJUA" name="rooms" direction="return">
+        <type xmi:type="uml:Class" href="ClassDiagram.uml#_UTJDgJdOEeW0s9Al2d2tiA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AmK5g55oEeW2ZrS6EkHJUA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AmK5hJ5oEeW2ZrS6EkHJUA" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_AmK5hZ5oEeW2ZrS6EkHJUA" name="getAllRooms">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_AmK5hp5oEeW2ZrS6EkHJUA" name="rooms" direction="return">
+        <type xmi:type="uml:Class" href="ClassDiagram.uml#_UTJDgJdOEeW0s9Al2d2tiA"/>
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
