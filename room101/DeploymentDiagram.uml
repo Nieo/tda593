@@ -6,8 +6,8 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_-ijdM529EeWmKrHRoFpSoA" name="database"/>
     <nestedClassifier xmi:type="uml:Node" xmi:id="_ClVR8J3FEeWmKrHRoFpSoA" name="Hotel Management System">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_bxmtIp3FEeWmKrHRoFpSoA" name="database" type="_nqXgUJ3EEeWmKrHRoFpSoA" association="_bxmGEJ3FEeWmKrHRoFpSoA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_l_1woKATEeWZ76c3jX6Ltw" name="guest page" type="_M3KcAKATEeWZ76c3jX6Ltw" association="_l_ytUKATEeWZ76c3jX6Ltw"/>
     </nestedClassifier>
-    <nestedNode xmi:type="uml:Node" xmi:id="_nqXgUJ3EEeWmKrHRoFpSoA" name="Database"/>
   </packagedElement>
   <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_EkME8J29EeWmKrHRoFpSoA" name="HTTP" memberEnd="_EkMsAp29EeWmKrHRoFpSoA _EkNTEJ29EeWmKrHRoFpSoA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EkMsAJ29EeWmKrHRoFpSoA" source="org.eclipse.papyrus">
@@ -32,5 +32,17 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bxmtIZ3FEeWmKrHRoFpSoA" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_bxmtI53FEeWmKrHRoFpSoA" name="hotel management system" type="_ClVR8J3FEeWmKrHRoFpSoA" association="_bxmGEJ3FEeWmKrHRoFpSoA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_TTowMKATEeWZ76c3jX6Ltw" name="Web browser">
+    <nestedClassifier xmi:type="uml:Node" xmi:id="_M3KcAKATEeWZ76c3jX6Ltw" name="Guest page"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_l_ytUKATEeWZ76c3jX6Ltw" name="HTTP" memberEnd="_l_1woKATEeWZ76c3jX6Ltw _l_2XsKATEeWZ76c3jX6Ltw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_l_0igKATEeWZ76c3jX6Ltw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_l_0igaATEeWZ76c3jX6Ltw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_l_2XsKATEeWZ76c3jX6Ltw" name="hotel management system" type="_ClVR8J3FEeWmKrHRoFpSoA" association="_l_ytUKATEeWZ76c3jX6Ltw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Device" xmi:id="_qEJTkKATEeWZ76c3jX6Ltw" name="Database server">
+    <nestedClassifier xmi:type="uml:Node" xmi:id="_nqXgUJ3EEeWmKrHRoFpSoA" name="Database"/>
   </packagedElement>
 </uml:Model>
