@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link RootElement.SupportTicket#getProblemDescription <em>Problem Description</em>}</li>
  *   <li>{@link RootElement.SupportTicket#getRoomID <em>Room ID</em>}</li>
- *   <li>{@link RootElement.SupportTicket#getAddressTo <em>Address To</em>}</li>
  *   <li>{@link RootElement.SupportTicket#isFixed <em>Fixed</em>}</li>
  * </ul>
  *
@@ -75,32 +74,6 @@ public interface SupportTicket extends EObject {
 	 * @generated
 	 */
 	void setRoomID(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Address To</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Address To</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Address To</em>' attribute.
-	 * @see #setAddressTo(String)
-	 * @see RootElement.RootElementPackage#getSupportTicket_AddressTo()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
-	 * @generated
-	 */
-	String getAddressTo();
-
-	/**
-	 * Sets the value of the '{@link RootElement.SupportTicket#getAddressTo <em>Address To</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Address To</em>' attribute.
-	 * @see #getAddressTo()
-	 * @generated
-	 */
-	void setAddressTo(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Fixed</b></em>' attribute.

@@ -4,6 +4,7 @@ package RootElement;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -77,13 +78,13 @@ public interface RootElementPackage extends EPackage {
 	int GUEST__PHONE_NUMBER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Address</b></em>' attribute.
+	 * The feature id for the '<em><b>Next Destination</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST__ADDRESS = 1;
+	int GUEST__NEXT_DESTINATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Nationality</b></em>' attribute.
@@ -177,22 +178,22 @@ public interface RootElementPackage extends EPackage {
 	int ROOM__ROOM_ID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Room Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOM__ROOM_TYPE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Need Cleaning</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM__NEED_CLEANING = 3;
+	int ROOM__NEED_CLEANING = 2;
+
+	/**
+	 * The feature id for the '<em><b>Roomtype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM__ROOMTYPE = 3;
 
 	/**
 	 * The number of structural features of the '<em>Room</em>' class.
@@ -204,13 +205,22 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_FEATURE_COUNT = 4;
 
 	/**
+	 * The operation id for the '<em>Get Reserved Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM___GET_RESERVED_ROOM = 0;
+
+	/**
 	 * The number of operations of the '<em>Room</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_OPERATION_COUNT = 0;
+	int ROOM_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.RoomTypeImpl <em>Room Type</em>}' class.
@@ -250,13 +260,22 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_TYPE__PRICE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Roomattribute</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE__ROOMATTRIBUTE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Room Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_TYPE_FEATURE_COUNT = 3;
+	int ROOM_TYPE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Room Type</em>' class.
@@ -424,40 +443,13 @@ public interface RootElementPackage extends EPackage {
 	int STAFF_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>Read Support Ticket</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAFF___READ_SUPPORT_TICKET = 0;
-
-	/**
-	 * The operation id for the '<em>Close Support Ticket</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAFF___CLOSE_SUPPORT_TICKET = 1;
-
-	/**
-	 * The operation id for the '<em>Set Room Cleaned</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STAFF___SET_ROOM_CLEANED__BOOLEAN = 2;
-
-	/**
 	 * The number of operations of the '<em>Staff</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STAFF_OPERATION_COUNT = 3;
+	int STAFF_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.BookingImpl <em>Booking</em>}' class.
@@ -470,49 +462,22 @@ public interface RootElementPackage extends EPackage {
 	int BOOKING = 6;
 
 	/**
-	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING__START_DATE = 0;
-
-	/**
-	 * The feature id for the '<em><b>End Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING__END_DATE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Checked In</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING__CHECKED_IN = 2;
-
-	/**
-	 * The feature id for the '<em><b>Checked Out</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING__CHECKED_OUT = 3;
-
-	/**
 	 * The feature id for the '<em><b>Booking ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__BOOKING_ID = 4;
+	int BOOKING__BOOKING_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Roombooking</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING__ROOMBOOKING = 1;
 
 	/**
 	 * The feature id for the '<em><b>Guest</b></em>' reference.
@@ -521,25 +486,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__GUEST = 5;
-
-	/**
-	 * The feature id for the '<em><b>Room Data</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING__ROOM_DATA = 6;
-
-	/**
-	 * The feature id for the '<em><b>Price</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING__PRICE = 7;
+	int BOOKING__GUEST = 2;
 
 	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
@@ -548,52 +495,16 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_FEATURE_COUNT = 8;
+	int BOOKING_FEATURE_COUNT = 3;
 
 	/**
-	 * The operation id for the '<em>Set Date</em>' operation.
+	 * The operation id for the '<em>Calculate Cost</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___SET_DATE__DATE = 0;
-
-	/**
-	 * The operation id for the '<em>Set Duration</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING___SET_DURATION__DATE = 1;
-
-	/**
-	 * The operation id for the '<em>Set Checked In</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING___SET_CHECKED_IN = 2;
-
-	/**
-	 * The operation id for the '<em>Set Checked Out</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING___SET_CHECKED_OUT = 3;
-
-	/**
-	 * The operation id for the '<em>Generate Booking ID</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING___GENERATE_BOOKING_ID = 4;
+	int BOOKING___CALCULATE_COST = 0;
 
 	/**
 	 * The number of operations of the '<em>Booking</em>' class.
@@ -602,17 +513,44 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_OPERATION_COUNT = 5;
+	int BOOKING_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link RootElement.impl.RoomBookingDataImpl <em>Room Booking Data</em>}' class.
+	 * The meta object id for the '{@link RootElement.impl.RoomBookingImpl <em>Room Booking</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see RootElement.impl.RoomBookingDataImpl
-	 * @see RootElement.impl.RootElementPackageImpl#getRoomBookingData()
+	 * @see RootElement.impl.RoomBookingImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getRoomBooking()
 	 * @generated
 	 */
-	int ROOM_BOOKING_DATA = 7;
+	int ROOM_BOOKING = 7;
+
+	/**
+	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_BOOKING__START_DATE = 0;
+
+	/**
+	 * The feature id for the '<em><b>End Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_BOOKING__END_DATE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Booking Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_BOOKING__BOOKING_STATUS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Room</b></em>' reference.
@@ -621,34 +559,34 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_DATA__ROOM = 0;
+	int ROOM_BOOKING__ROOM = 3;
 
 	/**
-	 * The feature id for the '<em><b>Guests</b></em>' attribute.
+	 * The number of structural features of the '<em>Room Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_DATA__GUESTS = 1;
+	int ROOM_BOOKING_FEATURE_COUNT = 4;
 
 	/**
-	 * The number of structural features of the '<em>Room Booking Data</em>' class.
+	 * The operation id for the '<em>Calculate Cost</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_DATA_FEATURE_COUNT = 2;
+	int ROOM_BOOKING___CALCULATE_COST = 0;
 
 	/**
-	 * The number of operations of the '<em>Room Booking Data</em>' class.
+	 * The number of operations of the '<em>Room Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_BOOKING_DATA_OPERATION_COUNT = 0;
+	int ROOM_BOOKING_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.SupportTicketImpl <em>Support Ticket</em>}' class.
@@ -679,22 +617,13 @@ public interface RootElementPackage extends EPackage {
 	int SUPPORT_TICKET__ROOM_ID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Address To</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPPORT_TICKET__ADDRESS_TO = 2;
-
-	/**
 	 * The feature id for the '<em><b>Fixed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPORT_TICKET__FIXED = 3;
+	int SUPPORT_TICKET__FIXED = 2;
 
 	/**
 	 * The number of structural features of the '<em>Support Ticket</em>' class.
@@ -703,7 +632,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPORT_TICKET_FEATURE_COUNT = 4;
+	int SUPPORT_TICKET_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Support Ticket</em>' class.
@@ -752,149 +681,13 @@ public interface RootElementPackage extends EPackage {
 	int CLERK_FEATURE_COUNT = STAFF_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Read Support Ticket</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLERK___READ_SUPPORT_TICKET = STAFF___READ_SUPPORT_TICKET;
-
-	/**
-	 * The operation id for the '<em>Close Support Ticket</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLERK___CLOSE_SUPPORT_TICKET = STAFF___CLOSE_SUPPORT_TICKET;
-
-	/**
-	 * The operation id for the '<em>Set Room Cleaned</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLERK___SET_ROOM_CLEANED__BOOLEAN = STAFF___SET_ROOM_CLEANED__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Create Booking</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLERK___CREATE_BOOKING = STAFF_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Check In</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLERK___CHECK_IN__BOOKING = STAFF_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Checkout</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLERK___CHECKOUT__BOOKING = STAFF_OPERATION_COUNT + 2;
-
-	/**
 	 * The number of operations of the '<em>Clerk</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLERK_OPERATION_COUNT = STAFF_OPERATION_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link RootElement.impl.JanitorImpl <em>Janitor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.impl.JanitorImpl
-	 * @see RootElement.impl.RootElementPackageImpl#getJanitor()
-	 * @generated
-	 */
-	int JANITOR = 10;
-
-	/**
-	 * The feature id for the '<em><b>Staff ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JANITOR__STAFF_ID = STAFF__STAFF_ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JANITOR__NAME = STAFF__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Janitor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JANITOR_FEATURE_COUNT = STAFF_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Read Support Ticket</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JANITOR___READ_SUPPORT_TICKET = STAFF___READ_SUPPORT_TICKET;
-
-	/**
-	 * The operation id for the '<em>Close Support Ticket</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JANITOR___CLOSE_SUPPORT_TICKET = STAFF___CLOSE_SUPPORT_TICKET;
-
-	/**
-	 * The operation id for the '<em>Set Room Cleaned</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JANITOR___SET_ROOM_CLEANED__BOOLEAN = STAFF___SET_ROOM_CLEANED__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Dirty Room</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JANITOR___ADD_DIRTY_ROOM = STAFF_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Janitor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JANITOR_OPERATION_COUNT = STAFF_OPERATION_COUNT + 1;
+	int CLERK_OPERATION_COUNT = STAFF_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.ManagerImpl <em>Manager</em>}' class.
@@ -904,7 +697,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getManager()
 	 * @generated
 	 */
-	int MANAGER = 11;
+	int MANAGER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Staff ID</b></em>' attribute.
@@ -932,60 +725,6 @@ public interface RootElementPackage extends EPackage {
 	 * @ordered
 	 */
 	int MANAGER_FEATURE_COUNT = CLERK_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Read Support Ticket</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER___READ_SUPPORT_TICKET = CLERK___READ_SUPPORT_TICKET;
-
-	/**
-	 * The operation id for the '<em>Close Support Ticket</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER___CLOSE_SUPPORT_TICKET = CLERK___CLOSE_SUPPORT_TICKET;
-
-	/**
-	 * The operation id for the '<em>Set Room Cleaned</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER___SET_ROOM_CLEANED__BOOLEAN = CLERK___SET_ROOM_CLEANED__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Create Booking</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER___CREATE_BOOKING = CLERK___CREATE_BOOKING;
-
-	/**
-	 * The operation id for the '<em>Check In</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER___CHECK_IN__BOOKING = CLERK___CHECK_IN__BOOKING;
-
-	/**
-	 * The operation id for the '<em>Checkout</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER___CHECKOUT__BOOKING = CLERK___CHECKOUT__BOOKING;
 
 	/**
 	 * The operation id for the '<em>Add Room</em>' operation.
@@ -1058,7 +797,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getSysAdmin()
 	 * @generated
 	 */
-	int SYS_ADMIN = 12;
+	int SYS_ADMIN = 11;
 
 	/**
 	 * The number of structural features of the '<em>Sys Admin</em>' class.
@@ -1124,23 +863,570 @@ public interface RootElementPackage extends EPackage {
 	int SYS_ADMIN_OPERATION_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link RootElement.impl.HotelImpl <em>Hotel</em>}' class.
+	 * The meta object id for the '{@link RootElement.MakeBooking <em>Make Booking</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see RootElement.impl.HotelImpl
-	 * @see RootElement.impl.RootElementPackageImpl#getHotel()
+	 * @see RootElement.MakeBooking
+	 * @see RootElement.impl.RootElementPackageImpl#getMakeBooking()
 	 * @generated
 	 */
-	int HOTEL = 13;
+	int MAKE_BOOKING = 12;
 
 	/**
-	 * The feature id for the '<em><b>Staff</b></em>' reference list.
+	 * The number of structural features of the '<em>Make Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL__STAFF = 0;
+	int MAKE_BOOKING_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Create Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_BOOKING___CREATE_BOOKING = 0;
+
+	/**
+	 * The operation id for the '<em>Get Available Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_BOOKING___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT = 1;
+
+	/**
+	 * The operation id for the '<em>Add Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = 2;
+
+	/**
+	 * The operation id for the '<em>Confirm Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_BOOKING___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING = 3;
+
+	/**
+	 * The operation id for the '<em>Cancel Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_BOOKING___CANCEL_BOOKING__BOOKING = 4;
+
+	/**
+	 * The number of operations of the '<em>Make Booking</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_BOOKING_OPERATION_COUNT = 5;
+
+	/**
+	 * The meta object id for the '{@link RootElement.Checkinout <em>Checkinout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.Checkinout
+	 * @see RootElement.impl.RootElementPackageImpl#getCheckinout()
+	 * @generated
+	 */
+	int CHECKINOUT = 13;
+
+	/**
+	 * The number of structural features of the '<em>Checkinout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKINOUT_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Check In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKINOUT___CHECK_IN__ROOMBOOKING = 0;
+
+	/**
+	 * The operation id for the '<em>Check Out</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKINOUT___CHECK_OUT__ROOMBOOKING = 1;
+
+	/**
+	 * The operation id for the '<em>Find Bookings</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKINOUT___FIND_BOOKINGS__STRING = 2;
+
+	/**
+	 * The number of operations of the '<em>Checkinout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECKINOUT_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.BookingHandlerImpl <em>Booking Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.BookingHandlerImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getBookingHandler()
+	 * @generated
+	 */
+	int BOOKING_HANDLER = 14;
+
+	/**
+	 * The feature id for the '<em><b>Booking</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER__BOOKING = 0;
+
+	/**
+	 * The number of structural features of the '<em>Booking Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Booking Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link RootElement.RoomHandling <em>Room Handling</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.RoomHandling
+	 * @see RootElement.impl.RootElementPackageImpl#getRoomHandling()
+	 * @generated
+	 */
+	int ROOM_HANDLING = 16;
+
+	/**
+	 * The number of structural features of the '<em>Room Handling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_HANDLING_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Add Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT = 0;
+
+	/**
+	 * The operation id for the '<em>Remove Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_HANDLING___REMOVE_ROOM__INT = 1;
+
+	/**
+	 * The operation id for the '<em>Edit Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_HANDLING___EDIT_ROOM__INT_ROOMTYPE_INT = 2;
+
+	/**
+	 * The operation id for the '<em>Find Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_HANDLING___FIND_ROOM__INT = 3;
+
+	/**
+	 * The operation id for the '<em>Get All Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_HANDLING___GET_ALL_ROOMS = 4;
+
+	/**
+	 * The number of operations of the '<em>Room Handling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_HANDLING_OPERATION_COUNT = 5;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.RoomStructureImpl <em>Room Structure</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.RoomStructureImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getRoomStructure()
+	 * @generated
+	 */
+	int ROOM_STRUCTURE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Rooms</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE__ROOMS = ROOM_HANDLING_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Roomtype</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE__ROOMTYPE = ROOM_HANDLING_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Roomattribute</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE__ROOMATTRIBUTE = ROOM_HANDLING_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Room Structure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE_FEATURE_COUNT = ROOM_HANDLING_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Add Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___ADD_ROOM__ROOMTYPE_INT = ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT;
+
+	/**
+	 * The operation id for the '<em>Remove Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___REMOVE_ROOM__INT = ROOM_HANDLING___REMOVE_ROOM__INT;
+
+	/**
+	 * The operation id for the '<em>Edit Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___EDIT_ROOM__INT_ROOMTYPE_INT = ROOM_HANDLING___EDIT_ROOM__INT_ROOMTYPE_INT;
+
+	/**
+	 * The operation id for the '<em>Find Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___FIND_ROOM__INT = ROOM_HANDLING___FIND_ROOM__INT;
+
+	/**
+	 * The operation id for the '<em>Get All Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___GET_ALL_ROOMS = ROOM_HANDLING___GET_ALL_ROOMS;
+
+	/**
+	 * The operation id for the '<em>Add Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___ADD_ROOM_TYPE__STRING_INT = ROOM_HANDLING_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Edit Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = ROOM_HANDLING_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Remove Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___REMOVE_ROOM_TYPE__ROOMTYPE = ROOM_HANDLING_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get All Room Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___GET_ALL_ROOM_TYPES = ROOM_HANDLING_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Add Attribute To Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = ROOM_HANDLING_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Remove Attribute From Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = ROOM_HANDLING_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Add Room Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___ADD_ROOM_ATTRIBUTE__STRING_STRING = ROOM_HANDLING_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Edit Room Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING = ROOM_HANDLING_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Remove Room Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = ROOM_HANDLING_OPERATION_COUNT + 8;
+
+	/**
+	 * The number of operations of the '<em>Room Structure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE_OPERATION_COUNT = ROOM_HANDLING_OPERATION_COUNT + 9;
+
+	/**
+	 * The meta object id for the '{@link RootElement.RoomTypeHandling <em>Room Type Handling</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.RoomTypeHandling
+	 * @see RootElement.impl.RootElementPackageImpl#getRoomTypeHandling()
+	 * @generated
+	 */
+	int ROOM_TYPE_HANDLING = 17;
+
+	/**
+	 * The number of structural features of the '<em>Room Type Handling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE_HANDLING_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Add Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE_HANDLING___ADD_ROOM_TYPE__STRING_INT = 0;
+
+	/**
+	 * The operation id for the '<em>Edit Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE_HANDLING___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = 1;
+
+	/**
+	 * The operation id for the '<em>Remove Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE_HANDLING___REMOVE_ROOM_TYPE__ROOMTYPE = 2;
+
+	/**
+	 * The operation id for the '<em>Get All Room Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE_HANDLING___GET_ALL_ROOM_TYPES = 3;
+
+	/**
+	 * The operation id for the '<em>Add Attribute To Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE_HANDLING___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = 4;
+
+	/**
+	 * The operation id for the '<em>Remove Attribute From Room Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE_HANDLING___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = 5;
+
+	/**
+	 * The number of operations of the '<em>Room Type Handling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE_HANDLING_OPERATION_COUNT = 6;
+
+	/**
+	 * The meta object id for the '{@link RootElement.RoomAttributeHandling <em>Room Attribute Handling</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.RoomAttributeHandling
+	 * @see RootElement.impl.RootElementPackageImpl#getRoomAttributeHandling()
+	 * @generated
+	 */
+	int ROOM_ATTRIBUTE_HANDLING = 18;
+
+	/**
+	 * The number of structural features of the '<em>Room Attribute Handling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_ATTRIBUTE_HANDLING_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Add Room Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_ATTRIBUTE_HANDLING___ADD_ROOM_ATTRIBUTE__STRING_STRING = 0;
+
+	/**
+	 * The operation id for the '<em>Edit Room Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING = 1;
+
+	/**
+	 * The operation id for the '<em>Remove Room Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = 2;
+
+	/**
+	 * The number of operations of the '<em>Room Attribute Handling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.FeedbackHandlerImpl <em>Feedback Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.FeedbackHandlerImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getFeedbackHandler()
+	 * @generated
+	 */
+	int FEEDBACK_HANDLER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Feedback</b></em>' reference list.
@@ -1149,25 +1435,90 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL__FEEDBACK = 1;
+	int FEEDBACK_HANDLER__FEEDBACK = 0;
 
 	/**
-	 * The feature id for the '<em><b>Room</b></em>' reference list.
+	 * The number of structural features of the '<em>Feedback Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL__ROOM = 2;
+	int FEEDBACK_HANDLER_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of structural features of the '<em>Hotel</em>' class.
+	 * The number of operations of the '<em>Feedback Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL_FEATURE_COUNT = 3;
+	int FEEDBACK_HANDLER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.SupportTicketHandlerImpl <em>Support Ticket Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.SupportTicketHandlerImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getSupportTicketHandler()
+	 * @generated
+	 */
+	int SUPPORT_TICKET_HANDLER = 20;
+
+	/**
+	 * The feature id for the '<em><b>Supportticket</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPORT_TICKET_HANDLER__SUPPORTTICKET = 0;
+
+	/**
+	 * The number of structural features of the '<em>Support Ticket Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPORT_TICKET_HANDLER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Support Ticket Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPORT_TICKET_HANDLER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link RootElement.ReadFeedback <em>Read Feedback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.ReadFeedback
+	 * @see RootElement.impl.RootElementPackageImpl#getReadFeedback()
+	 * @generated
+	 */
+	int READ_FEEDBACK = 21;
+
+	/**
+	 * The number of structural features of the '<em>Read Feedback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int READ_FEEDBACK_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get All Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int READ_FEEDBACK___GET_ALL_FEEDBACK = 0;
 
 	/**
 	 * The operation id for the '<em>Get Unread Feedback</em>' operation.
@@ -1176,16 +1527,531 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL___GET_UNREAD_FEEDBACK = 0;
+	int READ_FEEDBACK___GET_UNREAD_FEEDBACK = 1;
 
 	/**
-	 * The number of operations of the '<em>Hotel</em>' class.
+	 * The number of operations of the '<em>Read Feedback</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL_OPERATION_COUNT = 1;
+	int READ_FEEDBACK_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link RootElement.WriteFeedback <em>Write Feedback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.WriteFeedback
+	 * @see RootElement.impl.RootElementPackageImpl#getWriteFeedback()
+	 * @generated
+	 */
+	int WRITE_FEEDBACK = 22;
+
+	/**
+	 * The number of structural features of the '<em>Write Feedback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_FEEDBACK_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Give Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_FEEDBACK___GIVE_FEEDBACK__STRING = 0;
+
+	/**
+	 * The number of operations of the '<em>Write Feedback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_FEEDBACK_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link RootElement.WriteSupportTicket <em>Write Support Ticket</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.WriteSupportTicket
+	 * @see RootElement.impl.RootElementPackageImpl#getWriteSupportTicket()
+	 * @generated
+	 */
+	int WRITE_SUPPORT_TICKET = 23;
+
+	/**
+	 * The number of structural features of the '<em>Write Support Ticket</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_SUPPORT_TICKET_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>New Support Ticket</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_SUPPORT_TICKET___NEW_SUPPORT_TICKET__ROOM_STRING = 0;
+
+	/**
+	 * The number of operations of the '<em>Write Support Ticket</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_SUPPORT_TICKET_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link RootElement.InteractWithSupportTicket <em>Interact With Support Ticket</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.InteractWithSupportTicket
+	 * @see RootElement.impl.RootElementPackageImpl#getInteractWithSupportTicket()
+	 * @generated
+	 */
+	int INTERACT_WITH_SUPPORT_TICKET = 24;
+
+	/**
+	 * The number of structural features of the '<em>Interact With Support Ticket</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACT_WITH_SUPPORT_TICKET_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Unfixed Tickets</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACT_WITH_SUPPORT_TICKET___GET_UNFIXED_TICKETS = 0;
+
+	/**
+	 * The operation id for the '<em>Get Support Tickets For Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACT_WITH_SUPPORT_TICKET___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = 1;
+
+	/**
+	 * The operation id for the '<em>Mark As Completed</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACT_WITH_SUPPORT_TICKET___MARK_AS_COMPLETED__SUPPORTTICKET = 2;
+
+	/**
+	 * The number of operations of the '<em>Interact With Support Ticket</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACT_WITH_SUPPORT_TICKET_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.CleaningHandlerImpl <em>Cleaning Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.CleaningHandlerImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getCleaningHandler()
+	 * @generated
+	 */
+	int CLEANING_HANDLER = 25;
+
+	/**
+	 * The number of structural features of the '<em>Cleaning Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING_HANDLER_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Cleaning Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING_HANDLER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link RootElement.RoomFetcher <em>Room Fetcher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.RoomFetcher
+	 * @see RootElement.impl.RootElementPackageImpl#getRoomFetcher()
+	 * @generated
+	 */
+	int ROOM_FETCHER = 26;
+
+	/**
+	 * The number of structural features of the '<em>Room Fetcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_FETCHER_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Bookable Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_FETCHER___GET_BOOKABLE_ROOMS = 0;
+
+	/**
+	 * The operation id for the '<em>Get All Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_FETCHER___GET_ALL_ROOMS = 1;
+
+	/**
+	 * The number of operations of the '<em>Room Fetcher</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_FETCHER_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link RootElement.Cleaning <em>Cleaning</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.Cleaning
+	 * @see RootElement.impl.RootElementPackageImpl#getCleaning()
+	 * @generated
+	 */
+	int CLEANING = 27;
+
+	/**
+	 * The number of structural features of the '<em>Cleaning</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Check If Room Cleaned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING___CHECK_IF_ROOM_CLEANED__STRING = 0;
+
+	/**
+	 * The operation id for the '<em>Get List Of Unclean Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING___GET_LIST_OF_UNCLEAN_ROOMS = 1;
+
+	/**
+	 * The operation id for the '<em>Mark Room As Cleaned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING___MARK_ROOM_AS_CLEANED__ROOM = 2;
+
+	/**
+	 * The number of operations of the '<em>Cleaning</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link RootElement.Payment <em>Payment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.Payment
+	 * @see RootElement.impl.RootElementPackageImpl#getPayment()
+	 * @generated
+	 */
+	int PAYMENT = 29;
+
+	/**
+	 * The number of structural features of the '<em>Payment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Verify Credit Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYMENT___VERIFY_CREDIT_CARD__STRING = 0;
+
+	/**
+	 * The operation id for the '<em>Debit Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYMENT___DEBIT_CARD__STRING_INT = 1;
+
+	/**
+	 * The number of operations of the '<em>Payment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYMENT_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.PaymentHandlerImpl <em>Payment Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.PaymentHandlerImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getPaymentHandler()
+	 * @generated
+	 */
+	int PAYMENT_HANDLER = 28;
+
+	/**
+	 * The number of structural features of the '<em>Payment Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYMENT_HANDLER_FEATURE_COUNT = PAYMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Verify Credit Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYMENT_HANDLER___VERIFY_CREDIT_CARD__STRING = PAYMENT___VERIFY_CREDIT_CARD__STRING;
+
+	/**
+	 * The operation id for the '<em>Debit Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYMENT_HANDLER___DEBIT_CARD__STRING_INT = PAYMENT___DEBIT_CARD__STRING_INT;
+
+	/**
+	 * The number of operations of the '<em>Payment Handler</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYMENT_HANDLER_OPERATION_COUNT = PAYMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.DailyRoomBookingImpl <em>Daily Room Booking</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.DailyRoomBookingImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getDailyRoomBooking()
+	 * @generated
+	 */
+	int DAILY_ROOM_BOOKING = 30;
+
+	/**
+	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAILY_ROOM_BOOKING__START_DATE = ROOM_BOOKING__START_DATE;
+
+	/**
+	 * The feature id for the '<em><b>End Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAILY_ROOM_BOOKING__END_DATE = ROOM_BOOKING__END_DATE;
+
+	/**
+	 * The feature id for the '<em><b>Booking Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAILY_ROOM_BOOKING__BOOKING_STATUS = ROOM_BOOKING__BOOKING_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Room</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAILY_ROOM_BOOKING__ROOM = ROOM_BOOKING__ROOM;
+
+	/**
+	 * The feature id for the '<em><b>Nbr Of Guests</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAILY_ROOM_BOOKING__NBR_OF_GUESTS = ROOM_BOOKING_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Daily Room Booking</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAILY_ROOM_BOOKING_FEATURE_COUNT = ROOM_BOOKING_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Calculate Cost</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAILY_ROOM_BOOKING___CALCULATE_COST = ROOM_BOOKING___CALCULATE_COST;
+
+	/**
+	 * The number of operations of the '<em>Daily Room Booking</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DAILY_ROOM_BOOKING_OPERATION_COUNT = ROOM_BOOKING_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.HourlyRoomBookingImpl <em>Hourly Room Booking</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.HourlyRoomBookingImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getHourlyRoomBooking()
+	 * @generated
+	 */
+	int HOURLY_ROOM_BOOKING = 31;
+
+	/**
+	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOURLY_ROOM_BOOKING__START_DATE = ROOM_BOOKING__START_DATE;
+
+	/**
+	 * The feature id for the '<em><b>End Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOURLY_ROOM_BOOKING__END_DATE = ROOM_BOOKING__END_DATE;
+
+	/**
+	 * The feature id for the '<em><b>Booking Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOURLY_ROOM_BOOKING__BOOKING_STATUS = ROOM_BOOKING__BOOKING_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Room</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOURLY_ROOM_BOOKING__ROOM = ROOM_BOOKING__ROOM;
+
+	/**
+	 * The number of structural features of the '<em>Hourly Room Booking</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOURLY_ROOM_BOOKING_FEATURE_COUNT = ROOM_BOOKING_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Calculate Cost</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOURLY_ROOM_BOOKING___CALCULATE_COST = ROOM_BOOKING___CALCULATE_COST;
+
+	/**
+	 * The number of operations of the '<em>Hourly Room Booking</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOURLY_ROOM_BOOKING_OPERATION_COUNT = ROOM_BOOKING_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link RootElement.BookingStatus <em>Booking Status</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.BookingStatus
+	 * @see RootElement.impl.RootElementPackageImpl#getBookingStatus()
+	 * @generated
+	 */
+	int BOOKING_STATUS = 32;
 
 
 	/**
@@ -1210,15 +2076,15 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getGuest_PhoneNumber();
 
 	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Guest#getAddress <em>Address</em>}'.
+	 * Returns the meta object for the attribute '{@link RootElement.Guest#getNextDestination <em>Next Destination</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Address</em>'.
-	 * @see RootElement.Guest#getAddress()
+	 * @return the meta object for the attribute '<em>Next Destination</em>'.
+	 * @see RootElement.Guest#getNextDestination()
 	 * @see #getGuest()
 	 * @generated
 	 */
-	EAttribute getGuest_Address();
+	EAttribute getGuest_NextDestination();
 
 	/**
 	 * Returns the meta object for the attribute '{@link RootElement.Guest#getNationality <em>Nationality</em>}'.
@@ -1307,17 +2173,6 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getRoom_RoomID();
 
 	/**
-	 * Returns the meta object for the reference '{@link RootElement.Room#getRoomType <em>Room Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Room Type</em>'.
-	 * @see RootElement.Room#getRoomType()
-	 * @see #getRoom()
-	 * @generated
-	 */
-	EReference getRoom_RoomType();
-
-	/**
 	 * Returns the meta object for the attribute '{@link RootElement.Room#isNeedCleaning <em>Need Cleaning</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1327,6 +2182,27 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRoom_NeedCleaning();
+
+	/**
+	 * Returns the meta object for the reference '{@link RootElement.Room#getRoomtype <em>Roomtype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Roomtype</em>'.
+	 * @see RootElement.Room#getRoomtype()
+	 * @see #getRoom()
+	 * @generated
+	 */
+	EReference getRoom_Roomtype();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Room#getReservedRoom() <em>Get Reserved Room</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Reserved Room</em>' operation.
+	 * @see RootElement.Room#getReservedRoom()
+	 * @generated
+	 */
+	EOperation getRoom__GetReservedRoom();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.RoomType <em>Room Type</em>}'.
@@ -1370,6 +2246,17 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRoomType_Price();
+
+	/**
+	 * Returns the meta object for the reference list '{@link RootElement.RoomType#getRoomattribute <em>Roomattribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Roomattribute</em>'.
+	 * @see RootElement.RoomType#getRoomattribute()
+	 * @see #getRoomType()
+	 * @generated
+	 */
+	EReference getRoomType_Roomattribute();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.RoomAttribute <em>Room Attribute</em>}'.
@@ -1500,36 +2387,6 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getStaff_Name();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.Staff#readSupportTicket() <em>Read Support Ticket</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Read Support Ticket</em>' operation.
-	 * @see RootElement.Staff#readSupportTicket()
-	 * @generated
-	 */
-	EOperation getStaff__ReadSupportTicket();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.Staff#closeSupportTicket() <em>Close Support Ticket</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Close Support Ticket</em>' operation.
-	 * @see RootElement.Staff#closeSupportTicket()
-	 * @generated
-	 */
-	EOperation getStaff__CloseSupportTicket();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.Staff#setRoomCleaned(boolean) <em>Set Room Cleaned</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Room Cleaned</em>' operation.
-	 * @see RootElement.Staff#setRoomCleaned(boolean)
-	 * @generated
-	 */
-	EOperation getStaff__SetRoomCleaned__boolean();
-
-	/**
 	 * Returns the meta object for class '{@link RootElement.Booking <em>Booking</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1538,50 +2395,6 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBooking();
-
-	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Booking#getStartDate <em>Start Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Start Date</em>'.
-	 * @see RootElement.Booking#getStartDate()
-	 * @see #getBooking()
-	 * @generated
-	 */
-	EAttribute getBooking_StartDate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Booking#getEndDate <em>End Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>End Date</em>'.
-	 * @see RootElement.Booking#getEndDate()
-	 * @see #getBooking()
-	 * @generated
-	 */
-	EAttribute getBooking_EndDate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Booking#isCheckedIn <em>Checked In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Checked In</em>'.
-	 * @see RootElement.Booking#isCheckedIn()
-	 * @see #getBooking()
-	 * @generated
-	 */
-	EAttribute getBooking_CheckedIn();
-
-	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Booking#isCheckedOut <em>Checked Out</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Checked Out</em>'.
-	 * @see RootElement.Booking#isCheckedOut()
-	 * @see #getBooking()
-	 * @generated
-	 */
-	EAttribute getBooking_CheckedOut();
 
 	/**
 	 * Returns the meta object for the attribute '{@link RootElement.Booking#getBookingID <em>Booking ID</em>}'.
@@ -1595,6 +2408,17 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getBooking_BookingID();
 
 	/**
+	 * Returns the meta object for the reference list '{@link RootElement.Booking#getRoombooking <em>Roombooking</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Roombooking</em>'.
+	 * @see RootElement.Booking#getRoombooking()
+	 * @see #getBooking()
+	 * @generated
+	 */
+	EReference getBooking_Roombooking();
+
+	/**
 	 * Returns the meta object for the reference '{@link RootElement.Booking#getGuest <em>Guest</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1606,108 +2430,78 @@ public interface RootElementPackage extends EPackage {
 	EReference getBooking_Guest();
 
 	/**
-	 * Returns the meta object for the reference list '{@link RootElement.Booking#getRoomData <em>Room Data</em>}'.
+	 * Returns the meta object for the '{@link RootElement.Booking#calculateCost() <em>Calculate Cost</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Room Data</em>'.
-	 * @see RootElement.Booking#getRoomData()
-	 * @see #getBooking()
+	 * @return the meta object for the '<em>Calculate Cost</em>' operation.
+	 * @see RootElement.Booking#calculateCost()
 	 * @generated
 	 */
-	EReference getBooking_RoomData();
+	EOperation getBooking__CalculateCost();
 
 	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Booking#getPrice <em>Price</em>}'.
+	 * Returns the meta object for class '{@link RootElement.RoomBooking <em>Room Booking</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Price</em>'.
-	 * @see RootElement.Booking#getPrice()
-	 * @see #getBooking()
+	 * @return the meta object for class '<em>Room Booking</em>'.
+	 * @see RootElement.RoomBooking
 	 * @generated
 	 */
-	EAttribute getBooking_Price();
+	EClass getRoomBooking();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.Booking#setDate(java.util.Date) <em>Set Date</em>}' operation.
+	 * Returns the meta object for the attribute '{@link RootElement.RoomBooking#getStartDate <em>Start Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Date</em>' operation.
-	 * @see RootElement.Booking#setDate(java.util.Date)
+	 * @return the meta object for the attribute '<em>Start Date</em>'.
+	 * @see RootElement.RoomBooking#getStartDate()
+	 * @see #getRoomBooking()
 	 * @generated
 	 */
-	EOperation getBooking__SetDate__Date();
+	EAttribute getRoomBooking_StartDate();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.Booking#setDuration(java.util.Date) <em>Set Duration</em>}' operation.
+	 * Returns the meta object for the attribute '{@link RootElement.RoomBooking#getEndDate <em>End Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Duration</em>' operation.
-	 * @see RootElement.Booking#setDuration(java.util.Date)
+	 * @return the meta object for the attribute '<em>End Date</em>'.
+	 * @see RootElement.RoomBooking#getEndDate()
+	 * @see #getRoomBooking()
 	 * @generated
 	 */
-	EOperation getBooking__SetDuration__Date();
+	EAttribute getRoomBooking_EndDate();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.Booking#setCheckedIn() <em>Set Checked In</em>}' operation.
+	 * Returns the meta object for the attribute '{@link RootElement.RoomBooking#getBookingStatus <em>Booking Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Checked In</em>' operation.
-	 * @see RootElement.Booking#setCheckedIn()
+	 * @return the meta object for the attribute '<em>Booking Status</em>'.
+	 * @see RootElement.RoomBooking#getBookingStatus()
+	 * @see #getRoomBooking()
 	 * @generated
 	 */
-	EOperation getBooking__SetCheckedIn();
+	EAttribute getRoomBooking_BookingStatus();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.Booking#setCheckedOut() <em>Set Checked Out</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Checked Out</em>' operation.
-	 * @see RootElement.Booking#setCheckedOut()
-	 * @generated
-	 */
-	EOperation getBooking__SetCheckedOut();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.Booking#generateBookingID() <em>Generate Booking ID</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Booking ID</em>' operation.
-	 * @see RootElement.Booking#generateBookingID()
-	 * @generated
-	 */
-	EOperation getBooking__GenerateBookingID();
-
-	/**
-	 * Returns the meta object for class '{@link RootElement.RoomBookingData <em>Room Booking Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Room Booking Data</em>'.
-	 * @see RootElement.RoomBookingData
-	 * @generated
-	 */
-	EClass getRoomBookingData();
-
-	/**
-	 * Returns the meta object for the reference '{@link RootElement.RoomBookingData#getRoom <em>Room</em>}'.
+	 * Returns the meta object for the reference '{@link RootElement.RoomBooking#getRoom <em>Room</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Room</em>'.
-	 * @see RootElement.RoomBookingData#getRoom()
-	 * @see #getRoomBookingData()
+	 * @see RootElement.RoomBooking#getRoom()
+	 * @see #getRoomBooking()
 	 * @generated
 	 */
-	EReference getRoomBookingData_Room();
+	EReference getRoomBooking_Room();
 
 	/**
-	 * Returns the meta object for the attribute '{@link RootElement.RoomBookingData#getGuests <em>Guests</em>}'.
+	 * Returns the meta object for the '{@link RootElement.RoomBooking#calculateCost() <em>Calculate Cost</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Guests</em>'.
-	 * @see RootElement.RoomBookingData#getGuests()
-	 * @see #getRoomBookingData()
+	 * @return the meta object for the '<em>Calculate Cost</em>' operation.
+	 * @see RootElement.RoomBooking#calculateCost()
 	 * @generated
 	 */
-	EAttribute getRoomBookingData_Guests();
+	EOperation getRoomBooking__CalculateCost();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.SupportTicket <em>Support Ticket</em>}'.
@@ -1742,17 +2536,6 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getSupportTicket_RoomID();
 
 	/**
-	 * Returns the meta object for the attribute '{@link RootElement.SupportTicket#getAddressTo <em>Address To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Address To</em>'.
-	 * @see RootElement.SupportTicket#getAddressTo()
-	 * @see #getSupportTicket()
-	 * @generated
-	 */
-	EAttribute getSupportTicket_AddressTo();
-
-	/**
 	 * Returns the meta object for the attribute '{@link RootElement.SupportTicket#isFixed <em>Fixed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1772,56 +2555,6 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getClerk();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.Clerk#createBooking() <em>Create Booking</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Booking</em>' operation.
-	 * @see RootElement.Clerk#createBooking()
-	 * @generated
-	 */
-	EOperation getClerk__CreateBooking();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.Clerk#checkIn(RootElement.Booking) <em>Check In</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Check In</em>' operation.
-	 * @see RootElement.Clerk#checkIn(RootElement.Booking)
-	 * @generated
-	 */
-	EOperation getClerk__CheckIn__Booking();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.Clerk#checkout(RootElement.Booking) <em>Checkout</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Checkout</em>' operation.
-	 * @see RootElement.Clerk#checkout(RootElement.Booking)
-	 * @generated
-	 */
-	EOperation getClerk__Checkout__Booking();
-
-	/**
-	 * Returns the meta object for class '{@link RootElement.Janitor <em>Janitor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Janitor</em>'.
-	 * @see RootElement.Janitor
-	 * @generated
-	 */
-	EClass getJanitor();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.Janitor#addDirtyRoom() <em>Add Dirty Room</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Dirty Room</em>' operation.
-	 * @see RootElement.Janitor#addDirtyRoom()
-	 * @generated
-	 */
-	EOperation getJanitor__AddDirtyRoom();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.Manager <em>Manager</em>}'.
@@ -1904,57 +2637,651 @@ public interface RootElementPackage extends EPackage {
 	EOperation getSysAdmin__SetRoomType();
 
 	/**
-	 * Returns the meta object for class '{@link RootElement.Hotel <em>Hotel</em>}'.
+	 * Returns the meta object for class '{@link RootElement.MakeBooking <em>Make Booking</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Hotel</em>'.
-	 * @see RootElement.Hotel
+	 * @return the meta object for class '<em>Make Booking</em>'.
+	 * @see RootElement.MakeBooking
 	 * @generated
 	 */
-	EClass getHotel();
+	EClass getMakeBooking();
 
 	/**
-	 * Returns the meta object for the reference list '{@link RootElement.Hotel#getStaff <em>Staff</em>}'.
+	 * Returns the meta object for the '{@link RootElement.MakeBooking#createBooking() <em>Create Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Staff</em>'.
-	 * @see RootElement.Hotel#getStaff()
-	 * @see #getHotel()
+	 * @return the meta object for the '<em>Create Booking</em>' operation.
+	 * @see RootElement.MakeBooking#createBooking()
 	 * @generated
 	 */
-	EReference getHotel_Staff();
+	EOperation getMakeBooking__CreateBooking();
 
 	/**
-	 * Returns the meta object for the reference list '{@link RootElement.Hotel#getFeedback <em>Feedback</em>}'.
+	 * Returns the meta object for the '{@link RootElement.MakeBooking#getAvailableRooms(java.util.Date, java.util.Date, int, int) <em>Get Available Rooms</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Available Rooms</em>' operation.
+	 * @see RootElement.MakeBooking#getAvailableRooms(java.util.Date, java.util.Date, int, int)
+	 * @generated
+	 */
+	EOperation getMakeBooking__GetAvailableRooms__Date_Date_int_int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.MakeBooking#addRoom(RootElement.Booking, RootElement.RoomType, int, int) <em>Add Room</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Room</em>' operation.
+	 * @see RootElement.MakeBooking#addRoom(RootElement.Booking, RootElement.RoomType, int, int)
+	 * @generated
+	 */
+	EOperation getMakeBooking__AddRoom__Booking_RoomType_int_int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.MakeBooking#confirmBooking(RootElement.Booking, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String) <em>Confirm Booking</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Confirm Booking</em>' operation.
+	 * @see RootElement.MakeBooking#confirmBooking(RootElement.Booking, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String)
+	 * @generated
+	 */
+	EOperation getMakeBooking__ConfirmBooking__Booking_String_String_String_String_int_String();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.MakeBooking#cancelBooking(RootElement.Booking) <em>Cancel Booking</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Cancel Booking</em>' operation.
+	 * @see RootElement.MakeBooking#cancelBooking(RootElement.Booking)
+	 * @generated
+	 */
+	EOperation getMakeBooking__CancelBooking__Booking();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.Checkinout <em>Checkinout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Checkinout</em>'.
+	 * @see RootElement.Checkinout
+	 * @generated
+	 */
+	EClass getCheckinout();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Checkinout#checkIn(RootElement.RoomBooking) <em>Check In</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check In</em>' operation.
+	 * @see RootElement.Checkinout#checkIn(RootElement.RoomBooking)
+	 * @generated
+	 */
+	EOperation getCheckinout__CheckIn__RoomBooking();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Checkinout#checkOut(RootElement.RoomBooking) <em>Check Out</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Out</em>' operation.
+	 * @see RootElement.Checkinout#checkOut(RootElement.RoomBooking)
+	 * @generated
+	 */
+	EOperation getCheckinout__CheckOut__RoomBooking();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Checkinout#findBookings(java.lang.String) <em>Find Bookings</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Bookings</em>' operation.
+	 * @see RootElement.Checkinout#findBookings(java.lang.String)
+	 * @generated
+	 */
+	EOperation getCheckinout__FindBookings__String();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.BookingHandler <em>Booking Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Booking Handler</em>'.
+	 * @see RootElement.BookingHandler
+	 * @generated
+	 */
+	EClass getBookingHandler();
+
+	/**
+	 * Returns the meta object for the reference list '{@link RootElement.BookingHandler#getBooking <em>Booking</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Booking</em>'.
+	 * @see RootElement.BookingHandler#getBooking()
+	 * @see #getBookingHandler()
+	 * @generated
+	 */
+	EReference getBookingHandler_Booking();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.RoomStructure <em>Room Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Room Structure</em>'.
+	 * @see RootElement.RoomStructure
+	 * @generated
+	 */
+	EClass getRoomStructure();
+
+	/**
+	 * Returns the meta object for the reference list '{@link RootElement.RoomStructure#getRooms <em>Rooms</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Rooms</em>'.
+	 * @see RootElement.RoomStructure#getRooms()
+	 * @see #getRoomStructure()
+	 * @generated
+	 */
+	EReference getRoomStructure_Rooms();
+
+	/**
+	 * Returns the meta object for the reference list '{@link RootElement.RoomStructure#getRoomtype <em>Roomtype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Roomtype</em>'.
+	 * @see RootElement.RoomStructure#getRoomtype()
+	 * @see #getRoomStructure()
+	 * @generated
+	 */
+	EReference getRoomStructure_Roomtype();
+
+	/**
+	 * Returns the meta object for the reference list '{@link RootElement.RoomStructure#getRoomattribute <em>Roomattribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Roomattribute</em>'.
+	 * @see RootElement.RoomStructure#getRoomattribute()
+	 * @see #getRoomStructure()
+	 * @generated
+	 */
+	EReference getRoomStructure_Roomattribute();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.RoomHandling <em>Room Handling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Room Handling</em>'.
+	 * @see RootElement.RoomHandling
+	 * @generated
+	 */
+	EClass getRoomHandling();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#addRoom(RootElement.RoomType, int) <em>Add Room</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Room</em>' operation.
+	 * @see RootElement.RoomHandling#addRoom(RootElement.RoomType, int)
+	 * @generated
+	 */
+	EOperation getRoomHandling__AddRoom__RoomType_int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#removeRoom(int) <em>Remove Room</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Room</em>' operation.
+	 * @see RootElement.RoomHandling#removeRoom(int)
+	 * @generated
+	 */
+	EOperation getRoomHandling__RemoveRoom__int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#editRoom(int, RootElement.RoomType, int) <em>Edit Room</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Edit Room</em>' operation.
+	 * @see RootElement.RoomHandling#editRoom(int, RootElement.RoomType, int)
+	 * @generated
+	 */
+	EOperation getRoomHandling__EditRoom__int_RoomType_int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#findRoom(int) <em>Find Room</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Room</em>' operation.
+	 * @see RootElement.RoomHandling#findRoom(int)
+	 * @generated
+	 */
+	EOperation getRoomHandling__FindRoom__int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#getAllRooms() <em>Get All Rooms</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Rooms</em>' operation.
+	 * @see RootElement.RoomHandling#getAllRooms()
+	 * @generated
+	 */
+	EOperation getRoomHandling__GetAllRooms();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.RoomTypeHandling <em>Room Type Handling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Room Type Handling</em>'.
+	 * @see RootElement.RoomTypeHandling
+	 * @generated
+	 */
+	EClass getRoomTypeHandling();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#addRoomType(java.lang.String, int) <em>Add Room Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Room Type</em>' operation.
+	 * @see RootElement.RoomTypeHandling#addRoomType(java.lang.String, int)
+	 * @generated
+	 */
+	EOperation getRoomTypeHandling__AddRoomType__String_int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#editRoomType(RootElement.RoomType, java.lang.String, int) <em>Edit Room Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Edit Room Type</em>' operation.
+	 * @see RootElement.RoomTypeHandling#editRoomType(RootElement.RoomType, java.lang.String, int)
+	 * @generated
+	 */
+	EOperation getRoomTypeHandling__EditRoomType__RoomType_String_int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#removeRoomType(RootElement.RoomType) <em>Remove Room Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Room Type</em>' operation.
+	 * @see RootElement.RoomTypeHandling#removeRoomType(RootElement.RoomType)
+	 * @generated
+	 */
+	EOperation getRoomTypeHandling__RemoveRoomType__RoomType();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#getAllRoomTypes() <em>Get All Room Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Room Types</em>' operation.
+	 * @see RootElement.RoomTypeHandling#getAllRoomTypes()
+	 * @generated
+	 */
+	EOperation getRoomTypeHandling__GetAllRoomTypes();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#addAttributeToRoomType(RootElement.RoomType, RootElement.RoomAttribute) <em>Add Attribute To Room Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Attribute To Room Type</em>' operation.
+	 * @see RootElement.RoomTypeHandling#addAttributeToRoomType(RootElement.RoomType, RootElement.RoomAttribute)
+	 * @generated
+	 */
+	EOperation getRoomTypeHandling__AddAttributeToRoomType__RoomType_RoomAttribute();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#removeAttributeFromRoomType(RootElement.RoomType, RootElement.RoomAttribute) <em>Remove Attribute From Room Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Attribute From Room Type</em>' operation.
+	 * @see RootElement.RoomTypeHandling#removeAttributeFromRoomType(RootElement.RoomType, RootElement.RoomAttribute)
+	 * @generated
+	 */
+	EOperation getRoomTypeHandling__RemoveAttributeFromRoomType__RoomType_RoomAttribute();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.RoomAttributeHandling <em>Room Attribute Handling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Room Attribute Handling</em>'.
+	 * @see RootElement.RoomAttributeHandling
+	 * @generated
+	 */
+	EClass getRoomAttributeHandling();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomAttributeHandling#addRoomAttribute(java.lang.String, java.lang.String) <em>Add Room Attribute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Room Attribute</em>' operation.
+	 * @see RootElement.RoomAttributeHandling#addRoomAttribute(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getRoomAttributeHandling__AddRoomAttribute__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomAttributeHandling#editRoomAttribute(RootElement.RoomAttribute, java.lang.String, java.lang.String) <em>Edit Room Attribute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Edit Room Attribute</em>' operation.
+	 * @see RootElement.RoomAttributeHandling#editRoomAttribute(RootElement.RoomAttribute, java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getRoomAttributeHandling__EditRoomAttribute__RoomAttribute_String_String();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomAttributeHandling#removeRoomAttribute(RootElement.RoomAttribute) <em>Remove Room Attribute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Room Attribute</em>' operation.
+	 * @see RootElement.RoomAttributeHandling#removeRoomAttribute(RootElement.RoomAttribute)
+	 * @generated
+	 */
+	EOperation getRoomAttributeHandling__RemoveRoomAttribute__RoomAttribute();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.FeedbackHandler <em>Feedback Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Feedback Handler</em>'.
+	 * @see RootElement.FeedbackHandler
+	 * @generated
+	 */
+	EClass getFeedbackHandler();
+
+	/**
+	 * Returns the meta object for the reference list '{@link RootElement.FeedbackHandler#getFeedback <em>Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Feedback</em>'.
-	 * @see RootElement.Hotel#getFeedback()
-	 * @see #getHotel()
+	 * @see RootElement.FeedbackHandler#getFeedback()
+	 * @see #getFeedbackHandler()
 	 * @generated
 	 */
-	EReference getHotel_Feedback();
+	EReference getFeedbackHandler_Feedback();
 
 	/**
-	 * Returns the meta object for the reference list '{@link RootElement.Hotel#getRoom <em>Room</em>}'.
+	 * Returns the meta object for class '{@link RootElement.SupportTicketHandler <em>Support Ticket Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Room</em>'.
-	 * @see RootElement.Hotel#getRoom()
-	 * @see #getHotel()
+	 * @return the meta object for class '<em>Support Ticket Handler</em>'.
+	 * @see RootElement.SupportTicketHandler
 	 * @generated
 	 */
-	EReference getHotel_Room();
+	EClass getSupportTicketHandler();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.Hotel#getUnreadFeedback() <em>Get Unread Feedback</em>}' operation.
+	 * Returns the meta object for the reference list '{@link RootElement.SupportTicketHandler#getSupportticket <em>Supportticket</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Supportticket</em>'.
+	 * @see RootElement.SupportTicketHandler#getSupportticket()
+	 * @see #getSupportTicketHandler()
+	 * @generated
+	 */
+	EReference getSupportTicketHandler_Supportticket();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.ReadFeedback <em>Read Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Read Feedback</em>'.
+	 * @see RootElement.ReadFeedback
+	 * @generated
+	 */
+	EClass getReadFeedback();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.ReadFeedback#getAllFeedback() <em>Get All Feedback</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Feedback</em>' operation.
+	 * @see RootElement.ReadFeedback#getAllFeedback()
+	 * @generated
+	 */
+	EOperation getReadFeedback__GetAllFeedback();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.ReadFeedback#getUnreadFeedback() <em>Get Unread Feedback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Unread Feedback</em>' operation.
-	 * @see RootElement.Hotel#getUnreadFeedback()
+	 * @see RootElement.ReadFeedback#getUnreadFeedback()
 	 * @generated
 	 */
-	EOperation getHotel__GetUnreadFeedback();
+	EOperation getReadFeedback__GetUnreadFeedback();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.WriteFeedback <em>Write Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Write Feedback</em>'.
+	 * @see RootElement.WriteFeedback
+	 * @generated
+	 */
+	EClass getWriteFeedback();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.WriteFeedback#giveFeedback(java.lang.String) <em>Give Feedback</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Give Feedback</em>' operation.
+	 * @see RootElement.WriteFeedback#giveFeedback(java.lang.String)
+	 * @generated
+	 */
+	EOperation getWriteFeedback__GiveFeedback__String();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.WriteSupportTicket <em>Write Support Ticket</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Write Support Ticket</em>'.
+	 * @see RootElement.WriteSupportTicket
+	 * @generated
+	 */
+	EClass getWriteSupportTicket();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.WriteSupportTicket#newSupportTicket(RootElement.Room, java.lang.String) <em>New Support Ticket</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>New Support Ticket</em>' operation.
+	 * @see RootElement.WriteSupportTicket#newSupportTicket(RootElement.Room, java.lang.String)
+	 * @generated
+	 */
+	EOperation getWriteSupportTicket__NewSupportTicket__Room_String();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.InteractWithSupportTicket <em>Interact With Support Ticket</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interact With Support Ticket</em>'.
+	 * @see RootElement.InteractWithSupportTicket
+	 * @generated
+	 */
+	EClass getInteractWithSupportTicket();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.InteractWithSupportTicket#getUnfixedTickets() <em>Get Unfixed Tickets</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Unfixed Tickets</em>' operation.
+	 * @see RootElement.InteractWithSupportTicket#getUnfixedTickets()
+	 * @generated
+	 */
+	EOperation getInteractWithSupportTicket__GetUnfixedTickets();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.InteractWithSupportTicket#getSupportTicketsForRoom(RootElement.Room) <em>Get Support Tickets For Room</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Support Tickets For Room</em>' operation.
+	 * @see RootElement.InteractWithSupportTicket#getSupportTicketsForRoom(RootElement.Room)
+	 * @generated
+	 */
+	EOperation getInteractWithSupportTicket__GetSupportTicketsForRoom__Room();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.InteractWithSupportTicket#markAsCompleted(RootElement.SupportTicket) <em>Mark As Completed</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mark As Completed</em>' operation.
+	 * @see RootElement.InteractWithSupportTicket#markAsCompleted(RootElement.SupportTicket)
+	 * @generated
+	 */
+	EOperation getInteractWithSupportTicket__MarkAsCompleted__SupportTicket();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.CleaningHandler <em>Cleaning Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cleaning Handler</em>'.
+	 * @see RootElement.CleaningHandler
+	 * @generated
+	 */
+	EClass getCleaningHandler();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.RoomFetcher <em>Room Fetcher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Room Fetcher</em>'.
+	 * @see RootElement.RoomFetcher
+	 * @generated
+	 */
+	EClass getRoomFetcher();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomFetcher#getBookableRooms() <em>Get Bookable Rooms</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Bookable Rooms</em>' operation.
+	 * @see RootElement.RoomFetcher#getBookableRooms()
+	 * @generated
+	 */
+	EOperation getRoomFetcher__GetBookableRooms();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomFetcher#getAllRooms() <em>Get All Rooms</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Rooms</em>' operation.
+	 * @see RootElement.RoomFetcher#getAllRooms()
+	 * @generated
+	 */
+	EOperation getRoomFetcher__GetAllRooms();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.Cleaning <em>Cleaning</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cleaning</em>'.
+	 * @see RootElement.Cleaning
+	 * @generated
+	 */
+	EClass getCleaning();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Cleaning#checkIfRoomCleaned(java.lang.String) <em>Check If Room Cleaned</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check If Room Cleaned</em>' operation.
+	 * @see RootElement.Cleaning#checkIfRoomCleaned(java.lang.String)
+	 * @generated
+	 */
+	EOperation getCleaning__CheckIfRoomCleaned__String();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Cleaning#getListOfUncleanRooms() <em>Get List Of Unclean Rooms</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get List Of Unclean Rooms</em>' operation.
+	 * @see RootElement.Cleaning#getListOfUncleanRooms()
+	 * @generated
+	 */
+	EOperation getCleaning__GetListOfUncleanRooms();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Cleaning#markRoomAsCleaned(RootElement.Room) <em>Mark Room As Cleaned</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Mark Room As Cleaned</em>' operation.
+	 * @see RootElement.Cleaning#markRoomAsCleaned(RootElement.Room)
+	 * @generated
+	 */
+	EOperation getCleaning__MarkRoomAsCleaned__Room();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.PaymentHandler <em>Payment Handler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Payment Handler</em>'.
+	 * @see RootElement.PaymentHandler
+	 * @generated
+	 */
+	EClass getPaymentHandler();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.Payment <em>Payment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Payment</em>'.
+	 * @see RootElement.Payment
+	 * @generated
+	 */
+	EClass getPayment();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Payment#verifyCreditCard(java.lang.String) <em>Verify Credit Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Verify Credit Card</em>' operation.
+	 * @see RootElement.Payment#verifyCreditCard(java.lang.String)
+	 * @generated
+	 */
+	EOperation getPayment__VerifyCreditCard__String();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.Payment#debitCard(java.lang.String, int) <em>Debit Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Debit Card</em>' operation.
+	 * @see RootElement.Payment#debitCard(java.lang.String, int)
+	 * @generated
+	 */
+	EOperation getPayment__DebitCard__String_int();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.DailyRoomBooking <em>Daily Room Booking</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Daily Room Booking</em>'.
+	 * @see RootElement.DailyRoomBooking
+	 * @generated
+	 */
+	EClass getDailyRoomBooking();
+
+	/**
+	 * Returns the meta object for the attribute '{@link RootElement.DailyRoomBooking#getNbrOfGuests <em>Nbr Of Guests</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nbr Of Guests</em>'.
+	 * @see RootElement.DailyRoomBooking#getNbrOfGuests()
+	 * @see #getDailyRoomBooking()
+	 * @generated
+	 */
+	EAttribute getDailyRoomBooking_NbrOfGuests();
+
+	/**
+	 * Returns the meta object for class '{@link RootElement.HourlyRoomBooking <em>Hourly Room Booking</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Hourly Room Booking</em>'.
+	 * @see RootElement.HourlyRoomBooking
+	 * @generated
+	 */
+	EClass getHourlyRoomBooking();
+
+	/**
+	 * Returns the meta object for enum '{@link RootElement.BookingStatus <em>Booking Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Booking Status</em>'.
+	 * @see RootElement.BookingStatus
+	 * @generated
+	 */
+	EEnum getBookingStatus();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1998,12 +3325,12 @@ public interface RootElementPackage extends EPackage {
 		EAttribute GUEST__PHONE_NUMBER = eINSTANCE.getGuest_PhoneNumber();
 
 		/**
-		 * The meta object literal for the '<em><b>Address</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Next Destination</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GUEST__ADDRESS = eINSTANCE.getGuest_Address();
+		EAttribute GUEST__NEXT_DESTINATION = eINSTANCE.getGuest_NextDestination();
 
 		/**
 		 * The meta object literal for the '<em><b>Nationality</b></em>' attribute feature.
@@ -2072,20 +3399,28 @@ public interface RootElementPackage extends EPackage {
 		EAttribute ROOM__ROOM_ID = eINSTANCE.getRoom_RoomID();
 
 		/**
-		 * The meta object literal for the '<em><b>Room Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROOM__ROOM_TYPE = eINSTANCE.getRoom_RoomType();
-
-		/**
 		 * The meta object literal for the '<em><b>Need Cleaning</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ROOM__NEED_CLEANING = eINSTANCE.getRoom_NeedCleaning();
+
+		/**
+		 * The meta object literal for the '<em><b>Roomtype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOM__ROOMTYPE = eINSTANCE.getRoom_Roomtype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Reserved Room</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM___GET_RESERVED_ROOM = eINSTANCE.getRoom__GetReservedRoom();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.impl.RoomTypeImpl <em>Room Type</em>}' class.
@@ -2120,6 +3455,14 @@ public interface RootElementPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROOM_TYPE__PRICE = eINSTANCE.getRoomType_Price();
+
+		/**
+		 * The meta object literal for the '<em><b>Roomattribute</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOM_TYPE__ROOMATTRIBUTE = eINSTANCE.getRoomType_Roomattribute();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.impl.RoomAttributeImpl <em>Room Attribute</em>}' class.
@@ -2224,30 +3567,6 @@ public interface RootElementPackage extends EPackage {
 		EAttribute STAFF__NAME = eINSTANCE.getStaff_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Read Support Ticket</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STAFF___READ_SUPPORT_TICKET = eINSTANCE.getStaff__ReadSupportTicket();
-
-		/**
-		 * The meta object literal for the '<em><b>Close Support Ticket</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STAFF___CLOSE_SUPPORT_TICKET = eINSTANCE.getStaff__CloseSupportTicket();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Room Cleaned</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STAFF___SET_ROOM_CLEANED__BOOLEAN = eINSTANCE.getStaff__SetRoomCleaned__boolean();
-
-		/**
 		 * The meta object literal for the '{@link RootElement.impl.BookingImpl <em>Booking</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2258,44 +3577,20 @@ public interface RootElementPackage extends EPackage {
 		EClass BOOKING = eINSTANCE.getBooking();
 
 		/**
-		 * The meta object literal for the '<em><b>Start Date</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOKING__START_DATE = eINSTANCE.getBooking_StartDate();
-
-		/**
-		 * The meta object literal for the '<em><b>End Date</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOKING__END_DATE = eINSTANCE.getBooking_EndDate();
-
-		/**
-		 * The meta object literal for the '<em><b>Checked In</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOKING__CHECKED_IN = eINSTANCE.getBooking_CheckedIn();
-
-		/**
-		 * The meta object literal for the '<em><b>Checked Out</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOKING__CHECKED_OUT = eINSTANCE.getBooking_CheckedOut();
-
-		/**
 		 * The meta object literal for the '<em><b>Booking ID</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute BOOKING__BOOKING_ID = eINSTANCE.getBooking_BookingID();
+
+		/**
+		 * The meta object literal for the '<em><b>Roombooking</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOKING__ROOMBOOKING = eINSTANCE.getBooking_Roombooking();
 
 		/**
 		 * The meta object literal for the '<em><b>Guest</b></em>' reference feature.
@@ -2306,70 +3601,46 @@ public interface RootElementPackage extends EPackage {
 		EReference BOOKING__GUEST = eINSTANCE.getBooking_Guest();
 
 		/**
-		 * The meta object literal for the '<em><b>Room Data</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Calculate Cost</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BOOKING__ROOM_DATA = eINSTANCE.getBooking_RoomData();
+		EOperation BOOKING___CALCULATE_COST = eINSTANCE.getBooking__CalculateCost();
 
 		/**
-		 * The meta object literal for the '<em><b>Price</b></em>' attribute feature.
+		 * The meta object literal for the '{@link RootElement.impl.RoomBookingImpl <em>Room Booking</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.RoomBookingImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getRoomBooking()
 		 * @generated
 		 */
-		EAttribute BOOKING__PRICE = eINSTANCE.getBooking_Price();
+		EClass ROOM_BOOKING = eINSTANCE.getRoomBooking();
 
 		/**
-		 * The meta object literal for the '<em><b>Set Date</b></em>' operation.
+		 * The meta object literal for the '<em><b>Start Date</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING___SET_DATE__DATE = eINSTANCE.getBooking__SetDate__Date();
+		EAttribute ROOM_BOOKING__START_DATE = eINSTANCE.getRoomBooking_StartDate();
 
 		/**
-		 * The meta object literal for the '<em><b>Set Duration</b></em>' operation.
+		 * The meta object literal for the '<em><b>End Date</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING___SET_DURATION__DATE = eINSTANCE.getBooking__SetDuration__Date();
+		EAttribute ROOM_BOOKING__END_DATE = eINSTANCE.getRoomBooking_EndDate();
 
 		/**
-		 * The meta object literal for the '<em><b>Set Checked In</b></em>' operation.
+		 * The meta object literal for the '<em><b>Booking Status</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING___SET_CHECKED_IN = eINSTANCE.getBooking__SetCheckedIn();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Checked Out</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOKING___SET_CHECKED_OUT = eINSTANCE.getBooking__SetCheckedOut();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate Booking ID</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOKING___GENERATE_BOOKING_ID = eINSTANCE.getBooking__GenerateBookingID();
-
-		/**
-		 * The meta object literal for the '{@link RootElement.impl.RoomBookingDataImpl <em>Room Booking Data</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see RootElement.impl.RoomBookingDataImpl
-		 * @see RootElement.impl.RootElementPackageImpl#getRoomBookingData()
-		 * @generated
-		 */
-		EClass ROOM_BOOKING_DATA = eINSTANCE.getRoomBookingData();
+		EAttribute ROOM_BOOKING__BOOKING_STATUS = eINSTANCE.getRoomBooking_BookingStatus();
 
 		/**
 		 * The meta object literal for the '<em><b>Room</b></em>' reference feature.
@@ -2377,15 +3648,15 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOM_BOOKING_DATA__ROOM = eINSTANCE.getRoomBookingData_Room();
+		EReference ROOM_BOOKING__ROOM = eINSTANCE.getRoomBooking_Room();
 
 		/**
-		 * The meta object literal for the '<em><b>Guests</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Calculate Cost</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ROOM_BOOKING_DATA__GUESTS = eINSTANCE.getRoomBookingData_Guests();
+		EOperation ROOM_BOOKING___CALCULATE_COST = eINSTANCE.getRoomBooking__CalculateCost();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.impl.SupportTicketImpl <em>Support Ticket</em>}' class.
@@ -2414,14 +3685,6 @@ public interface RootElementPackage extends EPackage {
 		EAttribute SUPPORT_TICKET__ROOM_ID = eINSTANCE.getSupportTicket_RoomID();
 
 		/**
-		 * The meta object literal for the '<em><b>Address To</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SUPPORT_TICKET__ADDRESS_TO = eINSTANCE.getSupportTicket_AddressTo();
-
-		/**
 		 * The meta object literal for the '<em><b>Fixed</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2438,48 +3701,6 @@ public interface RootElementPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CLERK = eINSTANCE.getClerk();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Booking</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CLERK___CREATE_BOOKING = eINSTANCE.getClerk__CreateBooking();
-
-		/**
-		 * The meta object literal for the '<em><b>Check In</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CLERK___CHECK_IN__BOOKING = eINSTANCE.getClerk__CheckIn__Booking();
-
-		/**
-		 * The meta object literal for the '<em><b>Checkout</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CLERK___CHECKOUT__BOOKING = eINSTANCE.getClerk__Checkout__Booking();
-
-		/**
-		 * The meta object literal for the '{@link RootElement.impl.JanitorImpl <em>Janitor</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see RootElement.impl.JanitorImpl
-		 * @see RootElement.impl.RootElementPackageImpl#getJanitor()
-		 * @generated
-		 */
-		EClass JANITOR = eINSTANCE.getJanitor();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Dirty Room</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation JANITOR___ADD_DIRTY_ROOM = eINSTANCE.getJanitor__AddDirtyRoom();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.impl.ManagerImpl <em>Manager</em>}' class.
@@ -2550,22 +3771,292 @@ public interface RootElementPackage extends EPackage {
 		EOperation SYS_ADMIN___SET_ROOM_TYPE = eINSTANCE.getSysAdmin__SetRoomType();
 
 		/**
-		 * The meta object literal for the '{@link RootElement.impl.HotelImpl <em>Hotel</em>}' class.
+		 * The meta object literal for the '{@link RootElement.MakeBooking <em>Make Booking</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see RootElement.impl.HotelImpl
-		 * @see RootElement.impl.RootElementPackageImpl#getHotel()
+		 * @see RootElement.MakeBooking
+		 * @see RootElement.impl.RootElementPackageImpl#getMakeBooking()
 		 * @generated
 		 */
-		EClass HOTEL = eINSTANCE.getHotel();
+		EClass MAKE_BOOKING = eINSTANCE.getMakeBooking();
 
 		/**
-		 * The meta object literal for the '<em><b>Staff</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Create Booking</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference HOTEL__STAFF = eINSTANCE.getHotel_Staff();
+		EOperation MAKE_BOOKING___CREATE_BOOKING = eINSTANCE.getMakeBooking__CreateBooking();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Available Rooms</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MAKE_BOOKING___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT = eINSTANCE.getMakeBooking__GetAvailableRooms__Date_Date_int_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Room</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = eINSTANCE.getMakeBooking__AddRoom__Booking_RoomType_int_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Confirm Booking</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MAKE_BOOKING___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING = eINSTANCE.getMakeBooking__ConfirmBooking__Booking_String_String_String_String_int_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Cancel Booking</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MAKE_BOOKING___CANCEL_BOOKING__BOOKING = eINSTANCE.getMakeBooking__CancelBooking__Booking();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.Checkinout <em>Checkinout</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.Checkinout
+		 * @see RootElement.impl.RootElementPackageImpl#getCheckinout()
+		 * @generated
+		 */
+		EClass CHECKINOUT = eINSTANCE.getCheckinout();
+
+		/**
+		 * The meta object literal for the '<em><b>Check In</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CHECKINOUT___CHECK_IN__ROOMBOOKING = eINSTANCE.getCheckinout__CheckIn__RoomBooking();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Out</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CHECKINOUT___CHECK_OUT__ROOMBOOKING = eINSTANCE.getCheckinout__CheckOut__RoomBooking();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Bookings</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CHECKINOUT___FIND_BOOKINGS__STRING = eINSTANCE.getCheckinout__FindBookings__String();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.impl.BookingHandlerImpl <em>Booking Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.BookingHandlerImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getBookingHandler()
+		 * @generated
+		 */
+		EClass BOOKING_HANDLER = eINSTANCE.getBookingHandler();
+
+		/**
+		 * The meta object literal for the '<em><b>Booking</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOKING_HANDLER__BOOKING = eINSTANCE.getBookingHandler_Booking();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.impl.RoomStructureImpl <em>Room Structure</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.RoomStructureImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getRoomStructure()
+		 * @generated
+		 */
+		EClass ROOM_STRUCTURE = eINSTANCE.getRoomStructure();
+
+		/**
+		 * The meta object literal for the '<em><b>Rooms</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOM_STRUCTURE__ROOMS = eINSTANCE.getRoomStructure_Rooms();
+
+		/**
+		 * The meta object literal for the '<em><b>Roomtype</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOM_STRUCTURE__ROOMTYPE = eINSTANCE.getRoomStructure_Roomtype();
+
+		/**
+		 * The meta object literal for the '<em><b>Roomattribute</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOM_STRUCTURE__ROOMATTRIBUTE = eINSTANCE.getRoomStructure_Roomattribute();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.RoomHandling <em>Room Handling</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.RoomHandling
+		 * @see RootElement.impl.RootElementPackageImpl#getRoomHandling()
+		 * @generated
+		 */
+		EClass ROOM_HANDLING = eINSTANCE.getRoomHandling();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Room</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT = eINSTANCE.getRoomHandling__AddRoom__RoomType_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Room</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_HANDLING___REMOVE_ROOM__INT = eINSTANCE.getRoomHandling__RemoveRoom__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Edit Room</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_HANDLING___EDIT_ROOM__INT_ROOMTYPE_INT = eINSTANCE.getRoomHandling__EditRoom__int_RoomType_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Room</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_HANDLING___FIND_ROOM__INT = eINSTANCE.getRoomHandling__FindRoom__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Rooms</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_HANDLING___GET_ALL_ROOMS = eINSTANCE.getRoomHandling__GetAllRooms();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.RoomTypeHandling <em>Room Type Handling</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.RoomTypeHandling
+		 * @see RootElement.impl.RootElementPackageImpl#getRoomTypeHandling()
+		 * @generated
+		 */
+		EClass ROOM_TYPE_HANDLING = eINSTANCE.getRoomTypeHandling();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Room Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_TYPE_HANDLING___ADD_ROOM_TYPE__STRING_INT = eINSTANCE.getRoomTypeHandling__AddRoomType__String_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Edit Room Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_TYPE_HANDLING___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = eINSTANCE.getRoomTypeHandling__EditRoomType__RoomType_String_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Room Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_TYPE_HANDLING___REMOVE_ROOM_TYPE__ROOMTYPE = eINSTANCE.getRoomTypeHandling__RemoveRoomType__RoomType();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Room Types</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_TYPE_HANDLING___GET_ALL_ROOM_TYPES = eINSTANCE.getRoomTypeHandling__GetAllRoomTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Attribute To Room Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_TYPE_HANDLING___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = eINSTANCE.getRoomTypeHandling__AddAttributeToRoomType__RoomType_RoomAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Attribute From Room Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_TYPE_HANDLING___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = eINSTANCE.getRoomTypeHandling__RemoveAttributeFromRoomType__RoomType_RoomAttribute();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.RoomAttributeHandling <em>Room Attribute Handling</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.RoomAttributeHandling
+		 * @see RootElement.impl.RootElementPackageImpl#getRoomAttributeHandling()
+		 * @generated
+		 */
+		EClass ROOM_ATTRIBUTE_HANDLING = eINSTANCE.getRoomAttributeHandling();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Room Attribute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_ATTRIBUTE_HANDLING___ADD_ROOM_ATTRIBUTE__STRING_STRING = eINSTANCE.getRoomAttributeHandling__AddRoomAttribute__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Edit Room Attribute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING = eINSTANCE.getRoomAttributeHandling__EditRoomAttribute__RoomAttribute_String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Room Attribute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = eINSTANCE.getRoomAttributeHandling__RemoveRoomAttribute__RoomAttribute();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.impl.FeedbackHandlerImpl <em>Feedback Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.FeedbackHandlerImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getFeedbackHandler()
+		 * @generated
+		 */
+		EClass FEEDBACK_HANDLER = eINSTANCE.getFeedbackHandler();
 
 		/**
 		 * The meta object literal for the '<em><b>Feedback</b></em>' reference list feature.
@@ -2573,15 +4064,43 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference HOTEL__FEEDBACK = eINSTANCE.getHotel_Feedback();
+		EReference FEEDBACK_HANDLER__FEEDBACK = eINSTANCE.getFeedbackHandler_Feedback();
 
 		/**
-		 * The meta object literal for the '<em><b>Room</b></em>' reference list feature.
+		 * The meta object literal for the '{@link RootElement.impl.SupportTicketHandlerImpl <em>Support Ticket Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.SupportTicketHandlerImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getSupportTicketHandler()
+		 * @generated
+		 */
+		EClass SUPPORT_TICKET_HANDLER = eINSTANCE.getSupportTicketHandler();
+
+		/**
+		 * The meta object literal for the '<em><b>Supportticket</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference HOTEL__ROOM = eINSTANCE.getHotel_Room();
+		EReference SUPPORT_TICKET_HANDLER__SUPPORTTICKET = eINSTANCE.getSupportTicketHandler_Supportticket();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.ReadFeedback <em>Read Feedback</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.ReadFeedback
+		 * @see RootElement.impl.RootElementPackageImpl#getReadFeedback()
+		 * @generated
+		 */
+		EClass READ_FEEDBACK = eINSTANCE.getReadFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Feedback</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation READ_FEEDBACK___GET_ALL_FEEDBACK = eINSTANCE.getReadFeedback__GetAllFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Unread Feedback</b></em>' operation.
@@ -2589,7 +4108,221 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation HOTEL___GET_UNREAD_FEEDBACK = eINSTANCE.getHotel__GetUnreadFeedback();
+		EOperation READ_FEEDBACK___GET_UNREAD_FEEDBACK = eINSTANCE.getReadFeedback__GetUnreadFeedback();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.WriteFeedback <em>Write Feedback</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.WriteFeedback
+		 * @see RootElement.impl.RootElementPackageImpl#getWriteFeedback()
+		 * @generated
+		 */
+		EClass WRITE_FEEDBACK = eINSTANCE.getWriteFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Give Feedback</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation WRITE_FEEDBACK___GIVE_FEEDBACK__STRING = eINSTANCE.getWriteFeedback__GiveFeedback__String();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.WriteSupportTicket <em>Write Support Ticket</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.WriteSupportTicket
+		 * @see RootElement.impl.RootElementPackageImpl#getWriteSupportTicket()
+		 * @generated
+		 */
+		EClass WRITE_SUPPORT_TICKET = eINSTANCE.getWriteSupportTicket();
+
+		/**
+		 * The meta object literal for the '<em><b>New Support Ticket</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation WRITE_SUPPORT_TICKET___NEW_SUPPORT_TICKET__ROOM_STRING = eINSTANCE.getWriteSupportTicket__NewSupportTicket__Room_String();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.InteractWithSupportTicket <em>Interact With Support Ticket</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.InteractWithSupportTicket
+		 * @see RootElement.impl.RootElementPackageImpl#getInteractWithSupportTicket()
+		 * @generated
+		 */
+		EClass INTERACT_WITH_SUPPORT_TICKET = eINSTANCE.getInteractWithSupportTicket();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Unfixed Tickets</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERACT_WITH_SUPPORT_TICKET___GET_UNFIXED_TICKETS = eINSTANCE.getInteractWithSupportTicket__GetUnfixedTickets();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Support Tickets For Room</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERACT_WITH_SUPPORT_TICKET___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = eINSTANCE.getInteractWithSupportTicket__GetSupportTicketsForRoom__Room();
+
+		/**
+		 * The meta object literal for the '<em><b>Mark As Completed</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERACT_WITH_SUPPORT_TICKET___MARK_AS_COMPLETED__SUPPORTTICKET = eINSTANCE.getInteractWithSupportTicket__MarkAsCompleted__SupportTicket();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.impl.CleaningHandlerImpl <em>Cleaning Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.CleaningHandlerImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getCleaningHandler()
+		 * @generated
+		 */
+		EClass CLEANING_HANDLER = eINSTANCE.getCleaningHandler();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.RoomFetcher <em>Room Fetcher</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.RoomFetcher
+		 * @see RootElement.impl.RootElementPackageImpl#getRoomFetcher()
+		 * @generated
+		 */
+		EClass ROOM_FETCHER = eINSTANCE.getRoomFetcher();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Bookable Rooms</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_FETCHER___GET_BOOKABLE_ROOMS = eINSTANCE.getRoomFetcher__GetBookableRooms();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Rooms</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_FETCHER___GET_ALL_ROOMS = eINSTANCE.getRoomFetcher__GetAllRooms();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.Cleaning <em>Cleaning</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.Cleaning
+		 * @see RootElement.impl.RootElementPackageImpl#getCleaning()
+		 * @generated
+		 */
+		EClass CLEANING = eINSTANCE.getCleaning();
+
+		/**
+		 * The meta object literal for the '<em><b>Check If Room Cleaned</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CLEANING___CHECK_IF_ROOM_CLEANED__STRING = eINSTANCE.getCleaning__CheckIfRoomCleaned__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get List Of Unclean Rooms</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CLEANING___GET_LIST_OF_UNCLEAN_ROOMS = eINSTANCE.getCleaning__GetListOfUncleanRooms();
+
+		/**
+		 * The meta object literal for the '<em><b>Mark Room As Cleaned</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CLEANING___MARK_ROOM_AS_CLEANED__ROOM = eINSTANCE.getCleaning__MarkRoomAsCleaned__Room();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.impl.PaymentHandlerImpl <em>Payment Handler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.PaymentHandlerImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getPaymentHandler()
+		 * @generated
+		 */
+		EClass PAYMENT_HANDLER = eINSTANCE.getPaymentHandler();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.Payment <em>Payment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.Payment
+		 * @see RootElement.impl.RootElementPackageImpl#getPayment()
+		 * @generated
+		 */
+		EClass PAYMENT = eINSTANCE.getPayment();
+
+		/**
+		 * The meta object literal for the '<em><b>Verify Credit Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PAYMENT___VERIFY_CREDIT_CARD__STRING = eINSTANCE.getPayment__VerifyCreditCard__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Debit Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PAYMENT___DEBIT_CARD__STRING_INT = eINSTANCE.getPayment__DebitCard__String_int();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.impl.DailyRoomBookingImpl <em>Daily Room Booking</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.DailyRoomBookingImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getDailyRoomBooking()
+		 * @generated
+		 */
+		EClass DAILY_ROOM_BOOKING = eINSTANCE.getDailyRoomBooking();
+
+		/**
+		 * The meta object literal for the '<em><b>Nbr Of Guests</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DAILY_ROOM_BOOKING__NBR_OF_GUESTS = eINSTANCE.getDailyRoomBooking_NbrOfGuests();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.impl.HourlyRoomBookingImpl <em>Hourly Room Booking</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.impl.HourlyRoomBookingImpl
+		 * @see RootElement.impl.RootElementPackageImpl#getHourlyRoomBooking()
+		 * @generated
+		 */
+		EClass HOURLY_ROOM_BOOKING = eINSTANCE.getHourlyRoomBooking();
+
+		/**
+		 * The meta object literal for the '{@link RootElement.BookingStatus <em>Booking Status</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.BookingStatus
+		 * @see RootElement.impl.RootElementPackageImpl#getBookingStatus()
+		 * @generated
+		 */
+		EEnum BOOKING_STATUS = eINSTANCE.getBookingStatus();
 
 	}
 

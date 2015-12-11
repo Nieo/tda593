@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link RootElement.Room#isOccupied <em>Is Occupied</em>}</li>
  *   <li>{@link RootElement.Room#getRoomID <em>Room ID</em>}</li>
- *   <li>{@link RootElement.Room#getRoomType <em>Room Type</em>}</li>
  *   <li>{@link RootElement.Room#isNeedCleaning <em>Need Cleaning</em>}</li>
+ *   <li>{@link RootElement.Room#getRoomtype <em>Roomtype</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getRoom()
@@ -77,32 +77,6 @@ public interface Room extends EObject {
 	void setRoomID(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Room Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Room Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Room Type</em>' reference.
-	 * @see #setRoomType(RoomType)
-	 * @see RootElement.RootElementPackage#getRoom_RoomType()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	RoomType getRoomType();
-
-	/**
-	 * Sets the value of the '{@link RootElement.Room#getRoomType <em>Room Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Room Type</em>' reference.
-	 * @see #getRoomType()
-	 * @generated
-	 */
-	void setRoomType(RoomType value);
-
-	/**
 	 * Returns the value of the '<em><b>Need Cleaning</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -127,5 +101,39 @@ public interface Room extends EObject {
 	 * @generated
 	 */
 	void setNeedCleaning(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Roomtype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Roomtype</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Roomtype</em>' reference.
+	 * @see #setRoomtype(RoomType)
+	 * @see RootElement.RootElementPackage#getRoom_Roomtype()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	RoomType getRoomtype();
+
+	/**
+	 * Sets the value of the '{@link RootElement.Room#getRoomtype <em>Roomtype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Roomtype</em>' reference.
+	 * @see #getRoomtype()
+	 * @generated
+	 */
+	void setRoomtype(RoomType value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	void getReservedRoom();
 
 } // Room

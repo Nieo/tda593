@@ -76,15 +76,6 @@ public interface RootElementFactory extends EFactory {
 	Booking createBooking();
 
 	/**
-	 * Returns a new object of class '<em>Room Booking Data</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Room Booking Data</em>'.
-	 * @generated
-	 */
-	RoomBookingData createRoomBookingData();
-
-	/**
 	 * Returns a new object of class '<em>Support Ticket</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,15 +92,6 @@ public interface RootElementFactory extends EFactory {
 	 * @generated
 	 */
 	Clerk createClerk();
-
-	/**
-	 * Returns a new object of class '<em>Janitor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Janitor</em>'.
-	 * @generated
-	 */
-	Janitor createJanitor();
 
 	/**
 	 * Returns a new object of class '<em>Manager</em>'.
@@ -130,13 +112,76 @@ public interface RootElementFactory extends EFactory {
 	SysAdmin createSysAdmin();
 
 	/**
-	 * Returns a new object of class '<em>Hotel</em>'.
+	 * Returns a new object of class '<em>Booking Handler</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Hotel</em>'.
+	 * @return a new object of class '<em>Booking Handler</em>'.
 	 * @generated
 	 */
-	Hotel createHotel();
+	BookingHandler createBookingHandler();
+
+	/**
+	 * Returns a new object of class '<em>Room Structure</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Room Structure</em>'.
+	 * @generated
+	 */
+	RoomStructure createRoomStructure();
+
+	/**
+	 * Returns a new object of class '<em>Feedback Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Feedback Handler</em>'.
+	 * @generated
+	 */
+	FeedbackHandler createFeedbackHandler();
+
+	/**
+	 * Returns a new object of class '<em>Support Ticket Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Support Ticket Handler</em>'.
+	 * @generated
+	 */
+	SupportTicketHandler createSupportTicketHandler();
+
+	/**
+	 * Returns a new object of class '<em>Cleaning Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cleaning Handler</em>'.
+	 * @generated
+	 */
+	CleaningHandler createCleaningHandler();
+
+	/**
+	 * Returns a new object of class '<em>Payment Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Payment Handler</em>'.
+	 * @generated
+	 */
+	PaymentHandler createPaymentHandler();
+
+	/**
+	 * Returns a new object of class '<em>Daily Room Booking</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Daily Room Booking</em>'.
+	 * @generated
+	 */
+	DailyRoomBooking createDailyRoomBooking();
+
+	/**
+	 * Returns a new object of class '<em>Hourly Room Booking</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Hourly Room Booking</em>'.
+	 * @generated
+	 */
+	HourlyRoomBooking createHourlyRoomBooking();
 
 	/**
 	 * Returns the package supported by this factory.

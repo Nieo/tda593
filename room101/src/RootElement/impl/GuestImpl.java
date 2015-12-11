@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link RootElement.impl.GuestImpl#getPhoneNumber <em>Phone Number</em>}</li>
- *   <li>{@link RootElement.impl.GuestImpl#getAddress <em>Address</em>}</li>
+ *   <li>{@link RootElement.impl.GuestImpl#getNextDestination <em>Next Destination</em>}</li>
  *   <li>{@link RootElement.impl.GuestImpl#getNationality <em>Nationality</em>}</li>
  *   <li>{@link RootElement.impl.GuestImpl#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.impl.GuestImpl#getMail <em>Mail</em>}</li>
@@ -56,24 +56,24 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	protected String phoneNumber = PHONE_NUMBER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
+	 * The default value of the '{@link #getNextDestination() <em>Next Destination</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAddress()
+	 * @see #getNextDestination()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ADDRESS_EDEFAULT = null;
+	protected static final String NEXT_DESTINATION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute.
+	 * The cached value of the '{@link #getNextDestination() <em>Next Destination</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAddress()
+	 * @see #getNextDestination()
 	 * @generated
 	 * @ordered
 	 */
-	protected String address = ADDRESS_EDEFAULT;
+	protected String nextDestination = NEXT_DESTINATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getNationality() <em>Nationality</em>}' attribute.
@@ -200,8 +200,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAddress() {
-		return address;
+	public String getNextDestination() {
+		return nextDestination;
 	}
 
 	/**
@@ -209,11 +209,11 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAddress(String newAddress) {
-		String oldAddress = address;
-		address = newAddress;
+	public void setNextDestination(String newNextDestination) {
+		String oldNextDestination = nextDestination;
+		nextDestination = newNextDestination;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.GUEST__ADDRESS, oldAddress, address));
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.GUEST__NEXT_DESTINATION, oldNextDestination, nextDestination));
 	}
 
 	/**
@@ -321,8 +321,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 		switch (featureID) {
 			case RootElementPackage.GUEST__PHONE_NUMBER:
 				return getPhoneNumber();
-			case RootElementPackage.GUEST__ADDRESS:
-				return getAddress();
+			case RootElementPackage.GUEST__NEXT_DESTINATION:
+				return getNextDestination();
 			case RootElementPackage.GUEST__NATIONALITY:
 				return getNationality();
 			case RootElementPackage.GUEST__NAME:
@@ -346,8 +346,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 			case RootElementPackage.GUEST__PHONE_NUMBER:
 				setPhoneNumber((String)newValue);
 				return;
-			case RootElementPackage.GUEST__ADDRESS:
-				setAddress((String)newValue);
+			case RootElementPackage.GUEST__NEXT_DESTINATION:
+				setNextDestination((String)newValue);
 				return;
 			case RootElementPackage.GUEST__NATIONALITY:
 				setNationality((String)newValue);
@@ -376,8 +376,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 			case RootElementPackage.GUEST__PHONE_NUMBER:
 				setPhoneNumber(PHONE_NUMBER_EDEFAULT);
 				return;
-			case RootElementPackage.GUEST__ADDRESS:
-				setAddress(ADDRESS_EDEFAULT);
+			case RootElementPackage.GUEST__NEXT_DESTINATION:
+				setNextDestination(NEXT_DESTINATION_EDEFAULT);
 				return;
 			case RootElementPackage.GUEST__NATIONALITY:
 				setNationality(NATIONALITY_EDEFAULT);
@@ -405,8 +405,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 		switch (featureID) {
 			case RootElementPackage.GUEST__PHONE_NUMBER:
 				return PHONE_NUMBER_EDEFAULT == null ? phoneNumber != null : !PHONE_NUMBER_EDEFAULT.equals(phoneNumber);
-			case RootElementPackage.GUEST__ADDRESS:
-				return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
+			case RootElementPackage.GUEST__NEXT_DESTINATION:
+				return NEXT_DESTINATION_EDEFAULT == null ? nextDestination != null : !NEXT_DESTINATION_EDEFAULT.equals(nextDestination);
 			case RootElementPackage.GUEST__NATIONALITY:
 				return NATIONALITY_EDEFAULT == null ? nationality != null : !NATIONALITY_EDEFAULT.equals(nationality);
 			case RootElementPackage.GUEST__NAME:
@@ -446,8 +446,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (phoneNumber: ");
 		result.append(phoneNumber);
-		result.append(", address: ");
-		result.append(address);
+		result.append(", nextDestination: ");
+		result.append(nextDestination);
 		result.append(", nationality: ");
 		result.append(nationality);
 		result.append(", name: ");

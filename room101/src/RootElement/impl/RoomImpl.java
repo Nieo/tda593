@@ -6,7 +6,11 @@ import RootElement.Room;
 import RootElement.RoomType;
 import RootElement.RootElementPackage;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -24,8 +28,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link RootElement.impl.RoomImpl#isOccupied <em>Is Occupied</em>}</li>
  *   <li>{@link RootElement.impl.RoomImpl#getRoomID <em>Room ID</em>}</li>
- *   <li>{@link RootElement.impl.RoomImpl#getRoomType <em>Room Type</em>}</li>
  *   <li>{@link RootElement.impl.RoomImpl#isNeedCleaning <em>Need Cleaning</em>}</li>
+ *   <li>{@link RootElement.impl.RoomImpl#getRoomtype <em>Roomtype</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,16 +76,6 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	protected String roomID = ROOM_ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRoomType() <em>Room Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomType()
-	 * @generated
-	 * @ordered
-	 */
-	protected RoomType roomType;
-
-	/**
 	 * The default value of the '{@link #isNeedCleaning() <em>Need Cleaning</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +94,16 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * @ordered
 	 */
 	protected boolean needCleaning = NEED_CLEANING_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRoomtype() <em>Roomtype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoomtype()
+	 * @generated
+	 * @ordered
+	 */
+	protected RoomType roomtype;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,44 +171,6 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RoomType getRoomType() {
-		if (roomType != null && roomType.eIsProxy()) {
-			InternalEObject oldRoomType = (InternalEObject)roomType;
-			roomType = (RoomType)eResolveProxy(oldRoomType);
-			if (roomType != oldRoomType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.ROOM__ROOM_TYPE, oldRoomType, roomType));
-			}
-		}
-		return roomType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomType basicGetRoomType() {
-		return roomType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoomType(RoomType newRoomType) {
-		RoomType oldRoomType = roomType;
-		roomType = newRoomType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM__ROOM_TYPE, oldRoomType, roomType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isNeedCleaning() {
 		return needCleaning;
 	}
@@ -226,6 +192,55 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RoomType getRoomtype() {
+		if (roomtype != null && roomtype.eIsProxy()) {
+			InternalEObject oldRoomtype = (InternalEObject)roomtype;
+			roomtype = (RoomType)eResolveProxy(oldRoomtype);
+			if (roomtype != oldRoomtype) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.ROOM__ROOMTYPE, oldRoomtype, roomtype));
+			}
+		}
+		return roomtype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RoomType basicGetRoomtype() {
+		return roomtype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRoomtype(RoomType newRoomtype) {
+		RoomType oldRoomtype = roomtype;
+		roomtype = newRoomtype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM__ROOMTYPE, oldRoomtype, roomtype));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void getReservedRoom() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -233,11 +248,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 				return isOccupied();
 			case RootElementPackage.ROOM__ROOM_ID:
 				return getRoomID();
-			case RootElementPackage.ROOM__ROOM_TYPE:
-				if (resolve) return getRoomType();
-				return basicGetRoomType();
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				return isNeedCleaning();
+			case RootElementPackage.ROOM__ROOMTYPE:
+				if (resolve) return getRoomtype();
+				return basicGetRoomtype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -256,11 +271,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case RootElementPackage.ROOM__ROOM_ID:
 				setRoomID((String)newValue);
 				return;
-			case RootElementPackage.ROOM__ROOM_TYPE:
-				setRoomType((RoomType)newValue);
-				return;
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				setNeedCleaning((Boolean)newValue);
+				return;
+			case RootElementPackage.ROOM__ROOMTYPE:
+				setRoomtype((RoomType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,11 +295,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case RootElementPackage.ROOM__ROOM_ID:
 				setRoomID(ROOM_ID_EDEFAULT);
 				return;
-			case RootElementPackage.ROOM__ROOM_TYPE:
-				setRoomType((RoomType)null);
-				return;
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				setNeedCleaning(NEED_CLEANING_EDEFAULT);
+				return;
+			case RootElementPackage.ROOM__ROOMTYPE:
+				setRoomtype((RoomType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -302,12 +317,27 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 				return isOccupied != IS_OCCUPIED_EDEFAULT;
 			case RootElementPackage.ROOM__ROOM_ID:
 				return ROOM_ID_EDEFAULT == null ? roomID != null : !ROOM_ID_EDEFAULT.equals(roomID);
-			case RootElementPackage.ROOM__ROOM_TYPE:
-				return roomType != null;
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				return needCleaning != NEED_CLEANING_EDEFAULT;
+			case RootElementPackage.ROOM__ROOMTYPE:
+				return roomtype != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RootElementPackage.ROOM___GET_RESERVED_ROOM:
+				getReservedRoom();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
