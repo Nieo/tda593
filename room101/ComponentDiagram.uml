@@ -36,7 +36,7 @@
   <packagedElement xmi:type="uml:Interface" xmi:id="_KjDc8JdjEeWSwtW3Z_xnZg" name="Check-in/-out">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_ctadEJg-EeW-X4rHQuyyLA" name="checkIn">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_GzHeEJhAEeW-X4rHQuyyLA" name="booking">
-        <type xmi:type="uml:Class" href="ClassDiagram.uml#_d3V_0JddEeW0s9Al2d2tiA"/>
+        <type xmi:type="uml:Class" href="ClassDiagram.uml#_LeQ0kJ2QEeWgH5KZ_xCcgQ"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_bzltQJmrEeWYBuYql6Mw0g" name="success" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
@@ -44,7 +44,7 @@
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_eEI_cJg-EeW-X4rHQuyyLA" name="checkOut">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_KOUZoJhAEeW-X4rHQuyyLA" name="booking">
-        <type xmi:type="uml:Class" href="ClassDiagram.uml#_d3V_0JddEeW0s9Al2d2tiA"/>
+        <type xmi:type="uml:Class" href="ClassDiagram.uml#_LeQ0kJ2QEeWgH5KZ_xCcgQ"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_feppwJmrEeWYBuYql6Mw0g" name="success" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
@@ -410,6 +410,13 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_AmK5hZ5oEeW2ZrS6EkHJUA" name="getAllRooms">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_AmK5hp5oEeW2ZrS6EkHJUA" name="rooms" direction="return">
         <type xmi:type="uml:Class" href="ClassDiagram.uml#_UTJDgJdOEeW0s9Al2d2tiA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_DkcsoKGWEeWd6vlkZLJRmg" name="getAvailableRooms">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_DkcsoaGWEeWd6vlkZLJRmg" name="availableRooms" direction="return">
+        <type xmi:type="uml:Class" href="ClassDiagram.uml#_UTJDgJdOEeW0s9Al2d2tiA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DkcsoqGWEeWd6vlkZLJRmg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Dkcso6GWEeWd6vlkZLJRmg" value="*"/>
       </ownedParameter>
     </ownedOperation>
   </packagedElement>

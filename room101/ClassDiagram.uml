@@ -396,6 +396,12 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_4jk5IJ3EEeWgH5KZ_xCcgQ" name="getAllRooms">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_9K97AJ3EEeWgH5KZ_xCcgQ" name="rooms" type="_UTJDgJdOEeW0s9Al2d2tiA" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_jZDjMKGVEeWd6vlkZLJRmg" name="getAvailableRooms">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_qfqZgKGVEeWd6vlkZLJRmg" name="availableRooms" type="_UTJDgJdOEeW0s9Al2d2tiA" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tLH6MKGVEeWd6vlkZLJRmg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tLRrMKGVEeWd6vlkZLJRmg" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Realization" xmi:id="_bT4r0J3EEeWgH5KZ_xCcgQ" client="_tT4f0J2_EeWgH5KZ_xCcgQ" supplier="_fwee8JdNEeW0s9Al2d2tiA"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_dzjzQJ3EEeWgH5KZ_xCcgQ" client="_fwee8JdNEeW0s9Al2d2tiA" supplier="_fwee8JdNEeW0s9Al2d2tiA"/>

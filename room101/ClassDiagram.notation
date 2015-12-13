@@ -809,6 +809,10 @@
         <element xmi:type="uml:Operation" href="ClassDiagram.uml#_4jk5IJ3EEeWgH5KZ_xCcgQ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_4kL9IZ3EEeWgH5KZ_xCcgQ"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_jzPk0KGVEeWd6vlkZLJRmg" type="3007">
+        <element xmi:type="uml:Operation" href="ClassDiagram.uml#_jZDjMKGVEeWd6vlkZLJRmg"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jzPk0aGVEeWd6vlkZLJRmg"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_EPPEe53EEeWgH5KZ_xCcgQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_EPPEfJ3EEeWgH5KZ_xCcgQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_EPPEfZ3EEeWgH5KZ_xCcgQ"/>
