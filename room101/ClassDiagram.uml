@@ -100,10 +100,6 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_VCdeQJdnEeWbKp0h3hoGyg" name="name" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_YrDVkJdnEeWbKp0h3hoGyg" name="attributes" visibility="private" type="_y2fkMJdmEeWbKp0h3hoGyg">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dwhakJdnEeWbKp0h3hoGyg"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dwpWYJdnEeWbKp0h3hoGyg" value="*"/>
-    </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_uWeMMJhDEeWbKp0h3hoGyg" name="price" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
