@@ -33,6 +33,7 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_Apob4KJHEeW1I_MccVmXPQ" name="AddServiceItem"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_C949gKJHEeW1I_MccVmXPQ" name="RemoveServiceItem"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_C7X4MKJLEeW1I_MccVmXPQ" name="Payment"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Tc86sKJ4EeW1I_MccVmXPQ" name="Edit room type"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Actor" xmi:id="_bJougJUPEeWHec042ytuag" name="Guest"/>
   <packagedElement xmi:type="uml:Actor" xmi:id="_EVhyoJUREeWHec042ytuag" name="Clerk">
@@ -246,5 +247,12 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_GUFJUKJfEeW1I_MccVmXPQ" name="clerk" type="_EVhyoJUREeWHec042ytuag" association="_GUEiQKJfEeW1I_MccVmXPQ"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_GUFJUaJfEeW1I_MccVmXPQ" name="removeserviceitem" type="_C949gKJHEeW1I_MccVmXPQ" association="_GUEiQKJfEeW1I_MccVmXPQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_YXErUKJ4EeW1I_MccVmXPQ" memberEnd="_YXFSYKJ4EeW1I_MccVmXPQ _YXFSYaJ4EeW1I_MccVmXPQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YXErUaJ4EeW1I_MccVmXPQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YXErUqJ4EeW1I_MccVmXPQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_YXFSYKJ4EeW1I_MccVmXPQ" name="sys. admin." type="_qApCMJUTEeWHec042ytuag" association="_YXErUKJ4EeW1I_MccVmXPQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_YXFSYaJ4EeW1I_MccVmXPQ" name="edit room type" type="_Tc86sKJ4EeW1I_MccVmXPQ" association="_YXErUKJ4EeW1I_MccVmXPQ"/>
   </packagedElement>
 </uml:Model>
