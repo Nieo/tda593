@@ -6,6 +6,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_f5ry0JRvEeWgE4yFiV1SwA" name="Check-out">
       <include xmi:type="uml:Include" xmi:id="__iy34JUaEeWHec042ytuag" addition="_eYfcIJSLEeWgE4yFiV1SwA"/>
+      <include xmi:type="uml:Include" xmi:id="_T3mIwKJLEeW1I_MccVmXPQ" addition="_C7X4MKJLEeW1I_MccVmXPQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_eYfcIJSLEeWgE4yFiV1SwA" name="Calculate cost"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_DqBY8JSMEeWgE4yFiV1SwA" name="File support ticket"/>
@@ -13,7 +14,7 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_QhR_QJSMEeWgE4yFiV1SwA" name="Complete support ticket"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_XOv80JSMEeWgE4yFiV1SwA" name="Sending feedback"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_ZOF-YJSMEeWgE4yFiV1SwA" name="Reading feedback"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_bhkc4JSMEeWgE4yFiV1SwA" name="Book rooms">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_bhkc4JSMEeWgE4yFiV1SwA" name="Booking">
       <include xmi:type="uml:Include" xmi:id="_Kzo6AJUbEeWHec042ytuag" addition="_eYfcIJSLEeWgE4yFiV1SwA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_fK6iIJSMEeWgE4yFiV1SwA" name="Cacel booking"/>
@@ -29,6 +30,9 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_64JToJSLEeWgE4yFiV1SwA" name="Add room attribute to room type"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="__XhB8JSLEeWgE4yFiV1SwA" name="Remove room attribute from room type"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_y5YtUJSLEeWgE4yFiV1SwA" name="Add new room attribute"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Apob4KJHEeW1I_MccVmXPQ" name="AddServiceItem"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_C949gKJHEeW1I_MccVmXPQ" name="RemoveServiceItem"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_C7X4MKJLEeW1I_MccVmXPQ" name="Payment"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Actor" xmi:id="_bJougJUPEeWHec042ytuag" name="Guest"/>
   <packagedElement xmi:type="uml:Actor" xmi:id="_EVhyoJUREeWHec042ytuag" name="Clerk">
@@ -221,5 +225,26 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_ppmB45UYEeWHec042ytuag" name="file support ticket" type="_DqBY8JSMEeWgE4yFiV1SwA" association="_ppmB4JUYEeWHec042ytuag"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_ppmo8JUYEeWHec042ytuag" name="staff" type="_ceg9IJUXEeWHec042ytuag" association="_ppmB4JUYEeWHec042ytuag"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ynSJMKJLEeW1I_MccVmXPQ" memberEnd="_ynSwQqJLEeW1I_MccVmXPQ _ynSwQ6JLEeW1I_MccVmXPQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ynSwQKJLEeW1I_MccVmXPQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ynSwQaJLEeW1I_MccVmXPQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ynSwQqJLEeW1I_MccVmXPQ" name="clerk" type="_EVhyoJUREeWHec042ytuag" association="_ynSJMKJLEeW1I_MccVmXPQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ynSwQ6JLEeW1I_MccVmXPQ" name="payment" type="_C7X4MKJLEeW1I_MccVmXPQ" association="_ynSJMKJLEeW1I_MccVmXPQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_E9nFoKJfEeW1I_MccVmXPQ" memberEnd="_E9nssqJfEeW1I_MccVmXPQ _E9nss6JfEeW1I_MccVmXPQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_E9nssKJfEeW1I_MccVmXPQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_E9nssaJfEeW1I_MccVmXPQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_E9nssqJfEeW1I_MccVmXPQ" name="clerk" type="_EVhyoJUREeWHec042ytuag" association="_E9nFoKJfEeW1I_MccVmXPQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_E9nss6JfEeW1I_MccVmXPQ" name="addserviceitem" type="_Apob4KJHEeW1I_MccVmXPQ" association="_E9nFoKJfEeW1I_MccVmXPQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_GUEiQKJfEeW1I_MccVmXPQ" memberEnd="_GUFJUKJfEeW1I_MccVmXPQ _GUFJUaJfEeW1I_MccVmXPQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GUEiQaJfEeW1I_MccVmXPQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GUEiQqJfEeW1I_MccVmXPQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_GUFJUKJfEeW1I_MccVmXPQ" name="clerk" type="_EVhyoJUREeWHec042ytuag" association="_GUEiQKJfEeW1I_MccVmXPQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_GUFJUaJfEeW1I_MccVmXPQ" name="removeserviceitem" type="_C949gKJHEeW1I_MccVmXPQ" association="_GUEiQKJfEeW1I_MccVmXPQ"/>
   </packagedElement>
 </uml:Model>
