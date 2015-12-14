@@ -123,7 +123,6 @@
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_MK8GEJg6EeWbKp0h3hoGyg" client="_fwee8JdNEeW0s9Al2d2tiA" supplier="_fwee8JdNEeW0s9Al2d2tiA"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_oIcsoJ2GEeWgH5KZ_xCcgQ" name="SysAdmin"/>
   <packagedElement xmi:type="uml:Interface" xmi:id="_RU1GsJ2NEeWgH5KZ_xCcgQ" name="MakeBooking">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_RU1GsZ2NEeWgH5KZ_xCcgQ" name="createBooking">
