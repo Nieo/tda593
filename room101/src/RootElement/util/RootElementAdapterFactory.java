@@ -72,6 +72,22 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createGuestAdapter();
 			}
 			@Override
+			public Adapter caseSupportTicketWriter(SupportTicketWriter object) {
+				return createSupportTicketWriterAdapter();
+			}
+			@Override
+			public Adapter caseMakeBooking(MakeBooking object) {
+				return createMakeBookingAdapter();
+			}
+			@Override
+			public Adapter caseBooking(Booking object) {
+				return createBookingAdapter();
+			}
+			@Override
+			public Adapter caseRoomBooking(RoomBooking object) {
+				return createRoomBookingAdapter();
+			}
+			@Override
 			public Adapter caseRoom(Room object) {
 				return createRoomAdapter();
 			}
@@ -84,6 +100,14 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createRoomAttributeAdapter();
 			}
 			@Override
+			public Adapter caseServiceItem(ServiceItem object) {
+				return createServiceItemAdapter();
+			}
+			@Override
+			public Adapter caseFeedbackWriter(FeedbackWriter object) {
+				return createFeedbackWriterAdapter();
+			}
+			@Override
 			public Adapter caseFeedback(Feedback object) {
 				return createFeedbackAdapter();
 			}
@@ -92,12 +116,12 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createStaffAdapter();
 			}
 			@Override
-			public Adapter caseBooking(Booking object) {
-				return createBookingAdapter();
+			public Adapter caseCleaning(Cleaning object) {
+				return createCleaningAdapter();
 			}
 			@Override
-			public Adapter caseRoomBooking(RoomBooking object) {
-				return createRoomBookingAdapter();
+			public Adapter caseSupportTicketReader(SupportTicketReader object) {
+				return createSupportTicketReaderAdapter();
 			}
 			@Override
 			public Adapter caseSupportTicket(SupportTicket object) {
@@ -108,6 +132,18 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createClerkAdapter();
 			}
 			@Override
+			public Adapter caseReceptionHandling(ReceptionHandling object) {
+				return createReceptionHandlingAdapter();
+			}
+			@Override
+			public Adapter caseServiceItemhandling(ServiceItemhandling object) {
+				return createServiceItemhandlingAdapter();
+			}
+			@Override
+			public Adapter casePayment(Payment object) {
+				return createPaymentAdapter();
+			}
+			@Override
 			public Adapter caseManager(Manager object) {
 				return createManagerAdapter();
 			}
@@ -116,20 +152,8 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createSysAdminAdapter();
 			}
 			@Override
-			public Adapter caseMakeBooking(MakeBooking object) {
-				return createMakeBookingAdapter();
-			}
-			@Override
-			public Adapter caseCheckinout(Checkinout object) {
-				return createCheckinoutAdapter();
-			}
-			@Override
-			public Adapter caseBookingHandler(BookingHandler object) {
-				return createBookingHandlerAdapter();
-			}
-			@Override
-			public Adapter caseRoomStructure(RoomStructure object) {
-				return createRoomStructureAdapter();
+			public Adapter caseRoomAttributeHandling(RoomAttributeHandling object) {
+				return createRoomAttributeHandlingAdapter();
 			}
 			@Override
 			public Adapter caseRoomHandling(RoomHandling object) {
@@ -140,8 +164,20 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createRoomTypeHandlingAdapter();
 			}
 			@Override
-			public Adapter caseRoomAttributeHandling(RoomAttributeHandling object) {
-				return createRoomAttributeHandlingAdapter();
+			public Adapter caseFeedbackReader(FeedbackReader object) {
+				return createFeedbackReaderAdapter();
+			}
+			@Override
+			public Adapter caseBookingHandler(BookingHandler object) {
+				return createBookingHandlerAdapter();
+			}
+			@Override
+			public Adapter caseRoomFetcher(RoomFetcher object) {
+				return createRoomFetcherAdapter();
+			}
+			@Override
+			public Adapter caseRoomStructure(RoomStructure object) {
+				return createRoomStructureAdapter();
 			}
 			@Override
 			public Adapter caseFeedbackHandler(FeedbackHandler object) {
@@ -152,40 +188,12 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createSupportTicketHandlerAdapter();
 			}
 			@Override
-			public Adapter caseReadFeedback(ReadFeedback object) {
-				return createReadFeedbackAdapter();
-			}
-			@Override
-			public Adapter caseWriteFeedback(WriteFeedback object) {
-				return createWriteFeedbackAdapter();
-			}
-			@Override
-			public Adapter caseWriteSupportTicket(WriteSupportTicket object) {
-				return createWriteSupportTicketAdapter();
-			}
-			@Override
-			public Adapter caseInteractWithSupportTicket(InteractWithSupportTicket object) {
-				return createInteractWithSupportTicketAdapter();
-			}
-			@Override
 			public Adapter caseCleaningHandler(CleaningHandler object) {
 				return createCleaningHandlerAdapter();
 			}
 			@Override
-			public Adapter caseRoomFetcher(RoomFetcher object) {
-				return createRoomFetcherAdapter();
-			}
-			@Override
-			public Adapter caseCleaning(Cleaning object) {
-				return createCleaningAdapter();
-			}
-			@Override
 			public Adapter casePaymentHandler(PaymentHandler object) {
 				return createPaymentHandlerAdapter();
-			}
-			@Override
-			public Adapter casePayment(Payment object) {
-				return createPaymentAdapter();
 			}
 			@Override
 			public Adapter caseDailyRoomBooking(DailyRoomBooking object) {
@@ -194,6 +202,14 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseHourlyRoomBooking(HourlyRoomBooking object) {
 				return createHourlyRoomBookingAdapter();
+			}
+			@Override
+			public Adapter caseHotelSystem(HotelSystem object) {
+				return createHotelSystemAdapter();
+			}
+			@Override
+			public Adapter caseHotel(Hotel object) {
+				return createHotelAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -328,6 +344,20 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link RootElement.ServiceItem <em>Service Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see RootElement.ServiceItem
+	 * @generated
+	 */
+	public Adapter createServiceItemAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link RootElement.SupportTicket <em>Support Ticket</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -398,16 +428,16 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link RootElement.Checkinout <em>Checkinout</em>}'.
+	 * Creates a new adapter for an object of class '{@link RootElement.ReceptionHandling <em>Reception Handling</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see RootElement.Checkinout
+	 * @see RootElement.ReceptionHandling
 	 * @generated
 	 */
-	public Adapter createCheckinoutAdapter() {
+	public Adapter createReceptionHandlingAdapter() {
 		return null;
 	}
 
@@ -510,58 +540,58 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link RootElement.ReadFeedback <em>Read Feedback</em>}'.
+	 * Creates a new adapter for an object of class '{@link RootElement.FeedbackReader <em>Feedback Reader</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see RootElement.ReadFeedback
+	 * @see RootElement.FeedbackReader
 	 * @generated
 	 */
-	public Adapter createReadFeedbackAdapter() {
+	public Adapter createFeedbackReaderAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link RootElement.WriteFeedback <em>Write Feedback</em>}'.
+	 * Creates a new adapter for an object of class '{@link RootElement.FeedbackWriter <em>Feedback Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see RootElement.WriteFeedback
+	 * @see RootElement.FeedbackWriter
 	 * @generated
 	 */
-	public Adapter createWriteFeedbackAdapter() {
+	public Adapter createFeedbackWriterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link RootElement.WriteSupportTicket <em>Write Support Ticket</em>}'.
+	 * Creates a new adapter for an object of class '{@link RootElement.SupportTicketWriter <em>Support Ticket Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see RootElement.WriteSupportTicket
+	 * @see RootElement.SupportTicketWriter
 	 * @generated
 	 */
-	public Adapter createWriteSupportTicketAdapter() {
+	public Adapter createSupportTicketWriterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link RootElement.InteractWithSupportTicket <em>Interact With Support Ticket</em>}'.
+	 * Creates a new adapter for an object of class '{@link RootElement.SupportTicketReader <em>Support Ticket Reader</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see RootElement.InteractWithSupportTicket
+	 * @see RootElement.SupportTicketReader
 	 * @generated
 	 */
-	public Adapter createInteractWithSupportTicketAdapter() {
+	public Adapter createSupportTicketReaderAdapter() {
 		return null;
 	}
 
@@ -660,6 +690,48 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHourlyRoomBookingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link RootElement.ServiceItemhandling <em>Service Itemhandling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see RootElement.ServiceItemhandling
+	 * @generated
+	 */
+	public Adapter createServiceItemhandlingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link RootElement.HotelSystem <em>Hotel System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see RootElement.HotelSystem
+	 * @generated
+	 */
+	public Adapter createHotelSystemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link RootElement.Hotel <em>Hotel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see RootElement.Hotel
+	 * @generated
+	 */
+	public Adapter createHotelAdapter() {
 		return null;
 	}
 

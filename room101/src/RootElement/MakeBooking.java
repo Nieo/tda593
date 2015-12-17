@@ -59,4 +59,12 @@ public interface MakeBooking extends EObject {
 	 */
 	boolean cancelBooking(Booking booking);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" phoneNumberDataType="org.eclipse.uml2.types.String" phoneNumberRequired="true" phoneNumberOrdered="false"
+	 * @generated
+	 */
+	Booking lookupBooking(String name, String phoneNumber);
+
 } // MakeBooking

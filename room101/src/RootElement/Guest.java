@@ -2,8 +2,6 @@
  */
 package RootElement;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Guest</b></em>'.
@@ -19,13 +17,16 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RootElement.Guest#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.Guest#getMail <em>Mail</em>}</li>
  *   <li>{@link RootElement.Guest#getSocialSecurityNumber <em>Social Security Number</em>}</li>
+ *   <li>{@link RootElement.Guest#getSupportTicketWriter <em>Support Ticket Writer</em>}</li>
+ *   <li>{@link RootElement.Guest#getMakeBooking <em>Make Booking</em>}</li>
+ *   <li>{@link RootElement.Guest#getFeedbackWriter <em>Feedback Writer</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getGuest()
  * @model
  * @generated
  */
-public interface Guest extends EObject {
+public interface Guest extends SupportTicketWriter, FeedbackWriter, MakeBooking {
 	/**
 	 * Returns the value of the '<em><b>Phone Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -183,11 +184,81 @@ public interface Guest extends EObject {
 	void setSocialSecurityNumber(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Support Ticket Writer</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Support Ticket Writer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model problemDescriptionDataType="org.eclipse.uml2.types.String" problemDescriptionRequired="true" problemDescriptionOrdered="false" roomidDataType="org.eclipse.uml2.types.String" roomidRequired="true" roomidOrdered="false"
+	 * @return the value of the '<em>Support Ticket Writer</em>' reference.
+	 * @see #setSupportTicketWriter(SupportTicketWriter)
+	 * @see RootElement.RootElementPackage#getGuest_SupportTicketWriter()
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	void createSupportTicket(String problemDescription, String roomid);
+	SupportTicketWriter getSupportTicketWriter();
+
+	/**
+	 * Sets the value of the '{@link RootElement.Guest#getSupportTicketWriter <em>Support Ticket Writer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Support Ticket Writer</em>' reference.
+	 * @see #getSupportTicketWriter()
+	 * @generated
+	 */
+	void setSupportTicketWriter(SupportTicketWriter value);
+
+	/**
+	 * Returns the value of the '<em><b>Make Booking</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Make Booking</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Make Booking</em>' reference.
+	 * @see #setMakeBooking(MakeBooking)
+	 * @see RootElement.RootElementPackage#getGuest_MakeBooking()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	MakeBooking getMakeBooking();
+
+	/**
+	 * Sets the value of the '{@link RootElement.Guest#getMakeBooking <em>Make Booking</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Make Booking</em>' reference.
+	 * @see #getMakeBooking()
+	 * @generated
+	 */
+	void setMakeBooking(MakeBooking value);
+
+	/**
+	 * Returns the value of the '<em><b>Feedback Writer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Feedback Writer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Feedback Writer</em>' reference.
+	 * @see #setFeedbackWriter(FeedbackWriter)
+	 * @see RootElement.RootElementPackage#getGuest_FeedbackWriter()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	FeedbackWriter getFeedbackWriter();
+
+	/**
+	 * Sets the value of the '{@link RootElement.Guest#getFeedbackWriter <em>Feedback Writer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Feedback Writer</em>' reference.
+	 * @see #getFeedbackWriter()
+	 * @generated
+	 */
+	void setFeedbackWriter(FeedbackWriter value);
 
 } // Guest

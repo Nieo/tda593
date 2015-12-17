@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RootElement.Booking#getBookingID <em>Booking ID</em>}</li>
  *   <li>{@link RootElement.Booking#getRoombooking <em>Roombooking</em>}</li>
  *   <li>{@link RootElement.Booking#getGuest <em>Guest</em>}</li>
+ *   <li>{@link RootElement.Booking#getServiceitem <em>Serviceitem</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getBooking()
@@ -92,6 +93,22 @@ public interface Booking extends EObject {
 	 * @generated
 	 */
 	void setGuest(Guest value);
+
+	/**
+	 * Returns the value of the '<em><b>Serviceitem</b></em>' reference list.
+	 * The list contents are of type {@link RootElement.ServiceItem}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Serviceitem</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Serviceitem</em>' reference list.
+	 * @see RootElement.RootElementPackage#getBooking_Serviceitem()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	EList<ServiceItem> getServiceitem();
 
 	/**
 	 * <!-- begin-user-doc -->

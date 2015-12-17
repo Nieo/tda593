@@ -58,11 +58,12 @@ public class RootElementFactoryImpl extends EFactoryImpl implements RootElementF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case RootElementPackage.GUEST: return createGuest();
+			case RootElementPackage.BOOKING: return createBooking();
 			case RootElementPackage.ROOM: return createRoom();
 			case RootElementPackage.ROOM_TYPE: return createRoomType();
 			case RootElementPackage.ROOM_ATTRIBUTE: return createRoomAttribute();
+			case RootElementPackage.SERVICE_ITEM: return createServiceItem();
 			case RootElementPackage.FEEDBACK: return createFeedback();
-			case RootElementPackage.BOOKING: return createBooking();
 			case RootElementPackage.SUPPORT_TICKET: return createSupportTicket();
 			case RootElementPackage.CLERK: return createClerk();
 			case RootElementPackage.MANAGER: return createManager();
@@ -75,6 +76,7 @@ public class RootElementFactoryImpl extends EFactoryImpl implements RootElementF
 			case RootElementPackage.PAYMENT_HANDLER: return createPaymentHandler();
 			case RootElementPackage.DAILY_ROOM_BOOKING: return createDailyRoomBooking();
 			case RootElementPackage.HOURLY_ROOM_BOOKING: return createHourlyRoomBooking();
+			case RootElementPackage.HOTEL: return createHotel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -168,6 +170,16 @@ public class RootElementFactoryImpl extends EFactoryImpl implements RootElementF
 	public Booking createBooking() {
 		BookingImpl booking = new BookingImpl();
 		return booking;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceItem createServiceItem() {
+		ServiceItemImpl serviceItem = new ServiceItemImpl();
+		return serviceItem;
 	}
 
 	/**
@@ -288,6 +300,16 @@ public class RootElementFactoryImpl extends EFactoryImpl implements RootElementF
 	public HourlyRoomBooking createHourlyRoomBooking() {
 		HourlyRoomBookingImpl hourlyRoomBooking = new HourlyRoomBookingImpl();
 		return hourlyRoomBooking;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Hotel createHotel() {
+		HotelImpl hotel = new HotelImpl();
+		return hotel;
 	}
 
 	/**

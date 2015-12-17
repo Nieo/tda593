@@ -8,30 +8,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Room Fetcher</b></em>'.
+ * A representation of the model object '<em><b>Feedback Reader</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see RootElement.RootElementPackage#getRoomFetcher()
+ * @see RootElement.RootElementPackage#getFeedbackReader()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface RoomFetcher extends EObject {
+public interface FeedbackReader extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" ordered="false"
 	 * @generated
 	 */
-	EList<Room> getBookableRooms();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" ordered="false"
-	 * @generated
-	 */
-	Room getAllRooms();
+	EList<Feedback> getAllFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -39,6 +31,6 @@ public interface RoomFetcher extends EObject {
 	 * @model kind="operation" ordered="false"
 	 * @generated
 	 */
-	EList<Room> getAvailableRooms();
+	EList<Feedback> getUnreadFeedback();
 
-} // RoomFetcher
+} // FeedbackReader

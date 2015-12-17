@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link RootElement.BookingHandler#getBooking <em>Booking</em>}</li>
+ *   <li>{@link RootElement.BookingHandler#getRoomFetcher <em>Room Fetcher</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getBookingHandler()
@@ -38,5 +39,31 @@ public interface BookingHandler extends EObject {
 	 * @generated
 	 */
 	EList<Booking> getBooking();
+
+	/**
+	 * Returns the value of the '<em><b>Room Fetcher</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Room Fetcher</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Room Fetcher</em>' reference.
+	 * @see #setRoomFetcher(RoomFetcher)
+	 * @see RootElement.RootElementPackage#getBookingHandler_RoomFetcher()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	RoomFetcher getRoomFetcher();
+
+	/**
+	 * Sets the value of the '{@link RootElement.BookingHandler#getRoomFetcher <em>Room Fetcher</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Room Fetcher</em>' reference.
+	 * @see #getRoomFetcher()
+	 * @generated
+	 */
+	void setRoomFetcher(RoomFetcher value);
 
 } // BookingHandler

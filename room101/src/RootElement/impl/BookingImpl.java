@@ -7,6 +7,7 @@ import RootElement.Guest;
 import RootElement.RoomBooking;
 import RootElement.RootElementPackage;
 
+import RootElement.ServiceItem;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link RootElement.impl.BookingImpl#getBookingID <em>Booking ID</em>}</li>
  *   <li>{@link RootElement.impl.BookingImpl#getRoombooking <em>Roombooking</em>}</li>
  *   <li>{@link RootElement.impl.BookingImpl#getGuest <em>Guest</em>}</li>
+ *   <li>{@link RootElement.impl.BookingImpl#getServiceitem <em>Serviceitem</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +80,16 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * @ordered
 	 */
 	protected Guest guest;
+
+	/**
+	 * The cached value of the '{@link #getServiceitem() <em>Serviceitem</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServiceitem()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ServiceItem> serviceitem;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,6 +186,18 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ServiceItem> getServiceitem() {
+		if (serviceitem == null) {
+			serviceitem = new EObjectResolvingEList<ServiceItem>(ServiceItem.class, this, RootElementPackage.BOOKING__SERVICEITEM);
+		}
+		return serviceitem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int calculateCost() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -195,6 +219,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case RootElementPackage.BOOKING__GUEST:
 				if (resolve) return getGuest();
 				return basicGetGuest();
+			case RootElementPackage.BOOKING__SERVICEITEM:
+				return getServiceitem();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,6 +244,10 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case RootElementPackage.BOOKING__GUEST:
 				setGuest((Guest)newValue);
 				return;
+			case RootElementPackage.BOOKING__SERVICEITEM:
+				getServiceitem().clear();
+				getServiceitem().addAll((Collection<? extends ServiceItem>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -239,6 +269,9 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case RootElementPackage.BOOKING__GUEST:
 				setGuest((Guest)null);
 				return;
+			case RootElementPackage.BOOKING__SERVICEITEM:
+				getServiceitem().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -257,6 +290,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 				return roombooking != null && !roombooking.isEmpty();
 			case RootElementPackage.BOOKING__GUEST:
 				return guest != null;
+			case RootElementPackage.BOOKING__SERVICEITEM:
+				return serviceitem != null && !serviceitem.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

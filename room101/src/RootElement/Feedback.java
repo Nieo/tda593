@@ -102,12 +102,4 @@ public interface Feedback extends EObject {
 	 */
 	void setRead(boolean value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void markAsRead();
-
 } // Feedback

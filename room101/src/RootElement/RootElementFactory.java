@@ -76,6 +76,15 @@ public interface RootElementFactory extends EFactory {
 	Booking createBooking();
 
 	/**
+	 * Returns a new object of class '<em>Service Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Item</em>'.
+	 * @generated
+	 */
+	ServiceItem createServiceItem();
+
+	/**
 	 * Returns a new object of class '<em>Support Ticket</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +191,15 @@ public interface RootElementFactory extends EFactory {
 	 * @generated
 	 */
 	HourlyRoomBooking createHourlyRoomBooking();
+
+	/**
+	 * Returns a new object of class '<em>Hotel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Hotel</em>'.
+	 * @generated
+	 */
+	Hotel createHotel();
 
 	/**
 	 * Returns the package supported by this factory.

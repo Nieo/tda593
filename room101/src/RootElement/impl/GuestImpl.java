@@ -2,17 +2,20 @@
  */
 package RootElement.impl;
 
+import RootElement.Booking;
+import RootElement.FeedbackWriter;
 import RootElement.Guest;
+import RootElement.MakeBooking;
+import RootElement.RoomType;
 import RootElement.RootElementPackage;
-
+import RootElement.SupportTicketWriter;
 import java.lang.reflect.InvocationTargetException;
-
+import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -30,6 +33,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link RootElement.impl.GuestImpl#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.impl.GuestImpl#getMail <em>Mail</em>}</li>
  *   <li>{@link RootElement.impl.GuestImpl#getSocialSecurityNumber <em>Social Security Number</em>}</li>
+ *   <li>{@link RootElement.impl.GuestImpl#getSupportTicketWriter <em>Support Ticket Writer</em>}</li>
+ *   <li>{@link RootElement.impl.GuestImpl#getMakeBooking <em>Make Booking</em>}</li>
+ *   <li>{@link RootElement.impl.GuestImpl#getFeedbackWriter <em>Feedback Writer</em>}</li>
  * </ul>
  *
  * @generated
@@ -154,6 +160,36 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * @ordered
 	 */
 	protected String socialSecurityNumber = SOCIAL_SECURITY_NUMBER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSupportTicketWriter() <em>Support Ticket Writer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupportTicketWriter()
+	 * @generated
+	 * @ordered
+	 */
+	protected SupportTicketWriter supportTicketWriter;
+
+	/**
+	 * The cached value of the '{@link #getMakeBooking() <em>Make Booking</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMakeBooking()
+	 * @generated
+	 * @ordered
+	 */
+	protected MakeBooking makeBooking;
+
+	/**
+	 * The cached value of the '{@link #getFeedbackWriter() <em>Feedback Writer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeedbackWriter()
+	 * @generated
+	 * @ordered
+	 */
+	protected FeedbackWriter feedbackWriter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -305,7 +341,198 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createSupportTicket(String problemDescription, String roomid) {
+	public SupportTicketWriter getSupportTicketWriter() {
+		if (supportTicketWriter != null && supportTicketWriter.eIsProxy()) {
+			InternalEObject oldSupportTicketWriter = (InternalEObject)supportTicketWriter;
+			supportTicketWriter = (SupportTicketWriter)eResolveProxy(oldSupportTicketWriter);
+			if (supportTicketWriter != oldSupportTicketWriter) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.GUEST__SUPPORT_TICKET_WRITER, oldSupportTicketWriter, supportTicketWriter));
+			}
+		}
+		return supportTicketWriter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SupportTicketWriter basicGetSupportTicketWriter() {
+		return supportTicketWriter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupportTicketWriter(SupportTicketWriter newSupportTicketWriter) {
+		SupportTicketWriter oldSupportTicketWriter = supportTicketWriter;
+		supportTicketWriter = newSupportTicketWriter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.GUEST__SUPPORT_TICKET_WRITER, oldSupportTicketWriter, supportTicketWriter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MakeBooking getMakeBooking() {
+		if (makeBooking != null && makeBooking.eIsProxy()) {
+			InternalEObject oldMakeBooking = (InternalEObject)makeBooking;
+			makeBooking = (MakeBooking)eResolveProxy(oldMakeBooking);
+			if (makeBooking != oldMakeBooking) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.GUEST__MAKE_BOOKING, oldMakeBooking, makeBooking));
+			}
+		}
+		return makeBooking;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MakeBooking basicGetMakeBooking() {
+		return makeBooking;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMakeBooking(MakeBooking newMakeBooking) {
+		MakeBooking oldMakeBooking = makeBooking;
+		makeBooking = newMakeBooking;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.GUEST__MAKE_BOOKING, oldMakeBooking, makeBooking));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeedbackWriter getFeedbackWriter() {
+		if (feedbackWriter != null && feedbackWriter.eIsProxy()) {
+			InternalEObject oldFeedbackWriter = (InternalEObject)feedbackWriter;
+			feedbackWriter = (FeedbackWriter)eResolveProxy(oldFeedbackWriter);
+			if (feedbackWriter != oldFeedbackWriter) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.GUEST__FEEDBACK_WRITER, oldFeedbackWriter, feedbackWriter));
+			}
+		}
+		return feedbackWriter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeedbackWriter basicGetFeedbackWriter() {
+		return feedbackWriter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFeedbackWriter(FeedbackWriter newFeedbackWriter) {
+		FeedbackWriter oldFeedbackWriter = feedbackWriter;
+		feedbackWriter = newFeedbackWriter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.GUEST__FEEDBACK_WRITER, oldFeedbackWriter, feedbackWriter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void newSupportTicket(String roomID, String description) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void giveFeedback(String feedback) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Booking createBooking() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RoomType> getAvailableRooms(Date startDate, Date endDate, int nbrOfAdults, int nbrOfChildren) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean addRoom(Booking booking, RoomType room, int nbrOfAdults, int nbrOfChildren) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean confirmBooking(Booking booking, String name, String phone, String mail, String nationality, int passportNr, String nextDestination) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean cancelBooking(Booking booking) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Booking lookupBooking(String name, String phoneNumber) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -331,6 +558,15 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 				return getMail();
 			case RootElementPackage.GUEST__SOCIAL_SECURITY_NUMBER:
 				return getSocialSecurityNumber();
+			case RootElementPackage.GUEST__SUPPORT_TICKET_WRITER:
+				if (resolve) return getSupportTicketWriter();
+				return basicGetSupportTicketWriter();
+			case RootElementPackage.GUEST__MAKE_BOOKING:
+				if (resolve) return getMakeBooking();
+				return basicGetMakeBooking();
+			case RootElementPackage.GUEST__FEEDBACK_WRITER:
+				if (resolve) return getFeedbackWriter();
+				return basicGetFeedbackWriter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -360,6 +596,15 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 				return;
 			case RootElementPackage.GUEST__SOCIAL_SECURITY_NUMBER:
 				setSocialSecurityNumber((String)newValue);
+				return;
+			case RootElementPackage.GUEST__SUPPORT_TICKET_WRITER:
+				setSupportTicketWriter((SupportTicketWriter)newValue);
+				return;
+			case RootElementPackage.GUEST__MAKE_BOOKING:
+				setMakeBooking((MakeBooking)newValue);
+				return;
+			case RootElementPackage.GUEST__FEEDBACK_WRITER:
+				setFeedbackWriter((FeedbackWriter)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -391,6 +636,15 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 			case RootElementPackage.GUEST__SOCIAL_SECURITY_NUMBER:
 				setSocialSecurityNumber(SOCIAL_SECURITY_NUMBER_EDEFAULT);
 				return;
+			case RootElementPackage.GUEST__SUPPORT_TICKET_WRITER:
+				setSupportTicketWriter((SupportTicketWriter)null);
+				return;
+			case RootElementPackage.GUEST__MAKE_BOOKING:
+				setMakeBooking((MakeBooking)null);
+				return;
+			case RootElementPackage.GUEST__FEEDBACK_WRITER:
+				setFeedbackWriter((FeedbackWriter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -415,6 +669,12 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 				return MAIL_EDEFAULT == null ? mail != null : !MAIL_EDEFAULT.equals(mail);
 			case RootElementPackage.GUEST__SOCIAL_SECURITY_NUMBER:
 				return SOCIAL_SECURITY_NUMBER_EDEFAULT == null ? socialSecurityNumber != null : !SOCIAL_SECURITY_NUMBER_EDEFAULT.equals(socialSecurityNumber);
+			case RootElementPackage.GUEST__SUPPORT_TICKET_WRITER:
+				return supportTicketWriter != null;
+			case RootElementPackage.GUEST__MAKE_BOOKING:
+				return makeBooking != null;
+			case RootElementPackage.GUEST__FEEDBACK_WRITER:
+				return feedbackWriter != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -425,11 +685,53 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == FeedbackWriter.class) {
+			switch (baseOperationID) {
+				case RootElementPackage.FEEDBACK_WRITER___GIVE_FEEDBACK__STRING: return RootElementPackage.GUEST___GIVE_FEEDBACK__STRING;
+				default: return -1;
+			}
+		}
+		if (baseClass == MakeBooking.class) {
+			switch (baseOperationID) {
+				case RootElementPackage.MAKE_BOOKING___CREATE_BOOKING: return RootElementPackage.GUEST___CREATE_BOOKING;
+				case RootElementPackage.MAKE_BOOKING___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT: return RootElementPackage.GUEST___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT;
+				case RootElementPackage.MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT: return RootElementPackage.GUEST___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT;
+				case RootElementPackage.MAKE_BOOKING___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING: return RootElementPackage.GUEST___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING;
+				case RootElementPackage.MAKE_BOOKING___CANCEL_BOOKING__BOOKING: return RootElementPackage.GUEST___CANCEL_BOOKING__BOOKING;
+				case RootElementPackage.MAKE_BOOKING___LOOKUP_BOOKING__STRING_STRING: return RootElementPackage.GUEST___LOOKUP_BOOKING__STRING_STRING;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RootElementPackage.GUEST___CREATE_SUPPORT_TICKET__STRING_STRING:
-				createSupportTicket((String)arguments.get(0), (String)arguments.get(1));
+			case RootElementPackage.GUEST___NEW_SUPPORT_TICKET__STRING_STRING:
+				newSupportTicket((String)arguments.get(0), (String)arguments.get(1));
 				return null;
+			case RootElementPackage.GUEST___GIVE_FEEDBACK__STRING:
+				giveFeedback((String)arguments.get(0));
+				return null;
+			case RootElementPackage.GUEST___CREATE_BOOKING:
+				return createBooking();
+			case RootElementPackage.GUEST___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT:
+				return getAvailableRooms((Date)arguments.get(0), (Date)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
+			case RootElementPackage.GUEST___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT:
+				return addRoom((Booking)arguments.get(0), (RoomType)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
+			case RootElementPackage.GUEST___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING:
+				return confirmBooking((Booking)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (Integer)arguments.get(5), (String)arguments.get(6));
+			case RootElementPackage.GUEST___CANCEL_BOOKING__BOOKING:
+				return cancelBooking((Booking)arguments.get(0));
+			case RootElementPackage.GUEST___LOOKUP_BOOKING__STRING_STRING:
+				return lookupBooking((String)arguments.get(0), (String)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

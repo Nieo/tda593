@@ -34,7 +34,7 @@
     <generalization xmi:type="uml:Generalization" xmi:id="_KBr_0JdkEeWSwtW3Z_xnZg" general="_KR_CcJdgEeWSwtW3Z_xnZg"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_-aMrgJhkEeWMcJhD21JL8g" client="_VFlu8JdgEeWSwtW3Z_xnZg" supplier="_kpBzgJhkEeWMcJhD21JL8g"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_KjDc8JdjEeWSwtW3Z_xnZg" name="Check-in/-out">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_KjDc8JdjEeWSwtW3Z_xnZg" name="ReceptionHandling">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_ctadEJg-EeW-X4rHQuyyLA" name="checkIn">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_GzHeEJhAEeW-X4rHQuyyLA" name="booking">
         <type xmi:type="uml:Class" href="ClassDiagram.uml#_LeQ0kJ2QEeWgH5KZ_xCcgQ"/>
@@ -431,6 +431,8 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_AmK5hZ5oEeW2ZrS6EkHJUA" name="getAllRooms">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_AmK5hp5oEeW2ZrS6EkHJUA" name="rooms" direction="return">
         <type xmi:type="uml:Class" href="ClassDiagram.uml#_UTJDgJdOEeW0s9Al2d2tiA"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N_-x8KS4EeWGItiBmqI77w"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OAB1QKS4EeWGItiBmqI77w" value="*"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_DkcsoKGWEeWd6vlkZLJRmg" name="getAvailableRooms">

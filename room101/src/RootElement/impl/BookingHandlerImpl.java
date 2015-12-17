@@ -4,14 +4,18 @@ package RootElement.impl;
 
 import RootElement.Booking;
 import RootElement.BookingHandler;
+import RootElement.RoomFetcher;
 import RootElement.RootElementPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -25,6 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link RootElement.impl.BookingHandlerImpl#getBooking <em>Booking</em>}</li>
+ *   <li>{@link RootElement.impl.BookingHandlerImpl#getRoomFetcher <em>Room Fetcher</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +44,16 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<Booking> booking;
+
+	/**
+	 * The cached value of the '{@link #getRoomFetcher() <em>Room Fetcher</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoomFetcher()
+	 * @generated
+	 * @ordered
+	 */
+	protected RoomFetcher roomFetcher;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,11 +91,52 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RoomFetcher getRoomFetcher() {
+		if (roomFetcher != null && roomFetcher.eIsProxy()) {
+			InternalEObject oldRoomFetcher = (InternalEObject)roomFetcher;
+			roomFetcher = (RoomFetcher)eResolveProxy(oldRoomFetcher);
+			if (roomFetcher != oldRoomFetcher) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.BOOKING_HANDLER__ROOM_FETCHER, oldRoomFetcher, roomFetcher));
+			}
+		}
+		return roomFetcher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RoomFetcher basicGetRoomFetcher() {
+		return roomFetcher;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRoomFetcher(RoomFetcher newRoomFetcher) {
+		RoomFetcher oldRoomFetcher = roomFetcher;
+		roomFetcher = newRoomFetcher;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.BOOKING_HANDLER__ROOM_FETCHER, oldRoomFetcher, roomFetcher));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RootElementPackage.BOOKING_HANDLER__BOOKING:
 				return getBooking();
+			case RootElementPackage.BOOKING_HANDLER__ROOM_FETCHER:
+				if (resolve) return getRoomFetcher();
+				return basicGetRoomFetcher();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -98,6 +154,9 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 				getBooking().clear();
 				getBooking().addAll((Collection<? extends Booking>)newValue);
 				return;
+			case RootElementPackage.BOOKING_HANDLER__ROOM_FETCHER:
+				setRoomFetcher((RoomFetcher)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -113,6 +172,9 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 			case RootElementPackage.BOOKING_HANDLER__BOOKING:
 				getBooking().clear();
 				return;
+			case RootElementPackage.BOOKING_HANDLER__ROOM_FETCHER:
+				setRoomFetcher((RoomFetcher)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -127,6 +189,8 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case RootElementPackage.BOOKING_HANDLER__BOOKING:
 				return booking != null && !booking.isEmpty();
+			case RootElementPackage.BOOKING_HANDLER__ROOM_FETCHER:
+				return roomFetcher != null;
 		}
 		return super.eIsSet(featureID);
 	}

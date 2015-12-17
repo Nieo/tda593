@@ -69,6 +69,33 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.GUEST: {
 				Guest guest = (Guest)theEObject;
 				T result = caseGuest(guest);
+				if (result == null) result = caseSupportTicketWriter(guest);
+				if (result == null) result = caseFeedbackWriter(guest);
+				if (result == null) result = caseMakeBooking(guest);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.SUPPORT_TICKET_WRITER: {
+				SupportTicketWriter supportTicketWriter = (SupportTicketWriter)theEObject;
+				T result = caseSupportTicketWriter(supportTicketWriter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.MAKE_BOOKING: {
+				MakeBooking makeBooking = (MakeBooking)theEObject;
+				T result = caseMakeBooking(makeBooking);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.BOOKING: {
+				Booking booking = (Booking)theEObject;
+				T result = caseBooking(booking);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.ROOM_BOOKING: {
+				RoomBooking roomBooking = (RoomBooking)theEObject;
+				T result = caseRoomBooking(roomBooking);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,6 +117,18 @@ public class RootElementSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RootElementPackage.SERVICE_ITEM: {
+				ServiceItem serviceItem = (ServiceItem)theEObject;
+				T result = caseServiceItem(serviceItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.FEEDBACK_WRITER: {
+				FeedbackWriter feedbackWriter = (FeedbackWriter)theEObject;
+				T result = caseFeedbackWriter(feedbackWriter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RootElementPackage.FEEDBACK: {
 				Feedback feedback = (Feedback)theEObject;
 				T result = caseFeedback(feedback);
@@ -99,18 +138,21 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.STAFF: {
 				Staff staff = (Staff)theEObject;
 				T result = caseStaff(staff);
+				if (result == null) result = caseCleaning(staff);
+				if (result == null) result = caseSupportTicketWriter(staff);
+				if (result == null) result = caseSupportTicketReader(staff);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RootElementPackage.BOOKING: {
-				Booking booking = (Booking)theEObject;
-				T result = caseBooking(booking);
+			case RootElementPackage.CLEANING: {
+				Cleaning cleaning = (Cleaning)theEObject;
+				T result = caseCleaning(cleaning);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RootElementPackage.ROOM_BOOKING: {
-				RoomBooking roomBooking = (RoomBooking)theEObject;
-				T result = caseRoomBooking(roomBooking);
+			case RootElementPackage.SUPPORT_TICKET_READER: {
+				SupportTicketReader supportTicketReader = (SupportTicketReader)theEObject;
+				T result = caseSupportTicketReader(supportTicketReader);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,6 +166,31 @@ public class RootElementSwitch<T> extends Switch<T> {
 				Clerk clerk = (Clerk)theEObject;
 				T result = caseClerk(clerk);
 				if (result == null) result = caseStaff(clerk);
+				if (result == null) result = caseReceptionHandling(clerk);
+				if (result == null) result = caseServiceItemhandling(clerk);
+				if (result == null) result = caseMakeBooking(clerk);
+				if (result == null) result = casePayment(clerk);
+				if (result == null) result = caseCleaning(clerk);
+				if (result == null) result = caseSupportTicketWriter(clerk);
+				if (result == null) result = caseSupportTicketReader(clerk);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.RECEPTION_HANDLING: {
+				ReceptionHandling receptionHandling = (ReceptionHandling)theEObject;
+				T result = caseReceptionHandling(receptionHandling);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.SERVICE_ITEMHANDLING: {
+				ServiceItemhandling serviceItemhandling = (ServiceItemhandling)theEObject;
+				T result = caseServiceItemhandling(serviceItemhandling);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.PAYMENT: {
+				Payment payment = (Payment)theEObject;
+				T result = casePayment(payment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,40 +199,33 @@ public class RootElementSwitch<T> extends Switch<T> {
 				T result = caseManager(manager);
 				if (result == null) result = caseClerk(manager);
 				if (result == null) result = caseSysAdmin(manager);
+				if (result == null) result = caseFeedbackReader(manager);
 				if (result == null) result = caseStaff(manager);
+				if (result == null) result = caseReceptionHandling(manager);
+				if (result == null) result = caseServiceItemhandling(manager);
+				if (result == null) result = caseMakeBooking(manager);
+				if (result == null) result = casePayment(manager);
+				if (result == null) result = caseRoomAttributeHandling(manager);
+				if (result == null) result = caseRoomHandling(manager);
+				if (result == null) result = caseRoomTypeHandling(manager);
+				if (result == null) result = caseCleaning(manager);
+				if (result == null) result = caseSupportTicketWriter(manager);
+				if (result == null) result = caseSupportTicketReader(manager);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RootElementPackage.SYS_ADMIN: {
 				SysAdmin sysAdmin = (SysAdmin)theEObject;
 				T result = caseSysAdmin(sysAdmin);
+				if (result == null) result = caseRoomAttributeHandling(sysAdmin);
+				if (result == null) result = caseRoomHandling(sysAdmin);
+				if (result == null) result = caseRoomTypeHandling(sysAdmin);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RootElementPackage.MAKE_BOOKING: {
-				MakeBooking makeBooking = (MakeBooking)theEObject;
-				T result = caseMakeBooking(makeBooking);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.CHECKINOUT: {
-				Checkinout checkinout = (Checkinout)theEObject;
-				T result = caseCheckinout(checkinout);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.BOOKING_HANDLER: {
-				BookingHandler bookingHandler = (BookingHandler)theEObject;
-				T result = caseBookingHandler(bookingHandler);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.ROOM_STRUCTURE: {
-				RoomStructure roomStructure = (RoomStructure)theEObject;
-				T result = caseRoomStructure(roomStructure);
-				if (result == null) result = caseRoomHandling(roomStructure);
-				if (result == null) result = caseRoomTypeHandling(roomStructure);
-				if (result == null) result = caseRoomAttributeHandling(roomStructure);
+			case RootElementPackage.ROOM_ATTRIBUTE_HANDLING: {
+				RoomAttributeHandling roomAttributeHandling = (RoomAttributeHandling)theEObject;
+				T result = caseRoomAttributeHandling(roomAttributeHandling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -181,9 +241,30 @@ public class RootElementSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RootElementPackage.ROOM_ATTRIBUTE_HANDLING: {
-				RoomAttributeHandling roomAttributeHandling = (RoomAttributeHandling)theEObject;
-				T result = caseRoomAttributeHandling(roomAttributeHandling);
+			case RootElementPackage.FEEDBACK_READER: {
+				FeedbackReader feedbackReader = (FeedbackReader)theEObject;
+				T result = caseFeedbackReader(feedbackReader);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.BOOKING_HANDLER: {
+				BookingHandler bookingHandler = (BookingHandler)theEObject;
+				T result = caseBookingHandler(bookingHandler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.ROOM_FETCHER: {
+				RoomFetcher roomFetcher = (RoomFetcher)theEObject;
+				T result = caseRoomFetcher(roomFetcher);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.ROOM_STRUCTURE: {
+				RoomStructure roomStructure = (RoomStructure)theEObject;
+				T result = caseRoomStructure(roomStructure);
+				if (result == null) result = caseRoomHandling(roomStructure);
+				if (result == null) result = caseRoomTypeHandling(roomStructure);
+				if (result == null) result = caseRoomAttributeHandling(roomStructure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,45 +280,9 @@ public class RootElementSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RootElementPackage.READ_FEEDBACK: {
-				ReadFeedback readFeedback = (ReadFeedback)theEObject;
-				T result = caseReadFeedback(readFeedback);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.WRITE_FEEDBACK: {
-				WriteFeedback writeFeedback = (WriteFeedback)theEObject;
-				T result = caseWriteFeedback(writeFeedback);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.WRITE_SUPPORT_TICKET: {
-				WriteSupportTicket writeSupportTicket = (WriteSupportTicket)theEObject;
-				T result = caseWriteSupportTicket(writeSupportTicket);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.INTERACT_WITH_SUPPORT_TICKET: {
-				InteractWithSupportTicket interactWithSupportTicket = (InteractWithSupportTicket)theEObject;
-				T result = caseInteractWithSupportTicket(interactWithSupportTicket);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RootElementPackage.CLEANING_HANDLER: {
 				CleaningHandler cleaningHandler = (CleaningHandler)theEObject;
 				T result = caseCleaningHandler(cleaningHandler);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.ROOM_FETCHER: {
-				RoomFetcher roomFetcher = (RoomFetcher)theEObject;
-				T result = caseRoomFetcher(roomFetcher);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.CLEANING: {
-				Cleaning cleaning = (Cleaning)theEObject;
-				T result = caseCleaning(cleaning);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -245,12 +290,6 @@ public class RootElementSwitch<T> extends Switch<T> {
 				PaymentHandler paymentHandler = (PaymentHandler)theEObject;
 				T result = casePaymentHandler(paymentHandler);
 				if (result == null) result = casePayment(paymentHandler);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.PAYMENT: {
-				Payment payment = (Payment)theEObject;
-				T result = casePayment(payment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -265,6 +304,18 @@ public class RootElementSwitch<T> extends Switch<T> {
 				HourlyRoomBooking hourlyRoomBooking = (HourlyRoomBooking)theEObject;
 				T result = caseHourlyRoomBooking(hourlyRoomBooking);
 				if (result == null) result = caseRoomBooking(hourlyRoomBooking);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.HOTEL_SYSTEM: {
+				HotelSystem hotelSystem = (HotelSystem)theEObject;
+				T result = caseHotelSystem(hotelSystem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.HOTEL: {
+				Hotel hotel = (Hotel)theEObject;
+				T result = caseHotel(hotel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -393,6 +444,21 @@ public class RootElementSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceItem(ServiceItem object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Support Ticket</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -468,17 +534,17 @@ public class RootElementSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Checkinout</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Reception Handling</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Checkinout</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Reception Handling</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCheckinout(Checkinout object) {
+	public T caseReceptionHandling(ReceptionHandling object) {
 		return null;
 	}
 
@@ -588,62 +654,62 @@ public class RootElementSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Read Feedback</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Feedback Reader</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Read Feedback</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Feedback Reader</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReadFeedback(ReadFeedback object) {
+	public T caseFeedbackReader(FeedbackReader object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Write Feedback</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Feedback Writer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Write Feedback</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Feedback Writer</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseWriteFeedback(WriteFeedback object) {
+	public T caseFeedbackWriter(FeedbackWriter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Write Support Ticket</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Support Ticket Writer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Write Support Ticket</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Support Ticket Writer</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseWriteSupportTicket(WriteSupportTicket object) {
+	public T caseSupportTicketWriter(SupportTicketWriter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interact With Support Ticket</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Support Ticket Reader</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interact With Support Ticket</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Support Ticket Reader</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInteractWithSupportTicket(InteractWithSupportTicket object) {
+	public T caseSupportTicketReader(SupportTicketReader object) {
 		return null;
 	}
 
@@ -749,6 +815,51 @@ public class RootElementSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHourlyRoomBooking(HourlyRoomBooking object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Itemhandling</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Itemhandling</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceItemhandling(ServiceItemhandling object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Hotel System</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Hotel System</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHotelSystem(HotelSystem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Hotel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Hotel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHotel(Hotel object) {
 		return null;
 	}
 

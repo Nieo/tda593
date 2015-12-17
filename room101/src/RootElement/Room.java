@@ -128,12 +128,4 @@ public interface Room extends EObject {
 	 */
 	void setRoomtype(RoomType value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	void getReservedRoom();
-
 } // Room

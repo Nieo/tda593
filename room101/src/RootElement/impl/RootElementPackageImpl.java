@@ -5,21 +5,23 @@ package RootElement.impl;
 import RootElement.Booking;
 import RootElement.BookingHandler;
 import RootElement.BookingStatus;
-import RootElement.Checkinout;
 import RootElement.Cleaning;
 import RootElement.CleaningHandler;
 import RootElement.Clerk;
 import RootElement.DailyRoomBooking;
 import RootElement.Feedback;
 import RootElement.FeedbackHandler;
+import RootElement.FeedbackReader;
+import RootElement.FeedbackWriter;
 import RootElement.Guest;
+import RootElement.Hotel;
+import RootElement.HotelSystem;
 import RootElement.HourlyRoomBooking;
-import RootElement.InteractWithSupportTicket;
 import RootElement.MakeBooking;
 import RootElement.Manager;
 import RootElement.Payment;
 import RootElement.PaymentHandler;
-import RootElement.ReadFeedback;
+import RootElement.ReceptionHandling;
 import RootElement.Room;
 import RootElement.RoomAttribute;
 import RootElement.RoomAttributeHandling;
@@ -31,13 +33,14 @@ import RootElement.RoomType;
 import RootElement.RoomTypeHandling;
 import RootElement.RootElementFactory;
 import RootElement.RootElementPackage;
+import RootElement.ServiceItem;
+import RootElement.ServiceItemhandling;
 import RootElement.Staff;
 import RootElement.SupportTicket;
 import RootElement.SupportTicketHandler;
+import RootElement.SupportTicketReader;
+import RootElement.SupportTicketWriter;
 import RootElement.SysAdmin;
-import RootElement.WriteFeedback;
-import RootElement.WriteSupportTicket;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -119,6 +122,13 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass serviceItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass supportTicketEClass = null;
 
 	/**
@@ -154,7 +164,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass checkinoutEClass = null;
+	private EClass receptionHandlingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,28 +220,28 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass readFeedbackEClass = null;
+	private EClass feedbackReaderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass writeFeedbackEClass = null;
+	private EClass feedbackWriterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass writeSupportTicketEClass = null;
+	private EClass supportTicketWriterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass interactWithSupportTicketEClass = null;
+	private EClass supportTicketReaderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -281,6 +291,27 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * @generated
 	 */
 	private EClass hourlyRoomBookingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceItemhandlingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass hotelSystemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass hotelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -423,8 +454,26 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGuest__CreateSupportTicket__String_String() {
-		return guestEClass.getEOperations().get(0);
+	public EReference getGuest_SupportTicketWriter() {
+		return (EReference)guestEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGuest_MakeBooking() {
+		return (EReference)guestEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGuest_FeedbackWriter() {
+		return (EReference)guestEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -477,15 +526,6 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoom__GetReservedRoom() {
-		return roomEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRoomType() {
 		return roomTypeEClass;
 	}
@@ -504,17 +544,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoomType_Attributes() {
-		return (EReference)roomTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getRoomType_Price() {
-		return (EAttribute)roomTypeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)roomTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -523,7 +554,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * @generated
 	 */
 	public EReference getRoomType_Roomattribute() {
-		return (EReference)roomTypeEClass.getEStructuralFeatures().get(3);
+		return (EReference)roomTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -603,15 +634,6 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFeedback__MarkAsRead() {
-		return feedbackEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStaff() {
 		return staffEClass;
 	}
@@ -632,6 +654,33 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 */
 	public EAttribute getStaff_Name() {
 		return (EAttribute)staffEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStaff_Cleaning() {
+		return (EReference)staffEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStaff_SupportTicketReader() {
+		return (EReference)staffEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStaff_SupportTicketWriter() {
+		return (EReference)staffEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -668,6 +717,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 */
 	public EReference getBooking_Guest() {
 		return (EReference)bookingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBooking_Serviceitem() {
+		return (EReference)bookingEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -738,6 +796,42 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getServiceItem() {
+		return serviceItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServiceItem_Name() {
+		return (EAttribute)serviceItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServiceItem_Description() {
+		return (EAttribute)serviceItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServiceItem_Price() {
+		return (EAttribute)serviceItemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSupportTicket() {
 		return supportTicketEClass;
 	}
@@ -783,6 +877,42 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getClerk_ReceptionHandling() {
+		return (EReference)clerkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClerk_ServiceItemHandling() {
+		return (EReference)clerkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClerk_MakeBooking() {
+		return (EReference)clerkEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClerk_Payment() {
+		return (EReference)clerkEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getManager() {
 		return managerEClass;
 	}
@@ -792,8 +922,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getManager__ReadFeedback() {
-		return managerEClass.getEOperations().get(0);
+	public EReference getManager_FeedbackReader() {
+		return (EReference)managerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -810,8 +940,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSysAdmin__AddRoom__Room() {
-		return sysAdminEClass.getEOperations().get(0);
+	public EReference getSysAdmin_RoomAttributeHandling() {
+		return (EReference)sysAdminEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -819,8 +949,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSysAdmin__RemoveRoom__Room() {
-		return sysAdminEClass.getEOperations().get(1);
+	public EReference getSysAdmin_RoomHandling() {
+		return (EReference)sysAdminEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -828,26 +958,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSysAdmin__CreateRoomType() {
-		return sysAdminEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSysAdmin__RemoveRoomType() {
-		return sysAdminEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSysAdmin__SetRoomType() {
-		return sysAdminEClass.getEOperations().get(4);
+	public EReference getSysAdmin_RoomTypeHandling() {
+		return (EReference)sysAdminEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -909,8 +1021,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCheckinout() {
-		return checkinoutEClass;
+	public EOperation getMakeBooking__LookupBooking__String_String() {
+		return makeBookingEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -918,8 +1030,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCheckinout__CheckIn__RoomBooking() {
-		return checkinoutEClass.getEOperations().get(0);
+	public EClass getReceptionHandling() {
+		return receptionHandlingEClass;
 	}
 
 	/**
@@ -927,8 +1039,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCheckinout__CheckOut__RoomBooking() {
-		return checkinoutEClass.getEOperations().get(1);
+	public EOperation getReceptionHandling__CheckIn__RoomBooking() {
+		return receptionHandlingEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -936,8 +1048,26 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCheckinout__FindBookings__String() {
-		return checkinoutEClass.getEOperations().get(2);
+	public EOperation getReceptionHandling__CheckOut__RoomBooking() {
+		return receptionHandlingEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getReceptionHandling__FindBookings__String() {
+		return receptionHandlingEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getReceptionHandling__FindActiveBooking__String() {
+		return receptionHandlingEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -956,6 +1086,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 */
 	public EReference getBookingHandler_Booking() {
 		return (EReference)bookingHandlerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBookingHandler_RoomFetcher() {
+		return (EReference)bookingHandlerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1188,8 +1327,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getReadFeedback() {
-		return readFeedbackEClass;
+	public EClass getFeedbackReader() {
+		return feedbackReaderEClass;
 	}
 
 	/**
@@ -1197,8 +1336,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReadFeedback__GetAllFeedback() {
-		return readFeedbackEClass.getEOperations().get(0);
+	public EOperation getFeedbackReader__GetAllFeedback() {
+		return feedbackReaderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1206,8 +1345,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReadFeedback__GetUnreadFeedback() {
-		return readFeedbackEClass.getEOperations().get(1);
+	public EOperation getFeedbackReader__GetUnreadFeedback() {
+		return feedbackReaderEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1215,8 +1354,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getWriteFeedback() {
-		return writeFeedbackEClass;
+	public EClass getFeedbackWriter() {
+		return feedbackWriterEClass;
 	}
 
 	/**
@@ -1224,8 +1363,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getWriteFeedback__GiveFeedback__String() {
-		return writeFeedbackEClass.getEOperations().get(0);
+	public EOperation getFeedbackWriter__GiveFeedback__String() {
+		return feedbackWriterEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1233,8 +1372,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getWriteSupportTicket() {
-		return writeSupportTicketEClass;
+	public EClass getSupportTicketWriter() {
+		return supportTicketWriterEClass;
 	}
 
 	/**
@@ -1242,8 +1381,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getWriteSupportTicket__NewSupportTicket__Room_String() {
-		return writeSupportTicketEClass.getEOperations().get(0);
+	public EOperation getSupportTicketWriter__NewSupportTicket__String_String() {
+		return supportTicketWriterEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1251,8 +1390,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInteractWithSupportTicket() {
-		return interactWithSupportTicketEClass;
+	public EClass getSupportTicketReader() {
+		return supportTicketReaderEClass;
 	}
 
 	/**
@@ -1260,8 +1399,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getInteractWithSupportTicket__GetUnfixedTickets() {
-		return interactWithSupportTicketEClass.getEOperations().get(0);
+	public EOperation getSupportTicketReader__GetUnfixedTickets() {
+		return supportTicketReaderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1269,8 +1408,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getInteractWithSupportTicket__GetSupportTicketsForRoom__Room() {
-		return interactWithSupportTicketEClass.getEOperations().get(1);
+	public EOperation getSupportTicketReader__GetSupportTicketsForRoom__Room() {
+		return supportTicketReaderEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1278,8 +1417,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getInteractWithSupportTicket__MarkAsCompleted__SupportTicket() {
-		return interactWithSupportTicketEClass.getEOperations().get(2);
+	public EOperation getSupportTicketReader__MarkAsCompleted__SupportTicket() {
+		return supportTicketReaderEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1289,6 +1428,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 */
 	public EClass getCleaningHandler() {
 		return cleaningHandlerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCleaningHandler_RoomFetcher() {
+		return (EReference)cleaningHandlerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1316,6 +1464,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 */
 	public EOperation getRoomFetcher__GetAllRooms() {
 		return roomFetcherEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoomFetcher__GetAvailableRooms() {
+		return roomFetcherEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1422,6 +1579,114 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getServiceItemhandling() {
+		return serviceItemhandlingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceItemhandling__AddServiceItem__String_String_int() {
+		return serviceItemhandlingEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceItemhandling__RemoveServiceItem__ServiceItem() {
+		return serviceItemhandlingEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getServiceItemhandling__FindAllServiceItems__Booking() {
+		return serviceItemhandlingEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHotelSystem() {
+		return hotelSystemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHotelSystem__GetStaff__String() {
+		return hotelSystemEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHotelSystem__GetClerk__String() {
+		return hotelSystemEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHotelSystem__GetManager__String() {
+		return hotelSystemEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHotelSystem__GetSystemAdministrator() {
+		return hotelSystemEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getHotelSystem__GetGuest() {
+		return hotelSystemEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHotel() {
+		return hotelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHotel_Name() {
+		return (EAttribute)hotelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getBookingStatus() {
 		return bookingStatusEEnum;
 	}
@@ -1461,40 +1726,26 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEAttribute(guestEClass, GUEST__NAME);
 		createEAttribute(guestEClass, GUEST__MAIL);
 		createEAttribute(guestEClass, GUEST__SOCIAL_SECURITY_NUMBER);
-		createEOperation(guestEClass, GUEST___CREATE_SUPPORT_TICKET__STRING_STRING);
+		createEReference(guestEClass, GUEST__SUPPORT_TICKET_WRITER);
+		createEReference(guestEClass, GUEST__MAKE_BOOKING);
+		createEReference(guestEClass, GUEST__FEEDBACK_WRITER);
 
-		roomEClass = createEClass(ROOM);
-		createEAttribute(roomEClass, ROOM__IS_OCCUPIED);
-		createEAttribute(roomEClass, ROOM__ROOM_ID);
-		createEAttribute(roomEClass, ROOM__NEED_CLEANING);
-		createEReference(roomEClass, ROOM__ROOMTYPE);
-		createEOperation(roomEClass, ROOM___GET_RESERVED_ROOM);
+		supportTicketWriterEClass = createEClass(SUPPORT_TICKET_WRITER);
+		createEOperation(supportTicketWriterEClass, SUPPORT_TICKET_WRITER___NEW_SUPPORT_TICKET__STRING_STRING);
 
-		roomTypeEClass = createEClass(ROOM_TYPE);
-		createEAttribute(roomTypeEClass, ROOM_TYPE__NAME);
-		createEReference(roomTypeEClass, ROOM_TYPE__ATTRIBUTES);
-		createEAttribute(roomTypeEClass, ROOM_TYPE__PRICE);
-		createEReference(roomTypeEClass, ROOM_TYPE__ROOMATTRIBUTE);
-
-		roomAttributeEClass = createEClass(ROOM_ATTRIBUTE);
-		createEAttribute(roomAttributeEClass, ROOM_ATTRIBUTE__ID);
-		createEAttribute(roomAttributeEClass, ROOM_ATTRIBUTE__NAME);
-		createEAttribute(roomAttributeEClass, ROOM_ATTRIBUTE__DESCRIPTION);
-
-		feedbackEClass = createEClass(FEEDBACK);
-		createEAttribute(feedbackEClass, FEEDBACK__FEEDBACK_DESCRIPTION);
-		createEAttribute(feedbackEClass, FEEDBACK__RATING);
-		createEAttribute(feedbackEClass, FEEDBACK__READ);
-		createEOperation(feedbackEClass, FEEDBACK___MARK_AS_READ);
-
-		staffEClass = createEClass(STAFF);
-		createEAttribute(staffEClass, STAFF__STAFF_ID);
-		createEAttribute(staffEClass, STAFF__NAME);
+		makeBookingEClass = createEClass(MAKE_BOOKING);
+		createEOperation(makeBookingEClass, MAKE_BOOKING___CREATE_BOOKING);
+		createEOperation(makeBookingEClass, MAKE_BOOKING___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT);
+		createEOperation(makeBookingEClass, MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT);
+		createEOperation(makeBookingEClass, MAKE_BOOKING___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING);
+		createEOperation(makeBookingEClass, MAKE_BOOKING___CANCEL_BOOKING__BOOKING);
+		createEOperation(makeBookingEClass, MAKE_BOOKING___LOOKUP_BOOKING__STRING_STRING);
 
 		bookingEClass = createEClass(BOOKING);
 		createEAttribute(bookingEClass, BOOKING__BOOKING_ID);
 		createEReference(bookingEClass, BOOKING__ROOMBOOKING);
 		createEReference(bookingEClass, BOOKING__GUEST);
+		createEReference(bookingEClass, BOOKING__SERVICEITEM);
 		createEOperation(bookingEClass, BOOKING___CALCULATE_COST);
 
 		roomBookingEClass = createEClass(ROOM_BOOKING);
@@ -1504,42 +1755,90 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEReference(roomBookingEClass, ROOM_BOOKING__ROOM);
 		createEOperation(roomBookingEClass, ROOM_BOOKING___CALCULATE_COST);
 
+		roomEClass = createEClass(ROOM);
+		createEAttribute(roomEClass, ROOM__IS_OCCUPIED);
+		createEAttribute(roomEClass, ROOM__ROOM_ID);
+		createEAttribute(roomEClass, ROOM__NEED_CLEANING);
+		createEReference(roomEClass, ROOM__ROOMTYPE);
+
+		roomTypeEClass = createEClass(ROOM_TYPE);
+		createEAttribute(roomTypeEClass, ROOM_TYPE__NAME);
+		createEAttribute(roomTypeEClass, ROOM_TYPE__PRICE);
+		createEReference(roomTypeEClass, ROOM_TYPE__ROOMATTRIBUTE);
+
+		roomAttributeEClass = createEClass(ROOM_ATTRIBUTE);
+		createEAttribute(roomAttributeEClass, ROOM_ATTRIBUTE__ID);
+		createEAttribute(roomAttributeEClass, ROOM_ATTRIBUTE__NAME);
+		createEAttribute(roomAttributeEClass, ROOM_ATTRIBUTE__DESCRIPTION);
+
+		serviceItemEClass = createEClass(SERVICE_ITEM);
+		createEAttribute(serviceItemEClass, SERVICE_ITEM__NAME);
+		createEAttribute(serviceItemEClass, SERVICE_ITEM__DESCRIPTION);
+		createEAttribute(serviceItemEClass, SERVICE_ITEM__PRICE);
+
+		feedbackWriterEClass = createEClass(FEEDBACK_WRITER);
+		createEOperation(feedbackWriterEClass, FEEDBACK_WRITER___GIVE_FEEDBACK__STRING);
+
+		feedbackEClass = createEClass(FEEDBACK);
+		createEAttribute(feedbackEClass, FEEDBACK__FEEDBACK_DESCRIPTION);
+		createEAttribute(feedbackEClass, FEEDBACK__RATING);
+		createEAttribute(feedbackEClass, FEEDBACK__READ);
+
+		staffEClass = createEClass(STAFF);
+		createEAttribute(staffEClass, STAFF__STAFF_ID);
+		createEAttribute(staffEClass, STAFF__NAME);
+		createEReference(staffEClass, STAFF__CLEANING);
+		createEReference(staffEClass, STAFF__SUPPORT_TICKET_READER);
+		createEReference(staffEClass, STAFF__SUPPORT_TICKET_WRITER);
+
+		cleaningEClass = createEClass(CLEANING);
+		createEOperation(cleaningEClass, CLEANING___CHECK_IF_ROOM_CLEANED__STRING);
+		createEOperation(cleaningEClass, CLEANING___GET_LIST_OF_UNCLEAN_ROOMS);
+		createEOperation(cleaningEClass, CLEANING___MARK_ROOM_AS_CLEANED__ROOM);
+
+		supportTicketReaderEClass = createEClass(SUPPORT_TICKET_READER);
+		createEOperation(supportTicketReaderEClass, SUPPORT_TICKET_READER___GET_UNFIXED_TICKETS);
+		createEOperation(supportTicketReaderEClass, SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM);
+		createEOperation(supportTicketReaderEClass, SUPPORT_TICKET_READER___MARK_AS_COMPLETED__SUPPORTTICKET);
+
 		supportTicketEClass = createEClass(SUPPORT_TICKET);
 		createEAttribute(supportTicketEClass, SUPPORT_TICKET__PROBLEM_DESCRIPTION);
 		createEAttribute(supportTicketEClass, SUPPORT_TICKET__ROOM_ID);
 		createEAttribute(supportTicketEClass, SUPPORT_TICKET__FIXED);
 
 		clerkEClass = createEClass(CLERK);
+		createEReference(clerkEClass, CLERK__RECEPTION_HANDLING);
+		createEReference(clerkEClass, CLERK__SERVICE_ITEM_HANDLING);
+		createEReference(clerkEClass, CLERK__MAKE_BOOKING);
+		createEReference(clerkEClass, CLERK__PAYMENT);
+
+		receptionHandlingEClass = createEClass(RECEPTION_HANDLING);
+		createEOperation(receptionHandlingEClass, RECEPTION_HANDLING___CHECK_IN__ROOMBOOKING);
+		createEOperation(receptionHandlingEClass, RECEPTION_HANDLING___CHECK_OUT__ROOMBOOKING);
+		createEOperation(receptionHandlingEClass, RECEPTION_HANDLING___FIND_BOOKINGS__STRING);
+		createEOperation(receptionHandlingEClass, RECEPTION_HANDLING___FIND_ACTIVE_BOOKING__STRING);
+
+		serviceItemhandlingEClass = createEClass(SERVICE_ITEMHANDLING);
+		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT);
+		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM);
+		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING);
+
+		paymentEClass = createEClass(PAYMENT);
+		createEOperation(paymentEClass, PAYMENT___VERIFY_CREDIT_CARD__STRING);
+		createEOperation(paymentEClass, PAYMENT___DEBIT_CARD__STRING_INT);
 
 		managerEClass = createEClass(MANAGER);
-		createEOperation(managerEClass, MANAGER___READ_FEEDBACK);
+		createEReference(managerEClass, MANAGER__FEEDBACK_READER);
 
 		sysAdminEClass = createEClass(SYS_ADMIN);
-		createEOperation(sysAdminEClass, SYS_ADMIN___ADD_ROOM__ROOM);
-		createEOperation(sysAdminEClass, SYS_ADMIN___REMOVE_ROOM__ROOM);
-		createEOperation(sysAdminEClass, SYS_ADMIN___CREATE_ROOM_TYPE);
-		createEOperation(sysAdminEClass, SYS_ADMIN___REMOVE_ROOM_TYPE);
-		createEOperation(sysAdminEClass, SYS_ADMIN___SET_ROOM_TYPE);
+		createEReference(sysAdminEClass, SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING);
+		createEReference(sysAdminEClass, SYS_ADMIN__ROOM_HANDLING);
+		createEReference(sysAdminEClass, SYS_ADMIN__ROOM_TYPE_HANDLING);
 
-		makeBookingEClass = createEClass(MAKE_BOOKING);
-		createEOperation(makeBookingEClass, MAKE_BOOKING___CREATE_BOOKING);
-		createEOperation(makeBookingEClass, MAKE_BOOKING___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT);
-		createEOperation(makeBookingEClass, MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT);
-		createEOperation(makeBookingEClass, MAKE_BOOKING___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING);
-		createEOperation(makeBookingEClass, MAKE_BOOKING___CANCEL_BOOKING__BOOKING);
-
-		checkinoutEClass = createEClass(CHECKINOUT);
-		createEOperation(checkinoutEClass, CHECKINOUT___CHECK_IN__ROOMBOOKING);
-		createEOperation(checkinoutEClass, CHECKINOUT___CHECK_OUT__ROOMBOOKING);
-		createEOperation(checkinoutEClass, CHECKINOUT___FIND_BOOKINGS__STRING);
-
-		bookingHandlerEClass = createEClass(BOOKING_HANDLER);
-		createEReference(bookingHandlerEClass, BOOKING_HANDLER__BOOKING);
-
-		roomStructureEClass = createEClass(ROOM_STRUCTURE);
-		createEReference(roomStructureEClass, ROOM_STRUCTURE__ROOMS);
-		createEReference(roomStructureEClass, ROOM_STRUCTURE__ROOMTYPE);
-		createEReference(roomStructureEClass, ROOM_STRUCTURE__ROOMATTRIBUTE);
+		roomAttributeHandlingEClass = createEClass(ROOM_ATTRIBUTE_HANDLING);
+		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___ADD_ROOM_ATTRIBUTE__STRING_STRING);
+		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING);
+		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE);
 
 		roomHandlingEClass = createEClass(ROOM_HANDLING);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT);
@@ -1556,10 +1855,23 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEOperation(roomTypeHandlingEClass, ROOM_TYPE_HANDLING___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE);
 		createEOperation(roomTypeHandlingEClass, ROOM_TYPE_HANDLING___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE);
 
-		roomAttributeHandlingEClass = createEClass(ROOM_ATTRIBUTE_HANDLING);
-		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___ADD_ROOM_ATTRIBUTE__STRING_STRING);
-		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING);
-		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE);
+		feedbackReaderEClass = createEClass(FEEDBACK_READER);
+		createEOperation(feedbackReaderEClass, FEEDBACK_READER___GET_ALL_FEEDBACK);
+		createEOperation(feedbackReaderEClass, FEEDBACK_READER___GET_UNREAD_FEEDBACK);
+
+		bookingHandlerEClass = createEClass(BOOKING_HANDLER);
+		createEReference(bookingHandlerEClass, BOOKING_HANDLER__BOOKING);
+		createEReference(bookingHandlerEClass, BOOKING_HANDLER__ROOM_FETCHER);
+
+		roomFetcherEClass = createEClass(ROOM_FETCHER);
+		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_BOOKABLE_ROOMS);
+		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_ALL_ROOMS);
+		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_AVAILABLE_ROOMS);
+
+		roomStructureEClass = createEClass(ROOM_STRUCTURE);
+		createEReference(roomStructureEClass, ROOM_STRUCTURE__ROOMS);
+		createEReference(roomStructureEClass, ROOM_STRUCTURE__ROOMTYPE);
+		createEReference(roomStructureEClass, ROOM_STRUCTURE__ROOMATTRIBUTE);
 
 		feedbackHandlerEClass = createEClass(FEEDBACK_HANDLER);
 		createEReference(feedbackHandlerEClass, FEEDBACK_HANDLER__FEEDBACK);
@@ -1567,42 +1879,25 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		supportTicketHandlerEClass = createEClass(SUPPORT_TICKET_HANDLER);
 		createEReference(supportTicketHandlerEClass, SUPPORT_TICKET_HANDLER__SUPPORTTICKET);
 
-		readFeedbackEClass = createEClass(READ_FEEDBACK);
-		createEOperation(readFeedbackEClass, READ_FEEDBACK___GET_ALL_FEEDBACK);
-		createEOperation(readFeedbackEClass, READ_FEEDBACK___GET_UNREAD_FEEDBACK);
-
-		writeFeedbackEClass = createEClass(WRITE_FEEDBACK);
-		createEOperation(writeFeedbackEClass, WRITE_FEEDBACK___GIVE_FEEDBACK__STRING);
-
-		writeSupportTicketEClass = createEClass(WRITE_SUPPORT_TICKET);
-		createEOperation(writeSupportTicketEClass, WRITE_SUPPORT_TICKET___NEW_SUPPORT_TICKET__ROOM_STRING);
-
-		interactWithSupportTicketEClass = createEClass(INTERACT_WITH_SUPPORT_TICKET);
-		createEOperation(interactWithSupportTicketEClass, INTERACT_WITH_SUPPORT_TICKET___GET_UNFIXED_TICKETS);
-		createEOperation(interactWithSupportTicketEClass, INTERACT_WITH_SUPPORT_TICKET___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM);
-		createEOperation(interactWithSupportTicketEClass, INTERACT_WITH_SUPPORT_TICKET___MARK_AS_COMPLETED__SUPPORTTICKET);
-
 		cleaningHandlerEClass = createEClass(CLEANING_HANDLER);
-
-		roomFetcherEClass = createEClass(ROOM_FETCHER);
-		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_BOOKABLE_ROOMS);
-		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_ALL_ROOMS);
-
-		cleaningEClass = createEClass(CLEANING);
-		createEOperation(cleaningEClass, CLEANING___CHECK_IF_ROOM_CLEANED__STRING);
-		createEOperation(cleaningEClass, CLEANING___GET_LIST_OF_UNCLEAN_ROOMS);
-		createEOperation(cleaningEClass, CLEANING___MARK_ROOM_AS_CLEANED__ROOM);
+		createEReference(cleaningHandlerEClass, CLEANING_HANDLER__ROOM_FETCHER);
 
 		paymentHandlerEClass = createEClass(PAYMENT_HANDLER);
-
-		paymentEClass = createEClass(PAYMENT);
-		createEOperation(paymentEClass, PAYMENT___VERIFY_CREDIT_CARD__STRING);
-		createEOperation(paymentEClass, PAYMENT___DEBIT_CARD__STRING_INT);
 
 		dailyRoomBookingEClass = createEClass(DAILY_ROOM_BOOKING);
 		createEAttribute(dailyRoomBookingEClass, DAILY_ROOM_BOOKING__NBR_OF_GUESTS);
 
 		hourlyRoomBookingEClass = createEClass(HOURLY_ROOM_BOOKING);
+
+		hotelSystemEClass = createEClass(HOTEL_SYSTEM);
+		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_STAFF__STRING);
+		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_CLERK__STRING);
+		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_MANAGER__STRING);
+		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_SYSTEM_ADMINISTRATOR);
+		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_GUEST);
+
+		hotelEClass = createEClass(HOTEL);
+		createEAttribute(hotelEClass, HOTEL__NAME);
 
 		// Create enums
 		bookingStatusEEnum = createEEnum(BOOKING_STATUS);
@@ -1639,9 +1934,23 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		guestEClass.getESuperTypes().add(this.getSupportTicketWriter());
+		guestEClass.getESuperTypes().add(this.getFeedbackWriter());
+		guestEClass.getESuperTypes().add(this.getMakeBooking());
+		staffEClass.getESuperTypes().add(this.getCleaning());
+		staffEClass.getESuperTypes().add(this.getSupportTicketWriter());
+		staffEClass.getESuperTypes().add(this.getSupportTicketReader());
 		clerkEClass.getESuperTypes().add(this.getStaff());
+		clerkEClass.getESuperTypes().add(this.getReceptionHandling());
+		clerkEClass.getESuperTypes().add(this.getServiceItemhandling());
+		clerkEClass.getESuperTypes().add(this.getMakeBooking());
+		clerkEClass.getESuperTypes().add(this.getPayment());
 		managerEClass.getESuperTypes().add(this.getClerk());
 		managerEClass.getESuperTypes().add(this.getSysAdmin());
+		managerEClass.getESuperTypes().add(this.getFeedbackReader());
+		sysAdminEClass.getESuperTypes().add(this.getRoomAttributeHandling());
+		sysAdminEClass.getESuperTypes().add(this.getRoomHandling());
+		sysAdminEClass.getESuperTypes().add(this.getRoomTypeHandling());
 		roomStructureEClass.getESuperTypes().add(this.getRoomHandling());
 		roomStructureEClass.getESuperTypes().add(this.getRoomTypeHandling());
 		roomStructureEClass.getESuperTypes().add(this.getRoomAttributeHandling());
@@ -1657,80 +1966,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		initEAttribute(getGuest_Name(), theTypesPackage.getString(), "name", null, 1, 1, Guest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getGuest_Mail(), theTypesPackage.getString(), "mail", null, 0, 1, Guest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getGuest_SocialSecurityNumber(), theTypesPackage.getString(), "socialSecurityNumber", null, 0, 1, Guest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getGuest_SupportTicketWriter(), this.getSupportTicketWriter(), null, "supportTicketWriter", null, 1, 1, Guest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getGuest_MakeBooking(), this.getMakeBooking(), null, "makeBooking", null, 1, 1, Guest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getGuest_FeedbackWriter(), this.getFeedbackWriter(), null, "feedbackWriter", null, 1, 1, Guest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = initEOperation(getGuest__CreateSupportTicket__String_String(), null, "createSupportTicket", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "problemDescription", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomid", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEClass(supportTicketWriterEClass, SupportTicketWriter.class, "SupportTicketWriter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRoom_IsOccupied(), theTypesPackage.getBoolean(), "isOccupied", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRoom_RoomID(), theTypesPackage.getString(), "roomID", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRoom_NeedCleaning(), theTypesPackage.getBoolean(), "needCleaning", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoom_Roomtype(), this.getRoomType(), null, "roomtype", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEOperation(getRoom__GetReservedRoom(), null, "getReservedRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(roomTypeEClass, RoomType.class, "RoomType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRoomType_Name(), theTypesPackage.getString(), "name", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoomType_Attributes(), this.getRoomAttribute(), null, "attributes", null, 0, -1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRoomType_Price(), theTypesPackage.getInteger(), "price", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoomType_Roomattribute(), this.getRoomAttribute(), null, "roomattribute", null, 0, -1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(roomAttributeEClass, RoomAttribute.class, "RoomAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRoomAttribute_Id(), theTypesPackage.getInteger(), "id", null, 1, 1, RoomAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRoomAttribute_Name(), theTypesPackage.getString(), "name", null, 1, 1, RoomAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRoomAttribute_Description(), theTypesPackage.getString(), "description", null, 1, 1, RoomAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(feedbackEClass, Feedback.class, "Feedback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFeedback_FeedbackDescription(), theTypesPackage.getString(), "feedbackDescription", null, 1, 1, Feedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getFeedback_Rating(), theTypesPackage.getInteger(), "rating", null, 1, 1, Feedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getFeedback_Read(), theTypesPackage.getBoolean(), "read", "false", 1, 1, Feedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEOperation(getFeedback__MarkAsRead(), null, "markAsRead", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(staffEClass, Staff.class, "Staff", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStaff_StaffID(), theTypesPackage.getString(), "staffID", null, 1, 1, Staff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getStaff_Name(), theTypesPackage.getString(), "name", null, 1, 1, Staff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(bookingEClass, Booking.class, "Booking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBooking_BookingID(), theTypesPackage.getString(), "bookingID", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getBooking_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getBooking_Guest(), this.getGuest(), null, "guest", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEOperation(getBooking__CalculateCost(), theTypesPackage.getInteger(), "calculateCost", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(roomBookingEClass, RoomBooking.class, "RoomBooking", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRoomBooking_StartDate(), ecorePackage.getEDate(), "startDate", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRoomBooking_EndDate(), ecorePackage.getEDate(), "endDate", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRoomBooking_BookingStatus(), this.getBookingStatus(), "bookingStatus", "NONE", 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoomBooking_Room(), this.getRoom(), null, "room", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEOperation(getRoomBooking__CalculateCost(), theTypesPackage.getInteger(), "calculateCost", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(supportTicketEClass, SupportTicket.class, "SupportTicket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSupportTicket_ProblemDescription(), theTypesPackage.getString(), "problemDescription", null, 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getSupportTicket_RoomID(), theTypesPackage.getString(), "roomID", null, 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getSupportTicket_Fixed(), theTypesPackage.getBoolean(), "fixed", "false", 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(clerkEClass, Clerk.class, "Clerk", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(managerEClass, Manager.class, "Manager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getManager__ReadFeedback(), null, "readFeedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(sysAdminEClass, SysAdmin.class, "SysAdmin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getSysAdmin__AddRoom__Room(), theTypesPackage.getBoolean(), "addRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getSysAdmin__RemoveRoom__Room(), theTypesPackage.getBoolean(), "removeRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEOperation(getSysAdmin__CreateRoomType(), theTypesPackage.getBoolean(), "createRoomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEOperation(getSysAdmin__RemoveRoomType(), theTypesPackage.getBoolean(), "removeRoomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEOperation(getSysAdmin__SetRoomType(), null, "setRoomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		EOperation op = initEOperation(getSupportTicketWriter__NewSupportTicket__String_String(), null, "newSupportTicket", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(makeBookingEClass, MakeBooking.class, "MakeBooking", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1760,24 +2004,152 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		op = initEOperation(getMakeBooking__CancelBooking__Booking(), theTypesPackage.getBoolean(), "cancelBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEClass(checkinoutEClass, Checkinout.class, "Checkinout", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		op = initEOperation(getMakeBooking__LookupBooking__String_String(), this.getBooking(), "lookupBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "phoneNumber", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getCheckinout__CheckIn__RoomBooking(), theTypesPackage.getBoolean(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEClass(bookingEClass, Booking.class, "Booking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooking_BookingID(), theTypesPackage.getString(), "bookingID", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBooking_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBooking_Guest(), this.getGuest(), null, "guest", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBooking_Serviceitem(), this.getServiceItem(), null, "serviceitem", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEOperation(getBooking__CalculateCost(), theTypesPackage.getInteger(), "calculateCost", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(roomBookingEClass, RoomBooking.class, "RoomBooking", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRoomBooking_StartDate(), ecorePackage.getEDate(), "startDate", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoomBooking_EndDate(), ecorePackage.getEDate(), "endDate", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoomBooking_BookingStatus(), this.getBookingStatus(), "bookingStatus", "NONE", 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomBooking_Room(), this.getRoom(), null, "room", null, 1, 1, RoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEOperation(getRoomBooking__CalculateCost(), theTypesPackage.getInteger(), "calculateCost", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRoom_IsOccupied(), theTypesPackage.getBoolean(), "isOccupied", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoom_RoomID(), theTypesPackage.getString(), "roomID", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoom_NeedCleaning(), theTypesPackage.getBoolean(), "needCleaning", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoom_Roomtype(), this.getRoomType(), null, "roomtype", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(roomTypeEClass, RoomType.class, "RoomType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRoomType_Name(), theTypesPackage.getString(), "name", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoomType_Price(), theTypesPackage.getInteger(), "price", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomType_Roomattribute(), this.getRoomAttribute(), null, "roomattribute", null, 0, -1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(roomAttributeEClass, RoomAttribute.class, "RoomAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRoomAttribute_Id(), theTypesPackage.getInteger(), "id", null, 1, 1, RoomAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoomAttribute_Name(), theTypesPackage.getString(), "name", null, 1, 1, RoomAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoomAttribute_Description(), theTypesPackage.getString(), "description", null, 1, 1, RoomAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(serviceItemEClass, ServiceItem.class, "ServiceItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServiceItem_Name(), theTypesPackage.getString(), "name", null, 1, 1, ServiceItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getServiceItem_Description(), theTypesPackage.getString(), "description", null, 1, 1, ServiceItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getServiceItem_Price(), theTypesPackage.getInteger(), "price", null, 1, 1, ServiceItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(feedbackWriterEClass, FeedbackWriter.class, "FeedbackWriter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getFeedbackWriter__GiveFeedback__String(), null, "giveFeedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "feedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(feedbackEClass, Feedback.class, "Feedback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFeedback_FeedbackDescription(), theTypesPackage.getString(), "feedbackDescription", null, 1, 1, Feedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getFeedback_Rating(), theTypesPackage.getInteger(), "rating", null, 1, 1, Feedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getFeedback_Read(), theTypesPackage.getBoolean(), "read", "false", 1, 1, Feedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(staffEClass, Staff.class, "Staff", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStaff_StaffID(), theTypesPackage.getString(), "staffID", null, 1, 1, Staff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStaff_Name(), theTypesPackage.getString(), "name", null, 1, 1, Staff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getStaff_Cleaning(), this.getCleaning(), null, "cleaning", null, 1, 1, Staff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getStaff_SupportTicketReader(), this.getSupportTicketReader(), null, "supportTicketReader", null, 1, 1, Staff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getStaff_SupportTicketWriter(), this.getSupportTicketWriter(), null, "supportTicketWriter", null, 1, 1, Staff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(cleaningEClass, Cleaning.class, "Cleaning", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getCleaning__CheckIfRoomCleaned__String(), theTypesPackage.getBoolean(), "checkIfRoomCleaned", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getCleaning__GetListOfUncleanRooms(), this.getRoom(), "getListOfUncleanRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getCleaning__MarkRoomAsCleaned__Room(), null, "markRoomAsCleaned", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(supportTicketReaderEClass, SupportTicketReader.class, "SupportTicketReader", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getSupportTicketReader__GetUnfixedTickets(), this.getSupportTicket(), "getUnfixedTickets", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getSupportTicketReader__GetSupportTicketsForRoom__Room(), this.getSupportTicket(), "getSupportTicketsForRoom", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getSupportTicketReader__MarkAsCompleted__SupportTicket(), null, "markAsCompleted", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getSupportTicket(), "supportTicket", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(supportTicketEClass, SupportTicket.class, "SupportTicket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSupportTicket_ProblemDescription(), theTypesPackage.getString(), "problemDescription", null, 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSupportTicket_RoomID(), theTypesPackage.getString(), "roomID", null, 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSupportTicket_Fixed(), theTypesPackage.getBoolean(), "fixed", "false", 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(clerkEClass, Clerk.class, "Clerk", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClerk_ReceptionHandling(), this.getReceptionHandling(), null, "receptionHandling", null, 1, 1, Clerk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getClerk_ServiceItemHandling(), this.getServiceItemhandling(), null, "serviceItemHandling", null, 1, 1, Clerk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getClerk_MakeBooking(), this.getMakeBooking(), null, "makeBooking", null, 1, 1, Clerk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getClerk_Payment(), this.getPayment(), null, "payment", null, 1, 1, Clerk.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(receptionHandlingEClass, ReceptionHandling.class, "ReceptionHandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getReceptionHandling__CheckIn__RoomBooking(), theTypesPackage.getBoolean(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getCheckinout__CheckOut__RoomBooking(), theTypesPackage.getBoolean(), "checkOut", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceptionHandling__CheckOut__RoomBooking(), theTypesPackage.getBoolean(), "checkOut", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getCheckinout__FindBookings__String(), this.getBooking(), "findBookings", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceptionHandling__FindBookings__String(), this.getBooking(), "findBookings", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEClass(bookingHandlerEClass, BookingHandler.class, "BookingHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBookingHandler_Booking(), this.getBooking(), null, "booking", null, 0, -1, BookingHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		op = initEOperation(getReceptionHandling__FindActiveBooking__String(), this.getBooking(), "findActiveBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEClass(roomStructureEClass, RoomStructure.class, "RoomStructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoomStructure_Rooms(), this.getRoom(), null, "rooms", null, 0, -1, RoomStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoomStructure_Roomtype(), this.getRoomType(), null, "roomtype", null, 0, -1, RoomStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoomStructure_Roomattribute(), this.getRoomAttribute(), null, "roomattribute", null, 0, -1, RoomStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(serviceItemhandlingEClass, ServiceItemhandling.class, "ServiceItemhandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getServiceItemhandling__AddServiceItem__String_String_int(), null, "addServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getServiceItemhandling__RemoveServiceItem__ServiceItem(), null, "removeServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getServiceItem(), "serviceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getServiceItemhandling__FindAllServiceItems__Booking(), this.getServiceItem(), "findAllServiceItems", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(paymentEClass, Payment.class, "Payment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getPayment__VerifyCreditCard__String(), theTypesPackage.getBoolean(), "verifyCreditCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "creditCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getPayment__DebitCard__String_int(), theTypesPackage.getBoolean(), "debitCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "creditCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(managerEClass, Manager.class, "Manager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getManager_FeedbackReader(), this.getFeedbackReader(), null, "feedbackReader", null, 1, 1, Manager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(sysAdminEClass, SysAdmin.class, "SysAdmin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSysAdmin_RoomAttributeHandling(), this.getRoomAttributeHandling(), null, "roomAttributeHandling", null, 1, 1, SysAdmin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSysAdmin_RoomHandling(), this.getRoomHandling(), null, "roomHandling", null, 1, 1, SysAdmin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSysAdmin_RoomTypeHandling(), this.getRoomTypeHandling(), null, "roomTypeHandling", null, 1, 1, SysAdmin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(roomAttributeHandlingEClass, RoomAttributeHandling.class, "RoomAttributeHandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getRoomAttributeHandling__AddRoomAttribute__String_String(), this.getRoomAttribute(), "addRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getRoomAttributeHandling__EditRoomAttribute__RoomAttribute_String_String(), theTypesPackage.getBoolean(), "editRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "newName", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "newDescription", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getRoomAttributeHandling__RemoveRoomAttribute__RoomAttribute(), theTypesPackage.getBoolean(), "removeRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(roomHandlingEClass, RoomHandling.class, "RoomHandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1822,54 +2194,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		addEParameter(op, this.getRoomType(), "roomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEClass(roomAttributeHandlingEClass, RoomAttributeHandling.class, "RoomAttributeHandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(feedbackReaderEClass, FeedbackReader.class, "FeedbackReader", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getRoomAttributeHandling__AddRoomAttribute__String_String(), this.getRoomAttribute(), "addRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getFeedbackReader__GetAllFeedback(), this.getFeedback(), "getAllFeedback", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getRoomAttributeHandling__EditRoomAttribute__RoomAttribute_String_String(), theTypesPackage.getBoolean(), "editRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "newName", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "newDescription", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getFeedbackReader__GetUnreadFeedback(), this.getFeedback(), "getUnreadFeedback", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getRoomAttributeHandling__RemoveRoomAttribute__RoomAttribute(), theTypesPackage.getBoolean(), "removeRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(feedbackHandlerEClass, FeedbackHandler.class, "FeedbackHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFeedbackHandler_Feedback(), this.getFeedback(), null, "feedback", null, 0, -1, FeedbackHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(supportTicketHandlerEClass, SupportTicketHandler.class, "SupportTicketHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSupportTicketHandler_Supportticket(), this.getSupportTicket(), null, "supportticket", null, 0, -1, SupportTicketHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(readFeedbackEClass, ReadFeedback.class, "ReadFeedback", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getReadFeedback__GetAllFeedback(), this.getFeedback(), "getAllFeedback", 0, -1, IS_UNIQUE, !IS_ORDERED);
-
-		initEOperation(getReadFeedback__GetUnreadFeedback(), this.getFeedback(), "getUnreadFeedback", 0, -1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(writeFeedbackEClass, WriteFeedback.class, "WriteFeedback", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getWriteFeedback__GiveFeedback__String(), null, "giveFeedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "feedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(writeSupportTicketEClass, WriteSupportTicket.class, "WriteSupportTicket", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getWriteSupportTicket__NewSupportTicket__Room_String(), null, "newSupportTicket", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(interactWithSupportTicketEClass, InteractWithSupportTicket.class, "InteractWithSupportTicket", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getInteractWithSupportTicket__GetUnfixedTickets(), this.getSupportTicket(), "getUnfixedTickets", 0, -1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getInteractWithSupportTicket__GetSupportTicketsForRoom__Room(), this.getSupportTicket(), "getSupportTicketsForRoom", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getInteractWithSupportTicket__MarkAsCompleted__SupportTicket(), null, "markAsCompleted", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getSupportTicket(), "supportTicket", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(cleaningHandlerEClass, CleaningHandler.class, "CleaningHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bookingHandlerEClass, BookingHandler.class, "BookingHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBookingHandler_Booking(), this.getBooking(), null, "booking", null, 0, -1, BookingHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBookingHandler_RoomFetcher(), this.getRoomFetcher(), null, "roomFetcher", null, 1, 1, BookingHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(roomFetcherEClass, RoomFetcher.class, "RoomFetcher", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1877,31 +2210,46 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEOperation(getRoomFetcher__GetAllRooms(), this.getRoom(), "getAllRooms", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEClass(cleaningEClass, Cleaning.class, "Cleaning", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEOperation(getRoomFetcher__GetAvailableRooms(), this.getRoom(), "getAvailableRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getCleaning__CheckIfRoomCleaned__String(), theTypesPackage.getBoolean(), "checkIfRoomCleaned", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEClass(roomStructureEClass, RoomStructure.class, "RoomStructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRoomStructure_Rooms(), this.getRoom(), null, "rooms", null, 0, -1, RoomStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomStructure_Roomtype(), this.getRoomType(), null, "roomtype", null, 0, -1, RoomStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomStructure_Roomattribute(), this.getRoomAttribute(), null, "roomattribute", null, 0, -1, RoomStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEOperation(getCleaning__GetListOfUncleanRooms(), this.getRoom(), "getListOfUncleanRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEClass(feedbackHandlerEClass, FeedbackHandler.class, "FeedbackHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFeedbackHandler_Feedback(), this.getFeedback(), null, "feedback", null, 0, -1, FeedbackHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getCleaning__MarkRoomAsCleaned__Room(), null, "markRoomAsCleaned", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEClass(supportTicketHandlerEClass, SupportTicketHandler.class, "SupportTicketHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSupportTicketHandler_Supportticket(), this.getSupportTicket(), null, "supportticket", null, 0, -1, SupportTicketHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(cleaningHandlerEClass, CleaningHandler.class, "CleaningHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCleaningHandler_RoomFetcher(), this.getRoomFetcher(), null, "roomFetcher", null, 1, 1, CleaningHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(paymentHandlerEClass, PaymentHandler.class, "PaymentHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(paymentEClass, Payment.class, "Payment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getPayment__VerifyCreditCard__String(), theTypesPackage.getBoolean(), "verifyCreditCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "creditCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getPayment__DebitCard__String_int(), theTypesPackage.getBoolean(), "debitCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "creditCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(dailyRoomBookingEClass, DailyRoomBooking.class, "DailyRoomBooking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDailyRoomBooking_NbrOfGuests(), theTypesPackage.getInteger(), "nbrOfGuests", null, 1, 1, DailyRoomBooking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(hourlyRoomBookingEClass, HourlyRoomBooking.class, "HourlyRoomBooking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(hotelSystemEClass, HotelSystem.class, "HotelSystem", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getHotelSystem__GetStaff__String(), this.getStaff(), "getStaff", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "staffID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getHotelSystem__GetClerk__String(), this.getClerk(), "getClerk", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "staffID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getHotelSystem__GetManager__String(), this.getManager(), "getManager", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "staffID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getHotelSystem__GetSystemAdministrator(), this.getSysAdmin(), "getSystemAdministrator", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getHotelSystem__GetGuest(), this.getGuest(), "getGuest", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEClass(hotelEClass, Hotel.class, "Hotel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHotel_Name(), theTypesPackage.getString(), "name", null, 1, 1, Hotel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(bookingStatusEEnum, BookingStatus.class, "BookingStatus");
@@ -1912,26 +2260,6 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// http://www.eclipse.org/uml2/2.0.0/UML
-		createUMLAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/uml2/2.0.0/UML</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createUMLAnnotations() {
-		String source = "http://www.eclipse.org/uml2/2.0.0/UML";	
-		addAnnotation
-		  (checkinoutEClass, 
-		   source, 
-		   new String[] {
-			 "originalName", "Check-in/-out"
-		   });
 	}
 
 } //RootElementPackageImpl

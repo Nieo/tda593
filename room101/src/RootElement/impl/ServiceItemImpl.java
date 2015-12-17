@@ -2,39 +2,32 @@
  */
 package RootElement.impl;
 
-import RootElement.RoomAttribute;
-import RootElement.RoomType;
 import RootElement.RootElementPackage;
-
-import java.util.Collection;
+import RootElement.ServiceItem;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Room Type</b></em>'.
+ * An implementation of the model object '<em><b>Service Item</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link RootElement.impl.RoomTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link RootElement.impl.RoomTypeImpl#getPrice <em>Price</em>}</li>
- *   <li>{@link RootElement.impl.RoomTypeImpl#getRoomattribute <em>Roomattribute</em>}</li>
+ *   <li>{@link RootElement.impl.ServiceItemImpl#getName <em>Name</em>}</li>
+ *   <li>{@link RootElement.impl.ServiceItemImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link RootElement.impl.ServiceItemImpl#getPrice <em>Price</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomType {
+public class ServiceItemImpl extends MinimalEObjectImpl.Container implements ServiceItem {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -54,6 +47,26 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute.
@@ -76,21 +89,11 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	protected int price = PRICE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRoomattribute() <em>Roomattribute</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomattribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RoomAttribute> roomattribute;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RoomTypeImpl() {
+	protected ServiceItemImpl() {
 		super();
 	}
 
@@ -101,7 +104,7 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RootElementPackage.Literals.ROOM_TYPE;
+		return RootElementPackage.Literals.SERVICE_ITEM;
 	}
 
 	/**
@@ -122,7 +125,28 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM_TYPE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SERVICE_ITEM__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SERVICE_ITEM__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -143,19 +167,7 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 		int oldPrice = price;
 		price = newPrice;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM_TYPE__PRICE, oldPrice, price));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RoomAttribute> getRoomattribute() {
-		if (roomattribute == null) {
-			roomattribute = new EObjectResolvingEList<RoomAttribute>(RoomAttribute.class, this, RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE);
-		}
-		return roomattribute;
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SERVICE_ITEM__PRICE, oldPrice, price));
 	}
 
 	/**
@@ -166,12 +178,12 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RootElementPackage.ROOM_TYPE__NAME:
+			case RootElementPackage.SERVICE_ITEM__NAME:
 				return getName();
-			case RootElementPackage.ROOM_TYPE__PRICE:
+			case RootElementPackage.SERVICE_ITEM__DESCRIPTION:
+				return getDescription();
+			case RootElementPackage.SERVICE_ITEM__PRICE:
 				return getPrice();
-			case RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE:
-				return getRoomattribute();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -181,19 +193,17 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RootElementPackage.ROOM_TYPE__NAME:
+			case RootElementPackage.SERVICE_ITEM__NAME:
 				setName((String)newValue);
 				return;
-			case RootElementPackage.ROOM_TYPE__PRICE:
-				setPrice((Integer)newValue);
+			case RootElementPackage.SERVICE_ITEM__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
-			case RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE:
-				getRoomattribute().clear();
-				getRoomattribute().addAll((Collection<? extends RoomAttribute>)newValue);
+			case RootElementPackage.SERVICE_ITEM__PRICE:
+				setPrice((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,14 +217,14 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RootElementPackage.ROOM_TYPE__NAME:
+			case RootElementPackage.SERVICE_ITEM__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case RootElementPackage.ROOM_TYPE__PRICE:
-				setPrice(PRICE_EDEFAULT);
+			case RootElementPackage.SERVICE_ITEM__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE:
-				getRoomattribute().clear();
+			case RootElementPackage.SERVICE_ITEM__PRICE:
+				setPrice(PRICE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -228,12 +238,12 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RootElementPackage.ROOM_TYPE__NAME:
+			case RootElementPackage.SERVICE_ITEM__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case RootElementPackage.ROOM_TYPE__PRICE:
+			case RootElementPackage.SERVICE_ITEM__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case RootElementPackage.SERVICE_ITEM__PRICE:
 				return price != PRICE_EDEFAULT;
-			case RootElementPackage.ROOM_TYPE__ROOMATTRIBUTE:
-				return roomattribute != null && !roomattribute.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -250,10 +260,12 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", description: ");
+		result.append(description);
 		result.append(", price: ");
 		result.append(price);
 		result.append(')');
 		return result.toString();
 	}
 
-} //RoomTypeImpl
+} //ServiceItemImpl

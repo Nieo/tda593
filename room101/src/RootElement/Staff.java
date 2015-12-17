@@ -2,8 +2,6 @@
  */
 package RootElement;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Staff</b></em>'.
@@ -15,13 +13,16 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link RootElement.Staff#getStaffID <em>Staff ID</em>}</li>
  *   <li>{@link RootElement.Staff#getName <em>Name</em>}</li>
+ *   <li>{@link RootElement.Staff#getCleaning <em>Cleaning</em>}</li>
+ *   <li>{@link RootElement.Staff#getSupportTicketReader <em>Support Ticket Reader</em>}</li>
+ *   <li>{@link RootElement.Staff#getSupportTicketWriter <em>Support Ticket Writer</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getStaff()
  * @model abstract="true"
  * @generated
  */
-public interface Staff extends EObject {
+public interface Staff extends Cleaning, SupportTicketWriter, SupportTicketReader {
 	/**
 	 * Returns the value of the '<em><b>Staff ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,5 +74,83 @@ public interface Staff extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Cleaning</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cleaning</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cleaning</em>' reference.
+	 * @see #setCleaning(Cleaning)
+	 * @see RootElement.RootElementPackage#getStaff_Cleaning()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	Cleaning getCleaning();
+
+	/**
+	 * Sets the value of the '{@link RootElement.Staff#getCleaning <em>Cleaning</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cleaning</em>' reference.
+	 * @see #getCleaning()
+	 * @generated
+	 */
+	void setCleaning(Cleaning value);
+
+	/**
+	 * Returns the value of the '<em><b>Support Ticket Reader</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Support Ticket Reader</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Support Ticket Reader</em>' reference.
+	 * @see #setSupportTicketReader(SupportTicketReader)
+	 * @see RootElement.RootElementPackage#getStaff_SupportTicketReader()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	SupportTicketReader getSupportTicketReader();
+
+	/**
+	 * Sets the value of the '{@link RootElement.Staff#getSupportTicketReader <em>Support Ticket Reader</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Support Ticket Reader</em>' reference.
+	 * @see #getSupportTicketReader()
+	 * @generated
+	 */
+	void setSupportTicketReader(SupportTicketReader value);
+
+	/**
+	 * Returns the value of the '<em><b>Support Ticket Writer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Support Ticket Writer</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Support Ticket Writer</em>' reference.
+	 * @see #setSupportTicketWriter(SupportTicketWriter)
+	 * @see RootElement.RootElementPackage#getStaff_SupportTicketWriter()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	SupportTicketWriter getSupportTicketWriter();
+
+	/**
+	 * Sets the value of the '{@link RootElement.Staff#getSupportTicketWriter <em>Support Ticket Writer</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Support Ticket Writer</em>' reference.
+	 * @see #getSupportTicketWriter()
+	 * @generated
+	 */
+	void setSupportTicketWriter(SupportTicketWriter value);
 
 } // Staff

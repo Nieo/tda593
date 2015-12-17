@@ -8,37 +8,37 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Room Fetcher</b></em>'.
+ * A representation of the model object '<em><b>Support Ticket Reader</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see RootElement.RootElementPackage#getRoomFetcher()
+ * @see RootElement.RootElementPackage#getSupportTicketReader()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface RoomFetcher extends EObject {
+public interface SupportTicketReader extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" ordered="false"
 	 * @generated
 	 */
-	EList<Room> getBookableRooms();
+	EList<SupportTicket> getUnfixedTickets();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" ordered="false"
+	 * @model ordered="false" roomRequired="true" roomOrdered="false"
 	 * @generated
 	 */
-	Room getAllRooms();
+	EList<SupportTicket> getSupportTicketsForRoom(Room room);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" ordered="false"
+	 * @model supportTicketRequired="true" supportTicketOrdered="false"
 	 * @generated
 	 */
-	EList<Room> getAvailableRooms();
+	void markAsCompleted(SupportTicket supportTicket);
 
-} // RoomFetcher
+} // SupportTicketReader
