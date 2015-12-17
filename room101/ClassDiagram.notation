@@ -1247,7 +1247,7 @@
     <element xmi:type="uml:Interface" href="ClassDiagram.uml#_iI9EoKJCEeW1I_MccVmXPQ"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iJP_kaJCEeW1I_MccVmXPQ" x="2517" y="1188" width="290" height="125"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_TDr08KMOEeWIQtYXxhAt_g" type="2004">
+  <children xmi:type="notation:Shape" xmi:id="_TDr08KMOEeWIQtYXxhAt_g" type="2004" fillColor="14538691">
     <children xmi:type="notation:DecorationNode" xmi:id="_TDtqIKMOEeWIQtYXxhAt_g" type="5011"/>
     <children xmi:type="notation:DecorationNode" xmi:id="_TDtqIaMOEeWIQtYXxhAt_g" type="8507">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_TDtqIqMOEeWIQtYXxhAt_g" y="5"/>
@@ -1293,7 +1293,7 @@
     <element xmi:type="uml:Interface" href="ClassDiagram.uml#_TDiD8KMOEeWIQtYXxhAt_g"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TDr08aMOEeWIQtYXxhAt_g" x="2417" y="-110" width="371" height="163"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_kqAycKMOEeWIQtYXxhAt_g" type="2008">
+  <children xmi:type="notation:Shape" xmi:id="_kqAycKMOEeWIQtYXxhAt_g" type="2008" fillColor="14538691">
     <children xmi:type="notation:DecorationNode" xmi:id="_kqAycqMOEeWIQtYXxhAt_g" type="5029"/>
     <children xmi:type="notation:DecorationNode" xmi:id="_kqAyc6MOEeWIQtYXxhAt_g" type="8510">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_kqBZgKMOEeWIQtYXxhAt_g" y="5"/>
