@@ -118,7 +118,9 @@
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_SGEMcJhVEeWMcJhD21JL8g" name="RoomTypeHandling">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_lUlYgKTGEeWGItiBmqI77w" name="fbggtdmdtdtj"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_gwVMAJhWEeWMcJhD21JL8g" name="addRoomType">
+      <ownedRule xmi:type="uml:IntervalConstraint" xmi:id="_mJCUQKTGEeWGItiBmqI77w" constrainedElement="_lUlYgKTGEeWGItiBmqI77w"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_CuWM0JhbEeWMcJhD21JL8g" name="name">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
@@ -444,7 +446,14 @@
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_q33qoKJEEeW1I_MccVmXPQ" name="ServiceItemhandling">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_q33qoaJEEeW1I_MccVmXPQ" name="addServiceItem">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_q33qoaJEEeW1I_MccVmXPQ" name="addServiceItem" postcondition="_6OKkkKTIEeWGItiBmqI77w" precondition="_PnikoKTDEeWGItiBmqI77w _FGvikKTHEeWGItiBmqI77w">
+      <ownedRule xmi:type="uml:IntervalConstraint" xmi:id="_PnikoKTDEeWGItiBmqI77w" name="price>=0" constrainedElement="_q33qpKJEEeW1I_MccVmXPQ">
+        <specification xmi:type="uml:Interval" xmi:id="_ecoJkKTDEeWGItiBmqI77w" name="MoreThanZero" min="_bmj7YKTDEeWGItiBmqI77w">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_FGvikKTHEeWGItiBmqI77w" name="NameCannotBeEmpty"/>
+      <ownedRule xmi:type="uml:InteractionConstraint" xmi:id="_6OKkkKTIEeWGItiBmqI77w" name="ServiceItemHasBeenAdded"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_q33qoqJEEeW1I_MccVmXPQ" name="name">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
@@ -469,4 +478,5 @@
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
+  <packagedElement xmi:type="uml:LiteralInteger" xmi:id="_bmj7YKTDEeWGItiBmqI77w" name="ZERO"/>
 </uml:Model>
