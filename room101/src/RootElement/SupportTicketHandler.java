@@ -4,8 +4,6 @@ package RootElement;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Support Ticket Handler</b></em>'.
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SupportTicketHandler extends EObject {
+public interface SupportTicketHandler extends SupportTicketReader, SupportTicketWriter {
 	/**
 	 * Returns the value of the '<em><b>Supportticket</b></em>' reference list.
 	 * The list contents are of type {@link RootElement.SupportTicket}.

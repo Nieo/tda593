@@ -104,6 +104,10 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createServiceItemAdapter();
 			}
 			@Override
+			public Adapter caseServiceItemhandling(ServiceItemhandling object) {
+				return createServiceItemhandlingAdapter();
+			}
+			@Override
 			public Adapter caseFeedbackWriter(FeedbackWriter object) {
 				return createFeedbackWriterAdapter();
 			}
@@ -134,10 +138,6 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseReceptionHandling(ReceptionHandling object) {
 				return createReceptionHandlingAdapter();
-			}
-			@Override
-			public Adapter caseServiceItemhandling(ServiceItemhandling object) {
-				return createServiceItemhandlingAdapter();
 			}
 			@Override
 			public Adapter casePayment(Payment object) {

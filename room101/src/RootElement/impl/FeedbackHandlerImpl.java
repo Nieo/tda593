@@ -4,8 +4,10 @@ package RootElement.impl;
 
 import RootElement.Feedback;
 import RootElement.FeedbackHandler;
+import RootElement.FeedbackWriter;
 import RootElement.RootElementPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
@@ -76,6 +78,39 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Feedback> getAllFeedback() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Feedback> getUnreadFeedback() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void giveFeedback(String feedback) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -129,6 +164,41 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 				return feedback != null && !feedback.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == FeedbackWriter.class) {
+			switch (baseOperationID) {
+				case RootElementPackage.FEEDBACK_WRITER___GIVE_FEEDBACK__STRING: return RootElementPackage.FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RootElementPackage.FEEDBACK_HANDLER___GET_ALL_FEEDBACK:
+				return getAllFeedback();
+			case RootElementPackage.FEEDBACK_HANDLER___GET_UNREAD_FEEDBACK:
+				return getUnreadFeedback();
+			case RootElementPackage.FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING:
+				giveFeedback((String)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //FeedbackHandlerImpl

@@ -5,6 +5,7 @@ package RootElement.impl;
 import RootElement.Room;
 import RootElement.RoomAttribute;
 import RootElement.RoomAttributeHandling;
+import RootElement.RoomFetcher;
 import RootElement.RoomStructure;
 import RootElement.RoomType;
 import RootElement.RoomTypeHandling;
@@ -282,6 +283,39 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Room> getBookableRooms() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Room> getAllCleanableRooms() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Room> getAvailableRooms() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -385,6 +419,14 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				default: return -1;
 			}
 		}
+		if (baseClass == RoomFetcher.class) {
+			switch (baseOperationID) {
+				case RootElementPackage.ROOM_FETCHER___GET_BOOKABLE_ROOMS: return RootElementPackage.ROOM_STRUCTURE___GET_BOOKABLE_ROOMS;
+				case RootElementPackage.ROOM_FETCHER___GET_ALL_CLEANABLE_ROOMS: return RootElementPackage.ROOM_STRUCTURE___GET_ALL_CLEANABLE_ROOMS;
+				case RootElementPackage.ROOM_FETCHER___GET_AVAILABLE_ROOMS: return RootElementPackage.ROOM_STRUCTURE___GET_AVAILABLE_ROOMS;
+				default: return -1;
+			}
+		}
 		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
@@ -425,6 +467,12 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				return editRoomAttribute((RoomAttribute)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 			case RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE:
 				return removeRoomAttribute((RoomAttribute)arguments.get(0));
+			case RootElementPackage.ROOM_STRUCTURE___GET_BOOKABLE_ROOMS:
+				return getBookableRooms();
+			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_CLEANABLE_ROOMS:
+				return getAllCleanableRooms();
+			case RootElementPackage.ROOM_STRUCTURE___GET_AVAILABLE_ROOMS:
+				return getAvailableRooms();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
