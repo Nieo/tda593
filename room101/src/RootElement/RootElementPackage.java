@@ -3440,7 +3440,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL__NAME = 0;
+	int HOTEL__NAME = HOTEL_SYSTEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Hotel</em>' class.
@@ -3449,7 +3449,52 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL_FEATURE_COUNT = 1;
+	int HOTEL_FEATURE_COUNT = HOTEL_SYSTEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Staff</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_STAFF__STRING = HOTEL_SYSTEM___GET_STAFF__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Clerk</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_CLERK__STRING = HOTEL_SYSTEM___GET_CLERK__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Manager</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_MANAGER__STRING = HOTEL_SYSTEM___GET_MANAGER__STRING;
+
+	/**
+	 * The operation id for the '<em>Get System Administrator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_SYSTEM_ADMINISTRATOR = HOTEL_SYSTEM___GET_SYSTEM_ADMINISTRATOR;
+
+	/**
+	 * The operation id for the '<em>Get Guest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_GUEST = HOTEL_SYSTEM___GET_GUEST;
 
 	/**
 	 * The number of operations of the '<em>Hotel</em>' class.
@@ -3458,7 +3503,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL_OPERATION_COUNT = 0;
+	int HOTEL_OPERATION_COUNT = HOTEL_SYSTEM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link RootElement.BookingStatus <em>Booking Status</em>}' enum.

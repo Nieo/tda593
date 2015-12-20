@@ -1966,6 +1966,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		paymentHandlerEClass.getESuperTypes().add(this.getPayment());
 		dailyRoomBookingEClass.getESuperTypes().add(this.getRoomBooking());
 		hourlyRoomBookingEClass.getESuperTypes().add(this.getRoomBooking());
+		hotelEClass.getESuperTypes().add(this.getHotelSystem());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(guestEClass, Guest.class, "Guest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

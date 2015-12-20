@@ -325,6 +325,7 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.HOTEL: {
 				Hotel hotel = (Hotel)theEObject;
 				T result = caseHotel(hotel);
+				if (result == null) result = caseHotelSystem(hotel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

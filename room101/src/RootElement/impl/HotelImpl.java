@@ -2,11 +2,18 @@
  */
 package RootElement.impl;
 
+import RootElement.Clerk;
+import RootElement.Guest;
 import RootElement.Hotel;
+import RootElement.Manager;
 import RootElement.RootElementPackage;
 
+import RootElement.Staff;
+import RootElement.SysAdmin;
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -91,6 +98,61 @@ public class HotelImpl extends MinimalEObjectImpl.Container implements Hotel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Staff getStaff(String staffID) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Clerk getClerk(String staffID) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Manager getManager(String staffID) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SysAdmin getSystemAdministrator() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Guest getGuest() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -142,6 +204,28 @@ public class HotelImpl extends MinimalEObjectImpl.Container implements Hotel {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RootElementPackage.HOTEL___GET_STAFF__STRING:
+				return getStaff((String)arguments.get(0));
+			case RootElementPackage.HOTEL___GET_CLERK__STRING:
+				return getClerk((String)arguments.get(0));
+			case RootElementPackage.HOTEL___GET_MANAGER__STRING:
+				return getManager((String)arguments.get(0));
+			case RootElementPackage.HOTEL___GET_SYSTEM_ADMINISTRATOR:
+				return getSystemAdministrator();
+			case RootElementPackage.HOTEL___GET_GUEST:
+				return getGuest();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
