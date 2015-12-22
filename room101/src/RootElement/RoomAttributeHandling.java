@@ -2,6 +2,7 @@
  */
 package RootElement;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -38,5 +39,13 @@ public interface RoomAttributeHandling extends EObject {
 	 * @generated
 	 */
 	boolean removeRoomAttribute(RoomAttribute roomAttribute);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" ordered="false"
+	 * @generated
+	 */
+	EList<RoomAttribute> getAllRoomAttributes();
 
 } // RoomAttributeHandling

@@ -8,8 +8,6 @@ import RootElement.RoomFetcher;
 import RootElement.RootElementPackage;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -113,7 +111,7 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 		for(Room r: roomFetcher.getAllCleanableRooms()){
 
 			//Checks if the room is the same and if it needs cleaning
-			if(r.getRoomID().equals(roomID) && r.isNeedCleaning()){
+			if(r.getRoomName().equals(roomID) && r.isNeedCleaning()){
 				isRoomClean = r.isNeedCleaning(); 
 			}
 		}
@@ -160,9 +158,9 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case RootElementPackage.CLEANING_HANDLER__ROOM_FETCHER:
-			if (resolve) return getRoomFetcher();
-			return basicGetRoomFetcher();
+			case RootElementPackage.CLEANING_HANDLER__ROOM_FETCHER:
+				if (resolve) return getRoomFetcher();
+				return basicGetRoomFetcher();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,9 +173,9 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case RootElementPackage.CLEANING_HANDLER__ROOM_FETCHER:
-			setRoomFetcher((RoomFetcher)newValue);
-			return;
+			case RootElementPackage.CLEANING_HANDLER__ROOM_FETCHER:
+				setRoomFetcher((RoomFetcher)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -190,9 +188,9 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case RootElementPackage.CLEANING_HANDLER__ROOM_FETCHER:
-			setRoomFetcher((RoomFetcher)null);
-			return;
+			case RootElementPackage.CLEANING_HANDLER__ROOM_FETCHER:
+				setRoomFetcher((RoomFetcher)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,8 +203,8 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case RootElementPackage.CLEANING_HANDLER__ROOM_FETCHER:
-			return roomFetcher != null;
+			case RootElementPackage.CLEANING_HANDLER__ROOM_FETCHER:
+				return roomFetcher != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -219,13 +217,13 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case RootElementPackage.CLEANING_HANDLER___CHECK_IF_ROOM_CLEANED__STRING:
-			return checkIfRoomCleaned((String)arguments.get(0));
-		case RootElementPackage.CLEANING_HANDLER___GET_LIST_OF_UNCLEAN_ROOMS:
-			return getListOfUncleanRooms();
-		case RootElementPackage.CLEANING_HANDLER___MARK_ROOM_AS_CLEANED__ROOM:
-			markRoomAsCleaned((Room)arguments.get(0));
-			return null;
+			case RootElementPackage.CLEANING_HANDLER___CHECK_IF_ROOM_CLEANED__STRING:
+				return checkIfRoomCleaned((String)arguments.get(0));
+			case RootElementPackage.CLEANING_HANDLER___GET_LIST_OF_UNCLEAN_ROOMS:
+				return getListOfUncleanRooms();
+			case RootElementPackage.CLEANING_HANDLER___MARK_ROOM_AS_CLEANED__ROOM:
+				markRoomAsCleaned((Room)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

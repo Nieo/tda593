@@ -2,6 +2,12 @@
  */
 package RootElement.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import RootElement.Room;
 import RootElement.RoomAttribute;
 import RootElement.RoomAttributeHandling;
@@ -10,68 +16,184 @@ import RootElement.RoomType;
 import RootElement.RoomTypeHandling;
 import RootElement.RootElementPackage;
 import RootElement.SysAdmin;
-import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Sys Admin</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link RootElement.impl.SysAdminImpl#getRoomAttributeHandling <em>Room Attribute Handling</em>}</li>
- *   <li>{@link RootElement.impl.SysAdminImpl#getRoomHandling <em>Room Handling</em>}</li>
- *   <li>{@link RootElement.impl.SysAdminImpl#getRoomTypeHandling <em>Room Type Handling</em>}</li>
- * </ul>
- *
- * @generated
+ * The SysAdmin gives access for certain functionality the concrete
+ * actor system administrator should be able to do.
+ * 
+ * For testing purposes, the SysAdmin can gain access to a hotel structure
+ * by just providing its name as into the different room entity handlers
+ * (RoomHandler, RoomTypeHandler, RoomAttributeHandler). This feature should
+ * be turned off before shipping a product for any commercial market.
+ * 
+ * @author Matz Larsson
  */
 public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdmin {
 	/**
-	 * The cached value of the '{@link #getRoomAttributeHandling() <em>Room Attribute Handling</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomAttributeHandling()
-	 * @generated
-	 * @ordered
+	 * Handler for the room attributes.
+	 * @generated NOT
 	 */
-	protected RoomAttributeHandling roomAttributeHandling;
+	private RoomAttributeHandling roomAttributeHandling;
 
 	/**
-	 * The cached value of the '{@link #getRoomHandling() <em>Room Handling</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomHandling()
-	 * @generated
-	 * @ordered
+	 * Handler for the rooms.
+	 * @generated NOT
 	 */
-	protected RoomHandling roomHandling;
+	private RoomHandling roomHandling;
 
 	/**
-	 * The cached value of the '{@link #getRoomTypeHandling() <em>Room Type Handling</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomTypeHandling()
-	 * @generated
-	 * @ordered
+	 * Handler for the room types.
+	 * @generated NOT
 	 */
-	protected RoomTypeHandling roomTypeHandling;
+	private RoomTypeHandling roomTypeHandling;
+	
+	/**
+	 * Creates a sysadmin user that gets access to the room structure of
+	 * the hotel with the default name, as defined in RoomSetupFactory.
+	 * @generated NOT
+	 */
+	protected SysAdminImpl(){
+		this(RoomSetupFactory.DEFAULT_HOTELNAME);
+	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Creates a sysadmin user that gets access to the room structure of
+	 * the hotel with the given name.
+	 * @generated NOT
 	 */
-	protected SysAdminImpl() {
+	protected SysAdminImpl(String hotelName) {
 		super();
+		roomHandling = RoomSetupFactory.createRoomHandling(hotelName);
+		roomTypeHandling = RoomSetupFactory.createRoomTypeHandling(hotelName);
+		roomAttributeHandling = RoomSetupFactory.createRoomAttributeHandling(hotelName);
+	}
+
+	/**
+	 * Adds a room with the given properties to the list of available
+	 * rooms at the current hotel.
+	 * @generated NOT
+	 */
+	public Room addRoom(RoomType roomType, String roomName) {
+		return roomHandling.addRoom(roomType, roomName);
+	}
+
+	/**
+	 * Attempts to remove the room with the given name from the list
+	 * of available rooms of the current hotel.
+	 * @generated NOT
+	 */
+	public boolean removeRoom(String roomName) {
+		return roomHandling.removeRoom(roomName);
+	}
+
+	/**
+	 * Updates the room with the given name with the new parameters.
+	 * @generated NOT
+	 */
+	public boolean editRoom(String roomName, RoomType newRoomType, String newRoomName) {
+		return roomHandling.editRoom(roomName, newRoomType, newRoomName);
+	}
+
+	/**
+	 * Searches for a room among the available at the hotel. If it does
+	 * not find it, null is returned.
+	 * @generated NOT
+	 */
+	public Room findRoom(String roomName) {
+		return roomHandling.findRoom(roomName);
+	}
+
+	/**
+	 * Retrieves all rooms available at the hotel
+	 * @generated NOT
+	 */
+	public EList<Room> getAllRooms() {
+		return roomHandling.getAllRooms();
+	}
+
+	/**
+	 * Adds a room type with the given properties to the list of available
+	 * room types at the current hotel.
+	 * @generated NOT
+	 */
+	public RoomType addRoomType(String name, int cost) {
+		return roomTypeHandling.addRoomType(name, cost);
+	}
+
+	/**
+	 * Updates the given room type with the new parameters.
+	 * @generated NOT
+	 */
+	public boolean editRoomType(RoomType roomType, String newName, int newCost) {
+		return roomTypeHandling.editRoomType(roomType, newName, newCost);
+	}
+
+	/**
+	 * Attempts to remove the given room type from the list
+	 * of available room types of the current hotel.
+	 * @generated NOT
+	 */
+	public boolean removeRoomType(RoomType roomType) {
+		return roomTypeHandling.removeRoomType(roomType);
+	}
+
+	/**
+	 * Retrieves a list of all available room types at the current hotel.
+	 * @generated NOT
+	 */
+	public EList<RoomType> getAllRoomTypes() {
+		return roomTypeHandling.getAllRoomTypes();
+	}
+
+	/**
+	 * Binds a room attribute to a room type.
+	 * @generated NOT
+	 */
+	public boolean addAttributeToRoomType(RoomType roomType, RoomAttribute roomAttribute) {
+		return roomTypeHandling.addAttributeToRoomType(roomType, roomAttribute);
+	}
+
+	/**
+	 * Unbinds a room attribute from a room type
+	 * @generated NOT
+	 */
+	public boolean removeAttributeFromRoomType(RoomType roomType, RoomAttribute roomAttribute) {
+		return roomTypeHandling.removeAttributeFromRoomType(roomType, roomAttribute);
+	}
+
+	/**
+	 * Adds a room attribute with the given properties to the list of available
+	 * room attributes at the current hotel.
+	 * @generated NOT
+	 */
+	public RoomAttribute addRoomAttribute(String name, String description) {
+		return roomAttributeHandling.addRoomAttribute(name, description);
+	}
+
+	/**
+	 * Updates the given room attribute with the new parameters.
+	 * @generated NOT
+	 */
+	public boolean editRoomAttribute(RoomAttribute roomAttribute, String newName, String newDescription) {
+		return roomAttributeHandling.editRoomAttribute(roomAttribute, newName, newDescription);
+	}
+
+	/**
+	 * Attempts to remove the given room attribute from the list
+	 * of available room attributes of the current hotel.
+	 * @generated NOT
+	 */
+	public boolean removeRoomAttribute(RoomAttribute roomAttribute) {
+		return roomAttributeHandling.removeRoomAttribute(roomAttribute);
+	}
+
+	/**
+	 * Retrieves all room attributes of the current hotel
+	 * @generated NOT
+	 */
+	public EList<RoomAttribute> getAllRoomAttributes() {
+		return roomAttributeHandling.getAllRoomAttributes();
 	}
 
 	/**
@@ -83,356 +205,7 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 	protected EClass eStaticClass() {
 		return RootElementPackage.Literals.SYS_ADMIN;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomAttributeHandling getRoomAttributeHandling() {
-		if (roomAttributeHandling != null && roomAttributeHandling.eIsProxy()) {
-			InternalEObject oldRoomAttributeHandling = (InternalEObject)roomAttributeHandling;
-			roomAttributeHandling = (RoomAttributeHandling)eResolveProxy(oldRoomAttributeHandling);
-			if (roomAttributeHandling != oldRoomAttributeHandling) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING, oldRoomAttributeHandling, roomAttributeHandling));
-			}
-		}
-		return roomAttributeHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomAttributeHandling basicGetRoomAttributeHandling() {
-		return roomAttributeHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoomAttributeHandling(RoomAttributeHandling newRoomAttributeHandling) {
-		RoomAttributeHandling oldRoomAttributeHandling = roomAttributeHandling;
-		roomAttributeHandling = newRoomAttributeHandling;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING, oldRoomAttributeHandling, roomAttributeHandling));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomHandling getRoomHandling() {
-		if (roomHandling != null && roomHandling.eIsProxy()) {
-			InternalEObject oldRoomHandling = (InternalEObject)roomHandling;
-			roomHandling = (RoomHandling)eResolveProxy(oldRoomHandling);
-			if (roomHandling != oldRoomHandling) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.SYS_ADMIN__ROOM_HANDLING, oldRoomHandling, roomHandling));
-			}
-		}
-		return roomHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomHandling basicGetRoomHandling() {
-		return roomHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoomHandling(RoomHandling newRoomHandling) {
-		RoomHandling oldRoomHandling = roomHandling;
-		roomHandling = newRoomHandling;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SYS_ADMIN__ROOM_HANDLING, oldRoomHandling, roomHandling));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomTypeHandling getRoomTypeHandling() {
-		if (roomTypeHandling != null && roomTypeHandling.eIsProxy()) {
-			InternalEObject oldRoomTypeHandling = (InternalEObject)roomTypeHandling;
-			roomTypeHandling = (RoomTypeHandling)eResolveProxy(oldRoomTypeHandling);
-			if (roomTypeHandling != oldRoomTypeHandling) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.SYS_ADMIN__ROOM_TYPE_HANDLING, oldRoomTypeHandling, roomTypeHandling));
-			}
-		}
-		return roomTypeHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomTypeHandling basicGetRoomTypeHandling() {
-		return roomTypeHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoomTypeHandling(RoomTypeHandling newRoomTypeHandling) {
-		RoomTypeHandling oldRoomTypeHandling = roomTypeHandling;
-		roomTypeHandling = newRoomTypeHandling;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SYS_ADMIN__ROOM_TYPE_HANDLING, oldRoomTypeHandling, roomTypeHandling));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomAttribute addRoomAttribute(String name, String description) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean editRoomAttribute(RoomAttribute roomAttribute, String newName, String newDescription) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeRoomAttribute(RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Room addRoom(RoomType roomType, int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeRoom(int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void editRoom(int roomNbr, RoomType newRoomType, int newRoomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Room findRoom(int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Room> getAllRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomType addRoomType(String name, int cost) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean editRoomType(RoomType roomType, String newName, int newCost) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeRoomType(RoomType roomType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RoomType> getAllRoomTypes() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean addAttributeToRoomType(RoomType roomType, RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeAttributeFromRoomType(RoomType roomType, RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case RootElementPackage.SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING:
-				if (resolve) return getRoomAttributeHandling();
-				return basicGetRoomAttributeHandling();
-			case RootElementPackage.SYS_ADMIN__ROOM_HANDLING:
-				if (resolve) return getRoomHandling();
-				return basicGetRoomHandling();
-			case RootElementPackage.SYS_ADMIN__ROOM_TYPE_HANDLING:
-				if (resolve) return getRoomTypeHandling();
-				return basicGetRoomTypeHandling();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case RootElementPackage.SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING:
-				setRoomAttributeHandling((RoomAttributeHandling)newValue);
-				return;
-			case RootElementPackage.SYS_ADMIN__ROOM_HANDLING:
-				setRoomHandling((RoomHandling)newValue);
-				return;
-			case RootElementPackage.SYS_ADMIN__ROOM_TYPE_HANDLING:
-				setRoomTypeHandling((RoomTypeHandling)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case RootElementPackage.SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING:
-				setRoomAttributeHandling((RoomAttributeHandling)null);
-				return;
-			case RootElementPackage.SYS_ADMIN__ROOM_HANDLING:
-				setRoomHandling((RoomHandling)null);
-				return;
-			case RootElementPackage.SYS_ADMIN__ROOM_TYPE_HANDLING:
-				setRoomTypeHandling((RoomTypeHandling)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case RootElementPackage.SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING:
-				return roomAttributeHandling != null;
-			case RootElementPackage.SYS_ADMIN__ROOM_HANDLING:
-				return roomHandling != null;
-			case RootElementPackage.SYS_ADMIN__ROOM_TYPE_HANDLING:
-				return roomTypeHandling != null;
-		}
-		return super.eIsSet(featureID);
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,10 +215,10 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == RoomHandling.class) {
 			switch (baseOperationID) {
-				case RootElementPackage.ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT: return RootElementPackage.SYS_ADMIN___ADD_ROOM__ROOMTYPE_INT;
-				case RootElementPackage.ROOM_HANDLING___REMOVE_ROOM__INT: return RootElementPackage.SYS_ADMIN___REMOVE_ROOM__INT;
-				case RootElementPackage.ROOM_HANDLING___EDIT_ROOM__INT_ROOMTYPE_INT: return RootElementPackage.SYS_ADMIN___EDIT_ROOM__INT_ROOMTYPE_INT;
-				case RootElementPackage.ROOM_HANDLING___FIND_ROOM__INT: return RootElementPackage.SYS_ADMIN___FIND_ROOM__INT;
+				case RootElementPackage.ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING: return RootElementPackage.SYS_ADMIN___ADD_ROOM__ROOMTYPE_STRING;
+				case RootElementPackage.ROOM_HANDLING___REMOVE_ROOM__STRING: return RootElementPackage.SYS_ADMIN___REMOVE_ROOM__STRING;
+				case RootElementPackage.ROOM_HANDLING___EDIT_ROOM__STRING_ROOMTYPE_STRING: return RootElementPackage.SYS_ADMIN___EDIT_ROOM__STRING_ROOMTYPE_STRING;
+				case RootElementPackage.ROOM_HANDLING___FIND_ROOM__STRING: return RootElementPackage.SYS_ADMIN___FIND_ROOM__STRING;
 				case RootElementPackage.ROOM_HANDLING___GET_ALL_ROOMS: return RootElementPackage.SYS_ADMIN___GET_ALL_ROOMS;
 				default: return -1;
 			}
@@ -478,15 +251,16 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 				return editRoomAttribute((RoomAttribute)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 			case RootElementPackage.SYS_ADMIN___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE:
 				return removeRoomAttribute((RoomAttribute)arguments.get(0));
-			case RootElementPackage.SYS_ADMIN___ADD_ROOM__ROOMTYPE_INT:
-				return addRoom((RoomType)arguments.get(0), (Integer)arguments.get(1));
-			case RootElementPackage.SYS_ADMIN___REMOVE_ROOM__INT:
-				return removeRoom((Integer)arguments.get(0));
-			case RootElementPackage.SYS_ADMIN___EDIT_ROOM__INT_ROOMTYPE_INT:
-				editRoom((Integer)arguments.get(0), (RoomType)arguments.get(1), (Integer)arguments.get(2));
-				return null;
-			case RootElementPackage.SYS_ADMIN___FIND_ROOM__INT:
-				return findRoom((Integer)arguments.get(0));
+			case RootElementPackage.SYS_ADMIN___GET_ALL_ROOM_ATTRIBUTES:
+				return getAllRoomAttributes();
+			case RootElementPackage.SYS_ADMIN___ADD_ROOM__ROOMTYPE_STRING:
+				return addRoom((RoomType)arguments.get(0), (String)arguments.get(1));
+			case RootElementPackage.SYS_ADMIN___REMOVE_ROOM__STRING:
+				return removeRoom((String)arguments.get(0));
+			case RootElementPackage.SYS_ADMIN___EDIT_ROOM__STRING_ROOMTYPE_STRING:
+				return editRoom((String)arguments.get(0), (RoomType)arguments.get(1), (String)arguments.get(2));
+			case RootElementPackage.SYS_ADMIN___FIND_ROOM__STRING:
+				return findRoom((String)arguments.get(0));
 			case RootElementPackage.SYS_ADMIN___GET_ALL_ROOMS:
 				return getAllRooms();
 			case RootElementPackage.SYS_ADMIN___ADD_ROOM_TYPE__STRING_INT:

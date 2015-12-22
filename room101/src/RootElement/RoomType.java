@@ -2,8 +2,6 @@
  */
 package RootElement;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link RootElement.RoomType#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.RoomType#getPrice <em>Price</em>}</li>
- *   <li>{@link RootElement.RoomType#getRoomattribute <em>Roomattribute</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getRoomType()
@@ -60,37 +57,22 @@ public interface RoomType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Price</em>' attribute.
-	 * @see #setPrice(int)
 	 * @see RootElement.RootElementPackage#getRoomType_Price()
-	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" changeable="false" ordered="false"
 	 * @generated
 	 */
 	int getPrice();
 
 	/**
-	 * Sets the value of the '{@link RootElement.RoomType#getPrice <em>Price</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Price</em>' attribute.
-	 * @see #getPrice()
+	 * Adds an attribute to this room type
 	 * @generated
 	 */
-	void setPrice(int value);
-
+	boolean addRoomAttribute(RoomAttribute roomAttribute);
+	
 	/**
-	 * Returns the value of the '<em><b>Roomattribute</b></em>' reference list.
-	 * The list contents are of type {@link RootElement.RoomAttribute}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Roomattribute</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Roomattribute</em>' reference list.
-	 * @see RootElement.RootElementPackage#getRoomType_Roomattribute()
-	 * @model ordered="false"
+	 * Removes an attribute from this room type.
 	 * @generated
 	 */
-	EList<RoomAttribute> getRoomattribute();
+	boolean removeRoomAttribute(RoomAttribute roomAttribute);
 
 } // RoomType

@@ -2,6 +2,15 @@
  */
 package RootElement.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.ECollections;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import RootElement.Room;
 import RootElement.RoomAttribute;
 import RootElement.RoomAttributeHandling;
@@ -11,72 +20,325 @@ import RootElement.RoomType;
 import RootElement.RoomTypeHandling;
 import RootElement.RootElementPackage;
 
-import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 /**
- * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Room Structure</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link RootElement.impl.RoomStructureImpl#getRooms <em>Rooms</em>}</li>
- *   <li>{@link RootElement.impl.RoomStructureImpl#getRoomtype <em>Roomtype</em>}</li>
- *   <li>{@link RootElement.impl.RoomStructureImpl#getRoomattribute <em>Roomattribute</em>}</li>
- * </ul>
- *
- * @generated
+ * 
+ * The room structure is responsible for the entire base functionality
+ * in the hotel data structure. It is this class that stores and maintains
+ * information and makes it accessible for the ones that are allowed to access
+ * it.
+ * 
+ * @author Matz Larsson
  */
 public class RoomStructureImpl extends MinimalEObjectImpl.Container implements RoomStructure {
 	/**
-	 * The cached value of the '{@link #getRooms() <em>Rooms</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRooms()
+	 * The rooms in the hotel
+	 * @generated NOT
+	 * @ordered
+	 */
+	private EList<Room> rooms;
+
+	/**
+	 * The room types available in the hotel
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Room> rooms;
+	private EList<RoomType> roomTypes;
 
 	/**
-	 * The cached value of the '{@link #getRoomtype() <em>Roomtype</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomtype()
+	 * The room attributes available in the hotel
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RoomType> roomtype;
+	private EList<RoomAttribute> roomAttributes;
 
 	/**
-	 * The cached value of the '{@link #getRoomattribute() <em>Roomattribute</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomattribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RoomAttribute> roomattribute;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Initiates the RoomStructureImpl class.
 	 * @generated
 	 */
 	protected RoomStructureImpl() {
 		super();
 	}
+
+	/**
+	 * Warning: DO NOT USE. The list of rooms are private and will
+	 * not be exposed. This is merely an error from code generation.
+	 * For accessing rooms, please see {@link #getAllRooms()} or 
+	 * {@link #getAvailableRooms()}
+	 * @generated NOT
+	 */
+	public EList<Room> getRooms() {
+		//FIXME solve this in another way.
+		throw new IllegalAccessError("This list is not directly accessible.");
+	}
+
+	/**
+	 * Warning: DO NOT USE. The list of room types are private and will
+	 * not be exposed. This is merely an error from code generation.
+	 * For accessing room types, please see {@link #getAllRoomTypes()}.
+	 * @generated NOT
+	 */
+	public EList<RoomType> getRoomTypes() {
+		//FIXME solve this in another way.
+		throw new IllegalAccessError("This list is not directly accessible.");
+	}
+
+	/**
+	 * Warning: DO NOT USE. The list of room types are private and will
+	 * not be exposed. This is merely an error from code generation.
+	 * For finding a specific room attribute, please use
+	 * {@link #getAllRoomAttributes()}
+	 * @generated NOT
+	 */
+	public EList<RoomAttribute> getRoomAttributes() {
+		//FIXME solve this in another way.
+		throw new IllegalAccessError("This list is not directly accessible.");
+	}
+
+	/**
+	 * Adds a room with the given properties to the list of available
+	 * rooms at the current hotel.
+	 * @generated NOT
+	 */
+	public Room addRoom(RoomType roomType, String roomName) {
+		Room room = createRoom(roomName, roomType);
+		rooms.add(room);
+		return room;
+	}
+
+	/**
+	 * Attempts to remove the room with the given name from the list
+	 * of available rooms of the current hotel.
+	 * @generated NOT
+	 */
+	public boolean removeRoom(String roomName) {
+		Room room = findRoom(roomName);
+		return rooms.remove(room);
+	}
+
+	/**
+	 * Updates the room with the given name with the new parameters.
+	 * @generated NOT
+	 */
+	public boolean editRoom(String roomName, RoomType newRoomType, String newRoomName) {
+		Room room = findRoom(roomName);
+		if(room != null){
+			room.setRoomType(newRoomType);
+			room.setRoomName(newRoomName);
+			return true;
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Searches for a room among the available at the hotel. If it does
+	 * not find it, null is returned.
+	 * @generated NOT
+	 */
+	public Room findRoom(String roomName) {
+		if(roomName != null){
+			for(Room room : rooms){
+				if(roomName.equals(room.getRoomName())){
+					return room;
+				}
+			}
+		}
+		
+		return null;
+	}
+
+	/**
+	 * Retrieves all rooms available at the hotel
+	 * @generated NOT
+	 */
+	public EList<Room> getAllRooms() {
+		return ECollections.unmodifiableEList(rooms);
+	}
+
+	/**
+	 * Adds a room type with the given properties to the list of available
+	 * room types at the current hotel.
+	 * @generated NOT
+	 */
+	public RoomType addRoomType(String name, int cost) {
+		RoomType type = createRoomType(name, cost);
+		roomTypes.add(type);
+		return type;
+	}
+
+	/**
+	 * Updates the given room type with the new parameters.
+	 * @generated NOT
+	 */
+	public boolean editRoomType(RoomType roomType, String newName, int newCost) {
+		if(roomType != null){
+			roomType.setName(newName);
+			((RoomTypeImpl)roomType).setPrice(newCost);
+			return true;
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Attempts to remove the given room type from the list
+	 * of available room types of the current hotel.
+	 * @generated NOT
+	 */
+	public boolean removeRoomType(RoomType roomType) {
+		if(roomType != null){
+			return roomTypes.remove(roomType);
+		}else{
+			return false;
+		}
+	}
+
+	/**
+	 * Retrieves a list of all available room types at the current hotel.
+	 * @generated NOT
+	 */
+	public EList<RoomType> getAllRoomTypes() {
+		return ECollections.unmodifiableEList(roomTypes);
+	}
+
+	/**
+	 * Binds a room attribute to a room type.
+	 * @generated NOT
+	 */
+	public boolean addAttributeToRoomType(RoomType roomType, RoomAttribute roomAttribute) {
+		if(roomType != null){
+			return roomType.addRoomAttribute(roomAttribute);
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Unbinds a room attribute from a room type
+	 * @generated NOT
+	 */
+	public boolean removeAttributeFromRoomType(RoomType roomType, RoomAttribute roomAttribute) {
+		if(roomType != null){
+			return roomType.removeRoomAttribute(roomAttribute);
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Adds a room attribute with the given properties to the list of available
+	 * room attributes at the current hotel.
+	 * @generated NOT
+	 */
+	public RoomAttribute addRoomAttribute(String name, String description) {
+		RoomAttribute attribute = createRoomAttribute(name, description);
+		roomAttributes.add(attribute);
+		return attribute;
+	}
+
+	/**
+	 * Updates the given room attribute with the new parameters.
+	 * @generated NOT
+	 */
+	public boolean editRoomAttribute(RoomAttribute roomAttribute, String newName, String newDescription) {
+		if(roomAttribute != null){
+			roomAttribute.setName(newName);
+			roomAttribute.setDescription(newDescription);
+			return true;
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Attempts to remove the given room attribute from the list
+	 * of available room attributes of the current hotel.
+	 * @generated NOT
+	 */
+	public boolean removeRoomAttribute(RoomAttribute roomAttribute) {
+		if(roomAttribute != null){
+			return roomAttributes.remove(roomAttribute);
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Retrieves all room attributes of the current hotel
+	 * @generated NOT
+	 */
+	public EList<RoomAttribute> getAllRoomAttributes() {
+		return ECollections.unmodifiableEList(roomAttributes);
+	}
+
+	/**
+	 * Retrieves all rooms that can be booked, not taking any concern about
+	 * any bookings but just the state of the room (not broken and boookable).
+	 * @generated NOT
+	 */
+	public EList<Room> getBookableRooms() {
+		EList<Room> bookableRooms = new EObjectResolvingEList<Room>(Room.class, this, -1); 	//TODO solve how to make the last param more intuitive.
+		ECollections.setEList(bookableRooms, rooms);
+		for(Room room : bookableRooms){
+			if(room.getRoomName() == null || room.getRoomType() == null){
+				bookableRooms.remove(room);
+			}
+		}
+		
+		return ECollections.unmodifiableEList(bookableRooms);
+	}
+
+	/**
+	 * Retrieves all rooms that can be cleaned, not taking concern if it is dirty or not.
+	 * @generated NOT
+	 */
+	public EList<Room> getAllCleanableRooms() {
+		return getAvailableRooms();
+	}
+
+	/**
+	 * Retrieves all rooms that are available at the hotel (not broken).
+	 * NOTE: Currently you cannot mark a room as broken
+	 * @generated NOT
+	 */
+	public EList<Room> getAvailableRooms() {
+		return getRooms();
+	}
+	
+	/**
+	 * Creates a room from the given values and returns the reference
+	 * to the created object.
+	 */
+	private Room createRoom(String roomID, RoomType roomType){
+		Room room = new RoomImpl();
+		room.setRoomName(roomID);
+		room.setRoomType(roomType);
+		return room;
+	}
+
+	/**
+	 * Creates a room type from the given values and returns the reference
+	 * to the created object.
+	 */
+	private RoomType createRoomType(String name, int price){
+		RoomTypeImpl type = new RoomTypeImpl();
+		type.setName(name);
+		type.setPrice(price);
+		return type;
+	}
+
+	/**
+	 * Creates a room attribute from the given values and returns the reference
+	 * to the created object.
+	 */
+	private RoomAttribute createRoomAttribute(String name, String description){
+		RoomAttribute attribute = new RoomAttributeImpl();
+		attribute.setName(name);
+		attribute.setDescription(description);
+		return attribute;
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,230 +349,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	protected EClass eStaticClass() {
 		return RootElementPackage.Literals.ROOM_STRUCTURE;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Room> getRooms() {
-		if (rooms == null) {
-			rooms = new EObjectResolvingEList<Room>(Room.class, this, RootElementPackage.ROOM_STRUCTURE__ROOMS);
-		}
-		return rooms;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RoomType> getRoomtype() {
-		if (roomtype == null) {
-			roomtype = new EObjectResolvingEList<RoomType>(RoomType.class, this, RootElementPackage.ROOM_STRUCTURE__ROOMTYPE);
-		}
-		return roomtype;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RoomAttribute> getRoomattribute() {
-		if (roomattribute == null) {
-			roomattribute = new EObjectResolvingEList<RoomAttribute>(RoomAttribute.class, this, RootElementPackage.ROOM_STRUCTURE__ROOMATTRIBUTE);
-		}
-		return roomattribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Room addRoom(RoomType roomType, int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeRoom(int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void editRoom(int roomNbr, RoomType newRoomType, int newRoomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Room findRoom(int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Room> getAllRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomType addRoomType(String name, int cost) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean editRoomType(RoomType roomType, String newName, int newCost) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeRoomType(RoomType roomType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RoomType> getAllRoomTypes() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean addAttributeToRoomType(RoomType roomType, RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeAttributeFromRoomType(RoomType roomType, RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomAttribute addRoomAttribute(String name, String description) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean editRoomAttribute(RoomAttribute roomAttribute, String newName, String newDescription) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeRoomAttribute(RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Room> getBookableRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Room> getAllCleanableRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Room> getAvailableRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -321,10 +360,10 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 		switch (featureID) {
 			case RootElementPackage.ROOM_STRUCTURE__ROOMS:
 				return getRooms();
-			case RootElementPackage.ROOM_STRUCTURE__ROOMTYPE:
-				return getRoomtype();
-			case RootElementPackage.ROOM_STRUCTURE__ROOMATTRIBUTE:
-				return getRoomattribute();
+			case RootElementPackage.ROOM_STRUCTURE__ROOM_TYPES:
+				return getRoomTypes();
+			case RootElementPackage.ROOM_STRUCTURE__ROOM_ATTRIBUTES:
+				return getRoomAttributes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -342,13 +381,13 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				getRooms().clear();
 				getRooms().addAll((Collection<? extends Room>)newValue);
 				return;
-			case RootElementPackage.ROOM_STRUCTURE__ROOMTYPE:
-				getRoomtype().clear();
-				getRoomtype().addAll((Collection<? extends RoomType>)newValue);
+			case RootElementPackage.ROOM_STRUCTURE__ROOM_TYPES:
+				getRoomTypes().clear();
+				getRoomTypes().addAll((Collection<? extends RoomType>)newValue);
 				return;
-			case RootElementPackage.ROOM_STRUCTURE__ROOMATTRIBUTE:
-				getRoomattribute().clear();
-				getRoomattribute().addAll((Collection<? extends RoomAttribute>)newValue);
+			case RootElementPackage.ROOM_STRUCTURE__ROOM_ATTRIBUTES:
+				getRoomAttributes().clear();
+				getRoomAttributes().addAll((Collection<? extends RoomAttribute>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -365,11 +404,11 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 			case RootElementPackage.ROOM_STRUCTURE__ROOMS:
 				getRooms().clear();
 				return;
-			case RootElementPackage.ROOM_STRUCTURE__ROOMTYPE:
-				getRoomtype().clear();
+			case RootElementPackage.ROOM_STRUCTURE__ROOM_TYPES:
+				getRoomTypes().clear();
 				return;
-			case RootElementPackage.ROOM_STRUCTURE__ROOMATTRIBUTE:
-				getRoomattribute().clear();
+			case RootElementPackage.ROOM_STRUCTURE__ROOM_ATTRIBUTES:
+				getRoomAttributes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -385,10 +424,10 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 		switch (featureID) {
 			case RootElementPackage.ROOM_STRUCTURE__ROOMS:
 				return rooms != null && !rooms.isEmpty();
-			case RootElementPackage.ROOM_STRUCTURE__ROOMTYPE:
-				return roomtype != null && !roomtype.isEmpty();
-			case RootElementPackage.ROOM_STRUCTURE__ROOMATTRIBUTE:
-				return roomattribute != null && !roomattribute.isEmpty();
+			case RootElementPackage.ROOM_STRUCTURE__ROOM_TYPES:
+				return roomTypes != null && !roomTypes.isEmpty();
+			case RootElementPackage.ROOM_STRUCTURE__ROOM_ATTRIBUTES:
+				return roomAttributes != null && !roomAttributes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -416,6 +455,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___ADD_ROOM_ATTRIBUTE__STRING_STRING: return RootElementPackage.ROOM_STRUCTURE___ADD_ROOM_ATTRIBUTE__STRING_STRING;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING: return RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE: return RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE;
+				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES: return RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_ATTRIBUTES;
 				default: return -1;
 			}
 		}
@@ -438,15 +478,14 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case RootElementPackage.ROOM_STRUCTURE___ADD_ROOM__ROOMTYPE_INT:
-				return addRoom((RoomType)arguments.get(0), (Integer)arguments.get(1));
-			case RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM__INT:
-				return removeRoom((Integer)arguments.get(0));
-			case RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM__INT_ROOMTYPE_INT:
-				editRoom((Integer)arguments.get(0), (RoomType)arguments.get(1), (Integer)arguments.get(2));
-				return null;
-			case RootElementPackage.ROOM_STRUCTURE___FIND_ROOM__INT:
-				return findRoom((Integer)arguments.get(0));
+			case RootElementPackage.ROOM_STRUCTURE___ADD_ROOM__ROOMTYPE_STRING:
+				return addRoom((RoomType)arguments.get(0), (String)arguments.get(1));
+			case RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM__STRING:
+				return removeRoom((String)arguments.get(0));
+			case RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM__STRING_ROOMTYPE_STRING:
+				return editRoom((String)arguments.get(0), (RoomType)arguments.get(1), (String)arguments.get(2));
+			case RootElementPackage.ROOM_STRUCTURE___FIND_ROOM__STRING:
+				return findRoom((String)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOMS:
 				return getAllRooms();
 			case RootElementPackage.ROOM_STRUCTURE___ADD_ROOM_TYPE__STRING_INT:
@@ -467,6 +506,8 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				return editRoomAttribute((RoomAttribute)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 			case RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE:
 				return removeRoomAttribute((RoomAttribute)arguments.get(0));
+			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_ATTRIBUTES:
+				return getAllRoomAttributes();
 			case RootElementPackage.ROOM_STRUCTURE___GET_BOOKABLE_ROOMS:
 				return getBookableRooms();
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_CLEANABLE_ROOMS:

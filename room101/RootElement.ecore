@@ -89,24 +89,28 @@
   <eClassifiers xsi:type="ecore:EClass" name="Room">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOccupied" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roomID" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roomName" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="needCleaning" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomtype" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roomType" ordered="false"
         lowerBound="1" eType="#//RoomType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomType">
+    <eOperations name="addRoomAttribute" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="roomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute"/>
+    </eOperations>
+    <eOperations name="removeRoomAttribute" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="roomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" ordered="false"
-        lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomattribute" ordered="false"
-        upperBound="-1" eType="#//RoomAttribute"/>
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Integer" changeable="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
-        eType="ecore:EDataType types.ecore#//Integer"/>
+        eType="ecore:EDataType types.ecore#//Integer" changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
@@ -223,14 +227,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="feedbackReader" ordered="false"
         lowerBound="1" eType="#//FeedbackReader"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SysAdmin" eSuperTypes="#//RoomAttributeHandling #//RoomHandling #//RoomTypeHandling">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomAttributeHandling"
-        ordered="false" lowerBound="1" eType="#//RoomAttributeHandling"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomHandling" ordered="false"
-        lowerBound="1" eType="#//RoomHandling"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomTypeHandling" ordered="false"
-        lowerBound="1" eType="#//RoomTypeHandling"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SysAdmin" eSuperTypes="#//RoomAttributeHandling #//RoomHandling #//RoomTypeHandling"/>
   <eClassifiers xsi:type="ecore:EClass" name="RoomAttributeHandling" abstract="true"
       interface="true">
     <eOperations name="addRoomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute">
@@ -245,22 +242,23 @@
     <eOperations name="removeRoomAttribute" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="roomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute"/>
     </eOperations>
+    <eOperations name="getAllRoomAttributes" ordered="false" upperBound="-1" eType="#//RoomAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomHandling" abstract="true" interface="true">
     <eOperations name="addRoom" ordered="false" lowerBound="1" eType="#//Room">
       <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
-      <eParameters name="roomNbr" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="removeRoom" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
-      <eParameters name="roomNbr" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eOperations name="editRoom" ordered="false" lowerBound="1">
-      <eParameters name="roomNbr" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    <eOperations name="editRoom" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="newRoomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
-      <eParameters name="newRoomNbr" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="newRoomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="findRoom" ordered="false" lowerBound="1" eType="#//Room">
-      <eParameters name="roomNbr" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="getAllRooms" ordered="false" upperBound="-1" eType="#//Room"/>
   </eClassifiers>
@@ -306,9 +304,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="RoomStructure" eSuperTypes="#//RoomHandling #//RoomTypeHandling #//RoomAttributeHandling #//RoomFetcher">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rooms" ordered="false"
         upperBound="-1" eType="#//Room"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomtype" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roomTypes" ordered="false"
         upperBound="-1" eType="#//RoomType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="roomattribute" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roomAttributes" ordered="false"
         upperBound="-1" eType="#//RoomAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeedbackHandler" eSuperTypes="#//FeedbackReader #//FeedbackWriter">

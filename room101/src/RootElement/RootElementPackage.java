@@ -876,13 +876,13 @@ public interface RootElementPackage extends EPackage {
 	int ROOM__IS_OCCUPIED = 0;
 
 	/**
-	 * The feature id for the '<em><b>Room ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Room Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM__ROOM_ID = 1;
+	int ROOM__ROOM_NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Need Cleaning</b></em>' attribute.
@@ -894,13 +894,13 @@ public interface RootElementPackage extends EPackage {
 	int ROOM__NEED_CLEANING = 2;
 
 	/**
-	 * The feature id for the '<em><b>Roomtype</b></em>' reference.
+	 * The feature id for the '<em><b>Room Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM__ROOMTYPE = 3;
+	int ROOM__ROOM_TYPE = 3;
 
 	/**
 	 * The number of structural features of the '<em>Room</em>' class.
@@ -939,22 +939,31 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_TYPE__PRICE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Roomattribute</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOM_TYPE__ROOMATTRIBUTE = 2;
-
-	/**
 	 * The number of structural features of the '<em>Room Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_TYPE_FEATURE_COUNT = 3;
+	int ROOM_TYPE_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Add Room Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE___ADD_ROOM_ATTRIBUTE__ROOMATTRIBUTE = 0;
+
+	/**
+	 * The operation id for the '<em>Remove Room Attribute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = 1;
 
 	/**
 	 * The number of operations of the '<em>Room Type</em>' class.
@@ -963,7 +972,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_TYPE_OPERATION_COUNT = 0;
+	int ROOM_TYPE_OPERATION_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1857,40 +1866,13 @@ public interface RootElementPackage extends EPackage {
 	int MANAGER__PAYMENT = CLERK__PAYMENT;
 
 	/**
-	 * The feature id for the '<em><b>Room Attribute Handling</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER__ROOM_ATTRIBUTE_HANDLING = CLERK_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Room Handling</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER__ROOM_HANDLING = CLERK_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Room Type Handling</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANAGER__ROOM_TYPE_HANDLING = CLERK_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Feedback Reader</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER__FEEDBACK_READER = CLERK_FEATURE_COUNT + 3;
+	int MANAGER__FEEDBACK_READER = CLERK_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Manager</em>' class.
@@ -1899,7 +1881,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER_FEATURE_COUNT = CLERK_FEATURE_COUNT + 4;
+	int MANAGER_FEATURE_COUNT = CLERK_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Check If Room Cleaned</em>' operation.
@@ -2127,13 +2109,22 @@ public interface RootElementPackage extends EPackage {
 	int MANAGER___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = CLERK_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get All Room Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANAGER___GET_ALL_ROOM_ATTRIBUTES = CLERK_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Add Room</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___ADD_ROOM__ROOMTYPE_INT = CLERK_OPERATION_COUNT + 3;
+	int MANAGER___ADD_ROOM__ROOMTYPE_STRING = CLERK_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Remove Room</em>' operation.
@@ -2142,7 +2133,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___REMOVE_ROOM__INT = CLERK_OPERATION_COUNT + 4;
+	int MANAGER___REMOVE_ROOM__STRING = CLERK_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Edit Room</em>' operation.
@@ -2151,7 +2142,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___EDIT_ROOM__INT_ROOMTYPE_INT = CLERK_OPERATION_COUNT + 5;
+	int MANAGER___EDIT_ROOM__STRING_ROOMTYPE_STRING = CLERK_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Find Room</em>' operation.
@@ -2160,7 +2151,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___FIND_ROOM__INT = CLERK_OPERATION_COUNT + 6;
+	int MANAGER___FIND_ROOM__STRING = CLERK_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get All Rooms</em>' operation.
@@ -2169,7 +2160,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___GET_ALL_ROOMS = CLERK_OPERATION_COUNT + 7;
+	int MANAGER___GET_ALL_ROOMS = CLERK_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Add Room Type</em>' operation.
@@ -2178,7 +2169,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___ADD_ROOM_TYPE__STRING_INT = CLERK_OPERATION_COUNT + 8;
+	int MANAGER___ADD_ROOM_TYPE__STRING_INT = CLERK_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Edit Room Type</em>' operation.
@@ -2187,7 +2178,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = CLERK_OPERATION_COUNT + 9;
+	int MANAGER___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = CLERK_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Remove Room Type</em>' operation.
@@ -2196,7 +2187,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___REMOVE_ROOM_TYPE__ROOMTYPE = CLERK_OPERATION_COUNT + 10;
+	int MANAGER___REMOVE_ROOM_TYPE__ROOMTYPE = CLERK_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get All Room Types</em>' operation.
@@ -2205,7 +2196,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___GET_ALL_ROOM_TYPES = CLERK_OPERATION_COUNT + 11;
+	int MANAGER___GET_ALL_ROOM_TYPES = CLERK_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Add Attribute To Room Type</em>' operation.
@@ -2214,7 +2205,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = CLERK_OPERATION_COUNT + 12;
+	int MANAGER___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = CLERK_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Remove Attribute From Room Type</em>' operation.
@@ -2223,7 +2214,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = CLERK_OPERATION_COUNT + 13;
+	int MANAGER___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE = CLERK_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get All Feedback</em>' operation.
@@ -2232,7 +2223,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___GET_ALL_FEEDBACK = CLERK_OPERATION_COUNT + 14;
+	int MANAGER___GET_ALL_FEEDBACK = CLERK_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Get Unread Feedback</em>' operation.
@@ -2241,7 +2232,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___GET_UNREAD_FEEDBACK = CLERK_OPERATION_COUNT + 15;
+	int MANAGER___GET_UNREAD_FEEDBACK = CLERK_OPERATION_COUNT + 16;
 
 	/**
 	 * The number of operations of the '<em>Manager</em>' class.
@@ -2250,7 +2241,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER_OPERATION_COUNT = CLERK_OPERATION_COUNT + 16;
+	int MANAGER_OPERATION_COUNT = CLERK_OPERATION_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Room Attribute Handling</em>' class.
@@ -2289,40 +2280,22 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = 2;
 
 	/**
+	 * The operation id for the '<em>Get All Room Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES = 3;
+
+	/**
 	 * The number of operations of the '<em>Room Attribute Handling</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Room Attribute Handling</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING = ROOM_ATTRIBUTE_HANDLING_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Room Handling</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYS_ADMIN__ROOM_HANDLING = ROOM_ATTRIBUTE_HANDLING_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Room Type Handling</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYS_ADMIN__ROOM_TYPE_HANDLING = ROOM_ATTRIBUTE_HANDLING_FEATURE_COUNT + 2;
+	int ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT = 4;
 
 	/**
 	 * The number of structural features of the '<em>Sys Admin</em>' class.
@@ -2331,7 +2304,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN_FEATURE_COUNT = ROOM_ATTRIBUTE_HANDLING_FEATURE_COUNT + 3;
+	int SYS_ADMIN_FEATURE_COUNT = ROOM_ATTRIBUTE_HANDLING_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Add Room Attribute</em>' operation.
@@ -2361,13 +2334,22 @@ public interface RootElementPackage extends EPackage {
 	int SYS_ADMIN___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE;
 
 	/**
+	 * The operation id for the '<em>Get All Room Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYS_ADMIN___GET_ALL_ROOM_ATTRIBUTES = ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES;
+
+	/**
 	 * The operation id for the '<em>Add Room</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN___ADD_ROOM__ROOMTYPE_INT = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 0;
+	int SYS_ADMIN___ADD_ROOM__ROOMTYPE_STRING = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Remove Room</em>' operation.
@@ -2376,7 +2358,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN___REMOVE_ROOM__INT = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 1;
+	int SYS_ADMIN___REMOVE_ROOM__STRING = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Edit Room</em>' operation.
@@ -2385,7 +2367,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN___EDIT_ROOM__INT_ROOMTYPE_INT = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 2;
+	int SYS_ADMIN___EDIT_ROOM__STRING_ROOMTYPE_STRING = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Find Room</em>' operation.
@@ -2394,7 +2376,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN___FIND_ROOM__INT = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 3;
+	int SYS_ADMIN___FIND_ROOM__STRING = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get All Rooms</em>' operation.
@@ -2484,7 +2466,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT = 0;
+	int ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING = 0;
 
 	/**
 	 * The operation id for the '<em>Remove Room</em>' operation.
@@ -2493,7 +2475,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_HANDLING___REMOVE_ROOM__INT = 1;
+	int ROOM_HANDLING___REMOVE_ROOM__STRING = 1;
 
 	/**
 	 * The operation id for the '<em>Edit Room</em>' operation.
@@ -2502,7 +2484,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_HANDLING___EDIT_ROOM__INT_ROOMTYPE_INT = 2;
+	int ROOM_HANDLING___EDIT_ROOM__STRING_ROOMTYPE_STRING = 2;
 
 	/**
 	 * The operation id for the '<em>Find Room</em>' operation.
@@ -2511,7 +2493,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_HANDLING___FIND_ROOM__INT = 3;
+	int ROOM_HANDLING___FIND_ROOM__STRING = 3;
 
 	/**
 	 * The operation id for the '<em>Get All Rooms</em>' operation.
@@ -2820,22 +2802,22 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_STRUCTURE__ROOMS = ROOM_HANDLING_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Roomtype</b></em>' reference list.
+	 * The feature id for the '<em><b>Room Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE__ROOMTYPE = ROOM_HANDLING_FEATURE_COUNT + 1;
+	int ROOM_STRUCTURE__ROOM_TYPES = ROOM_HANDLING_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Roomattribute</b></em>' reference list.
+	 * The feature id for the '<em><b>Room Attributes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE__ROOMATTRIBUTE = ROOM_HANDLING_FEATURE_COUNT + 2;
+	int ROOM_STRUCTURE__ROOM_ATTRIBUTES = ROOM_HANDLING_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Room Structure</em>' class.
@@ -2853,7 +2835,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___ADD_ROOM__ROOMTYPE_INT = ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT;
+	int ROOM_STRUCTURE___ADD_ROOM__ROOMTYPE_STRING = ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING;
 
 	/**
 	 * The operation id for the '<em>Remove Room</em>' operation.
@@ -2862,7 +2844,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___REMOVE_ROOM__INT = ROOM_HANDLING___REMOVE_ROOM__INT;
+	int ROOM_STRUCTURE___REMOVE_ROOM__STRING = ROOM_HANDLING___REMOVE_ROOM__STRING;
 
 	/**
 	 * The operation id for the '<em>Edit Room</em>' operation.
@@ -2871,7 +2853,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___EDIT_ROOM__INT_ROOMTYPE_INT = ROOM_HANDLING___EDIT_ROOM__INT_ROOMTYPE_INT;
+	int ROOM_STRUCTURE___EDIT_ROOM__STRING_ROOMTYPE_STRING = ROOM_HANDLING___EDIT_ROOM__STRING_ROOMTYPE_STRING;
 
 	/**
 	 * The operation id for the '<em>Find Room</em>' operation.
@@ -2880,7 +2862,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___FIND_ROOM__INT = ROOM_HANDLING___FIND_ROOM__INT;
+	int ROOM_STRUCTURE___FIND_ROOM__STRING = ROOM_HANDLING___FIND_ROOM__STRING;
 
 	/**
 	 * The operation id for the '<em>Get All Rooms</em>' operation.
@@ -2973,13 +2955,22 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_STRUCTURE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = ROOM_HANDLING_OPERATION_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Get All Room Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___GET_ALL_ROOM_ATTRIBUTES = ROOM_HANDLING_OPERATION_COUNT + 9;
+
+	/**
 	 * The operation id for the '<em>Get Bookable Rooms</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___GET_BOOKABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 9;
+	int ROOM_STRUCTURE___GET_BOOKABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get All Cleanable Rooms</em>' operation.
@@ -2988,7 +2979,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___GET_ALL_CLEANABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 10;
+	int ROOM_STRUCTURE___GET_ALL_CLEANABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get Available Rooms</em>' operation.
@@ -2997,7 +2988,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___GET_AVAILABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 11;
+	int ROOM_STRUCTURE___GET_AVAILABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Room Structure</em>' class.
@@ -3006,7 +2997,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE_OPERATION_COUNT = ROOM_HANDLING_OPERATION_COUNT + 12;
+	int ROOM_STRUCTURE_OPERATION_COUNT = ROOM_HANDLING_OPERATION_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Feedback</b></em>' reference list.
@@ -3647,15 +3638,15 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getRoom_IsOccupied();
 
 	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Room#getRoomID <em>Room ID</em>}'.
+	 * Returns the meta object for the attribute '{@link RootElement.Room#getRoomName <em>Room Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Room ID</em>'.
-	 * @see RootElement.Room#getRoomID()
+	 * @return the meta object for the attribute '<em>Room Name</em>'.
+	 * @see RootElement.Room#getRoomName()
 	 * @see #getRoom()
 	 * @generated
 	 */
-	EAttribute getRoom_RoomID();
+	EAttribute getRoom_RoomName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link RootElement.Room#isNeedCleaning <em>Need Cleaning</em>}'.
@@ -3669,15 +3660,15 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getRoom_NeedCleaning();
 
 	/**
-	 * Returns the meta object for the reference '{@link RootElement.Room#getRoomtype <em>Roomtype</em>}'.
+	 * Returns the meta object for the reference '{@link RootElement.Room#getRoomType <em>Room Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Roomtype</em>'.
-	 * @see RootElement.Room#getRoomtype()
+	 * @return the meta object for the reference '<em>Room Type</em>'.
+	 * @see RootElement.Room#getRoomType()
 	 * @see #getRoom()
 	 * @generated
 	 */
-	EReference getRoom_Roomtype();
+	EReference getRoom_RoomType();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.RoomType <em>Room Type</em>}'.
@@ -3712,15 +3703,24 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getRoomType_Price();
 
 	/**
-	 * Returns the meta object for the reference list '{@link RootElement.RoomType#getRoomattribute <em>Roomattribute</em>}'.
+	 * Returns the meta object for the '{@link RootElement.RoomType#addRoomAttribute(RootElement.RoomAttribute) <em>Add Room Attribute</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Roomattribute</em>'.
-	 * @see RootElement.RoomType#getRoomattribute()
-	 * @see #getRoomType()
+	 * @return the meta object for the '<em>Add Room Attribute</em>' operation.
+	 * @see RootElement.RoomType#addRoomAttribute(RootElement.RoomAttribute)
 	 * @generated
 	 */
-	EReference getRoomType_Roomattribute();
+	EOperation getRoomType__AddRoomAttribute__RoomAttribute();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomType#removeRoomAttribute(RootElement.RoomAttribute) <em>Remove Room Attribute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Room Attribute</em>' operation.
+	 * @see RootElement.RoomType#removeRoomAttribute(RootElement.RoomAttribute)
+	 * @generated
+	 */
+	EOperation getRoomType__RemoveRoomAttribute__RoomAttribute();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.RoomAttribute <em>Room Attribute</em>}'.
@@ -4173,39 +4173,6 @@ public interface RootElementPackage extends EPackage {
 	EClass getSysAdmin();
 
 	/**
-	 * Returns the meta object for the reference '{@link RootElement.SysAdmin#getRoomAttributeHandling <em>Room Attribute Handling</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Room Attribute Handling</em>'.
-	 * @see RootElement.SysAdmin#getRoomAttributeHandling()
-	 * @see #getSysAdmin()
-	 * @generated
-	 */
-	EReference getSysAdmin_RoomAttributeHandling();
-
-	/**
-	 * Returns the meta object for the reference '{@link RootElement.SysAdmin#getRoomHandling <em>Room Handling</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Room Handling</em>'.
-	 * @see RootElement.SysAdmin#getRoomHandling()
-	 * @see #getSysAdmin()
-	 * @generated
-	 */
-	EReference getSysAdmin_RoomHandling();
-
-	/**
-	 * Returns the meta object for the reference '{@link RootElement.SysAdmin#getRoomTypeHandling <em>Room Type Handling</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Room Type Handling</em>'.
-	 * @see RootElement.SysAdmin#getRoomTypeHandling()
-	 * @see #getSysAdmin()
-	 * @generated
-	 */
-	EReference getSysAdmin_RoomTypeHandling();
-
-	/**
 	 * Returns the meta object for class '{@link RootElement.MakeBooking <em>Make Booking</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4379,26 +4346,26 @@ public interface RootElementPackage extends EPackage {
 	EReference getRoomStructure_Rooms();
 
 	/**
-	 * Returns the meta object for the reference list '{@link RootElement.RoomStructure#getRoomtype <em>Roomtype</em>}'.
+	 * Returns the meta object for the reference list '{@link RootElement.RoomStructure#getRoomTypes <em>Room Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Roomtype</em>'.
-	 * @see RootElement.RoomStructure#getRoomtype()
+	 * @return the meta object for the reference list '<em>Room Types</em>'.
+	 * @see RootElement.RoomStructure#getRoomTypes()
 	 * @see #getRoomStructure()
 	 * @generated
 	 */
-	EReference getRoomStructure_Roomtype();
+	EReference getRoomStructure_RoomTypes();
 
 	/**
-	 * Returns the meta object for the reference list '{@link RootElement.RoomStructure#getRoomattribute <em>Roomattribute</em>}'.
+	 * Returns the meta object for the reference list '{@link RootElement.RoomStructure#getRoomAttributes <em>Room Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Roomattribute</em>'.
-	 * @see RootElement.RoomStructure#getRoomattribute()
+	 * @return the meta object for the reference list '<em>Room Attributes</em>'.
+	 * @see RootElement.RoomStructure#getRoomAttributes()
 	 * @see #getRoomStructure()
 	 * @generated
 	 */
-	EReference getRoomStructure_Roomattribute();
+	EReference getRoomStructure_RoomAttributes();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.RoomHandling <em>Room Handling</em>}'.
@@ -4411,44 +4378,44 @@ public interface RootElementPackage extends EPackage {
 	EClass getRoomHandling();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomHandling#addRoom(RootElement.RoomType, int) <em>Add Room</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#addRoom(RootElement.RoomType, java.lang.String) <em>Add Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Room</em>' operation.
-	 * @see RootElement.RoomHandling#addRoom(RootElement.RoomType, int)
+	 * @see RootElement.RoomHandling#addRoom(RootElement.RoomType, java.lang.String)
 	 * @generated
 	 */
-	EOperation getRoomHandling__AddRoom__RoomType_int();
+	EOperation getRoomHandling__AddRoom__RoomType_String();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomHandling#removeRoom(int) <em>Remove Room</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#removeRoom(java.lang.String) <em>Remove Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Room</em>' operation.
-	 * @see RootElement.RoomHandling#removeRoom(int)
+	 * @see RootElement.RoomHandling#removeRoom(java.lang.String)
 	 * @generated
 	 */
-	EOperation getRoomHandling__RemoveRoom__int();
+	EOperation getRoomHandling__RemoveRoom__String();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomHandling#editRoom(int, RootElement.RoomType, int) <em>Edit Room</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#editRoom(java.lang.String, RootElement.RoomType, java.lang.String) <em>Edit Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Edit Room</em>' operation.
-	 * @see RootElement.RoomHandling#editRoom(int, RootElement.RoomType, int)
+	 * @see RootElement.RoomHandling#editRoom(java.lang.String, RootElement.RoomType, java.lang.String)
 	 * @generated
 	 */
-	EOperation getRoomHandling__EditRoom__int_RoomType_int();
+	EOperation getRoomHandling__EditRoom__String_RoomType_String();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomHandling#findRoom(int) <em>Find Room</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#findRoom(java.lang.String) <em>Find Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Find Room</em>' operation.
-	 * @see RootElement.RoomHandling#findRoom(int)
+	 * @see RootElement.RoomHandling#findRoom(java.lang.String)
 	 * @generated
 	 */
-	EOperation getRoomHandling__FindRoom__int();
+	EOperation getRoomHandling__FindRoom__String();
 
 	/**
 	 * Returns the meta object for the '{@link RootElement.RoomHandling#getAllRooms() <em>Get All Rooms</em>}' operation.
@@ -4569,6 +4536,16 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRoomAttributeHandling__RemoveRoomAttribute__RoomAttribute();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.RoomAttributeHandling#getAllRoomAttributes() <em>Get All Room Attributes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Room Attributes</em>' operation.
+	 * @see RootElement.RoomAttributeHandling#getAllRoomAttributes()
+	 * @generated
+	 */
+	EOperation getRoomAttributeHandling__GetAllRoomAttributes();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.FeedbackHandler <em>Feedback Handler</em>}'.
@@ -5149,12 +5126,12 @@ public interface RootElementPackage extends EPackage {
 		EAttribute ROOM__IS_OCCUPIED = eINSTANCE.getRoom_IsOccupied();
 
 		/**
-		 * The meta object literal for the '<em><b>Room ID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Room Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ROOM__ROOM_ID = eINSTANCE.getRoom_RoomID();
+		EAttribute ROOM__ROOM_NAME = eINSTANCE.getRoom_RoomName();
 
 		/**
 		 * The meta object literal for the '<em><b>Need Cleaning</b></em>' attribute feature.
@@ -5165,12 +5142,12 @@ public interface RootElementPackage extends EPackage {
 		EAttribute ROOM__NEED_CLEANING = eINSTANCE.getRoom_NeedCleaning();
 
 		/**
-		 * The meta object literal for the '<em><b>Roomtype</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Room Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOM__ROOMTYPE = eINSTANCE.getRoom_Roomtype();
+		EReference ROOM__ROOM_TYPE = eINSTANCE.getRoom_RoomType();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.impl.RoomTypeImpl <em>Room Type</em>}' class.
@@ -5199,12 +5176,20 @@ public interface RootElementPackage extends EPackage {
 		EAttribute ROOM_TYPE__PRICE = eINSTANCE.getRoomType_Price();
 
 		/**
-		 * The meta object literal for the '<em><b>Roomattribute</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Add Room Attribute</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOM_TYPE__ROOMATTRIBUTE = eINSTANCE.getRoomType_Roomattribute();
+		EOperation ROOM_TYPE___ADD_ROOM_ATTRIBUTE__ROOMATTRIBUTE = eINSTANCE.getRoomType__AddRoomAttribute__RoomAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Room Attribute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_TYPE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = eINSTANCE.getRoomType__RemoveRoomAttribute__RoomAttribute();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.impl.RoomAttributeImpl <em>Room Attribute</em>}' class.
@@ -5563,30 +5548,6 @@ public interface RootElementPackage extends EPackage {
 		EClass SYS_ADMIN = eINSTANCE.getSysAdmin();
 
 		/**
-		 * The meta object literal for the '<em><b>Room Attribute Handling</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING = eINSTANCE.getSysAdmin_RoomAttributeHandling();
-
-		/**
-		 * The meta object literal for the '<em><b>Room Handling</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYS_ADMIN__ROOM_HANDLING = eINSTANCE.getSysAdmin_RoomHandling();
-
-		/**
-		 * The meta object literal for the '<em><b>Room Type Handling</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYS_ADMIN__ROOM_TYPE_HANDLING = eINSTANCE.getSysAdmin_RoomTypeHandling();
-
-		/**
 		 * The meta object literal for the '{@link RootElement.MakeBooking <em>Make Booking</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5731,20 +5692,20 @@ public interface RootElementPackage extends EPackage {
 		EReference ROOM_STRUCTURE__ROOMS = eINSTANCE.getRoomStructure_Rooms();
 
 		/**
-		 * The meta object literal for the '<em><b>Roomtype</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Room Types</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOM_STRUCTURE__ROOMTYPE = eINSTANCE.getRoomStructure_Roomtype();
+		EReference ROOM_STRUCTURE__ROOM_TYPES = eINSTANCE.getRoomStructure_RoomTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Roomattribute</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Room Attributes</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOM_STRUCTURE__ROOMATTRIBUTE = eINSTANCE.getRoomStructure_Roomattribute();
+		EReference ROOM_STRUCTURE__ROOM_ATTRIBUTES = eINSTANCE.getRoomStructure_RoomAttributes();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.RoomHandling <em>Room Handling</em>}' class.
@@ -5762,7 +5723,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT = eINSTANCE.getRoomHandling__AddRoom__RoomType_int();
+		EOperation ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING = eINSTANCE.getRoomHandling__AddRoom__RoomType_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Room</b></em>' operation.
@@ -5770,7 +5731,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_HANDLING___REMOVE_ROOM__INT = eINSTANCE.getRoomHandling__RemoveRoom__int();
+		EOperation ROOM_HANDLING___REMOVE_ROOM__STRING = eINSTANCE.getRoomHandling__RemoveRoom__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Edit Room</b></em>' operation.
@@ -5778,7 +5739,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_HANDLING___EDIT_ROOM__INT_ROOMTYPE_INT = eINSTANCE.getRoomHandling__EditRoom__int_RoomType_int();
+		EOperation ROOM_HANDLING___EDIT_ROOM__STRING_ROOMTYPE_STRING = eINSTANCE.getRoomHandling__EditRoom__String_RoomType_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Find Room</b></em>' operation.
@@ -5786,7 +5747,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_HANDLING___FIND_ROOM__INT = eINSTANCE.getRoomHandling__FindRoom__int();
+		EOperation ROOM_HANDLING___FIND_ROOM__STRING = eINSTANCE.getRoomHandling__FindRoom__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Rooms</b></em>' operation.
@@ -5887,6 +5848,14 @@ public interface RootElementPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = eINSTANCE.getRoomAttributeHandling__RemoveRoomAttribute__RoomAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Room Attributes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES = eINSTANCE.getRoomAttributeHandling__GetAllRoomAttributes();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.impl.FeedbackHandlerImpl <em>Feedback Handler</em>}' class.

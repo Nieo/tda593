@@ -32,22 +32,11 @@ public interface RoomAttribute extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
 	 * @see RootElement.RootElementPackage#getRoomAttribute_Id()
-	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" changeable="false" ordered="false"
 	 * @generated
 	 */
 	int getId();
-
-	/**
-	 * Sets the value of the '{@link RootElement.RoomAttribute#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link RootElement.RoomStructure#getRooms <em>Rooms</em>}</li>
- *   <li>{@link RootElement.RoomStructure#getRoomtype <em>Roomtype</em>}</li>
- *   <li>{@link RootElement.RoomStructure#getRoomattribute <em>Roomattribute</em>}</li>
+ *   <li>{@link RootElement.RoomStructure#getRoomTypes <em>Room Types</em>}</li>
+ *   <li>{@link RootElement.RoomStructure#getRoomAttributes <em>Room Attributes</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getRoomStructure()
@@ -40,35 +40,35 @@ public interface RoomStructure extends RoomHandling, RoomTypeHandling, RoomAttri
 	EList<Room> getRooms();
 
 	/**
-	 * Returns the value of the '<em><b>Roomtype</b></em>' reference list.
+	 * Returns the value of the '<em><b>Room Types</b></em>' reference list.
 	 * The list contents are of type {@link RootElement.RoomType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Roomtype</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Room Types</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Roomtype</em>' reference list.
-	 * @see RootElement.RootElementPackage#getRoomStructure_Roomtype()
+	 * @return the value of the '<em>Room Types</em>' reference list.
+	 * @see RootElement.RootElementPackage#getRoomStructure_RoomTypes()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	EList<RoomType> getRoomtype();
+	EList<RoomType> getRoomTypes();
 
 	/**
-	 * Returns the value of the '<em><b>Roomattribute</b></em>' reference list.
+	 * Returns the value of the '<em><b>Room Attributes</b></em>' reference list.
 	 * The list contents are of type {@link RootElement.RoomAttribute}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Roomattribute</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Room Attributes</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Roomattribute</em>' reference list.
-	 * @see RootElement.RootElementPackage#getRoomStructure_Roomattribute()
+	 * @return the value of the '<em>Room Attributes</em>' reference list.
+	 * @see RootElement.RootElementPackage#getRoomStructure_RoomAttributes()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	EList<RoomAttribute> getRoomattribute();
+	EList<RoomAttribute> getRoomAttributes();
 
 } // RoomStructure

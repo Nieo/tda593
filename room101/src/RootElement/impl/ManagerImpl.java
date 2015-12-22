@@ -21,49 +21,19 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Manager</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link RootElement.impl.ManagerImpl#getRoomAttributeHandling <em>Room Attribute Handling</em>}</li>
- *   <li>{@link RootElement.impl.ManagerImpl#getRoomHandling <em>Room Handling</em>}</li>
- *   <li>{@link RootElement.impl.ManagerImpl#getRoomTypeHandling <em>Room Type Handling</em>}</li>
- *   <li>{@link RootElement.impl.ManagerImpl#getFeedbackReader <em>Feedback Reader</em>}</li>
- * </ul>
- *
- * @generated
+ * 
+ * The manager contains functionality to perform both the actions of
+ * a system administrator (SysAdmin) and the clerk.
  */
 public class ManagerImpl extends ClerkImpl implements Manager {
 	/**
-	 * The cached value of the '{@link #getRoomAttributeHandling() <em>Room Attribute Handling</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomAttributeHandling()
-	 * @generated
-	 * @ordered
+	 * A link to the sysadmin, to make sure that the manager can do
+	 * everything that the sysadmin can.
+	 * @generated NOT
 	 */
-	protected RoomAttributeHandling roomAttributeHandling;
-	/**
-	 * The cached value of the '{@link #getRoomHandling() <em>Room Handling</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomHandling()
-	 * @generated
-	 * @ordered
-	 */
-	protected RoomHandling roomHandling;
-	/**
-	 * The cached value of the '{@link #getRoomTypeHandling() <em>Room Type Handling</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoomTypeHandling()
-	 * @generated
-	 * @ordered
-	 */
-	protected RoomTypeHandling roomTypeHandling;
+	private SysAdmin sysAdmin;
+	
 	/**
 	 * The cached value of the '{@link #getFeedbackReader() <em>Feedback Reader</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -73,137 +43,24 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	 * @ordered
 	 */
 	protected FeedbackReader feedbackReader;
+	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Creates a manager user. The manager gets access to the room structure of
+	 * the hotel with the default name, as defined in RoomSetupFactory.
+	 * @generated NOT
 	 */
 	protected ManagerImpl() {
+		this(RoomSetupFactory.DEFAULT_HOTELNAME);
+	}
+	
+	/**
+	 * Creates a manager user that gets access to the room structure of
+	 * the hotel with the given name.
+	 * @generated NOT
+	 */
+	protected ManagerImpl(String hotelName){
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return RootElementPackage.Literals.MANAGER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomAttributeHandling getRoomAttributeHandling() {
-		if (roomAttributeHandling != null && roomAttributeHandling.eIsProxy()) {
-			InternalEObject oldRoomAttributeHandling = (InternalEObject)roomAttributeHandling;
-			roomAttributeHandling = (RoomAttributeHandling)eResolveProxy(oldRoomAttributeHandling);
-			if (roomAttributeHandling != oldRoomAttributeHandling) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.MANAGER__ROOM_ATTRIBUTE_HANDLING, oldRoomAttributeHandling, roomAttributeHandling));
-			}
-		}
-		return roomAttributeHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomAttributeHandling basicGetRoomAttributeHandling() {
-		return roomAttributeHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoomAttributeHandling(RoomAttributeHandling newRoomAttributeHandling) {
-		RoomAttributeHandling oldRoomAttributeHandling = roomAttributeHandling;
-		roomAttributeHandling = newRoomAttributeHandling;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.MANAGER__ROOM_ATTRIBUTE_HANDLING, oldRoomAttributeHandling, roomAttributeHandling));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomHandling getRoomHandling() {
-		if (roomHandling != null && roomHandling.eIsProxy()) {
-			InternalEObject oldRoomHandling = (InternalEObject)roomHandling;
-			roomHandling = (RoomHandling)eResolveProxy(oldRoomHandling);
-			if (roomHandling != oldRoomHandling) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.MANAGER__ROOM_HANDLING, oldRoomHandling, roomHandling));
-			}
-		}
-		return roomHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomHandling basicGetRoomHandling() {
-		return roomHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoomHandling(RoomHandling newRoomHandling) {
-		RoomHandling oldRoomHandling = roomHandling;
-		roomHandling = newRoomHandling;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.MANAGER__ROOM_HANDLING, oldRoomHandling, roomHandling));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomTypeHandling getRoomTypeHandling() {
-		if (roomTypeHandling != null && roomTypeHandling.eIsProxy()) {
-			InternalEObject oldRoomTypeHandling = (InternalEObject)roomTypeHandling;
-			roomTypeHandling = (RoomTypeHandling)eResolveProxy(oldRoomTypeHandling);
-			if (roomTypeHandling != oldRoomTypeHandling) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.MANAGER__ROOM_TYPE_HANDLING, oldRoomTypeHandling, roomTypeHandling));
-			}
-		}
-		return roomTypeHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RoomTypeHandling basicGetRoomTypeHandling() {
-		return roomTypeHandling;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoomTypeHandling(RoomTypeHandling newRoomTypeHandling) {
-		RoomTypeHandling oldRoomTypeHandling = roomTypeHandling;
-		roomTypeHandling = newRoomTypeHandling;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.MANAGER__ROOM_TYPE_HANDLING, oldRoomTypeHandling, roomTypeHandling));
+		sysAdmin = new SysAdminImpl(hotelName);
 	}
 
 	/**
@@ -245,157 +102,130 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Adds a room with the given properties to the list of available
+	 * rooms at the current hotel.
+	 * @generated NOT
 	 */
-	public RoomAttribute addRoomAttribute(String name, String description) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Room addRoom(RoomType roomType, String roomName) {
+		return sysAdmin.addRoom(roomType, roomName);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Attempts to remove the room with the given name from the list
+	 * of available rooms of the current hotel.
+	 * @generated NOT
 	 */
-	public boolean editRoomAttribute(RoomAttribute roomAttribute, String newName, String newDescription) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean removeRoom(String roomName) {
+		return sysAdmin.removeRoom(roomName);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Updates the room with the given name with the new parameters.
+	 * @generated NOT
 	 */
-	public boolean removeRoomAttribute(RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean editRoom(String roomName, RoomType newRoomType, String newRoomName) {
+		return sysAdmin.editRoom(roomName, newRoomType, newRoomName);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Searches for a room among the available at the hotel. If it does
+	 * not find it, null is returned.
+	 * @generated NOT
 	 */
-	public Room addRoom(RoomType roomType, int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Room findRoom(String roomName) {
+		return sysAdmin.findRoom(roomName);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean removeRoom(int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void editRoom(int roomNbr, RoomType newRoomType, int newRoomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Room findRoom(int roomNbr) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Retrieves all rooms available at the hotel
+	 * @generated NOT
 	 */
 	public EList<Room> getAllRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return sysAdmin.getAllRooms();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Adds a room type with the given properties to the list of available
+	 * room types at the current hotel.
+	 * @generated NOT
 	 */
 	public RoomType addRoomType(String name, int cost) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return sysAdmin.addRoomType(name, cost);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Updates the given room type with the new parameters.
+	 * @generated NOT
 	 */
 	public boolean editRoomType(RoomType roomType, String newName, int newCost) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return sysAdmin.editRoomType(roomType, newName, newCost);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Attempts to remove the given room type from the list
+	 * of available room types of the current hotel.
+	 * @generated NOT
 	 */
 	public boolean removeRoomType(RoomType roomType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return sysAdmin.removeRoomType(roomType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Retrieves a list of all available room types at the current hotel.
+	 * @generated NOT
 	 */
 	public EList<RoomType> getAllRoomTypes() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return sysAdmin.getAllRoomTypes();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Binds a room attribute to a room type.
+	 * @generated NOT
 	 */
 	public boolean addAttributeToRoomType(RoomType roomType, RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return sysAdmin.addAttributeToRoomType(roomType, roomAttribute);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Unbinds a room attribute from a room type
+	 * @generated NOT
 	 */
 	public boolean removeAttributeFromRoomType(RoomType roomType, RoomAttribute roomAttribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return sysAdmin.removeAttributeFromRoomType(roomType, roomAttribute);
+	}
+
+	/**
+	 * Adds a room attribute with the given properties to the list of available
+	 * room attributes at the current hotel.
+	 * @generated NOT
+	 */
+	public RoomAttribute addRoomAttribute(String name, String description) {
+		return sysAdmin.addRoomAttribute(name, description);
+	}
+
+	/**
+	 * Updates the given room attribute with the new parameters.
+	 * @generated NOT
+	 */
+	public boolean editRoomAttribute(RoomAttribute roomAttribute, String newName, String newDescription) {
+		return sysAdmin.editRoomAttribute(roomAttribute, newName, newDescription);
+	}
+
+	/**
+	 * Attempts to remove the given room attribute from the list
+	 * of available room attributes of the current hotel.
+	 * @generated NOT
+	 */
+	public boolean removeRoomAttribute(RoomAttribute roomAttribute) {
+		return sysAdmin.removeRoomAttribute(roomAttribute);
+	}
+
+	/**
+	 * Retrieves all room attributes of the current hotel
+	 * @generated NOT
+	 */
+	public EList<RoomAttribute> getAllRoomAttributes() {
+		return sysAdmin.getAllRoomAttributes();
 	}
 
 	/**
@@ -420,6 +250,17 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 		throw new UnsupportedOperationException();
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return RootElementPackage.Literals.MANAGER;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -428,15 +269,6 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RootElementPackage.MANAGER__ROOM_ATTRIBUTE_HANDLING:
-				if (resolve) return getRoomAttributeHandling();
-				return basicGetRoomAttributeHandling();
-			case RootElementPackage.MANAGER__ROOM_HANDLING:
-				if (resolve) return getRoomHandling();
-				return basicGetRoomHandling();
-			case RootElementPackage.MANAGER__ROOM_TYPE_HANDLING:
-				if (resolve) return getRoomTypeHandling();
-				return basicGetRoomTypeHandling();
 			case RootElementPackage.MANAGER__FEEDBACK_READER:
 				if (resolve) return getFeedbackReader();
 				return basicGetFeedbackReader();
@@ -452,15 +284,6 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RootElementPackage.MANAGER__ROOM_ATTRIBUTE_HANDLING:
-				setRoomAttributeHandling((RoomAttributeHandling)newValue);
-				return;
-			case RootElementPackage.MANAGER__ROOM_HANDLING:
-				setRoomHandling((RoomHandling)newValue);
-				return;
-			case RootElementPackage.MANAGER__ROOM_TYPE_HANDLING:
-				setRoomTypeHandling((RoomTypeHandling)newValue);
-				return;
 			case RootElementPackage.MANAGER__FEEDBACK_READER:
 				setFeedbackReader((FeedbackReader)newValue);
 				return;
@@ -476,15 +299,6 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RootElementPackage.MANAGER__ROOM_ATTRIBUTE_HANDLING:
-				setRoomAttributeHandling((RoomAttributeHandling)null);
-				return;
-			case RootElementPackage.MANAGER__ROOM_HANDLING:
-				setRoomHandling((RoomHandling)null);
-				return;
-			case RootElementPackage.MANAGER__ROOM_TYPE_HANDLING:
-				setRoomTypeHandling((RoomTypeHandling)null);
-				return;
 			case RootElementPackage.MANAGER__FEEDBACK_READER:
 				setFeedbackReader((FeedbackReader)null);
 				return;
@@ -500,92 +314,10 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RootElementPackage.MANAGER__ROOM_ATTRIBUTE_HANDLING:
-				return roomAttributeHandling != null;
-			case RootElementPackage.MANAGER__ROOM_HANDLING:
-				return roomHandling != null;
-			case RootElementPackage.MANAGER__ROOM_TYPE_HANDLING:
-				return roomTypeHandling != null;
 			case RootElementPackage.MANAGER__FEEDBACK_READER:
 				return feedbackReader != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == RoomAttributeHandling.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == RoomHandling.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == RoomTypeHandling.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == SysAdmin.class) {
-			switch (derivedFeatureID) {
-				case RootElementPackage.MANAGER__ROOM_ATTRIBUTE_HANDLING: return RootElementPackage.SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING;
-				case RootElementPackage.MANAGER__ROOM_HANDLING: return RootElementPackage.SYS_ADMIN__ROOM_HANDLING;
-				case RootElementPackage.MANAGER__ROOM_TYPE_HANDLING: return RootElementPackage.SYS_ADMIN__ROOM_TYPE_HANDLING;
-				default: return -1;
-			}
-		}
-		if (baseClass == FeedbackReader.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == RoomAttributeHandling.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == RoomHandling.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == RoomTypeHandling.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == SysAdmin.class) {
-			switch (baseFeatureID) {
-				case RootElementPackage.SYS_ADMIN__ROOM_ATTRIBUTE_HANDLING: return RootElementPackage.MANAGER__ROOM_ATTRIBUTE_HANDLING;
-				case RootElementPackage.SYS_ADMIN__ROOM_HANDLING: return RootElementPackage.MANAGER__ROOM_HANDLING;
-				case RootElementPackage.SYS_ADMIN__ROOM_TYPE_HANDLING: return RootElementPackage.MANAGER__ROOM_TYPE_HANDLING;
-				default: return -1;
-			}
-		}
-		if (baseClass == FeedbackReader.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -600,15 +332,16 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___ADD_ROOM_ATTRIBUTE__STRING_STRING: return RootElementPackage.MANAGER___ADD_ROOM_ATTRIBUTE__STRING_STRING;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING: return RootElementPackage.MANAGER___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE: return RootElementPackage.MANAGER___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE;
+				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES: return RootElementPackage.MANAGER___GET_ALL_ROOM_ATTRIBUTES;
 				default: return -1;
 			}
 		}
 		if (baseClass == RoomHandling.class) {
 			switch (baseOperationID) {
-				case RootElementPackage.ROOM_HANDLING___ADD_ROOM__ROOMTYPE_INT: return RootElementPackage.MANAGER___ADD_ROOM__ROOMTYPE_INT;
-				case RootElementPackage.ROOM_HANDLING___REMOVE_ROOM__INT: return RootElementPackage.MANAGER___REMOVE_ROOM__INT;
-				case RootElementPackage.ROOM_HANDLING___EDIT_ROOM__INT_ROOMTYPE_INT: return RootElementPackage.MANAGER___EDIT_ROOM__INT_ROOMTYPE_INT;
-				case RootElementPackage.ROOM_HANDLING___FIND_ROOM__INT: return RootElementPackage.MANAGER___FIND_ROOM__INT;
+				case RootElementPackage.ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING: return RootElementPackage.MANAGER___ADD_ROOM__ROOMTYPE_STRING;
+				case RootElementPackage.ROOM_HANDLING___REMOVE_ROOM__STRING: return RootElementPackage.MANAGER___REMOVE_ROOM__STRING;
+				case RootElementPackage.ROOM_HANDLING___EDIT_ROOM__STRING_ROOMTYPE_STRING: return RootElementPackage.MANAGER___EDIT_ROOM__STRING_ROOMTYPE_STRING;
+				case RootElementPackage.ROOM_HANDLING___FIND_ROOM__STRING: return RootElementPackage.MANAGER___FIND_ROOM__STRING;
 				case RootElementPackage.ROOM_HANDLING___GET_ALL_ROOMS: return RootElementPackage.MANAGER___GET_ALL_ROOMS;
 				default: return -1;
 			}
@@ -653,15 +386,16 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 				return editRoomAttribute((RoomAttribute)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 			case RootElementPackage.MANAGER___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE:
 				return removeRoomAttribute((RoomAttribute)arguments.get(0));
-			case RootElementPackage.MANAGER___ADD_ROOM__ROOMTYPE_INT:
-				return addRoom((RoomType)arguments.get(0), (Integer)arguments.get(1));
-			case RootElementPackage.MANAGER___REMOVE_ROOM__INT:
-				return removeRoom((Integer)arguments.get(0));
-			case RootElementPackage.MANAGER___EDIT_ROOM__INT_ROOMTYPE_INT:
-				editRoom((Integer)arguments.get(0), (RoomType)arguments.get(1), (Integer)arguments.get(2));
-				return null;
-			case RootElementPackage.MANAGER___FIND_ROOM__INT:
-				return findRoom((Integer)arguments.get(0));
+			case RootElementPackage.MANAGER___GET_ALL_ROOM_ATTRIBUTES:
+				return getAllRoomAttributes();
+			case RootElementPackage.MANAGER___ADD_ROOM__ROOMTYPE_STRING:
+				return addRoom((RoomType)arguments.get(0), (String)arguments.get(1));
+			case RootElementPackage.MANAGER___REMOVE_ROOM__STRING:
+				return removeRoom((String)arguments.get(0));
+			case RootElementPackage.MANAGER___EDIT_ROOM__STRING_ROOMTYPE_STRING:
+				return editRoom((String)arguments.get(0), (RoomType)arguments.get(1), (String)arguments.get(2));
+			case RootElementPackage.MANAGER___FIND_ROOM__STRING:
+				return findRoom((String)arguments.get(0));
 			case RootElementPackage.MANAGER___GET_ALL_ROOMS:
 				return getAllRooms();
 			case RootElementPackage.MANAGER___ADD_ROOM_TYPE__STRING_INT:

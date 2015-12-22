@@ -4,6 +4,7 @@ package RootElement.impl;
 
 import RootElement.RoomAttribute;
 import RootElement.RootElementPackage;
+import RootElement.util.IDGenerator;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,26 +14,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
- * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Room Attribute</b></em>'.
- * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link RootElement.impl.RoomAttributeImpl#getId <em>Id</em>}</li>
- *   <li>{@link RootElement.impl.RoomAttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link RootElement.impl.RoomAttributeImpl#getDescription <em>Description</em>}</li>
- * </ul>
- *
- * @generated
+ * 
+ * A room attribute is a part of a room type. Each attribute can belong to
+ * one, several or none types. The ID of each attribute should be unique
+ * and cannot be changed after creation.
+ * 
+ * @author Matz Larsson
  */
 public class RoomAttributeImpl extends MinimalEObjectImpl.Container implements RoomAttribute {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
@@ -40,19 +32,13 @@ public class RoomAttributeImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected int id = ID_EDEFAULT;
+	private int id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
@@ -60,19 +46,13 @@ public class RoomAttributeImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	private String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
@@ -80,22 +60,78 @@ public class RoomAttributeImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected String description = DESCRIPTION_EDEFAULT;
+	private String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Creates a basic room attribute with a new unique ID.
+	 * @generated NOT
 	 */
 	protected RoomAttributeImpl() {
 		super();
+		this.id = IDGenerator.getGenerator("RoomAttribute").getNewID();
 	}
+
+	/**
+	 * Retrieves the ID of this room attribute
+	 * @generated
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * Retrieves the name of this attribute
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Sets the name of the room attribute. The name cannot be null or
+	 * empty, or an illegalstateexception will be thrown.
+	 * @generated NOT
+	 */
+	public void setName(String newName) {
+		if(newName != null){
+			String oldName = name;
+			name = newName;
+			if (eNotificationRequired()){
+				eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM_ATTRIBUTE__NAME, oldName, name));
+			}
+		}else{
+			throw new IllegalArgumentException("Invalid room attribute name, cannot be "+(newName==null?"null":"empty"));
+		}
+	}
+
+	/**
+	 * Retrieves the description of this attribute
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * Sets the description of the room attribute. The description
+	 * cannot be null, or an illegalstateexception will be thrown.
+	 * @generated NOT
+	 */
+	public void setDescription(String newDescription) {
+		if(newDescription != null){
+			String oldDescription = description;
+			description = newDescription;
+			if (eNotificationRequired()){
+				eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM_ATTRIBUTE__DESCRIPTION, oldDescription, description));
+			}
+		}else{
+			throw new IllegalStateException("Invalid description, cannot be null");
+		}
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,70 +142,7 @@ public class RoomAttributeImpl extends MinimalEObjectImpl.Container implements R
 	protected EClass eStaticClass() {
 		return RootElementPackage.Literals.ROOM_ATTRIBUTE;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM_ATTRIBUTE__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM_ATTRIBUTE__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM_ATTRIBUTE__DESCRIPTION, oldDescription, description));
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,9 +169,6 @@ public class RoomAttributeImpl extends MinimalEObjectImpl.Container implements R
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RootElementPackage.ROOM_ATTRIBUTE__ID:
-				setId((Integer)newValue);
-				return;
 			case RootElementPackage.ROOM_ATTRIBUTE__NAME:
 				setName((String)newValue);
 				return;
@@ -217,9 +187,6 @@ public class RoomAttributeImpl extends MinimalEObjectImpl.Container implements R
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RootElementPackage.ROOM_ATTRIBUTE__ID:
-				setId(ID_EDEFAULT);
-				return;
 			case RootElementPackage.ROOM_ATTRIBUTE__NAME:
 				setName(NAME_EDEFAULT);
 				return;

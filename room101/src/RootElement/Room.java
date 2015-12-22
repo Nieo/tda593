@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link RootElement.Room#isOccupied <em>Is Occupied</em>}</li>
- *   <li>{@link RootElement.Room#getRoomID <em>Room ID</em>}</li>
+ *   <li>{@link RootElement.Room#getRoomName <em>Room Name</em>}</li>
  *   <li>{@link RootElement.Room#isNeedCleaning <em>Need Cleaning</em>}</li>
- *   <li>{@link RootElement.Room#getRoomtype <em>Roomtype</em>}</li>
+ *   <li>{@link RootElement.Room#getRoomType <em>Room Type</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getRoom()
@@ -51,30 +51,30 @@ public interface Room extends EObject {
 	void setIsOccupied(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Room ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Room Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Room ID</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Room Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Room ID</em>' attribute.
-	 * @see #setRoomID(String)
-	 * @see RootElement.RootElementPackage#getRoom_RoomID()
+	 * @return the value of the '<em>Room Name</em>' attribute.
+	 * @see #setRoomName(String)
+	 * @see RootElement.RootElementPackage#getRoom_RoomName()
 	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
-	String getRoomID();
+	String getRoomName();
 
 	/**
-	 * Sets the value of the '{@link RootElement.Room#getRoomID <em>Room ID</em>}' attribute.
+	 * Sets the value of the '{@link RootElement.Room#getRoomName <em>Room Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Room ID</em>' attribute.
-	 * @see #getRoomID()
+	 * @param value the new value of the '<em>Room Name</em>' attribute.
+	 * @see #getRoomName()
 	 * @generated
 	 */
-	void setRoomID(String value);
+	void setRoomName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Need Cleaning</b></em>' attribute.
@@ -103,29 +103,29 @@ public interface Room extends EObject {
 	void setNeedCleaning(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Roomtype</b></em>' reference.
+	 * Returns the value of the '<em><b>Room Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Roomtype</em>' reference isn't clear,
+	 * If the meaning of the '<em>Room Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Roomtype</em>' reference.
-	 * @see #setRoomtype(RoomType)
-	 * @see RootElement.RootElementPackage#getRoom_Roomtype()
+	 * @return the value of the '<em>Room Type</em>' reference.
+	 * @see #setRoomType(RoomType)
+	 * @see RootElement.RootElementPackage#getRoom_RoomType()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	RoomType getRoomtype();
+	RoomType getRoomType();
 
 	/**
-	 * Sets the value of the '{@link RootElement.Room#getRoomtype <em>Roomtype</em>}' reference.
+	 * Sets the value of the '{@link RootElement.Room#getRoomType <em>Room Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Roomtype</em>' reference.
-	 * @see #getRoomtype()
+	 * @param value the new value of the '<em>Room Type</em>' reference.
+	 * @see #getRoomType()
 	 * @generated
 	 */
-	void setRoomtype(RoomType value);
+	void setRoomType(RoomType value);
 
 } // Room

@@ -20,34 +20,34 @@ public interface RoomHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" roomTypeRequired="true" roomTypeOrdered="false" roomNbrDataType="org.eclipse.uml2.types.Integer" roomNbrRequired="true" roomNbrOrdered="false"
+	 * @model required="true" ordered="false" roomTypeRequired="true" roomTypeOrdered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
 	 * @generated
 	 */
-	Room addRoom(RoomType roomType, int roomNbr);
+	Room addRoom(RoomType roomType, String roomName);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomNbrDataType="org.eclipse.uml2.types.Integer" roomNbrRequired="true" roomNbrOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
 	 * @generated
 	 */
-	boolean removeRoom(int roomNbr);
+	boolean removeRoom(String roomName);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model roomNbrDataType="org.eclipse.uml2.types.Integer" roomNbrRequired="true" roomNbrOrdered="false" newRoomTypeRequired="true" newRoomTypeOrdered="false" newRoomNbrDataType="org.eclipse.uml2.types.Integer" newRoomNbrRequired="true" newRoomNbrOrdered="false"
+	 * @model required="true" ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false" newRoomTypeRequired="true" newRoomTypeOrdered="false" newRoomNameDataType="org.eclipse.uml2.types.String" newRoomNameRequired="true" newRoomNameOrdered="false"
 	 * @generated
 	 */
-	void editRoom(int roomNbr, RoomType newRoomType, int newRoomNbr);
+	boolean editRoom(String roomName, RoomType newRoomType, String newRoomName);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" roomNbrDataType="org.eclipse.uml2.types.Integer" roomNbrRequired="true" roomNbrOrdered="false"
+	 * @model required="true" ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
 	 * @generated
 	 */
-	Room findRoom(int roomNbr);
+	Room findRoom(String roomName);
 
 	/**
 	 * <!-- begin-user-doc -->
