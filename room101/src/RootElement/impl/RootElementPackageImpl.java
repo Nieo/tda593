@@ -1462,7 +1462,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoomFetcher__GetAllRooms() {
+	public EOperation getRoomFetcher__GetAllCleanableRooms() {
 		return roomFetcherEClass.getEOperations().get(1);
 	}
 
@@ -1776,6 +1776,11 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEAttribute(serviceItemEClass, SERVICE_ITEM__DESCRIPTION);
 		createEAttribute(serviceItemEClass, SERVICE_ITEM__PRICE);
 
+		serviceItemhandlingEClass = createEClass(SERVICE_ITEMHANDLING);
+		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT);
+		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM);
+		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING);
+
 		feedbackWriterEClass = createEClass(FEEDBACK_WRITER);
 		createEOperation(feedbackWriterEClass, FEEDBACK_WRITER___GIVE_FEEDBACK__STRING);
 
@@ -1817,11 +1822,6 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEOperation(receptionHandlingEClass, RECEPTION_HANDLING___CHECK_OUT__ROOMBOOKING);
 		createEOperation(receptionHandlingEClass, RECEPTION_HANDLING___FIND_BOOKINGS__STRING);
 		createEOperation(receptionHandlingEClass, RECEPTION_HANDLING___FIND_ACTIVE_BOOKING__STRING);
-
-		serviceItemhandlingEClass = createEClass(SERVICE_ITEMHANDLING);
-		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT);
-		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM);
-		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING);
 
 		paymentEClass = createEClass(PAYMENT);
 		createEOperation(paymentEClass, PAYMENT___VERIFY_CREDIT_CARD__STRING);
@@ -1865,7 +1865,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		roomFetcherEClass = createEClass(ROOM_FETCHER);
 		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_BOOKABLE_ROOMS);
-		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_ALL_ROOMS);
+		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_ALL_CLEANABLE_ROOMS);
 		createEOperation(roomFetcherEClass, ROOM_FETCHER___GET_AVAILABLE_ROOMS);
 
 		roomStructureEClass = createEClass(ROOM_STRUCTURE);
@@ -1937,6 +1937,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		guestEClass.getESuperTypes().add(this.getSupportTicketWriter());
 		guestEClass.getESuperTypes().add(this.getFeedbackWriter());
 		guestEClass.getESuperTypes().add(this.getMakeBooking());
+		bookingEClass.getESuperTypes().add(this.getServiceItemhandling());
 		staffEClass.getESuperTypes().add(this.getCleaning());
 		staffEClass.getESuperTypes().add(this.getSupportTicketWriter());
 		staffEClass.getESuperTypes().add(this.getSupportTicketReader());
@@ -1951,12 +1952,21 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		sysAdminEClass.getESuperTypes().add(this.getRoomAttributeHandling());
 		sysAdminEClass.getESuperTypes().add(this.getRoomHandling());
 		sysAdminEClass.getESuperTypes().add(this.getRoomTypeHandling());
+		bookingHandlerEClass.getESuperTypes().add(this.getReceptionHandling());
+		bookingHandlerEClass.getESuperTypes().add(this.getMakeBooking());
 		roomStructureEClass.getESuperTypes().add(this.getRoomHandling());
 		roomStructureEClass.getESuperTypes().add(this.getRoomTypeHandling());
 		roomStructureEClass.getESuperTypes().add(this.getRoomAttributeHandling());
+		roomStructureEClass.getESuperTypes().add(this.getRoomFetcher());
+		feedbackHandlerEClass.getESuperTypes().add(this.getFeedbackReader());
+		feedbackHandlerEClass.getESuperTypes().add(this.getFeedbackWriter());
+		supportTicketHandlerEClass.getESuperTypes().add(this.getSupportTicketReader());
+		supportTicketHandlerEClass.getESuperTypes().add(this.getSupportTicketWriter());
+		cleaningHandlerEClass.getESuperTypes().add(this.getCleaning());
 		paymentHandlerEClass.getESuperTypes().add(this.getPayment());
 		dailyRoomBookingEClass.getESuperTypes().add(this.getRoomBooking());
 		hourlyRoomBookingEClass.getESuperTypes().add(this.getRoomBooking());
+		hotelEClass.getESuperTypes().add(this.getHotelSystem());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(guestEClass, Guest.class, "Guest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2045,6 +2055,19 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		initEAttribute(getServiceItem_Description(), theTypesPackage.getString(), "description", null, 1, 1, ServiceItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getServiceItem_Price(), theTypesPackage.getInteger(), "price", null, 1, 1, ServiceItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEClass(serviceItemhandlingEClass, ServiceItemhandling.class, "ServiceItemhandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getServiceItemhandling__AddServiceItem__String_String_int(), null, "addServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getServiceItemhandling__RemoveServiceItem__ServiceItem(), null, "removeServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getServiceItem(), "serviceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getServiceItemhandling__FindAllServiceItems__Booking(), this.getServiceItem(), "findAllServiceItems", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(feedbackWriterEClass, FeedbackWriter.class, "FeedbackWriter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getFeedbackWriter__GiveFeedback__String(), null, "giveFeedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2106,19 +2129,6 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		op = initEOperation(getReceptionHandling__FindActiveBooking__String(), this.getBooking(), "findActiveBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(serviceItemhandlingEClass, ServiceItemhandling.class, "ServiceItemhandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getServiceItemhandling__AddServiceItem__String_String_int(), null, "addServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getServiceItemhandling__RemoveServiceItem__ServiceItem(), null, "removeServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getServiceItem(), "serviceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getServiceItemhandling__FindAllServiceItems__Booking(), this.getServiceItem(), "findAllServiceItems", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(paymentEClass, Payment.class, "Payment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2208,7 +2218,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEOperation(getRoomFetcher__GetBookableRooms(), this.getRoom(), "getBookableRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getRoomFetcher__GetAllRooms(), this.getRoom(), "getAllRooms", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getRoomFetcher__GetAllCleanableRooms(), this.getRoom(), "getAllCleanableRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		initEOperation(getRoomFetcher__GetAvailableRooms(), this.getRoom(), "getAvailableRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 

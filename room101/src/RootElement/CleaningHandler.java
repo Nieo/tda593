@@ -2,8 +2,6 @@
  */
 package RootElement;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Cleaning Handler</b></em>'.
@@ -20,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface CleaningHandler extends EObject {
+public interface CleaningHandler extends Cleaning {
 
 	/**
 	 * Returns the value of the '<em><b>Room Fetcher</b></em>' reference.

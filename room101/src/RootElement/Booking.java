@@ -4,8 +4,6 @@ package RootElement;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Booking</b></em>'.
@@ -25,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Booking extends EObject {
+public interface Booking extends ServiceItemhandling {
 	/**
 	 * Returns the value of the '<em><b>Booking ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -4,8 +4,6 @@ package RootElement;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Booking Handler</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface BookingHandler extends EObject {
+public interface BookingHandler extends ReceptionHandling, MakeBooking {
 	/**
 	 * Returns the value of the '<em><b>Booking</b></em>' reference list.
 	 * The list contents are of type {@link RootElement.Booking}.

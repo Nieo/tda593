@@ -198,6 +198,39 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void addServiceItem(String name, String description, int price) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void removeServiceItem(ServiceItem serviceItem) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceItem findAllServiceItems(Booking booking) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int calculateCost() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -304,6 +337,14 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case RootElementPackage.BOOKING___ADD_SERVICE_ITEM__STRING_STRING_INT:
+				addServiceItem((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2));
+				return null;
+			case RootElementPackage.BOOKING___REMOVE_SERVICE_ITEM__SERVICEITEM:
+				removeServiceItem((ServiceItem)arguments.get(0));
+				return null;
+			case RootElementPackage.BOOKING___FIND_ALL_SERVICE_ITEMS__BOOKING:
+				return findAllServiceItems((Booking)arguments.get(0));
 			case RootElementPackage.BOOKING___CALCULATE_COST:
 				return calculateCost();
 		}

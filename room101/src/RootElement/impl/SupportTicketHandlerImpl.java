@@ -2,10 +2,13 @@
  */
 package RootElement.impl;
 
+import RootElement.Room;
 import RootElement.RootElementPackage;
 import RootElement.SupportTicket;
 import RootElement.SupportTicketHandler;
 
+import RootElement.SupportTicketWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
@@ -76,6 +79,50 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SupportTicket> getUnfixedTickets() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SupportTicket> getSupportTicketsForRoom(Room room) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void markAsCompleted(SupportTicket supportTicket) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void newSupportTicket(String roomID, String description) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -129,6 +176,44 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 				return supportticket != null && !supportticket.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == SupportTicketWriter.class) {
+			switch (baseOperationID) {
+				case RootElementPackage.SUPPORT_TICKET_WRITER___NEW_SUPPORT_TICKET__STRING_STRING: return RootElementPackage.SUPPORT_TICKET_HANDLER___NEW_SUPPORT_TICKET__STRING_STRING;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case RootElementPackage.SUPPORT_TICKET_HANDLER___GET_UNFIXED_TICKETS:
+				return getUnfixedTickets();
+			case RootElementPackage.SUPPORT_TICKET_HANDLER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM:
+				return getSupportTicketsForRoom((Room)arguments.get(0));
+			case RootElementPackage.SUPPORT_TICKET_HANDLER___MARK_AS_COMPLETED__SUPPORTTICKET:
+				markAsCompleted((SupportTicket)arguments.get(0));
+				return null;
+			case RootElementPackage.SUPPORT_TICKET_HANDLER___NEW_SUPPORT_TICKET__STRING_STRING:
+				newSupportTicket((String)arguments.get(0), (String)arguments.get(1));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //SupportTicketHandlerImpl

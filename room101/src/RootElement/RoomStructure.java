@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface RoomStructure extends RoomHandling, RoomTypeHandling, RoomAttributeHandling {
+public interface RoomStructure extends RoomHandling, RoomTypeHandling, RoomAttributeHandling, RoomFetcher {
 	/**
 	 * Returns the value of the '<em><b>Rooms</b></em>' reference list.
 	 * The list contents are of type {@link RootElement.Room}.

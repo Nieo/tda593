@@ -28,10 +28,10 @@ public interface RoomFetcher extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" ordered="false"
+	 * @model kind="operation" ordered="false"
 	 * @generated
 	 */
-	Room getAllRooms();
+	EList<Room> getAllCleanableRooms();
 
 	/**
 	 * <!-- begin-user-doc -->

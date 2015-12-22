@@ -42,24 +42,25 @@ public class PaymentHandlerImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Verifies credit card. Should follow the same form 
+	 * as the regex described in the code.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean verifyCreditCard(String creditCard) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return creditCard.matches("([0-9]{4}[-]{1}){3,}[0-9]{4}");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * As we haven't implented a banking service, no amount is deducted from the banking account for a service.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean debitCard(String creditCard, int amount) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(verifyCreditCard(creditCard))
+			System.out.println(amount+" SEK was deducted from credit card:("+creditCard+")");
+		return verifyCreditCard(creditCard) ;
 	}
 
 	/**

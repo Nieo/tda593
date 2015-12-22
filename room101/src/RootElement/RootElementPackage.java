@@ -106,7 +106,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getFeedback()
 	 * @generated
 	 */
-	int FEEDBACK = 10;
+	int FEEDBACK = 11;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.StaffImpl <em>Staff</em>}' class.
@@ -116,7 +116,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getStaff()
 	 * @generated
 	 */
-	int STAFF = 11;
+	int STAFF = 12;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.BookingImpl <em>Booking</em>}' class.
@@ -156,7 +156,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getSupportTicket()
 	 * @generated
 	 */
-	int SUPPORT_TICKET = 14;
+	int SUPPORT_TICKET = 15;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.ClerkImpl <em>Clerk</em>}' class.
@@ -166,7 +166,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getClerk()
 	 * @generated
 	 */
-	int CLERK = 15;
+	int CLERK = 16;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.ManagerImpl <em>Manager</em>}' class.
@@ -206,7 +206,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getReceptionHandling()
 	 * @generated
 	 */
-	int RECEPTION_HANDLING = 16;
+	int RECEPTION_HANDLING = 17;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.BookingHandlerImpl <em>Booking Handler</em>}' class.
@@ -296,7 +296,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getFeedbackWriter()
 	 * @generated
 	 */
-	int FEEDBACK_WRITER = 9;
+	int FEEDBACK_WRITER = 10;
 
 	/**
 	 * The meta object id for the '{@link RootElement.SupportTicketWriter <em>Support Ticket Writer</em>}' class.
@@ -579,13 +579,148 @@ public interface RootElementPackage extends EPackage {
 	int MAKE_BOOKING_OPERATION_COUNT = 6;
 
 	/**
+	 * The meta object id for the '{@link RootElement.SupportTicketReader <em>Support Ticket Reader</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.SupportTicketReader
+	 * @see RootElement.impl.RootElementPackageImpl#getSupportTicketReader()
+	 * @generated
+	 */
+	int SUPPORT_TICKET_READER = 14;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.CleaningHandlerImpl <em>Cleaning Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.CleaningHandlerImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getCleaningHandler()
+	 * @generated
+	 */
+	int CLEANING_HANDLER = 30;
+
+	/**
+	 * The meta object id for the '{@link RootElement.RoomFetcher <em>Room Fetcher</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.RoomFetcher
+	 * @see RootElement.impl.RootElementPackageImpl#getRoomFetcher()
+	 * @generated
+	 */
+	int ROOM_FETCHER = 26;
+
+	/**
+	 * The meta object id for the '{@link RootElement.Cleaning <em>Cleaning</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.Cleaning
+	 * @see RootElement.impl.RootElementPackageImpl#getCleaning()
+	 * @generated
+	 */
+	int CLEANING = 13;
+
+	/**
+	 * The meta object id for the '{@link RootElement.Payment <em>Payment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.Payment
+	 * @see RootElement.impl.RootElementPackageImpl#getPayment()
+	 * @generated
+	 */
+	int PAYMENT = 18;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.PaymentHandlerImpl <em>Payment Handler</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.PaymentHandlerImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getPaymentHandler()
+	 * @generated
+	 */
+	int PAYMENT_HANDLER = 31;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.DailyRoomBookingImpl <em>Daily Room Booking</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.DailyRoomBookingImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getDailyRoomBooking()
+	 * @generated
+	 */
+	int DAILY_ROOM_BOOKING = 32;
+
+	/**
+	 * The meta object id for the '{@link RootElement.impl.HourlyRoomBookingImpl <em>Hourly Room Booking</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.impl.HourlyRoomBookingImpl
+	 * @see RootElement.impl.RootElementPackageImpl#getHourlyRoomBooking()
+	 * @generated
+	 */
+	int HOURLY_ROOM_BOOKING = 33;
+
+	/**
+	 * The meta object id for the '{@link RootElement.ServiceItemhandling <em>Service Itemhandling</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.ServiceItemhandling
+	 * @see RootElement.impl.RootElementPackageImpl#getServiceItemhandling()
+	 * @generated
+	 */
+	int SERVICE_ITEMHANDLING = 9;
+
+	/**
+	 * The number of structural features of the '<em>Service Itemhandling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEMHANDLING_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Add Service Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT = 0;
+
+	/**
+	 * The operation id for the '<em>Remove Service Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM = 1;
+
+	/**
+	 * The operation id for the '<em>Find All Service Items</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING = 2;
+
+	/**
+	 * The number of operations of the '<em>Service Itemhandling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEMHANDLING_OPERATION_COUNT = 3;
+
+	/**
 	 * The feature id for the '<em><b>Booking ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__BOOKING_ID = 0;
+	int BOOKING__BOOKING_ID = SERVICE_ITEMHANDLING_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Roombooking</b></em>' reference list.
@@ -594,7 +729,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__ROOMBOOKING = 1;
+	int BOOKING__ROOMBOOKING = SERVICE_ITEMHANDLING_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Guest</b></em>' reference.
@@ -603,7 +738,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__GUEST = 2;
+	int BOOKING__GUEST = SERVICE_ITEMHANDLING_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Serviceitem</b></em>' reference list.
@@ -612,7 +747,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__SERVICEITEM = 3;
+	int BOOKING__SERVICEITEM = SERVICE_ITEMHANDLING_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
@@ -621,7 +756,34 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_FEATURE_COUNT = 4;
+	int BOOKING_FEATURE_COUNT = SERVICE_ITEMHANDLING_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Add Service Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING___ADD_SERVICE_ITEM__STRING_STRING_INT = SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT;
+
+	/**
+	 * The operation id for the '<em>Remove Service Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING___REMOVE_SERVICE_ITEM__SERVICEITEM = SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM;
+
+	/**
+	 * The operation id for the '<em>Find All Service Items</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING___FIND_ALL_SERVICE_ITEMS__BOOKING = SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING;
 
 	/**
 	 * The operation id for the '<em>Calculate Cost</em>' operation.
@@ -630,7 +792,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___CALCULATE_COST = 0;
+	int BOOKING___CALCULATE_COST = SERVICE_ITEMHANDLING_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Booking</em>' class.
@@ -639,7 +801,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_OPERATION_COUNT = 1;
+	int BOOKING_OPERATION_COUNT = SERVICE_ITEMHANDLING_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -964,46 +1126,6 @@ public interface RootElementPackage extends EPackage {
 	 * @ordered
 	 */
 	int FEEDBACK_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link RootElement.SupportTicketReader <em>Support Ticket Reader</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.SupportTicketReader
-	 * @see RootElement.impl.RootElementPackageImpl#getSupportTicketReader()
-	 * @generated
-	 */
-	int SUPPORT_TICKET_READER = 13;
-
-	/**
-	 * The meta object id for the '{@link RootElement.impl.CleaningHandlerImpl <em>Cleaning Handler</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.impl.CleaningHandlerImpl
-	 * @see RootElement.impl.RootElementPackageImpl#getCleaningHandler()
-	 * @generated
-	 */
-	int CLEANING_HANDLER = 30;
-
-	/**
-	 * The meta object id for the '{@link RootElement.RoomFetcher <em>Room Fetcher</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.RoomFetcher
-	 * @see RootElement.impl.RootElementPackageImpl#getRoomFetcher()
-	 * @generated
-	 */
-	int ROOM_FETCHER = 26;
-
-	/**
-	 * The meta object id for the '{@link RootElement.Cleaning <em>Cleaning</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.Cleaning
-	 * @see RootElement.impl.RootElementPackageImpl#getCleaning()
-	 * @generated
-	 */
-	int CLEANING = 12;
 
 	/**
 	 * The number of structural features of the '<em>Cleaning</em>' class.
@@ -1616,101 +1738,6 @@ public interface RootElementPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECEPTION_HANDLING_OPERATION_COUNT = 4;
-
-	/**
-	 * The meta object id for the '{@link RootElement.Payment <em>Payment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.Payment
-	 * @see RootElement.impl.RootElementPackageImpl#getPayment()
-	 * @generated
-	 */
-	int PAYMENT = 18;
-
-	/**
-	 * The meta object id for the '{@link RootElement.impl.PaymentHandlerImpl <em>Payment Handler</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.impl.PaymentHandlerImpl
-	 * @see RootElement.impl.RootElementPackageImpl#getPaymentHandler()
-	 * @generated
-	 */
-	int PAYMENT_HANDLER = 31;
-
-	/**
-	 * The meta object id for the '{@link RootElement.impl.DailyRoomBookingImpl <em>Daily Room Booking</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.impl.DailyRoomBookingImpl
-	 * @see RootElement.impl.RootElementPackageImpl#getDailyRoomBooking()
-	 * @generated
-	 */
-	int DAILY_ROOM_BOOKING = 32;
-
-	/**
-	 * The meta object id for the '{@link RootElement.impl.HourlyRoomBookingImpl <em>Hourly Room Booking</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.impl.HourlyRoomBookingImpl
-	 * @see RootElement.impl.RootElementPackageImpl#getHourlyRoomBooking()
-	 * @generated
-	 */
-	int HOURLY_ROOM_BOOKING = 33;
-
-	/**
-	 * The meta object id for the '{@link RootElement.ServiceItemhandling <em>Service Itemhandling</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.ServiceItemhandling
-	 * @see RootElement.impl.RootElementPackageImpl#getServiceItemhandling()
-	 * @generated
-	 */
-	int SERVICE_ITEMHANDLING = 17;
-
-	/**
-	 * The number of structural features of the '<em>Service Itemhandling</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Add Service Item</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT = 0;
-
-	/**
-	 * The operation id for the '<em>Remove Service Item</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM = 1;
-
-	/**
-	 * The operation id for the '<em>Find All Service Items</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING = 2;
-
-	/**
-	 * The number of operations of the '<em>Service Itemhandling</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING_OPERATION_COUNT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Payment</em>' class.
@@ -2619,7 +2646,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_HANDLER__BOOKING = 0;
+	int BOOKING_HANDLER__BOOKING = RECEPTION_HANDLING_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Room Fetcher</b></em>' reference.
@@ -2628,7 +2655,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_HANDLER__ROOM_FETCHER = 1;
+	int BOOKING_HANDLER__ROOM_FETCHER = RECEPTION_HANDLING_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Booking Handler</em>' class.
@@ -2637,7 +2664,97 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_HANDLER_FEATURE_COUNT = 2;
+	int BOOKING_HANDLER_FEATURE_COUNT = RECEPTION_HANDLING_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Check In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___CHECK_IN__ROOMBOOKING = RECEPTION_HANDLING___CHECK_IN__ROOMBOOKING;
+
+	/**
+	 * The operation id for the '<em>Check Out</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___CHECK_OUT__ROOMBOOKING = RECEPTION_HANDLING___CHECK_OUT__ROOMBOOKING;
+
+	/**
+	 * The operation id for the '<em>Find Bookings</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___FIND_BOOKINGS__STRING = RECEPTION_HANDLING___FIND_BOOKINGS__STRING;
+
+	/**
+	 * The operation id for the '<em>Find Active Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___FIND_ACTIVE_BOOKING__STRING = RECEPTION_HANDLING___FIND_ACTIVE_BOOKING__STRING;
+
+	/**
+	 * The operation id for the '<em>Create Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___CREATE_BOOKING = RECEPTION_HANDLING_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Available Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT = RECEPTION_HANDLING_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = RECEPTION_HANDLING_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Confirm Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING = RECEPTION_HANDLING_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Cancel Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___CANCEL_BOOKING__BOOKING = RECEPTION_HANDLING_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Lookup Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___LOOKUP_BOOKING__STRING_STRING = RECEPTION_HANDLING_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Booking Handler</em>' class.
@@ -2646,7 +2763,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_HANDLER_OPERATION_COUNT = 0;
+	int BOOKING_HANDLER_OPERATION_COUNT = RECEPTION_HANDLING_OPERATION_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Room Fetcher</em>' class.
@@ -2667,13 +2784,13 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_FETCHER___GET_BOOKABLE_ROOMS = 0;
 
 	/**
-	 * The operation id for the '<em>Get All Rooms</em>' operation.
+	 * The operation id for the '<em>Get All Cleanable Rooms</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_FETCHER___GET_ALL_ROOMS = 1;
+	int ROOM_FETCHER___GET_ALL_CLEANABLE_ROOMS = 1;
 
 	/**
 	 * The operation id for the '<em>Get Available Rooms</em>' operation.
@@ -2856,13 +2973,40 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_STRUCTURE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE = ROOM_HANDLING_OPERATION_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Get Bookable Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___GET_BOOKABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Get All Cleanable Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___GET_ALL_CLEANABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Get Available Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_STRUCTURE___GET_AVAILABLE_ROOMS = ROOM_HANDLING_OPERATION_COUNT + 11;
+
+	/**
 	 * The number of operations of the '<em>Room Structure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE_OPERATION_COUNT = ROOM_HANDLING_OPERATION_COUNT + 9;
+	int ROOM_STRUCTURE_OPERATION_COUNT = ROOM_HANDLING_OPERATION_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Feedback</b></em>' reference list.
@@ -2871,7 +3015,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_HANDLER__FEEDBACK = 0;
+	int FEEDBACK_HANDLER__FEEDBACK = FEEDBACK_READER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Feedback Handler</em>' class.
@@ -2880,7 +3024,34 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_HANDLER_FEATURE_COUNT = 1;
+	int FEEDBACK_HANDLER_FEATURE_COUNT = FEEDBACK_READER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get All Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_HANDLER___GET_ALL_FEEDBACK = FEEDBACK_READER___GET_ALL_FEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Unread Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_HANDLER___GET_UNREAD_FEEDBACK = FEEDBACK_READER___GET_UNREAD_FEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Give Feedback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING = FEEDBACK_READER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Feedback Handler</em>' class.
@@ -2889,7 +3060,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_HANDLER_OPERATION_COUNT = 0;
+	int FEEDBACK_HANDLER_OPERATION_COUNT = FEEDBACK_READER_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Supportticket</b></em>' reference list.
@@ -2898,7 +3069,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPORT_TICKET_HANDLER__SUPPORTTICKET = 0;
+	int SUPPORT_TICKET_HANDLER__SUPPORTTICKET = SUPPORT_TICKET_READER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Support Ticket Handler</em>' class.
@@ -2907,7 +3078,43 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPORT_TICKET_HANDLER_FEATURE_COUNT = 1;
+	int SUPPORT_TICKET_HANDLER_FEATURE_COUNT = SUPPORT_TICKET_READER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Unfixed Tickets</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPORT_TICKET_HANDLER___GET_UNFIXED_TICKETS = SUPPORT_TICKET_READER___GET_UNFIXED_TICKETS;
+
+	/**
+	 * The operation id for the '<em>Get Support Tickets For Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPORT_TICKET_HANDLER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM;
+
+	/**
+	 * The operation id for the '<em>Mark As Completed</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPORT_TICKET_HANDLER___MARK_AS_COMPLETED__SUPPORTTICKET = SUPPORT_TICKET_READER___MARK_AS_COMPLETED__SUPPORTTICKET;
+
+	/**
+	 * The operation id for the '<em>New Support Ticket</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPORT_TICKET_HANDLER___NEW_SUPPORT_TICKET__STRING_STRING = SUPPORT_TICKET_READER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Support Ticket Handler</em>' class.
@@ -2916,7 +3123,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPORT_TICKET_HANDLER_OPERATION_COUNT = 0;
+	int SUPPORT_TICKET_HANDLER_OPERATION_COUNT = SUPPORT_TICKET_READER_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Room Fetcher</b></em>' reference.
@@ -2925,7 +3132,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLEANING_HANDLER__ROOM_FETCHER = 0;
+	int CLEANING_HANDLER__ROOM_FETCHER = CLEANING_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Cleaning Handler</em>' class.
@@ -2934,7 +3141,34 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLEANING_HANDLER_FEATURE_COUNT = 1;
+	int CLEANING_HANDLER_FEATURE_COUNT = CLEANING_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Check If Room Cleaned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING_HANDLER___CHECK_IF_ROOM_CLEANED__STRING = CLEANING___CHECK_IF_ROOM_CLEANED__STRING;
+
+	/**
+	 * The operation id for the '<em>Get List Of Unclean Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING_HANDLER___GET_LIST_OF_UNCLEAN_ROOMS = CLEANING___GET_LIST_OF_UNCLEAN_ROOMS;
+
+	/**
+	 * The operation id for the '<em>Mark Room As Cleaned</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEANING_HANDLER___MARK_ROOM_AS_CLEANED__ROOM = CLEANING___MARK_ROOM_AS_CLEANED__ROOM;
 
 	/**
 	 * The number of operations of the '<em>Cleaning Handler</em>' class.
@@ -2943,7 +3177,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLEANING_HANDLER_OPERATION_COUNT = 0;
+	int CLEANING_HANDLER_OPERATION_COUNT = CLEANING_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Payment Handler</em>' class.
@@ -3206,7 +3440,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL__NAME = 0;
+	int HOTEL__NAME = HOTEL_SYSTEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Hotel</em>' class.
@@ -3215,7 +3449,52 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL_FEATURE_COUNT = 1;
+	int HOTEL_FEATURE_COUNT = HOTEL_SYSTEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Staff</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_STAFF__STRING = HOTEL_SYSTEM___GET_STAFF__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Clerk</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_CLERK__STRING = HOTEL_SYSTEM___GET_CLERK__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Manager</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_MANAGER__STRING = HOTEL_SYSTEM___GET_MANAGER__STRING;
+
+	/**
+	 * The operation id for the '<em>Get System Administrator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_SYSTEM_ADMINISTRATOR = HOTEL_SYSTEM___GET_SYSTEM_ADMINISTRATOR;
+
+	/**
+	 * The operation id for the '<em>Get Guest</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_GUEST = HOTEL_SYSTEM___GET_GUEST;
 
 	/**
 	 * The number of operations of the '<em>Hotel</em>' class.
@@ -3224,7 +3503,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL_OPERATION_COUNT = 0;
+	int HOTEL_OPERATION_COUNT = HOTEL_SYSTEM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link RootElement.BookingStatus <em>Booking Status</em>}' enum.
@@ -4485,14 +4764,14 @@ public interface RootElementPackage extends EPackage {
 	EOperation getRoomFetcher__GetBookableRooms();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomFetcher#getAllRooms() <em>Get All Rooms</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomFetcher#getAllCleanableRooms() <em>Get All Cleanable Rooms</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Rooms</em>' operation.
-	 * @see RootElement.RoomFetcher#getAllRooms()
+	 * @return the meta object for the '<em>Get All Cleanable Rooms</em>' operation.
+	 * @see RootElement.RoomFetcher#getAllCleanableRooms()
 	 * @generated
 	 */
-	EOperation getRoomFetcher__GetAllRooms();
+	EOperation getRoomFetcher__GetAllCleanableRooms();
 
 	/**
 	 * Returns the meta object for the '{@link RootElement.RoomFetcher#getAvailableRooms() <em>Get Available Rooms</em>}' operation.
@@ -5778,12 +6057,12 @@ public interface RootElementPackage extends EPackage {
 		EOperation ROOM_FETCHER___GET_BOOKABLE_ROOMS = eINSTANCE.getRoomFetcher__GetBookableRooms();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Rooms</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get All Cleanable Rooms</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_FETCHER___GET_ALL_ROOMS = eINSTANCE.getRoomFetcher__GetAllRooms();
+		EOperation ROOM_FETCHER___GET_ALL_CLEANABLE_ROOMS = eINSTANCE.getRoomFetcher__GetAllCleanableRooms();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Available Rooms</b></em>' operation.

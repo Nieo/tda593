@@ -90,6 +90,7 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.BOOKING: {
 				Booking booking = (Booking)theEObject;
 				T result = caseBooking(booking);
+				if (result == null) result = caseServiceItemhandling(booking);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -120,6 +121,12 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.SERVICE_ITEM: {
 				ServiceItem serviceItem = (ServiceItem)theEObject;
 				T result = caseServiceItem(serviceItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.SERVICE_ITEMHANDLING: {
+				ServiceItemhandling serviceItemhandling = (ServiceItemhandling)theEObject;
+				T result = caseServiceItemhandling(serviceItemhandling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,12 +186,6 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.RECEPTION_HANDLING: {
 				ReceptionHandling receptionHandling = (ReceptionHandling)theEObject;
 				T result = caseReceptionHandling(receptionHandling);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.SERVICE_ITEMHANDLING: {
-				ServiceItemhandling serviceItemhandling = (ServiceItemhandling)theEObject;
-				T result = caseServiceItemhandling(serviceItemhandling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -250,6 +251,8 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.BOOKING_HANDLER: {
 				BookingHandler bookingHandler = (BookingHandler)theEObject;
 				T result = caseBookingHandler(bookingHandler);
+				if (result == null) result = caseReceptionHandling(bookingHandler);
+				if (result == null) result = caseMakeBooking(bookingHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -265,24 +268,30 @@ public class RootElementSwitch<T> extends Switch<T> {
 				if (result == null) result = caseRoomHandling(roomStructure);
 				if (result == null) result = caseRoomTypeHandling(roomStructure);
 				if (result == null) result = caseRoomAttributeHandling(roomStructure);
+				if (result == null) result = caseRoomFetcher(roomStructure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RootElementPackage.FEEDBACK_HANDLER: {
 				FeedbackHandler feedbackHandler = (FeedbackHandler)theEObject;
 				T result = caseFeedbackHandler(feedbackHandler);
+				if (result == null) result = caseFeedbackReader(feedbackHandler);
+				if (result == null) result = caseFeedbackWriter(feedbackHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RootElementPackage.SUPPORT_TICKET_HANDLER: {
 				SupportTicketHandler supportTicketHandler = (SupportTicketHandler)theEObject;
 				T result = caseSupportTicketHandler(supportTicketHandler);
+				if (result == null) result = caseSupportTicketReader(supportTicketHandler);
+				if (result == null) result = caseSupportTicketWriter(supportTicketHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RootElementPackage.CLEANING_HANDLER: {
 				CleaningHandler cleaningHandler = (CleaningHandler)theEObject;
 				T result = caseCleaningHandler(cleaningHandler);
+				if (result == null) result = caseCleaning(cleaningHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -316,6 +325,7 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.HOTEL: {
 				Hotel hotel = (Hotel)theEObject;
 				T result = caseHotel(hotel);
+				if (result == null) result = caseHotelSystem(hotel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

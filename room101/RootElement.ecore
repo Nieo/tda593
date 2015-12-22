@@ -58,7 +58,7 @@
       <eParameters name="phoneNumber" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Booking">
+  <eClassifiers xsi:type="ecore:EClass" name="Booking" eSuperTypes="#//ServiceItemhandling">
     <eOperations name="calculateCost" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bookingID" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
@@ -119,6 +119,20 @@
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceItemhandling" abstract="true"
+      interface="true">
+    <eOperations name="addServiceItem" ordered="false" lowerBound="1">
+      <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="description" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="price" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
+    <eOperations name="removeServiceItem" ordered="false" lowerBound="1">
+      <eParameters name="serviceItem" ordered="false" lowerBound="1" eType="#//ServiceItem"/>
+    </eOperations>
+    <eOperations name="findAllServiceItems" ordered="false" lowerBound="1" eType="#//ServiceItem">
+      <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeedbackWriter" abstract="true" interface="true">
     <eOperations name="giveFeedback" ordered="false" lowerBound="1">
@@ -194,20 +208,6 @@
     </eOperations>
     <eOperations name="findActiveBooking" ordered="false" lowerBound="1" eType="#//Booking">
       <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceItemhandling" abstract="true"
-      interface="true">
-    <eOperations name="addServiceItem" ordered="false" lowerBound="1">
-      <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="description" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="price" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    </eOperations>
-    <eOperations name="removeServiceItem" ordered="false" lowerBound="1">
-      <eParameters name="serviceItem" ordered="false" lowerBound="1" eType="#//ServiceItem"/>
-    </eOperations>
-    <eOperations name="findAllServiceItems" ordered="false" lowerBound="1" eType="#//ServiceItem">
-      <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Payment" abstract="true" interface="true">
@@ -292,7 +292,7 @@
     <eOperations name="getAllFeedback" ordered="false" upperBound="-1" eType="#//Feedback"/>
     <eOperations name="getUnreadFeedback" ordered="false" upperBound="-1" eType="#//Feedback"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BookingHandler">
+  <eClassifiers xsi:type="ecore:EClass" name="BookingHandler" eSuperTypes="#//ReceptionHandling #//MakeBooking">
     <eStructuralFeatures xsi:type="ecore:EReference" name="booking" ordered="false"
         upperBound="-1" eType="#//Booking"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roomFetcher" ordered="false"
@@ -300,10 +300,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomFetcher" abstract="true" interface="true">
     <eOperations name="getBookableRooms" ordered="false" upperBound="-1" eType="#//Room"/>
-    <eOperations name="getAllRooms" ordered="false" lowerBound="1" eType="#//Room"/>
+    <eOperations name="getAllCleanableRooms" ordered="false" upperBound="-1" eType="#//Room"/>
     <eOperations name="getAvailableRooms" ordered="false" upperBound="-1" eType="#//Room"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RoomStructure" eSuperTypes="#//RoomHandling #//RoomTypeHandling #//RoomAttributeHandling">
+  <eClassifiers xsi:type="ecore:EClass" name="RoomStructure" eSuperTypes="#//RoomHandling #//RoomTypeHandling #//RoomAttributeHandling #//RoomFetcher">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rooms" ordered="false"
         upperBound="-1" eType="#//Room"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roomtype" ordered="false"
@@ -311,15 +311,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="roomattribute" ordered="false"
         upperBound="-1" eType="#//RoomAttribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FeedbackHandler">
+  <eClassifiers xsi:type="ecore:EClass" name="FeedbackHandler" eSuperTypes="#//FeedbackReader #//FeedbackWriter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="feedback" ordered="false"
         upperBound="-1" eType="#//Feedback"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SupportTicketHandler">
+  <eClassifiers xsi:type="ecore:EClass" name="SupportTicketHandler" eSuperTypes="#//SupportTicketReader #//SupportTicketWriter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="supportticket" ordered="false"
         upperBound="-1" eType="#//SupportTicket"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CleaningHandler">
+  <eClassifiers xsi:type="ecore:EClass" name="CleaningHandler" eSuperTypes="#//Cleaning">
     <eStructuralFeatures xsi:type="ecore:EReference" name="roomFetcher" ordered="false"
         lowerBound="1" eType="#//RoomFetcher"/>
   </eClassifiers>
@@ -342,7 +342,7 @@
     <eOperations name="getSystemAdministrator" ordered="false" lowerBound="1" eType="#//SysAdmin"/>
     <eOperations name="getGuest" ordered="false" lowerBound="1" eType="#//Guest"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Hotel">
+  <eClassifiers xsi:type="ecore:EClass" name="Hotel" eSuperTypes="#//HotelSystem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType types.ecore#//String"/>
   </eClassifiers>
