@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="build.gui.controller.MainController">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox id="roleDescriptor" styleClass="menuContainer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Logged in as " />
+                        <Label fx:id="roleLabel" text="[role]">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="  (" />
+                        <Label fx:id="staffIDLabel" layoutX="125.0" layoutY="15.0" text="ID" />
+                        <Label layoutX="125.0" layoutY="15.0" text=")" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="menuContainer">
+                     <children>
+                        <Label fx:id="bookingMenuItem" onMouseClicked="#gotoBookings" styleClass="menuItem" text="Bookings" />
+                        <Label fx:id="managementMenuItem" layoutX="12.0" layoutY="12.0" onMouseClicked="#gotoManagement" styleClass="menuItem" text="Management" />
+                        <Label fx:id="supportTicketMenuItem" layoutX="212.0" layoutY="12.0" onMouseClicked="#gotoSupportTickets" styleClass="menuItem" text="Support Tickets" />
+                        <Label fx:id="feedbackMenuItem" layoutX="96.0" layoutY="12.0" onMouseClicked="#gotoFeedback" styleClass="menuItem" text="Feedback" />
+                        <Label fx:id="cleaningMenuItem" onMouseClicked="#gotoCleaning" styleClass="menuItem" text="Cleaning" />
+                        <Label layoutX="430.0" layoutY="12.0" onMouseClicked="#logout" text="Logout">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="last" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <AnchorPane fx:id="contentPane" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
