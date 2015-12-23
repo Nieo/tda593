@@ -1,7 +1,7 @@
 package build.gui;
 
 import RootElement.Hotel;
-import RootElement.impl.TemporaryHotelFactory;
+import RootElement.impl.HotelFactory;
 import build.gui.util.FXUtil;
 import build.gui.util.ImageLoader;
 import build.gui.util.Settings;
@@ -11,7 +11,7 @@ import javafx.stage.WindowEvent;
 
 public class Main extends Application{
 	
-	private static Hotel hotel = TemporaryHotelFactory.getHotel();
+	private static Hotel hotel = (Hotel) HotelFactory.createHotelSystem();
 
     @Override
     public void start(Stage primaryStage) {
