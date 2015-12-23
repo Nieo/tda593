@@ -345,6 +345,10 @@
         <element xmi:type="uml:Property" href="ClassDiagram.uml#_uWeMMJhDEeWbKp0h3hoGyg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_uWwgEZhDEeWbKp0h3hoGyg"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_aZK30Kl8EeWGJJynh3AdXA" type="3012">
+        <element xmi:type="uml:Property" href="ClassDiagram.uml#_Z1CQAKl8EeWGJJynh3AdXA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_aZK30al8EeWGJJynh3AdXA"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_xggotJdmEeWbKp0h3hoGyg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_xggotZdmEeWbKp0h3hoGyg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_xggotpdmEeWbKp0h3hoGyg"/>

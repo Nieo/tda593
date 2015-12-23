@@ -116,6 +116,8 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="RootElement.ecore#//RoomType">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//RoomType/name"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//RoomType/price"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference RootElement.ecore#//RoomType/roomAttributes"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomType/addRoomAttribute">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomType/addRoomAttribute/roomAttribute"/>
       </genOperations>

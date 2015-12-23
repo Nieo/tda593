@@ -107,6 +107,8 @@
         eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Integer" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roomAttributes" ordered="false"
+        upperBound="-1" eType="#//RoomAttribute" changeable="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"

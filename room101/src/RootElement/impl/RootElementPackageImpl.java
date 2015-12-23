@@ -553,6 +553,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRoomType_RoomAttributes() {
+		return (EReference)roomTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getRoomType__AddRoomAttribute__RoomAttribute() {
 		return roomTypeEClass.getEOperations().get(0);
 	}
@@ -1755,6 +1764,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		roomTypeEClass = createEClass(ROOM_TYPE);
 		createEAttribute(roomTypeEClass, ROOM_TYPE__NAME);
 		createEAttribute(roomTypeEClass, ROOM_TYPE__PRICE);
+		createEReference(roomTypeEClass, ROOM_TYPE__ROOM_ATTRIBUTES);
 		createEOperation(roomTypeEClass, ROOM_TYPE___ADD_ROOM_ATTRIBUTE__ROOMATTRIBUTE);
 		createEOperation(roomTypeEClass, ROOM_TYPE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE);
 
@@ -2033,6 +2043,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		initEClass(roomTypeEClass, RoomType.class, "RoomType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoomType_Name(), theTypesPackage.getString(), "name", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomType_Price(), theTypesPackage.getInteger(), "price", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoomType_RoomAttributes(), this.getRoomAttribute(), null, "roomAttributes", null, 0, -1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getRoomType__AddRoomAttribute__RoomAttribute(), ecorePackage.getEBoolean(), "addRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);

@@ -5,11 +5,13 @@ package RootElement.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import RootElement.RoomAttribute;
 import RootElement.RoomType;
 import RootElement.RootElementPackage;
@@ -64,6 +66,7 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 */
 	protected RoomTypeImpl() {
 		super();
+		roomAttributes = new EObjectResolvingEList<RoomAttribute>(RoomAttribute.class, this, RootElementPackage.ROOM_TYPE__ROOM_ATTRIBUTES);
 	}
 
 	/**
@@ -100,6 +103,15 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	}
 	
 	 /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RoomAttribute> getRoomAttributes() {
+		return ECollections.unmodifiableEList(roomAttributes);
+	}
+
+		/**
 	 * Sets the price of the room type. The price cannot be
 	 * less than zero.
 	 * @generated NOT
@@ -158,6 +170,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 				return getName();
 			case RootElementPackage.ROOM_TYPE__PRICE:
 				return getPrice();
+			case RootElementPackage.ROOM_TYPE__ROOM_ATTRIBUTES:
+				return getRoomAttributes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +218,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RootElementPackage.ROOM_TYPE__PRICE:
 				return price != PRICE_EDEFAULT;
+			case RootElementPackage.ROOM_TYPE__ROOM_ATTRIBUTES:
+				return roomAttributes != null && !roomAttributes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

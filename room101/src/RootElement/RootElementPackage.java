@@ -939,13 +939,22 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_TYPE__PRICE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Room Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE__ROOM_ATTRIBUTES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Room Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_TYPE_FEATURE_COUNT = 2;
+	int ROOM_TYPE_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Add Room Attribute</em>' operation.
@@ -3703,6 +3712,17 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getRoomType_Price();
 
 	/**
+	 * Returns the meta object for the reference list '{@link RootElement.RoomType#getRoomAttributes <em>Room Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Room Attributes</em>'.
+	 * @see RootElement.RoomType#getRoomAttributes()
+	 * @see #getRoomType()
+	 * @generated
+	 */
+	EReference getRoomType_RoomAttributes();
+
+	/**
 	 * Returns the meta object for the '{@link RootElement.RoomType#addRoomAttribute(RootElement.RoomAttribute) <em>Add Room Attribute</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5174,6 +5194,14 @@ public interface RootElementPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROOM_TYPE__PRICE = eINSTANCE.getRoomType_Price();
+
+		/**
+		 * The meta object literal for the '<em><b>Room Attributes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOM_TYPE__ROOM_ATTRIBUTES = eINSTANCE.getRoomType_RoomAttributes();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Room Attribute</b></em>' operation.
