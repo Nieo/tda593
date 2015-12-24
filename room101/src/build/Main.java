@@ -78,6 +78,8 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 				continue;
 			}
 			switch (input) {
+			case 0:
+				break;
 			case 1:
 				guestLoggedIn();
 				break;
@@ -115,18 +117,18 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 				continue;
 			}
 			switch (input) {
+			case 0:
+				break;
 			case 1:
 				makeBooking(guest);
 				break;
 			case 2:
-				System.out.print("Please enter the room ID: ");
-				String roomID = in.nextLine().trim();
-				System.out.println("Please write a description of the problem:");
-				String description = in.nextLine().trim();
-				guest.newSupportTicket(roomID, description);
+				makeSupportTicket(guest);
 				break;
 			case 3:
-				giveFeedback(null);
+				System.out.println("Please enter your feedback:");
+				guest.giveFeedback(in.nextLine());
+				System.out.println("Feedback has been recorded.");
 				break;
 			default:
 				System.out.println(input + " is not on the list.\n");
@@ -174,6 +176,8 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 				continue;
 			}
 			switch (input) {
+			case 0:
+				break;
 			case 1:
 				bookingProcess(actor);
 				break;
@@ -200,6 +204,8 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 				continue;
 			}
 			switch (input) {
+			case 0:
+				break;
 			case 1:
 				searchAndChooseRoomType(booking, actor);
 				break;
@@ -377,6 +383,14 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 			}
 			System.out.println("\t\t" + ra.getName() + ", " + ra.getDescription());
 		}
+	}
+	
+	private void makeSupportTicket(SupportTicketWriter actor) {
+		System.out.print("Please enter the room ID: ");
+		String roomID = in.nextLine().trim();
+		System.out.println("Please write a description of the problem:");
+		String description = in.nextLine().trim();
+		actor.newSupportTicket(roomID, description);
 	}
 	
 	public static void main(String[] args) {
