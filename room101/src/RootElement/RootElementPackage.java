@@ -684,7 +684,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT = 0;
+	int SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = 0;
 
 	/**
 	 * The operation id for the '<em>Remove Service Item</em>' operation.
@@ -693,7 +693,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM = 1;
+	int SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = 1;
 
 	/**
 	 * The operation id for the '<em>Find All Service Items</em>' operation.
@@ -765,7 +765,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___ADD_SERVICE_ITEM__STRING_STRING_INT = SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT;
+	int BOOKING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT;
 
 	/**
 	 * The operation id for the '<em>Remove Service Item</em>' operation.
@@ -774,7 +774,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___REMOVE_SERVICE_ITEM__SERVICEITEM = SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM;
+	int BOOKING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM;
 
 	/**
 	 * The operation id for the '<em>Find All Service Items</em>' operation.
@@ -1602,7 +1602,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLERK___ADD_SERVICE_ITEM__STRING_STRING_INT = STAFF_OPERATION_COUNT + 4;
+	int CLERK___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = STAFF_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Remove Service Item</em>' operation.
@@ -1611,7 +1611,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLERK___REMOVE_SERVICE_ITEM__SERVICEITEM = STAFF_OPERATION_COUNT + 5;
+	int CLERK___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = STAFF_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Find All Service Items</em>' operation.
@@ -1998,7 +1998,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___ADD_SERVICE_ITEM__STRING_STRING_INT = CLERK___ADD_SERVICE_ITEM__STRING_STRING_INT;
+	int MANAGER___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = CLERK___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT;
 
 	/**
 	 * The operation id for the '<em>Remove Service Item</em>' operation.
@@ -2007,7 +2007,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___REMOVE_SERVICE_ITEM__SERVICEITEM = CLERK___REMOVE_SERVICE_ITEM__SERVICEITEM;
+	int MANAGER___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = CLERK___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM;
 
 	/**
 	 * The operation id for the '<em>Find All Service Items</em>' operation.
@@ -4902,24 +4902,24 @@ public interface RootElementPackage extends EPackage {
 	EClass getServiceItemhandling();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.ServiceItemhandling#addServiceItem(java.lang.String, java.lang.String, int) <em>Add Service Item</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.ServiceItemhandling#addServiceItem(RootElement.Booking, java.lang.String, java.lang.String, int) <em>Add Service Item</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Service Item</em>' operation.
-	 * @see RootElement.ServiceItemhandling#addServiceItem(java.lang.String, java.lang.String, int)
+	 * @see RootElement.ServiceItemhandling#addServiceItem(RootElement.Booking, java.lang.String, java.lang.String, int)
 	 * @generated
 	 */
-	EOperation getServiceItemhandling__AddServiceItem__String_String_int();
+	EOperation getServiceItemhandling__AddServiceItem__Booking_String_String_int();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.ServiceItemhandling#removeServiceItem(RootElement.ServiceItem) <em>Remove Service Item</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.ServiceItemhandling#removeServiceItem(RootElement.Booking, RootElement.ServiceItem) <em>Remove Service Item</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Service Item</em>' operation.
-	 * @see RootElement.ServiceItemhandling#removeServiceItem(RootElement.ServiceItem)
+	 * @see RootElement.ServiceItemhandling#removeServiceItem(RootElement.Booking, RootElement.ServiceItem)
 	 * @generated
 	 */
-	EOperation getServiceItemhandling__RemoveServiceItem__ServiceItem();
+	EOperation getServiceItemhandling__RemoveServiceItem__Booking_ServiceItem();
 
 	/**
 	 * Returns the meta object for the '{@link RootElement.ServiceItemhandling#findAllServiceItems(RootElement.Booking) <em>Find All Service Items</em>}' operation.
@@ -6183,7 +6183,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT = eINSTANCE.getServiceItemhandling__AddServiceItem__String_String_int();
+		EOperation SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = eINSTANCE.getServiceItemhandling__AddServiceItem__Booking_String_String_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Service Item</b></em>' operation.
@@ -6191,7 +6191,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM = eINSTANCE.getServiceItemhandling__RemoveServiceItem__ServiceItem();
+		EOperation SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = eINSTANCE.getServiceItemhandling__RemoveServiceItem__Booking_ServiceItem();
 
 		/**
 		 * The meta object literal for the '<em><b>Find All Service Items</b></em>' operation.

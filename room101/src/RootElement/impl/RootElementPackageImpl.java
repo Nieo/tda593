@@ -1588,7 +1588,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceItemhandling__AddServiceItem__String_String_int() {
+	public EOperation getServiceItemhandling__AddServiceItem__Booking_String_String_int() {
 		return serviceItemhandlingEClass.getEOperations().get(0);
 	}
 
@@ -1597,7 +1597,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceItemhandling__RemoveServiceItem__ServiceItem() {
+	public EOperation getServiceItemhandling__RemoveServiceItem__Booking_ServiceItem() {
 		return serviceItemhandlingEClass.getEOperations().get(1);
 	}
 
@@ -1779,8 +1779,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEAttribute(serviceItemEClass, SERVICE_ITEM__PRICE);
 
 		serviceItemhandlingEClass = createEClass(SERVICE_ITEMHANDLING);
-		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT);
-		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM);
+		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT);
+		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM);
 		createEOperation(serviceItemhandlingEClass, SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING);
 
 		feedbackWriterEClass = createEClass(FEEDBACK_WRITER);
@@ -2063,12 +2063,14 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEClass(serviceItemhandlingEClass, ServiceItemhandling.class, "ServiceItemhandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getServiceItemhandling__AddServiceItem__String_String_int(), null, "addServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getServiceItemhandling__AddServiceItem__Booking_String_String_int(), null, "addServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getServiceItemhandling__RemoveServiceItem__ServiceItem(), null, "removeServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getServiceItemhandling__RemoveServiceItem__Booking_ServiceItem(), null, "removeServiceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getServiceItem(), "serviceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getServiceItemhandling__FindAllServiceItems__Booking(), this.getServiceItem(), "findAllServiceItems", 1, 1, IS_UNIQUE, !IS_ORDERED);

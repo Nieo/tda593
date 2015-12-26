@@ -129,11 +129,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="ServiceItemhandling" abstract="true"
       interface="true">
     <eOperations name="addServiceItem" ordered="false" lowerBound="1">
+      <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="description" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="price" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="removeServiceItem" ordered="false" lowerBound="1">
+      <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
       <eParameters name="serviceItem" ordered="false" lowerBound="1" eType="#//ServiceItem"/>
     </eOperations>
     <eOperations name="findAllServiceItems" ordered="false" lowerBound="1" eType="#//ServiceItem">

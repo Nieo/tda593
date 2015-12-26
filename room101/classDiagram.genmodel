@@ -137,11 +137,13 @@
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//ServiceItemhandling">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//ServiceItemhandling/addServiceItem">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ServiceItemhandling/addServiceItem/booking"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ServiceItemhandling/addServiceItem/name"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ServiceItemhandling/addServiceItem/description"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ServiceItemhandling/addServiceItem/price"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//ServiceItemhandling/removeServiceItem">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ServiceItemhandling/removeServiceItem/booking"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ServiceItemhandling/removeServiceItem/serviceItem"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//ServiceItemhandling/findAllServiceItems">

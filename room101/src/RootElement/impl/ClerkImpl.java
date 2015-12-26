@@ -295,7 +295,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void addServiceItem(String name, String description, int price) {
+	public void addServiceItem(Booking booking, String name, String description, int price) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -306,7 +306,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void removeServiceItem(ServiceItem serviceItem) {
+	public void removeServiceItem(Booking booking, ServiceItem serviceItem) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -521,8 +521,8 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 		}
 		if (baseClass == ServiceItemhandling.class) {
 			switch (baseOperationID) {
-				case RootElementPackage.SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__STRING_STRING_INT: return RootElementPackage.CLERK___ADD_SERVICE_ITEM__STRING_STRING_INT;
-				case RootElementPackage.SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__SERVICEITEM: return RootElementPackage.CLERK___REMOVE_SERVICE_ITEM__SERVICEITEM;
+				case RootElementPackage.SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT: return RootElementPackage.CLERK___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT;
+				case RootElementPackage.SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM: return RootElementPackage.CLERK___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM;
 				case RootElementPackage.SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING: return RootElementPackage.CLERK___FIND_ALL_SERVICE_ITEMS__BOOKING;
 				default: return -1;
 			}
@@ -564,11 +564,11 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 				return findBookings((String)arguments.get(0));
 			case RootElementPackage.CLERK___FIND_ACTIVE_BOOKING__STRING:
 				return findActiveBooking((String)arguments.get(0));
-			case RootElementPackage.CLERK___ADD_SERVICE_ITEM__STRING_STRING_INT:
-				addServiceItem((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2));
+			case RootElementPackage.CLERK___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT:
+				addServiceItem((Booking)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Integer)arguments.get(3));
 				return null;
-			case RootElementPackage.CLERK___REMOVE_SERVICE_ITEM__SERVICEITEM:
-				removeServiceItem((ServiceItem)arguments.get(0));
+			case RootElementPackage.CLERK___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM:
+				removeServiceItem((Booking)arguments.get(0), (ServiceItem)arguments.get(1));
 				return null;
 			case RootElementPackage.CLERK___FIND_ALL_SERVICE_ITEMS__BOOKING:
 				return findAllServiceItems((Booking)arguments.get(0));

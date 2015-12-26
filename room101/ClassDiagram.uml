@@ -662,6 +662,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_iI9EoKJCEeW1I_MccVmXPQ" name="ServiceItemhandling">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_2x3pYKJCEeW1I_MccVmXPQ" name="addServiceItem">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_TXffoKv_EeWoJNQkGjQ1xA" name="booking" type="_d3V_0JddEeW0s9Al2d2tiA"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_S_R6UKJDEeW1I_MccVmXPQ" name="name">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
@@ -673,6 +674,7 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_Ym_wwKJDEeW1I_MccVmXPQ" name="removeServiceItem">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_WaJ_YKv_EeWoJNQkGjQ1xA" name="booking" type="_d3V_0JddEeW0s9Al2d2tiA"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_fh2DAKJDEeW1I_MccVmXPQ" name="serviceItem" type="_a7disJ6eEeW2ZrS6EkHJUA"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_hJDRYKJDEeW1I_MccVmXPQ" name="findAllServiceItems">

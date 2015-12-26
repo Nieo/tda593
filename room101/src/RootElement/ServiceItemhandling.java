@@ -18,18 +18,18 @@ public interface ServiceItemhandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false"
+	 * @model bookingRequired="true" bookingOrdered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false"
 	 * @generated
 	 */
-	void addServiceItem(String name, String description, int price);
+	void addServiceItem(Booking booking, String name, String description, int price);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model serviceItemRequired="true" serviceItemOrdered="false"
+	 * @model bookingRequired="true" bookingOrdered="false" serviceItemRequired="true" serviceItemOrdered="false"
 	 * @generated
 	 */
-	void removeServiceItem(ServiceItem serviceItem);
+	void removeServiceItem(Booking booking, ServiceItem serviceItem);
 
 	/**
 	 * <!-- begin-user-doc -->
