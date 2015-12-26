@@ -69,7 +69,7 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 	private void loginSelect() {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Who do you want to log in as?");
+			System.out.println("Login - Who do you want to log in as?");
 			System.out.println("1:\tGuest\n2:\tStaff\n3:\tClerk\n4:\tManager\n5:\tSystem Administrator\nOr 0 to exit\n");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -108,7 +108,7 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 		}
 		int input = -1;
 		while (input != 0) {
-			System.out.println("What do you want to do?");
+			System.out.println("Guest - What do you want to do?");
 			System.out.println("1:\tMake or cancel a Booking\n2:\tWrite a Support Ticket\n3:\tGive Feedback\nOr 0 to go back\n");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -141,6 +141,29 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 		if (staff == null) {
 			staff = hotel.getStaff("1");
 		}
+		int input = -1;
+		while (input != 0) {
+			System.out.println("Staff - What do you want to do?");
+			System.out.println("1:\tHandle cleaning\n2:\tHandle Support Tickets\nOr 0 to go back\n");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (Exception e) {
+				System.out.println("Only digits 0-2 is allowed.");
+				continue;
+			}
+			switch (input) {
+			case 0:
+				break;
+			case 1:
+				handleCleaning(staff);
+				break;
+			case 2:
+				handleSupportTickets(staff);
+				break;
+			default:
+				System.out.println(input + " is not on the list.\n");
+			}
+		}
 	}
 	
 	private void clerkLoggedIn() {
@@ -148,6 +171,7 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 		if (clerk == null) {
 			clerk = hotel.getClerk("1");
 		}
+		//TODO implement this
 	}
 	
 	private void managerLoggedIn() {
@@ -155,6 +179,7 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 		if (manager == null) {
 			manager = hotel.getManager("1");
 		}
+		//TODO implement this
 	}
 	
 	private void sysAdminLoggedIn() {
@@ -162,12 +187,13 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 		if (sysAdmin == null) {
 			sysAdmin = hotel.getSystemAdministrator();
 		}
+		//TODO implement this
 	}
 	
 	private void makeBooking(MakeBooking actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("What do you want to do?");
+			System.out.println("Bookings - What do you want to do?");
 			System.out.println("1:\tMake a new booking\n2:\tCancel a booking\nOr 0 to exit\n");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -195,7 +221,7 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 		int input = -1;
 		while (input != 0) {
 			printBooking(booking);
-			System.out.println("What do you want to do?");
+			System.out.println("Booking process - What do you want to do?");
 			System.out.println("1:\tSearch for available rooms\n2:\tConfirm the booking\nOr 0 to discard and go back\n");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -357,6 +383,7 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 				input = Integer.parseInt(in.nextLine());
 			} catch (NumberFormatException e) {
 				System.out.println("Wrong format! Only integer numbers are allowed!");
+				continue;
 			}
 			if (input == 0) {
 				break;
@@ -367,7 +394,7 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 				allRooms.remove(input -1);
 			} catch (ArrayIndexOutOfBoundsException ex) {
 				System.out.println("There are " + roomTypes.size()
-							+ " choices, not '" + input + "'... Try again.");
+							+ " choices, not '" + (input - 1) + "'... Try again.");
 			}
 		}
 	}
@@ -391,6 +418,164 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 		System.out.println("Please write a description of the problem:");
 		String description = in.nextLine().trim();
 		actor.newSupportTicket(roomID, description);
+	}
+	
+	private void handleCleaning(Cleaning actor) {
+		int input = -1;
+		while (input != 0) {
+			System.out.println("Cleaning - What do you want to do?");
+			System.out.println("1:\tList uncleaned rooms\n2:\tCheck if room is cleaned\nOr 0 to go back\n");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (Exception e) {
+				System.out.println("Only digits 0-2 is allowed.");
+				continue;
+			}
+			switch (input) {
+			case 0:
+				break;
+			case 1:
+				cleaningChooser(actor.getListOfUncleanRooms(), actor);
+				break;
+			case 2:
+				System.out.print("Please enter the room ID: ");
+				try {
+					if (actor.checkIfRoomCleaned(in.nextLine().trim())) {
+						System.out.println("The room is clean.");
+					} else {
+						System.out.println("The room is not clean");
+					}
+				} catch (Exception ex) {
+					System.out.println("No room with that ID was found.");
+				}
+				break;
+			default:
+				System.out.println(input + " is not on the list.\n");
+			}
+		}
+	}
+	
+	private void cleaningChooser(EList<Room> list, Cleaning actor) {
+		int input=-1;
+		while(input != 0) {
+			if (list == null || list.isEmpty()) {
+				System.out.println("No dirty rooms where found.");
+				break;
+			}
+			for (int i=0; i<list.size(); i++) {
+				Room room = list.get(i);
+				System.out.print((i+1) + ":\t");
+				System.out.println("Room ID: " + room.getRoomName() + "\tStatus: " + (room.isNeedCleaning()?"Not clean":"Clean"));
+			}
+			System.out.print("Choose a room to mark it as cleaned or 0 to go back: ");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (NumberFormatException e) {
+				System.out.println("Wrong format! Only integer numbers are allowed!");
+				continue;
+			}
+			if (input == 0) {
+				break;
+			}
+			try {
+				actor.markRoomAsCleaned(list.get(input-1));
+			} catch (ArrayIndexOutOfBoundsException ex) {
+				System.out.println("There are " + list.size()
+							+ " choices, not '" + (input - 1) + "'... Try again.");
+			}
+		}
+	}
+	
+	private void handleSupportTickets(Staff actor) {
+		int input = -1;
+		while (input != 0) {
+			System.out.println("Support Tickets - What do you want to do?");
+			System.out.println("1:\tWrite Support Ticket\n2:\tList unfixed Support Tickets\n3:\tShow Support Tickets for a room\nOr 0 to go back\n");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (Exception e) {
+				System.out.println("Only digits 0-3 is allowed.");
+				continue;
+			}
+			switch (input) {
+			case 0:
+				break;
+			case 1:
+				makeSupportTicket(actor);
+				break;
+			case 2:
+				supportTicketChooser(actor.getUnfixedTickets(), actor);
+				break;
+			case 3:
+				System.out.print("Please enter the roomID: ");
+				EList<SupportTicket> list = actor.getSupportTicketsForRoom(in.nextLine());
+				if (list == null || list.isEmpty()) {
+					System.out.println("No tickets where found for that room.");
+				} else {
+					supportTicketChooser(list, actor);
+				}
+				break;
+			default:
+				System.out.println(input + " is not on the list.\n");
+			}
+		}
+	}
+	
+	private void supportTicketChooser(EList<SupportTicket> list, SupportTicketReader actor) {
+		int input=-1;
+		while(input != 0) {
+			if (list == null || list.isEmpty()) {
+				System.out.println("No tickets where found.");
+				break;
+			}
+			for (int i=0; i<list.size(); i++) {
+				SupportTicket st = list.get(i);
+				System.out.print((i+1) + ":\t");
+				System.out.println(st.getRoomID() + "\t" + (st.isFixed()?"Fixed":"Not fixed"));
+				System.out.println("\t" + (st.getProblemDescription().length()>60
+						? st.getProblemDescription().substring(0, 60) + "..."
+								: st.getProblemDescription()));
+			}
+			System.out.print("Choose a ticket to read or mark as fixed, 0 to go back: ");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (NumberFormatException e) {
+				System.out.println("Wrong format! Only integer numbers are allowed!");
+				continue;
+			}
+			if (input == 0) {
+				break;
+			}
+			try {
+				SupportTicket st = list.get(input-1);
+				System.out.println("Room ID: " + st.getRoomID());
+				System.out.println("Status: " + (st.isFixed()?"Fixed":"Not fixed"));
+				System.out.println(st.getProblemDescription() + "\n");
+				System.out.println("1:\tMark as fixed\n\tGo back");
+				int input2 = -1;
+				while(input2 != 0) {
+					try {
+						input2 = Integer.parseInt(in.nextLine());
+					} catch (NumberFormatException e) {
+						System.out.println("Only digits 0-1 are allowed.");
+						continue;
+					}
+					switch (input2) {
+					case 0:
+						break;
+					case 1:
+						actor.markAsCompleted(st);
+						System.out.println("Support Ticket marked as fixed.");
+						break;
+					default:
+						System.out.println(input2 + " is not on the list.\n");
+					}
+				}
+			} catch (ArrayIndexOutOfBoundsException ex) {
+				System.out.println("There are " + list.size()
+							+ " choices, not '" + (input - 1) + "'... Try again.");
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -592,12 +777,6 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 	}
 
 	@Override
-	public EList<SupportTicket> getSupportTicketsForRoom(Room room) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void markAsCompleted(SupportTicket supportTicket) {
 		// TODO Auto-generated method stub
 		
@@ -793,6 +972,12 @@ public class Main implements Guest, Staff, Clerk, Manager, SysAdmin{
 
 	@Override
 	public Room findRoom(String roomName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EList<SupportTicket> getSupportTicketsForRoom(String roomID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
