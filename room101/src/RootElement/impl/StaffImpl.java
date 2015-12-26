@@ -343,7 +343,7 @@ public abstract class StaffImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SupportTicket> getSupportTicketsForRoom(Room room) {
+	public EList<SupportTicket> getSupportTicketsForRoom(String roomID) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -477,7 +477,7 @@ public abstract class StaffImpl extends MinimalEObjectImpl.Container implements 
 		if (baseClass == SupportTicketReader.class) {
 			switch (baseOperationID) {
 				case RootElementPackage.SUPPORT_TICKET_READER___GET_UNFIXED_TICKETS: return RootElementPackage.STAFF___GET_UNFIXED_TICKETS;
-				case RootElementPackage.SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM: return RootElementPackage.STAFF___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM;
+				case RootElementPackage.SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__STRING: return RootElementPackage.STAFF___GET_SUPPORT_TICKETS_FOR_ROOM__STRING;
 				case RootElementPackage.SUPPORT_TICKET_READER___MARK_AS_COMPLETED__SUPPORTTICKET: return RootElementPackage.STAFF___MARK_AS_COMPLETED__SUPPORTTICKET;
 				default: return -1;
 			}
@@ -505,8 +505,8 @@ public abstract class StaffImpl extends MinimalEObjectImpl.Container implements 
 				return null;
 			case RootElementPackage.STAFF___GET_UNFIXED_TICKETS:
 				return getUnfixedTickets();
-			case RootElementPackage.STAFF___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM:
-				return getSupportTicketsForRoom((Room)arguments.get(0));
+			case RootElementPackage.STAFF___GET_SUPPORT_TICKETS_FOR_ROOM__STRING:
+				return getSupportTicketsForRoom((String)arguments.get(0));
 			case RootElementPackage.STAFF___MARK_AS_COMPLETED__SUPPORTTICKET:
 				markAsCompleted((SupportTicket)arguments.get(0));
 				return null;

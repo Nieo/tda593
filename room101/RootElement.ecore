@@ -178,7 +178,7 @@
       interface="true">
     <eOperations name="getUnfixedTickets" ordered="false" upperBound="-1" eType="#//SupportTicket"/>
     <eOperations name="getSupportTicketsForRoom" ordered="false" upperBound="-1" eType="#//SupportTicket">
-      <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
+      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="markAsCompleted" ordered="false" lowerBound="1">
       <eParameters name="supportTicket" ordered="false" lowerBound="1" eType="#//SupportTicket"/>

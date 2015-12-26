@@ -1408,7 +1408,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSupportTicketReader__GetSupportTicketsForRoom__Room() {
+	public EOperation getSupportTicketReader__GetSupportTicketsForRoom__String() {
 		return supportTicketReaderEClass.getEOperations().get(1);
 	}
 
@@ -1805,7 +1805,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		supportTicketReaderEClass = createEClass(SUPPORT_TICKET_READER);
 		createEOperation(supportTicketReaderEClass, SUPPORT_TICKET_READER___GET_UNFIXED_TICKETS);
-		createEOperation(supportTicketReaderEClass, SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM);
+		createEOperation(supportTicketReaderEClass, SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__STRING);
 		createEOperation(supportTicketReaderEClass, SUPPORT_TICKET_READER___MARK_AS_COMPLETED__SUPPORTTICKET);
 
 		supportTicketEClass = createEClass(SUPPORT_TICKET);
@@ -2105,8 +2105,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEOperation(getSupportTicketReader__GetUnfixedTickets(), this.getSupportTicket(), "getUnfixedTickets", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getSupportTicketReader__GetSupportTicketsForRoom__Room(), this.getSupportTicket(), "getSupportTicketsForRoom", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getSupportTicketReader__GetSupportTicketsForRoom__String(), this.getSupportTicket(), "getSupportTicketsForRoom", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getSupportTicketReader__MarkAsCompleted__SupportTicket(), null, "markAsCompleted", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getSupportTicket(), "supportTicket", 1, 1, IS_UNIQUE, !IS_ORDERED);

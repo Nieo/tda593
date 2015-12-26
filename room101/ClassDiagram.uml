@@ -410,7 +410,9 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_NtMUBZ3BEeWgH5KZ_xCcgQ" name="getSupportTicketsForRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_NtMUBp3BEeWgH5KZ_xCcgQ" name="room" type="_UTJDgJdOEeW0s9Al2d2tiA"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_NtMUBp3BEeWgH5KZ_xCcgQ" name="roomID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_NtMUB53BEeWgH5KZ_xCcgQ" name="supportTicketList" type="_-j4ugJddEeW0s9Al2d2tiA" direction="return">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NtMUCJ3BEeWgH5KZ_xCcgQ"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NtMUCZ3BEeWgH5KZ_xCcgQ" value="*"/>

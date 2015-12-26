@@ -2,7 +2,6 @@
  */
 package RootElement.impl;
 
-import RootElement.Room;
 import RootElement.RootElementPackage;
 import RootElement.SupportTicket;
 import RootElement.SupportTicketHandler;
@@ -90,7 +89,7 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SupportTicket> getSupportTicketsForRoom(Room room) {
+	public EList<SupportTicket> getSupportTicketsForRoom(String roomID) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -204,8 +203,8 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 		switch (operationID) {
 			case RootElementPackage.SUPPORT_TICKET_HANDLER___GET_UNFIXED_TICKETS:
 				return getUnfixedTickets();
-			case RootElementPackage.SUPPORT_TICKET_HANDLER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM:
-				return getSupportTicketsForRoom((Room)arguments.get(0));
+			case RootElementPackage.SUPPORT_TICKET_HANDLER___GET_SUPPORT_TICKETS_FOR_ROOM__STRING:
+				return getSupportTicketsForRoom((String)arguments.get(0));
 			case RootElementPackage.SUPPORT_TICKET_HANDLER___MARK_AS_COMPLETED__SUPPORTTICKET:
 				markAsCompleted((SupportTicket)arguments.get(0));
 				return null;

@@ -1296,7 +1296,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STAFF___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = CLEANING_OPERATION_COUNT + 2;
+	int STAFF___GET_SUPPORT_TICKETS_FOR_ROOM__STRING = CLEANING_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Mark As Completed</em>' operation.
@@ -1341,7 +1341,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = 1;
+	int SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__STRING = 1;
 
 	/**
 	 * The operation id for the '<em>Mark As Completed</em>' operation.
@@ -1548,7 +1548,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLERK___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = STAFF___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM;
+	int CLERK___GET_SUPPORT_TICKETS_FOR_ROOM__STRING = STAFF___GET_SUPPORT_TICKETS_FOR_ROOM__STRING;
 
 	/**
 	 * The operation id for the '<em>Mark As Completed</em>' operation.
@@ -1944,7 +1944,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = CLERK___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM;
+	int MANAGER___GET_SUPPORT_TICKETS_FOR_ROOM__STRING = CLERK___GET_SUPPORT_TICKETS_FOR_ROOM__STRING;
 
 	/**
 	 * The operation id for the '<em>Mark As Completed</em>' operation.
@@ -3096,7 +3096,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPORT_TICKET_HANDLER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM;
+	int SUPPORT_TICKET_HANDLER___GET_SUPPORT_TICKETS_FOR_ROOM__STRING = SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__STRING;
 
 	/**
 	 * The operation id for the '<em>Mark As Completed</em>' operation.
@@ -4700,14 +4700,14 @@ public interface RootElementPackage extends EPackage {
 	EOperation getSupportTicketReader__GetUnfixedTickets();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.SupportTicketReader#getSupportTicketsForRoom(RootElement.Room) <em>Get Support Tickets For Room</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.SupportTicketReader#getSupportTicketsForRoom(java.lang.String) <em>Get Support Tickets For Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Support Tickets For Room</em>' operation.
-	 * @see RootElement.SupportTicketReader#getSupportTicketsForRoom(RootElement.Room)
+	 * @see RootElement.SupportTicketReader#getSupportTicketsForRoom(java.lang.String)
 	 * @generated
 	 */
-	EOperation getSupportTicketReader__GetSupportTicketsForRoom__Room();
+	EOperation getSupportTicketReader__GetSupportTicketsForRoom__String();
 
 	/**
 	 * Returns the meta object for the '{@link RootElement.SupportTicketReader#markAsCompleted(RootElement.SupportTicket) <em>Mark As Completed</em>}' operation.
@@ -6007,7 +6007,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__ROOM = eINSTANCE.getSupportTicketReader__GetSupportTicketsForRoom__Room();
+		EOperation SUPPORT_TICKET_READER___GET_SUPPORT_TICKETS_FOR_ROOM__STRING = eINSTANCE.getSupportTicketReader__GetSupportTicketsForRoom__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Mark As Completed</b></em>' operation.

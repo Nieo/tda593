@@ -180,7 +180,7 @@
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//SupportTicketReader">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//SupportTicketReader/getUnfixedTickets"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//SupportTicketReader/getSupportTicketsForRoom">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketReader/getSupportTicketsForRoom/room"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketReader/getSupportTicketsForRoom/roomID"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//SupportTicketReader/markAsCompleted">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketReader/markAsCompleted/supportTicket"/>

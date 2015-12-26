@@ -43,14 +43,14 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated
 	 * @ordered
 	 */
-	private EList<RoomType> roomTypes;
+	protected EList<RoomType> roomTypes;
 
 	/**
 	 * The room attributes available in the hotel
 	 * @generated
 	 * @ordered
 	 */
-	private EList<RoomAttribute> roomAttributes;
+	protected EList<RoomAttribute> roomAttributes;
 
 	/**
 	 * Initiates the RoomStructureImpl class.

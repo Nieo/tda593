@@ -149,6 +149,15 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RoomType basicGetRoomType() {
+		return roomType;
+	}
+
+	/**
 	 * Sets the room type this room should be categorized in.
 	 * @generated NOT
 	 */
@@ -185,7 +194,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				return isNeedCleaning();
 			case RootElementPackage.ROOM__ROOM_TYPE:
-				return getRoomType();
+				if (resolve) return getRoomType();
+				return basicGetRoomType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
