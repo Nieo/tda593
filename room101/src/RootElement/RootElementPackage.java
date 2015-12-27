@@ -106,7 +106,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getFeedback()
 	 * @generated
 	 */
-	int FEEDBACK = 11;
+	int FEEDBACK = 10;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.StaffImpl <em>Staff</em>}' class.
@@ -116,7 +116,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getStaff()
 	 * @generated
 	 */
-	int STAFF = 12;
+	int STAFF = 11;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.BookingImpl <em>Booking</em>}' class.
@@ -156,7 +156,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getSupportTicket()
 	 * @generated
 	 */
-	int SUPPORT_TICKET = 15;
+	int SUPPORT_TICKET = 14;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.ClerkImpl <em>Clerk</em>}' class.
@@ -166,7 +166,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getClerk()
 	 * @generated
 	 */
-	int CLERK = 16;
+	int CLERK = 15;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.ManagerImpl <em>Manager</em>}' class.
@@ -206,7 +206,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getReceptionHandling()
 	 * @generated
 	 */
-	int RECEPTION_HANDLING = 17;
+	int RECEPTION_HANDLING = 16;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.BookingHandlerImpl <em>Booking Handler</em>}' class.
@@ -296,7 +296,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getFeedbackWriter()
 	 * @generated
 	 */
-	int FEEDBACK_WRITER = 10;
+	int FEEDBACK_WRITER = 9;
 
 	/**
 	 * The meta object id for the '{@link RootElement.SupportTicketWriter <em>Support Ticket Writer</em>}' class.
@@ -586,7 +586,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getSupportTicketReader()
 	 * @generated
 	 */
-	int SUPPORT_TICKET_READER = 14;
+	int SUPPORT_TICKET_READER = 13;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.CleaningHandlerImpl <em>Cleaning Handler</em>}' class.
@@ -616,7 +616,7 @@ public interface RootElementPackage extends EPackage {
 	 * @see RootElement.impl.RootElementPackageImpl#getCleaning()
 	 * @generated
 	 */
-	int CLEANING = 13;
+	int CLEANING = 12;
 
 	/**
 	 * The meta object id for the '{@link RootElement.Payment <em>Payment</em>}' class.
@@ -659,68 +659,13 @@ public interface RootElementPackage extends EPackage {
 	int HOURLY_ROOM_BOOKING = 33;
 
 	/**
-	 * The meta object id for the '{@link RootElement.ServiceItemhandling <em>Service Itemhandling</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see RootElement.ServiceItemhandling
-	 * @see RootElement.impl.RootElementPackageImpl#getServiceItemhandling()
-	 * @generated
-	 */
-	int SERVICE_ITEMHANDLING = 9;
-
-	/**
-	 * The number of structural features of the '<em>Service Itemhandling</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Add Service Item</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = 0;
-
-	/**
-	 * The operation id for the '<em>Remove Service Item</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = 1;
-
-	/**
-	 * The operation id for the '<em>Find All Service Items</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING = 2;
-
-	/**
-	 * The number of operations of the '<em>Service Itemhandling</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_ITEMHANDLING_OPERATION_COUNT = 3;
-
-	/**
 	 * The feature id for the '<em><b>Booking ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__BOOKING_ID = SERVICE_ITEMHANDLING_FEATURE_COUNT + 0;
+	int BOOKING__BOOKING_ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Roombooking</b></em>' reference list.
@@ -729,7 +674,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__ROOMBOOKING = SERVICE_ITEMHANDLING_FEATURE_COUNT + 1;
+	int BOOKING__ROOMBOOKING = 1;
 
 	/**
 	 * The feature id for the '<em><b>Guest</b></em>' reference.
@@ -738,7 +683,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__GUEST = SERVICE_ITEMHANDLING_FEATURE_COUNT + 2;
+	int BOOKING__GUEST = 2;
 
 	/**
 	 * The feature id for the '<em><b>Serviceitem</b></em>' reference list.
@@ -747,7 +692,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__SERVICEITEM = SERVICE_ITEMHANDLING_FEATURE_COUNT + 3;
+	int BOOKING__SERVICEITEM = 3;
 
 	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
@@ -756,34 +701,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_FEATURE_COUNT = SERVICE_ITEMHANDLING_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Add Service Item</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT;
-
-	/**
-	 * The operation id for the '<em>Remove Service Item</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM;
-
-	/**
-	 * The operation id for the '<em>Find All Service Items</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING___FIND_ALL_SERVICE_ITEMS__BOOKING = SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING;
+	int BOOKING_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Calculate Cost</em>' operation.
@@ -792,7 +710,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___CALCULATE_COST = SERVICE_ITEMHANDLING_OPERATION_COUNT + 0;
+	int BOOKING___CALCULATE_COST = 0;
 
 	/**
 	 * The number of operations of the '<em>Booking</em>' class.
@@ -801,7 +719,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_OPERATION_COUNT = SERVICE_ITEMHANDLING_OPERATION_COUNT + 1;
+	int BOOKING_OPERATION_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -1756,6 +1674,61 @@ public interface RootElementPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECEPTION_HANDLING_OPERATION_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link RootElement.ServiceItemHandling <em>Service Item Handling</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see RootElement.ServiceItemHandling
+	 * @see RootElement.impl.RootElementPackageImpl#getServiceItemHandling()
+	 * @generated
+	 */
+	int SERVICE_ITEM_HANDLING = 17;
+
+	/**
+	 * The number of structural features of the '<em>Service Item Handling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEM_HANDLING_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Add Service Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEM_HANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = 0;
+
+	/**
+	 * The operation id for the '<em>Remove Service Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEM_HANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = 1;
+
+	/**
+	 * The operation id for the '<em>Find All Service Items</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEM_HANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING = 2;
+
+	/**
+	 * The number of operations of the '<em>Service Item Handling</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_ITEM_HANDLING_OPERATION_COUNT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Payment</em>' class.
@@ -2748,13 +2721,40 @@ public interface RootElementPackage extends EPackage {
 	int BOOKING_HANDLER___LOOKUP_BOOKING__STRING_STRING = RECEPTION_HANDLING_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Add Service Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = RECEPTION_HANDLING_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Remove Service Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = RECEPTION_HANDLING_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Find All Service Items</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_HANDLER___FIND_ALL_SERVICE_ITEMS__BOOKING = RECEPTION_HANDLING_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Booking Handler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_HANDLER_OPERATION_COUNT = RECEPTION_HANDLING_OPERATION_COUNT + 6;
+	int BOOKING_HANDLER_OPERATION_COUNT = RECEPTION_HANDLING_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Room Fetcher</em>' class.
@@ -4313,6 +4313,46 @@ public interface RootElementPackage extends EPackage {
 	EOperation getReceptionHandling__FindActiveBooking__String();
 
 	/**
+	 * Returns the meta object for class '{@link RootElement.ServiceItemHandling <em>Service Item Handling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Item Handling</em>'.
+	 * @see RootElement.ServiceItemHandling
+	 * @generated
+	 */
+	EClass getServiceItemHandling();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.ServiceItemHandling#addServiceItem(RootElement.Booking, java.lang.String, java.lang.String, int) <em>Add Service Item</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Service Item</em>' operation.
+	 * @see RootElement.ServiceItemHandling#addServiceItem(RootElement.Booking, java.lang.String, java.lang.String, int)
+	 * @generated
+	 */
+	EOperation getServiceItemHandling__AddServiceItem__Booking_String_String_int();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.ServiceItemHandling#removeServiceItem(RootElement.Booking, RootElement.ServiceItem) <em>Remove Service Item</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Service Item</em>' operation.
+	 * @see RootElement.ServiceItemHandling#removeServiceItem(RootElement.Booking, RootElement.ServiceItem)
+	 * @generated
+	 */
+	EOperation getServiceItemHandling__RemoveServiceItem__Booking_ServiceItem();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.ServiceItemHandling#findAllServiceItems(RootElement.Booking) <em>Find All Service Items</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find All Service Items</em>' operation.
+	 * @see RootElement.ServiceItemHandling#findAllServiceItems(RootElement.Booking)
+	 * @generated
+	 */
+	EOperation getServiceItemHandling__FindAllServiceItems__Booking();
+
+	/**
 	 * Returns the meta object for class '{@link RootElement.BookingHandler <em>Booking Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4890,46 +4930,6 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getHourlyRoomBooking();
-
-	/**
-	 * Returns the meta object for class '{@link RootElement.ServiceItemhandling <em>Service Itemhandling</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Service Itemhandling</em>'.
-	 * @see RootElement.ServiceItemhandling
-	 * @generated
-	 */
-	EClass getServiceItemhandling();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.ServiceItemhandling#addServiceItem(RootElement.Booking, java.lang.String, java.lang.String, int) <em>Add Service Item</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Service Item</em>' operation.
-	 * @see RootElement.ServiceItemhandling#addServiceItem(RootElement.Booking, java.lang.String, java.lang.String, int)
-	 * @generated
-	 */
-	EOperation getServiceItemhandling__AddServiceItem__Booking_String_String_int();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.ServiceItemhandling#removeServiceItem(RootElement.Booking, RootElement.ServiceItem) <em>Remove Service Item</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Service Item</em>' operation.
-	 * @see RootElement.ServiceItemhandling#removeServiceItem(RootElement.Booking, RootElement.ServiceItem)
-	 * @generated
-	 */
-	EOperation getServiceItemhandling__RemoveServiceItem__Booking_ServiceItem();
-
-	/**
-	 * Returns the meta object for the '{@link RootElement.ServiceItemhandling#findAllServiceItems(RootElement.Booking) <em>Find All Service Items</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Find All Service Items</em>' operation.
-	 * @see RootElement.ServiceItemhandling#findAllServiceItems(RootElement.Booking)
-	 * @generated
-	 */
-	EOperation getServiceItemhandling__FindAllServiceItems__Booking();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.HotelSystem <em>Hotel System</em>}'.
@@ -5676,6 +5676,40 @@ public interface RootElementPackage extends EPackage {
 		EOperation RECEPTION_HANDLING___FIND_ACTIVE_BOOKING__STRING = eINSTANCE.getReceptionHandling__FindActiveBooking__String();
 
 		/**
+		 * The meta object literal for the '{@link RootElement.ServiceItemHandling <em>Service Item Handling</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see RootElement.ServiceItemHandling
+		 * @see RootElement.impl.RootElementPackageImpl#getServiceItemHandling()
+		 * @generated
+		 */
+		EClass SERVICE_ITEM_HANDLING = eINSTANCE.getServiceItemHandling();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Service Item</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SERVICE_ITEM_HANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = eINSTANCE.getServiceItemHandling__AddServiceItem__Booking_String_String_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Service Item</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SERVICE_ITEM_HANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = eINSTANCE.getServiceItemHandling__RemoveServiceItem__Booking_ServiceItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Find All Service Items</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SERVICE_ITEM_HANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING = eINSTANCE.getServiceItemHandling__FindAllServiceItems__Booking();
+
+		/**
 		 * The meta object literal for the '{@link RootElement.impl.BookingHandlerImpl <em>Booking Handler</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6166,40 +6200,6 @@ public interface RootElementPackage extends EPackage {
 		 * @generated
 		 */
 		EClass HOURLY_ROOM_BOOKING = eINSTANCE.getHourlyRoomBooking();
-
-		/**
-		 * The meta object literal for the '{@link RootElement.ServiceItemhandling <em>Service Itemhandling</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see RootElement.ServiceItemhandling
-		 * @see RootElement.impl.RootElementPackageImpl#getServiceItemhandling()
-		 * @generated
-		 */
-		EClass SERVICE_ITEMHANDLING = eINSTANCE.getServiceItemhandling();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Service Item</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT = eINSTANCE.getServiceItemhandling__AddServiceItem__Booking_String_String_int();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Service Item</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM = eINSTANCE.getServiceItemhandling__RemoveServiceItem__Booking_ServiceItem();
-
-		/**
-		 * The meta object literal for the '<em><b>Find All Service Items</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING = eINSTANCE.getServiceItemhandling__FindAllServiceItems__Booking();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.HotelSystem <em>Hotel System</em>}' class.

@@ -104,10 +104,6 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 				return createServiceItemAdapter();
 			}
 			@Override
-			public Adapter caseServiceItemhandling(ServiceItemhandling object) {
-				return createServiceItemhandlingAdapter();
-			}
-			@Override
 			public Adapter caseFeedbackWriter(FeedbackWriter object) {
 				return createFeedbackWriterAdapter();
 			}
@@ -138,6 +134,10 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseReceptionHandling(ReceptionHandling object) {
 				return createReceptionHandlingAdapter();
+			}
+			@Override
+			public Adapter caseServiceItemHandling(ServiceItemHandling object) {
+				return createServiceItemHandlingAdapter();
 			}
 			@Override
 			public Adapter casePayment(Payment object) {
@@ -442,6 +442,20 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link RootElement.ServiceItemHandling <em>Service Item Handling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see RootElement.ServiceItemHandling
+	 * @generated
+	 */
+	public Adapter createServiceItemHandlingAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link RootElement.BookingHandler <em>Booking Handler</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -690,20 +704,6 @@ public class RootElementAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHourlyRoomBookingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link RootElement.ServiceItemhandling <em>Service Itemhandling</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see RootElement.ServiceItemhandling
-	 * @generated
-	 */
-	public Adapter createServiceItemhandlingAdapter() {
 		return null;
 	}
 

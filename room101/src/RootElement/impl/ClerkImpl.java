@@ -12,7 +12,7 @@ import RootElement.RoomType;
 import RootElement.RootElementPackage;
 
 import RootElement.ServiceItem;
-import RootElement.ServiceItemhandling;
+import RootElement.ServiceItemHandling;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
@@ -55,7 +55,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * @generated
 	 * @ordered
 	 */
-	protected ServiceItemhandling serviceItemHandling;
+	protected ServiceItemHandling serviceItemHandling;
 	/**
 	 * The cached value of the '{@link #getMakeBooking() <em>Make Booking</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -137,10 +137,10 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceItemhandling getServiceItemHandling() {
+	public ServiceItemHandling getServiceItemHandling() {
 		if (serviceItemHandling != null && serviceItemHandling.eIsProxy()) {
 			InternalEObject oldServiceItemHandling = (InternalEObject)serviceItemHandling;
-			serviceItemHandling = (ServiceItemhandling)eResolveProxy(oldServiceItemHandling);
+			serviceItemHandling = (ServiceItemHandling)eResolveProxy(oldServiceItemHandling);
 			if (serviceItemHandling != oldServiceItemHandling) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RootElementPackage.CLERK__SERVICE_ITEM_HANDLING, oldServiceItemHandling, serviceItemHandling));
@@ -154,7 +154,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServiceItemhandling basicGetServiceItemHandling() {
+	public ServiceItemHandling basicGetServiceItemHandling() {
 		return serviceItemHandling;
 	}
 
@@ -163,8 +163,8 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServiceItemHandling(ServiceItemhandling newServiceItemHandling) {
-		ServiceItemhandling oldServiceItemHandling = serviceItemHandling;
+	public void setServiceItemHandling(ServiceItemHandling newServiceItemHandling) {
+		ServiceItemHandling oldServiceItemHandling = serviceItemHandling;
 		serviceItemHandling = newServiceItemHandling;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.CLERK__SERVICE_ITEM_HANDLING, oldServiceItemHandling, serviceItemHandling));
@@ -447,7 +447,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 				setReceptionHandling((ReceptionHandling)newValue);
 				return;
 			case RootElementPackage.CLERK__SERVICE_ITEM_HANDLING:
-				setServiceItemHandling((ServiceItemhandling)newValue);
+				setServiceItemHandling((ServiceItemHandling)newValue);
 				return;
 			case RootElementPackage.CLERK__MAKE_BOOKING:
 				setMakeBooking((MakeBooking)newValue);
@@ -471,7 +471,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 				setReceptionHandling((ReceptionHandling)null);
 				return;
 			case RootElementPackage.CLERK__SERVICE_ITEM_HANDLING:
-				setServiceItemHandling((ServiceItemhandling)null);
+				setServiceItemHandling((ServiceItemHandling)null);
 				return;
 			case RootElementPackage.CLERK__MAKE_BOOKING:
 				setMakeBooking((MakeBooking)null);
@@ -519,11 +519,11 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 				default: return -1;
 			}
 		}
-		if (baseClass == ServiceItemhandling.class) {
+		if (baseClass == ServiceItemHandling.class) {
 			switch (baseOperationID) {
-				case RootElementPackage.SERVICE_ITEMHANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT: return RootElementPackage.CLERK___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT;
-				case RootElementPackage.SERVICE_ITEMHANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM: return RootElementPackage.CLERK___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM;
-				case RootElementPackage.SERVICE_ITEMHANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING: return RootElementPackage.CLERK___FIND_ALL_SERVICE_ITEMS__BOOKING;
+				case RootElementPackage.SERVICE_ITEM_HANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT: return RootElementPackage.CLERK___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT;
+				case RootElementPackage.SERVICE_ITEM_HANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM: return RootElementPackage.CLERK___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM;
+				case RootElementPackage.SERVICE_ITEM_HANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING: return RootElementPackage.CLERK___FIND_ALL_SERVICE_ITEMS__BOOKING;
 				default: return -1;
 			}
 		}

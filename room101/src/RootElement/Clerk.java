@@ -22,7 +22,7 @@ package RootElement;
  * @model
  * @generated
  */
-public interface Clerk extends Staff, ReceptionHandling, ServiceItemhandling, MakeBooking, Payment {
+public interface Clerk extends Staff, ReceptionHandling, ServiceItemHandling, MakeBooking, Payment {
 
 	/**
 	 * Returns the value of the '<em><b>Reception Handling</b></em>' reference.
@@ -59,12 +59,12 @@ public interface Clerk extends Staff, ReceptionHandling, ServiceItemhandling, Ma
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Service Item Handling</em>' reference.
-	 * @see #setServiceItemHandling(ServiceItemhandling)
+	 * @see #setServiceItemHandling(ServiceItemHandling)
 	 * @see RootElement.RootElementPackage#getClerk_ServiceItemHandling()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ServiceItemhandling getServiceItemHandling();
+	ServiceItemHandling getServiceItemHandling();
 
 	/**
 	 * Sets the value of the '{@link RootElement.Clerk#getServiceItemHandling <em>Service Item Handling</em>}' reference.
@@ -74,7 +74,7 @@ public interface Clerk extends Staff, ReceptionHandling, ServiceItemhandling, Ma
 	 * @see #getServiceItemHandling()
 	 * @generated
 	 */
-	void setServiceItemHandling(ServiceItemhandling value);
+	void setServiceItemHandling(ServiceItemHandling value);
 
 	/**
 	 * Returns the value of the '<em><b>Make Booking</b></em>' reference.

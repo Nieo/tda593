@@ -83,7 +83,6 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5isxwJ6eEeW2ZrS6EkHJUA"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5ium8J6eEeW2ZrS6EkHJUA" value="*"/>
     </ownedAttribute>
-    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_G-hccKacEeWuo9u4WfBHCQ" client="_d3V_0JddEeW0s9Al2d2tiA" supplier="_iI9EoKJCEeW1I_MccVmXPQ" contract="_iI9EoKJCEeW1I_MccVmXPQ"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_1UH_kJ2NEeWgH5KZ_xCcgQ" name="calculateCost">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_5cPrgJ2NEeWgH5KZ_xCcgQ" name="price" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -312,6 +311,7 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_Nc6d8KS0EeWGItiBmqI77w" name="roomFetcher" visibility="private" type="_EPN2UJ3EEeWgH5KZ_xCcgQ"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_JQ684KacEeWuo9u4WfBHCQ" client="_5x6YsJ29EeWgH5KZ_xCcgQ" supplier="_O_vQEJ24EeWgH5KZ_xCcgQ" contract="_O_vQEJ24EeWgH5KZ_xCcgQ"/>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Ks2vYKacEeWuo9u4WfBHCQ" client="_5x6YsJ29EeWgH5KZ_xCcgQ" supplier="_RU1GsJ2NEeWgH5KZ_xCcgQ" contract="_RU1GsJ2NEeWgH5KZ_xCcgQ"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_CyIiwKy2EeWkC9-Vl_vWvg" client="_5x6YsJ29EeWgH5KZ_xCcgQ" supplier="_iI9EoKJCEeW1I_MccVmXPQ" contract="_iI9EoKJCEeW1I_MccVmXPQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_-oyoEJ29EeWgH5KZ_xCcgQ" memberEnd="_-ozPIp29EeWgH5KZ_xCcgQ _-ozPI529EeWgH5KZ_xCcgQ">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-ozPIJ29EeWgH5KZ_xCcgQ" source="org.eclipse.papyrus">
@@ -660,7 +660,7 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_3mN28Z6eEeW2ZrS6EkHJUA" name="booking" type="_d3V_0JddEeW0s9Al2d2tiA" association="_3mEtAJ6eEeW2ZrS6EkHJUA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_iI9EoKJCEeW1I_MccVmXPQ" name="ServiceItemhandling">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_iI9EoKJCEeW1I_MccVmXPQ" name="ServiceItemHandling">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_2x3pYKJCEeW1I_MccVmXPQ" name="addServiceItem">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_TXffoKv_EeWoJNQkGjQ1xA" name="booking" type="_d3V_0JddEeW0s9Al2d2tiA"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_S_R6UKJDEeW1I_MccVmXPQ" name="name">

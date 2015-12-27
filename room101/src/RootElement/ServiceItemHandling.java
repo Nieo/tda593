@@ -6,15 +6,15 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Service Itemhandling</b></em>'.
+ * A representation of the model object '<em><b>Service Item Handling</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see RootElement.RootElementPackage#getServiceItemhandling()
+ * @see RootElement.RootElementPackage#getServiceItemHandling()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface ServiceItemhandling extends EObject {
+public interface ServiceItemHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,4 +39,4 @@ public interface ServiceItemhandling extends EObject {
 	 */
 	ServiceItem findAllServiceItems(Booking booking);
 
-} // ServiceItemhandling
+} // ServiceItemHandling

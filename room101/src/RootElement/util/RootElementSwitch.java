@@ -90,7 +90,6 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.BOOKING: {
 				Booking booking = (Booking)theEObject;
 				T result = caseBooking(booking);
-				if (result == null) result = caseServiceItemhandling(booking);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,12 +120,6 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.SERVICE_ITEM: {
 				ServiceItem serviceItem = (ServiceItem)theEObject;
 				T result = caseServiceItem(serviceItem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RootElementPackage.SERVICE_ITEMHANDLING: {
-				ServiceItemhandling serviceItemhandling = (ServiceItemhandling)theEObject;
-				T result = caseServiceItemhandling(serviceItemhandling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -174,7 +167,7 @@ public class RootElementSwitch<T> extends Switch<T> {
 				T result = caseClerk(clerk);
 				if (result == null) result = caseStaff(clerk);
 				if (result == null) result = caseReceptionHandling(clerk);
-				if (result == null) result = caseServiceItemhandling(clerk);
+				if (result == null) result = caseServiceItemHandling(clerk);
 				if (result == null) result = caseMakeBooking(clerk);
 				if (result == null) result = casePayment(clerk);
 				if (result == null) result = caseCleaning(clerk);
@@ -186,6 +179,12 @@ public class RootElementSwitch<T> extends Switch<T> {
 			case RootElementPackage.RECEPTION_HANDLING: {
 				ReceptionHandling receptionHandling = (ReceptionHandling)theEObject;
 				T result = caseReceptionHandling(receptionHandling);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RootElementPackage.SERVICE_ITEM_HANDLING: {
+				ServiceItemHandling serviceItemHandling = (ServiceItemHandling)theEObject;
+				T result = caseServiceItemHandling(serviceItemHandling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -203,7 +202,7 @@ public class RootElementSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFeedbackReader(manager);
 				if (result == null) result = caseStaff(manager);
 				if (result == null) result = caseReceptionHandling(manager);
-				if (result == null) result = caseServiceItemhandling(manager);
+				if (result == null) result = caseServiceItemHandling(manager);
 				if (result == null) result = caseMakeBooking(manager);
 				if (result == null) result = casePayment(manager);
 				if (result == null) result = caseRoomAttributeHandling(manager);
@@ -253,6 +252,7 @@ public class RootElementSwitch<T> extends Switch<T> {
 				T result = caseBookingHandler(bookingHandler);
 				if (result == null) result = caseReceptionHandling(bookingHandler);
 				if (result == null) result = caseMakeBooking(bookingHandler);
+				if (result == null) result = caseServiceItemHandling(bookingHandler);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -559,6 +559,21 @@ public class RootElementSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Item Handling</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Item Handling</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceItemHandling(ServiceItemHandling object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Booking Handler</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -825,21 +840,6 @@ public class RootElementSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHourlyRoomBooking(HourlyRoomBooking object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service Itemhandling</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service Itemhandling</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseServiceItemhandling(ServiceItemhandling object) {
 		return null;
 	}
 

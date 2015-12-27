@@ -3,6 +3,7 @@ package RootElement.impl;
 import RootElement.BookingHandler;
 import RootElement.MakeBooking;
 import RootElement.ReceptionHandling;
+import RootElement.ServiceItemHandling;
 
 /**
  * Factory to make sure the same instance of BookingHandler is used.
@@ -25,6 +26,10 @@ public class BookingHandlerFactory {
 	}
 	
 	public static MakeBooking createMakeBooking() {
+		return getInstance();
+	}
+	
+	public static ServiceItemHandling createSerciveItemHandling() {
 		return getInstance();
 	}
 }

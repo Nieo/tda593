@@ -10,6 +10,8 @@ import RootElement.RoomFetcher;
 import RootElement.RoomType;
 import RootElement.RootElementPackage;
 
+import RootElement.ServiceItem;
+import RootElement.ServiceItemHandling;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -244,6 +246,39 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void addServiceItem(Booking booking, String name, String description, int price) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void removeServiceItem(Booking booking, ServiceItem serviceItem) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceItem findAllServiceItems(Booking booking) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -328,6 +363,14 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 				default: return -1;
 			}
 		}
+		if (baseClass == ServiceItemHandling.class) {
+			switch (baseOperationID) {
+				case RootElementPackage.SERVICE_ITEM_HANDLING___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT: return RootElementPackage.BOOKING_HANDLER___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT;
+				case RootElementPackage.SERVICE_ITEM_HANDLING___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM: return RootElementPackage.BOOKING_HANDLER___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM;
+				case RootElementPackage.SERVICE_ITEM_HANDLING___FIND_ALL_SERVICE_ITEMS__BOOKING: return RootElementPackage.BOOKING_HANDLER___FIND_ALL_SERVICE_ITEMS__BOOKING;
+				default: return -1;
+			}
+		}
 		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
@@ -359,6 +402,14 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 				return cancelBooking((Booking)arguments.get(0));
 			case RootElementPackage.BOOKING_HANDLER___LOOKUP_BOOKING__STRING_STRING:
 				return lookupBooking((String)arguments.get(0), (String)arguments.get(1));
+			case RootElementPackage.BOOKING_HANDLER___ADD_SERVICE_ITEM__BOOKING_STRING_STRING_INT:
+				addServiceItem((Booking)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Integer)arguments.get(3));
+				return null;
+			case RootElementPackage.BOOKING_HANDLER___REMOVE_SERVICE_ITEM__BOOKING_SERVICEITEM:
+				removeServiceItem((Booking)arguments.get(0), (ServiceItem)arguments.get(1));
+				return null;
+			case RootElementPackage.BOOKING_HANDLER___FIND_ALL_SERVICE_ITEMS__BOOKING:
+				return findAllServiceItems((Booking)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface BookingHandler extends ReceptionHandling, MakeBooking {
+public interface BookingHandler extends ReceptionHandling, MakeBooking, ServiceItemHandling {
 	/**
 	 * Returns the value of the '<em><b>Booking</b></em>' reference list.
 	 * The list contents are of type {@link RootElement.Booking}.
