@@ -276,7 +276,7 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("System Administrator - What do you want to do?");
-			System.out.println("1:\tHandle rooms\n2:\tHandle room types\n3:\tHandle room attributes\nOr 0 to exit");
+			System.out.println("1:\tHandle rooms\n2:\tHandle room types\n3:\tHandle room attributes\nOr 0 to go back");
 			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -306,7 +306,7 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Bookings - What do you want to do?");
-			System.out.println("1:\tMake a new booking\n2:\tCancel a booking\nOr 0 to exit");
+			System.out.println("1:\tMake a new booking\n2:\tCancel a booking\nOr 0 to go back");
 			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -974,7 +974,7 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Feedback - What do you want to do?");
-			System.out.println("1:\tRead un-read feedback\n2:\tRead all feedback\nOr 0 to exit");
+			System.out.println("1:\tRead un-read feedback\n2:\tRead all feedback\nOr 0 to go back");
 			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
