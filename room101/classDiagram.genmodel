@@ -246,7 +246,7 @@
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomAttributeHandling/getAllRoomAttributes"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomAttributeHandling/findRoomAttribute">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomAttributeHandling/findRoomAttribute/id"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomAttributeHandling/findRoomAttribute/name"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//RoomHandling">

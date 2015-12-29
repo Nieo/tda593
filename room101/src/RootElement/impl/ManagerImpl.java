@@ -235,13 +235,13 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	public EList<RoomAttribute> getAllRoomAttributes() {
 		return sysAdmin.getAllRoomAttributes();
 	}
-
+	
 	/**
-	 * Retrieves the room attribute with the given ID. Returns null if not found.
+	 * Retrieves the room attribute with the given name. Returns null if not found.
 	 * @generated NOT
 	 */
-	public RoomAttribute findRoomAttribute(int id) {
-		return sysAdmin.findRoomAttribute(id);
+	public RoomAttribute findRoomAttribute(String name) {
+		return sysAdmin.findRoomAttribute(name);
 	}
 
 	/**
@@ -349,7 +349,7 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING: return RootElementPackage.MANAGER___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE: return RootElementPackage.MANAGER___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES: return RootElementPackage.MANAGER___GET_ALL_ROOM_ATTRIBUTES;
-				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__INT: return RootElementPackage.MANAGER___FIND_ROOM_ATTRIBUTE__INT;
+				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__STRING: return RootElementPackage.MANAGER___FIND_ROOM_ATTRIBUTE__STRING;
 				default: return -1;
 			}
 		}
@@ -406,8 +406,8 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 				return removeRoomAttribute((RoomAttribute)arguments.get(0));
 			case RootElementPackage.MANAGER___GET_ALL_ROOM_ATTRIBUTES:
 				return getAllRoomAttributes();
-			case RootElementPackage.MANAGER___FIND_ROOM_ATTRIBUTE__INT:
-				return findRoomAttribute((Integer)arguments.get(0));
+			case RootElementPackage.MANAGER___FIND_ROOM_ATTRIBUTE__STRING:
+				return findRoomAttribute((String)arguments.get(0));
 			case RootElementPackage.MANAGER___ADD_ROOM__ROOMTYPE_STRING:
 				return addRoom((RoomType)arguments.get(0), (String)arguments.get(1));
 			case RootElementPackage.MANAGER___REMOVE_ROOM__STRING:

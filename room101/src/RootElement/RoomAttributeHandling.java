@@ -51,9 +51,9 @@ public interface RoomAttributeHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" idDataType="org.eclipse.uml2.types.Integer" idRequired="true" idOrdered="false"
+	 * @model required="true" ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false"
 	 * @generated
 	 */
-	RoomAttribute findRoomAttribute(int id);
+	RoomAttribute findRoomAttribute(String name);
 
 } // RoomAttributeHandling

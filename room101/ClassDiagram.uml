@@ -602,8 +602,8 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_GQn6MK4nEeWWg9flUJ_5EA" name="findRoomAttribute">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_L2gkoK4nEeWWg9flUJ_5EA" name="id">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_L2gkoK4nEeWWg9flUJ_5EA" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_NV9lMK4nEeWWg9flUJ_5EA" name="roomAttribute" type="_y2fkMJdmEeWbKp0h3hoGyg" direction="return"/>
     </ownedOperation>

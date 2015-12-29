@@ -290,12 +290,16 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	}
 
 	/**
-	 * Retrieves the room attribute with the given ID. Returns null if not found.
+	 * Retrieves the room attribute with the given name. Returns null if not found.
 	 * @generated NOT
 	 */
-	public RoomAttribute findRoomAttribute(int id) {
+	public RoomAttribute findRoomAttribute(String name) {
+		if(name == null){
+			return null;
+		}
+		
 		for(RoomAttribute attribute : roomAttributes){
-			if(attribute.getId() == id){
+			if(name.equals(attribute.getName())){
 				return attribute;
 			}
 		}
@@ -488,7 +492,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING: return RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE: return RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES: return RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_ATTRIBUTES;
-				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__INT: return RootElementPackage.ROOM_STRUCTURE___FIND_ROOM_ATTRIBUTE__INT;
+				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__STRING: return RootElementPackage.ROOM_STRUCTURE___FIND_ROOM_ATTRIBUTE__STRING;
 				default: return -1;
 			}
 		}
@@ -543,8 +547,8 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				return removeRoomAttribute((RoomAttribute)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_ATTRIBUTES:
 				return getAllRoomAttributes();
-			case RootElementPackage.ROOM_STRUCTURE___FIND_ROOM_ATTRIBUTE__INT:
-				return findRoomAttribute((Integer)arguments.get(0));
+			case RootElementPackage.ROOM_STRUCTURE___FIND_ROOM_ATTRIBUTE__STRING:
+				return findRoomAttribute((String)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___GET_BOOKABLE_ROOMS:
 				return getBookableRooms();
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_CLEANABLE_ROOMS:

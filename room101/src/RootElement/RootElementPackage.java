@@ -2106,7 +2106,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___FIND_ROOM_ATTRIBUTE__INT = CLERK_OPERATION_COUNT + 4;
+	int MANAGER___FIND_ROOM_ATTRIBUTE__STRING = CLERK_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Add Room</em>' operation.
@@ -2295,7 +2295,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__INT = 4;
+	int ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__STRING = 4;
 
 	/**
 	 * The number of operations of the '<em>Room Attribute Handling</em>' class.
@@ -2358,7 +2358,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN___FIND_ROOM_ATTRIBUTE__INT = ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__INT;
+	int SYS_ADMIN___FIND_ROOM_ATTRIBUTE__STRING = ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__STRING;
 
 	/**
 	 * The operation id for the '<em>Add Room</em>' operation.
@@ -3042,7 +3042,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___FIND_ROOM_ATTRIBUTE__INT = ROOM_HANDLING_OPERATION_COUNT + 11;
+	int ROOM_STRUCTURE___FIND_ROOM_ATTRIBUTE__STRING = ROOM_HANDLING_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get Bookable Rooms</em>' operation.
@@ -4690,14 +4690,14 @@ public interface RootElementPackage extends EPackage {
 	EOperation getRoomAttributeHandling__GetAllRoomAttributes();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomAttributeHandling#findRoomAttribute(int) <em>Find Room Attribute</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomAttributeHandling#findRoomAttribute(java.lang.String) <em>Find Room Attribute</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Find Room Attribute</em>' operation.
-	 * @see RootElement.RoomAttributeHandling#findRoomAttribute(int)
+	 * @see RootElement.RoomAttributeHandling#findRoomAttribute(java.lang.String)
 	 * @generated
 	 */
-	EOperation getRoomAttributeHandling__FindRoomAttribute__int();
+	EOperation getRoomAttributeHandling__FindRoomAttribute__String();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.FeedbackHandler <em>Feedback Handler</em>}'.
@@ -6025,7 +6025,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__INT = eINSTANCE.getRoomAttributeHandling__FindRoomAttribute__int();
+		EOperation ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__STRING = eINSTANCE.getRoomAttributeHandling__FindRoomAttribute__String();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.impl.FeedbackHandlerImpl <em>Feedback Handler</em>}' class.

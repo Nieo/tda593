@@ -248,7 +248,7 @@
     </eOperations>
     <eOperations name="getAllRoomAttributes" ordered="false" upperBound="-1" eType="#//RoomAttribute"/>
     <eOperations name="findRoomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute">
-      <eParameters name="id" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomHandling" abstract="true" interface="true">
