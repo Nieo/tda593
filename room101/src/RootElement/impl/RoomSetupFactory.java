@@ -28,7 +28,9 @@ public class RoomSetupFactory {
 
 	private static RoomStructure getInstance(String hotelName) {
 		if (!instance.containsKey(hotelName)) {
-			return instance.put(hotelName, new RoomStructureImpl());
+			RoomStructure rs = new RoomStructureImpl();
+			instance.put(hotelName, rs);
+			return rs;
 		}else{
 			return instance.get(hotelName);
 		}

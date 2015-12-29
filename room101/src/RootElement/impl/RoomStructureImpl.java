@@ -54,10 +54,13 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * Initiates the RoomStructureImpl class.
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RoomStructureImpl() {
 		super();
+		rooms = new EObjectResolvingEList<Room>(Room.class, this, RootElementPackage.ROOM_STRUCTURE__ROOMS);
+		roomTypes = new EObjectResolvingEList<RoomType>(RoomType.class, this, RootElementPackage.ROOM_STRUCTURE__ROOM_TYPES);
+		roomAttributes = new EObjectResolvingEList<RoomAttribute>(RoomAttribute.class, this, RootElementPackage.ROOM_STRUCTURE__ROOM_ATTRIBUTES);
 	}
 
 	/**
@@ -135,7 +138,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public EList<Room> findRoom(String roomName) {
-		EList<Room> foundRooms = ECollections.<Room>emptyEList();
+		EList<Room> foundRooms = ECollections.<Room>newBasicEList();
 		if(roomName != null){
 			roomName = roomName.toLowerCase();
 			for(Room room : rooms){
@@ -183,15 +186,23 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * Attempts to remove the given room type from the list
-	 * of available room types of the current hotel.
+	 * of available room types of the current hotel. The removal is
+	 * denied if any rooms contain this room type or if the room type
+	 * is null.
 	 * @generated NOT
 	 */
 	public boolean removeRoomType(RoomType roomType) {
 		if(roomType != null){
+			for(Room r : rooms){
+				if(r.getRoomType() != null && r.getRoomType().equals(roomType)){
+					return false;
+				}
+			}
+			
 			return roomTypes.remove(roomType);
-		}else{
-			return false;
 		}
+		
+		return false;
 	}
 
 	/**
@@ -232,10 +243,11 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public EList<RoomType> findRoomType(String name) {
-		EList<RoomType> foundRoomTypes = ECollections.<RoomType>emptyEList();
+		EList<RoomType> foundRoomTypes = ECollections.<RoomType>newBasicEList();
 		if(name != null){
+			name = name.toLowerCase();
 			for(RoomType type : roomTypes){
-				if(type.getName() != null && type.getName().contains(name)){
+				if(type.getName() != null && type.getName().toLowerCase().contains(name)){
 					foundRoomTypes.add(type);
 				}
 			}
@@ -271,11 +283,18 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * Attempts to remove the given room attribute from the list
-	 * of available room attributes of the current hotel.
+	 * of available room attributes of the current hotel. The removal
+	 * is denied if this room attribute is in use of any room types or
+	 * if the given room attribute is null.
 	 * @generated NOT
 	 */
 	public boolean removeRoomAttribute(RoomAttribute roomAttribute) {
 		if(roomAttribute != null){
+			for(RoomType type : roomTypes){
+				if(type.getRoomAttributes().contains(roomAttribute)){
+					return false;
+				}
+			}
 			return roomAttributes.remove(roomAttribute);
 		}
 		
@@ -296,10 +315,11 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public EList<RoomAttribute> findRoomAttribute(String name) {
-		EList<RoomAttribute> foundRoomAttributes = ECollections.<RoomAttribute>emptyEList();
+		EList<RoomAttribute> foundRoomAttributes = ECollections.<RoomAttribute>newBasicEList();
 		if(name != null){
+			name = name.toLowerCase();
 			for(RoomAttribute attribute : roomAttributes){
-				if(attribute.getName() != null && attribute.getName().contains(name)){
+				if(attribute.getName() != null && attribute.getName().toLowerCase().contains(name)){
 					foundRoomAttributes.add(attribute);
 				}
 			}
@@ -339,7 +359,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public EList<Room> getAvailableRooms() {
-		return getRooms();
+		return getAllRooms();
 	}
 	
 	/**

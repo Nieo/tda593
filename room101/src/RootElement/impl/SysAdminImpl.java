@@ -62,7 +62,7 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 	 * the hotel with the given name.
 	 * @generated NOT
 	 */
-	protected SysAdminImpl(String hotelName) {
+	protected SysAdminImpl(String hotelName){
 		super();
 		roomHandling = RoomSetupFactory.createRoomHandling(hotelName);
 		roomTypeHandling = RoomSetupFactory.createRoomTypeHandling(hotelName);

@@ -5,6 +5,7 @@ package RootElement.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -58,13 +59,14 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	private EList<RoomAttribute> roomAttributes;
 
 	/**
-	 * Creats a basic room type with the default parameters.
+	 * Creates a basic room type with the default parameters.
 	 * Be sure to call {@link #setName(String)} and {@link #setPrice(int)}
 	 * after gaining access to a room type object to initialize it.
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RoomTypeImpl() {
 		super();
+		roomAttributes = new EObjectResolvingEList<RoomAttribute>(RoomAttribute.class, this, RootElementPackage.ROOM_TYPE__ROOM_ATTRIBUTES);
 	}
 
 	/**
@@ -103,13 +105,10 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<RoomAttribute> getRoomAttributes() {
-		if (roomAttributes == null) {
-			roomAttributes = new EObjectResolvingEList<RoomAttribute>(RoomAttribute.class, this, RootElementPackage.ROOM_TYPE__ROOM_ATTRIBUTES);
-		}
-		return roomAttributes;
+		return ECollections.unmodifiableEList(roomAttributes);
 	}
 
 		/**

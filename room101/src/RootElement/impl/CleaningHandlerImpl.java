@@ -2,20 +2,20 @@
  */
 package RootElement.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ECollections;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import RootElement.CleaningHandler;
 import RootElement.Room;
 import RootElement.RoomFetcher;
 import RootElement.RootElementPackage;
-
-import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,10 +44,11 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CleaningHandlerImpl() {
 		super();
+		roomFetcher = RoomSetupFactory.createRoomFetcher(RoomSetupFactory.DEFAULT_HOTELNAME);
 	}
 
 	/**
@@ -106,17 +107,13 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public boolean checkIfRoomCleaned(String roomID) {
-		boolean isRoomClean = true;
-		//TODO Might add nullcheck for roomFetcher and r.
 		for(Room r: roomFetcher.getAllCleanableRooms()){
-
-			//Checks if the room is the same and if it needs cleaning
-			if(r.getRoomName().equals(roomID) && r.isNeedCleaning()){
-				isRoomClean = r.isNeedCleaning(); 
+			if(r.getRoomName().equals(roomID)){
+				return !r.isNeedCleaning(); 
 			}
 		}
 
-		return isRoomClean;
+		return false;		//TODO is this a good default?
 	}
 
 	/**
@@ -127,9 +124,7 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public EList<Room> getListOfUncleanRooms() {
-		
-		//FIXME Adjust to a better type if not dynamic.
-		EList<Room> listOfUncleanRooms = new BasicEList<Room>();
+		EList<Room> listOfUncleanRooms = ECollections.<Room>newBasicEList();
 		
 		for(Room r: roomFetcher.getAllCleanableRooms()){	
 			if(r.isNeedCleaning())

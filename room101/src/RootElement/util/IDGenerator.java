@@ -27,7 +27,9 @@ public class IDGenerator {
 	 */
 	public static IDGenerator getGenerator(String name){
 		if(!generators.containsKey(name)){
-			return generators.put(name, new IDGenerator());
+			IDGenerator g = new IDGenerator();
+			generators.put(name, g);
+			return g;
 		}else{
 			return generators.get(name);
 		}
