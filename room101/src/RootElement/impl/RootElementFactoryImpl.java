@@ -63,6 +63,7 @@ public class RootElementFactoryImpl extends EFactoryImpl implements RootElementF
 			case RootElementPackage.ROOM_ATTRIBUTE: return createRoomAttribute();
 			case RootElementPackage.SERVICE_ITEM: return createServiceItem();
 			case RootElementPackage.FEEDBACK: return createFeedback();
+			case RootElementPackage.STAFF: return createStaff();
 			case RootElementPackage.SUPPORT_TICKET: return createSupportTicket();
 			case RootElementPackage.CLERK: return createClerk();
 			case RootElementPackage.MANAGER: return createManager();
@@ -159,6 +160,16 @@ public class RootElementFactoryImpl extends EFactoryImpl implements RootElementF
 	public Feedback createFeedback() {
 		FeedbackImpl feedback = new FeedbackImpl();
 		return feedback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Staff createStaff() {
+		StaffImpl staff = new StaffImpl();
+		return staff;
 	}
 
 	/**

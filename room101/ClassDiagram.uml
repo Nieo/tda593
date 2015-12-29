@@ -56,7 +56,7 @@
       <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_6xZc0Jg4EeWbKp0h3hoGyg"/>
     </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_P4uv4JddEeW0s9Al2d2tiA" name="Staff" isAbstract="true">
+  <packagedElement xmi:type="uml:Class" xmi:id="_P4uv4JddEeW0s9Al2d2tiA" name="Staff">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_P4uv4ZddEeW0s9Al2d2tiA" name="staffID" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>

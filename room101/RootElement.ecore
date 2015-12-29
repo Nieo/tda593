@@ -140,7 +140,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="read" ordered="false" lowerBound="1"
         eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Staff" abstract="true" eSuperTypes="#//Cleaning #//SupportTicketWriter #//SupportTicketReader">
+  <eClassifiers xsi:type="ecore:EClass" name="Staff" eSuperTypes="#//Cleaning #//SupportTicketWriter #//SupportTicketReader">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="staffID" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"

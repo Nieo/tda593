@@ -67,6 +67,15 @@ public interface RootElementFactory extends EFactory {
 	Feedback createFeedback();
 
 	/**
+	 * Returns a new object of class '<em>Staff</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Staff</em>'.
+	 * @generated
+	 */
+	Staff createStaff();
+
+	/**
 	 * Returns a new object of class '<em>Booking</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

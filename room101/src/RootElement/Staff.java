@@ -19,7 +19,7 @@ package RootElement;
  * </ul>
  *
  * @see RootElement.RootElementPackage#getStaff()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Staff extends Cleaning, SupportTicketWriter, SupportTicketReader {

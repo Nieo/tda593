@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class StaffImpl extends MinimalEObjectImpl.Container implements Staff {
+public class StaffImpl extends MinimalEObjectImpl.Container implements Staff {
 	/**
 	 * The default value of the '{@link #getStaffID() <em>Staff ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -111,10 +111,13 @@ public abstract class StaffImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected StaffImpl() {
 		super();
+		cleaning = CleaningHandlerFactory.createCleaning();
+		supportTicketReader = SupportTicketHandlerFactory.createSupportTicketReader();
+		supportTicketWriter = SupportTicketHandlerFactory.createSupportTicketWriter();
 	}
 
 	/**
@@ -286,78 +289,64 @@ public abstract class StaffImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean checkIfRoomCleaned(String roomID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return cleaning.checkIfRoomCleaned(roomID);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> getListOfUncleanRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return cleaning.getListOfUncleanRooms();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void markRoomAsCleaned(Room room) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		cleaning.markRoomAsCleaned(room);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void newSupportTicket(String roomID, String description) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		supportTicketWriter.newSupportTicket(roomID, description);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<SupportTicket> getUnfixedTickets() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return supportTicketReader.getUnfixedTickets();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<SupportTicket> getSupportTicketsForRoom(String roomID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return supportTicketReader.getSupportTicketsForRoom(roomID);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void markAsCompleted(SupportTicket supportTicket) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		supportTicketReader.markAsCompleted(supportTicket);
 	}
 
 	/**

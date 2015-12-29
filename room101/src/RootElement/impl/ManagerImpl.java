@@ -51,6 +51,7 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	 */
 	protected ManagerImpl() {
 		this(RoomSetupFactory.DEFAULT_HOTELNAME);
+		feedbackReader = FeedbackHandlerFactory.createFeedbackReader();
 	}
 	
 	/**
@@ -248,23 +249,19 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Feedback> getAllFeedback() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return feedbackReader.getAllFeedback();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Feedback> getUnreadFeedback() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return feedbackReader.getUnreadFeedback();
 	}
 
 
