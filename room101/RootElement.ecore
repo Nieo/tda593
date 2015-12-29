@@ -248,7 +248,7 @@
       <eParameters name="roomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute"/>
     </eOperations>
     <eOperations name="getAllRoomAttributes" ordered="false" upperBound="-1" eType="#//RoomAttribute"/>
-    <eOperations name="findRoomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute">
+    <eOperations name="findRoomAttribute" ordered="false" upperBound="-1" eType="#//RoomAttribute">
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>
@@ -258,14 +258,14 @@
       <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="removeRoom" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
-      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
     </eOperations>
     <eOperations name="editRoom" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
       <eParameters name="newRoomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
       <eParameters name="newRoomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eOperations name="findRoom" ordered="false" lowerBound="1" eType="#//Room">
+    <eOperations name="findRoom" ordered="false" upperBound="-1" eType="#//Room">
       <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="getAllRooms" ordered="false" upperBound="-1" eType="#//Room"/>
@@ -293,7 +293,7 @@
       <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
       <eParameters name="roomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute"/>
     </eOperations>
-    <eOperations name="findRoomType" ordered="false" lowerBound="1" eType="#//RoomType">
+    <eOperations name="findRoomType" ordered="false" upperBound="-1" eType="#//RoomType">
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>

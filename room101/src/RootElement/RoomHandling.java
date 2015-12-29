@@ -28,10 +28,10 @@ public interface RoomHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomRequired="true" roomOrdered="false"
 	 * @generated
 	 */
-	boolean removeRoom(String roomName);
+	boolean removeRoom(Room room);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -44,10 +44,10 @@ public interface RoomHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
+	 * @model ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
 	 * @generated
 	 */
-	Room findRoom(String roomName);
+	EList<Room> findRoom(String roomName);
 
 	/**
 	 * <!-- begin-user-doc -->

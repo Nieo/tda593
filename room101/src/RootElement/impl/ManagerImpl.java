@@ -111,12 +111,12 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	}
 
 	/**
-	 * Attempts to remove the room with the given name from the list
+	 * Attempts to remove the given room from the list
 	 * of available rooms of the current hotel.
 	 * @generated NOT
 	 */
-	public boolean removeRoom(String roomName) {
-		return sysAdmin.removeRoom(roomName);
+	public boolean removeRoom(Room room) {
+		return sysAdmin.removeRoom(room);
 	}
 
 	/**
@@ -128,11 +128,10 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	}
 
 	/**
-	 * Searches for a room among the available at the hotel. If it does
-	 * not find it, null is returned.
+	 * Searches for rooms among the available at the hotel.
 	 * @generated NOT
 	 */
-	public Room findRoom(String roomName) {
+	public EList<Room> findRoom(String roomName) {
 		return sysAdmin.findRoom(roomName);
 	}
 
@@ -195,10 +194,11 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	}
 
 	/**
-	 * Retrieves the room type with the given name. If it does not exist, return null.
+	 * Retrieves the room types with name that contains
+	 * the given argument
 	 * @generated NOT
 	 */
-	public RoomType findRoomType(String name) {
+	public EList<RoomType> findRoomType(String name) {
 		return sysAdmin.findRoomType(name);
 	}
 
@@ -237,10 +237,11 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	}
 	
 	/**
-	 * Retrieves the room attribute with the given name. Returns null if not found.
+	 * Retrieves the room attribute with name that contains
+	 * the given argument
 	 * @generated NOT
 	 */
-	public RoomAttribute findRoomAttribute(String name) {
+	public EList<RoomAttribute> findRoomAttribute(String name) {
 		return sysAdmin.findRoomAttribute(name);
 	}
 
@@ -356,7 +357,7 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 		if (baseClass == RoomHandling.class) {
 			switch (baseOperationID) {
 				case RootElementPackage.ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING: return RootElementPackage.MANAGER___ADD_ROOM__ROOMTYPE_STRING;
-				case RootElementPackage.ROOM_HANDLING___REMOVE_ROOM__STRING: return RootElementPackage.MANAGER___REMOVE_ROOM__STRING;
+				case RootElementPackage.ROOM_HANDLING___REMOVE_ROOM__ROOM: return RootElementPackage.MANAGER___REMOVE_ROOM__ROOM;
 				case RootElementPackage.ROOM_HANDLING___EDIT_ROOM__ROOM_ROOMTYPE_STRING: return RootElementPackage.MANAGER___EDIT_ROOM__ROOM_ROOMTYPE_STRING;
 				case RootElementPackage.ROOM_HANDLING___FIND_ROOM__STRING: return RootElementPackage.MANAGER___FIND_ROOM__STRING;
 				case RootElementPackage.ROOM_HANDLING___GET_ALL_ROOMS: return RootElementPackage.MANAGER___GET_ALL_ROOMS;
@@ -410,8 +411,8 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 				return findRoomAttribute((String)arguments.get(0));
 			case RootElementPackage.MANAGER___ADD_ROOM__ROOMTYPE_STRING:
 				return addRoom((RoomType)arguments.get(0), (String)arguments.get(1));
-			case RootElementPackage.MANAGER___REMOVE_ROOM__STRING:
-				return removeRoom((String)arguments.get(0));
+			case RootElementPackage.MANAGER___REMOVE_ROOM__ROOM:
+				return removeRoom((Room)arguments.get(0));
 			case RootElementPackage.MANAGER___EDIT_ROOM__ROOM_ROOMTYPE_STRING:
 				return editRoom((Room)arguments.get(0), (RoomType)arguments.get(1), (String)arguments.get(2));
 			case RootElementPackage.MANAGER___FIND_ROOM__STRING:

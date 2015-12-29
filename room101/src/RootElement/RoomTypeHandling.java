@@ -68,9 +68,9 @@ public interface RoomTypeHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false"
+	 * @model ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false"
 	 * @generated
 	 */
-	RoomType findRoomType(String name);
+	EList<RoomType> findRoomType(String name);
 
 } // RoomTypeHandling

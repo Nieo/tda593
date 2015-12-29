@@ -2124,7 +2124,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___REMOVE_ROOM__STRING = CLERK_OPERATION_COUNT + 6;
+	int MANAGER___REMOVE_ROOM__ROOM = CLERK_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Edit Room</em>' operation.
@@ -2376,7 +2376,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN___REMOVE_ROOM__STRING = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 1;
+	int SYS_ADMIN___REMOVE_ROOM__ROOM = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Edit Room</em>' operation.
@@ -2502,7 +2502,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_HANDLING___REMOVE_ROOM__STRING = 1;
+	int ROOM_HANDLING___REMOVE_ROOM__ROOM = 1;
 
 	/**
 	 * The operation id for the '<em>Edit Room</em>' operation.
@@ -2907,7 +2907,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___REMOVE_ROOM__STRING = ROOM_HANDLING___REMOVE_ROOM__STRING;
+	int ROOM_STRUCTURE___REMOVE_ROOM__ROOM = ROOM_HANDLING___REMOVE_ROOM__ROOM;
 
 	/**
 	 * The operation id for the '<em>Edit Room</em>' operation.
@@ -4520,14 +4520,14 @@ public interface RootElementPackage extends EPackage {
 	EOperation getRoomHandling__AddRoom__RoomType_String();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomHandling#removeRoom(java.lang.String) <em>Remove Room</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomHandling#removeRoom(RootElement.Room) <em>Remove Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Room</em>' operation.
-	 * @see RootElement.RoomHandling#removeRoom(java.lang.String)
+	 * @see RootElement.RoomHandling#removeRoom(RootElement.Room)
 	 * @generated
 	 */
-	EOperation getRoomHandling__RemoveRoom__String();
+	EOperation getRoomHandling__RemoveRoom__Room();
 
 	/**
 	 * Returns the meta object for the '{@link RootElement.RoomHandling#editRoom(RootElement.Room, RootElement.RoomType, java.lang.String) <em>Edit Room</em>}' operation.
@@ -5885,7 +5885,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_HANDLING___REMOVE_ROOM__STRING = eINSTANCE.getRoomHandling__RemoveRoom__String();
+		EOperation ROOM_HANDLING___REMOVE_ROOM__ROOM = eINSTANCE.getRoomHandling__RemoveRoom__Room();
 
 		/**
 		 * The meta object literal for the '<em><b>Edit Room</b></em>' operation.

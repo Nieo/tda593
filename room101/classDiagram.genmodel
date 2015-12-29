@@ -256,7 +256,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/addRoom/roomName"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomHandling/removeRoom">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/removeRoom/roomName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/removeRoom/room"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomHandling/editRoom">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/editRoom/room"/>

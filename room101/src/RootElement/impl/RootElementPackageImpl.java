@@ -1183,7 +1183,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoomHandling__RemoveRoom__String() {
+	public EOperation getRoomHandling__RemoveRoom__Room() {
 		return roomHandlingEClass.getEOperations().get(1);
 	}
 
@@ -1861,7 +1861,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		roomHandlingEClass = createEClass(ROOM_HANDLING);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING);
-		createEOperation(roomHandlingEClass, ROOM_HANDLING___REMOVE_ROOM__STRING);
+		createEOperation(roomHandlingEClass, ROOM_HANDLING___REMOVE_ROOM__ROOM);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___EDIT_ROOM__ROOM_ROOMTYPE_STRING);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___FIND_ROOM__STRING);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___GET_ALL_ROOMS);
@@ -2189,7 +2189,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEOperation(getRoomAttributeHandling__GetAllRoomAttributes(), this.getRoomAttribute(), "getAllRoomAttributes", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getRoomAttributeHandling__FindRoomAttribute__String(), this.getRoomAttribute(), "findRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getRoomAttributeHandling__FindRoomAttribute__String(), this.getRoomAttribute(), "findRoomAttribute", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(roomHandlingEClass, RoomHandling.class, "RoomHandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2198,15 +2198,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		addEParameter(op, this.getRoomType(), "roomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getRoomHandling__RemoveRoom__String(), theTypesPackage.getBoolean(), "removeRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getRoomHandling__RemoveRoom__Room(), theTypesPackage.getBoolean(), "removeRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getRoomHandling__EditRoom__Room_RoomType_String(), theTypesPackage.getBoolean(), "editRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomType(), "newRoomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "newRoomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getRoomHandling__FindRoom__String(), this.getRoom(), "findRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getRoomHandling__FindRoom__String(), this.getRoom(), "findRoom", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEOperation(getRoomHandling__GetAllRooms(), this.getRoom(), "getAllRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
@@ -2235,7 +2235,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		addEParameter(op, this.getRoomType(), "roomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getRoomTypeHandling__FindRoomType__String(), this.getRoomType(), "findRoomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getRoomTypeHandling__FindRoomType__String(), this.getRoomType(), "findRoomType", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(feedbackReaderEClass, FeedbackReader.class, "FeedbackReader", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
