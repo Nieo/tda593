@@ -441,7 +441,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST___GIVE_FEEDBACK__STRING = SUPPORT_TICKET_WRITER_OPERATION_COUNT + 0;
+	int GUEST___GIVE_FEEDBACK__STRING_INT = SUPPORT_TICKET_WRITER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Create Booking</em>' operation.
@@ -1007,7 +1007,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_WRITER___GIVE_FEEDBACK__STRING = 0;
+	int FEEDBACK_WRITER___GIVE_FEEDBACK__STRING_INT = 0;
 
 	/**
 	 * The number of operations of the '<em>Feedback Writer</em>' class.
@@ -3123,7 +3123,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING = FEEDBACK_READER_OPERATION_COUNT + 0;
+	int FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING_INT = FEEDBACK_READER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Feedback Handler</em>' class.
@@ -4782,14 +4782,14 @@ public interface RootElementPackage extends EPackage {
 	EClass getFeedbackWriter();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.FeedbackWriter#giveFeedback(java.lang.String) <em>Give Feedback</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.FeedbackWriter#giveFeedback(java.lang.String, int) <em>Give Feedback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Give Feedback</em>' operation.
-	 * @see RootElement.FeedbackWriter#giveFeedback(java.lang.String)
+	 * @see RootElement.FeedbackWriter#giveFeedback(java.lang.String, int)
 	 * @generated
 	 */
-	EOperation getFeedbackWriter__GiveFeedback__String();
+	EOperation getFeedbackWriter__GiveFeedback__String_int();
 
 	/**
 	 * Returns the meta object for class '{@link RootElement.SupportTicketWriter <em>Support Ticket Writer</em>}'.
@@ -6105,7 +6105,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation FEEDBACK_WRITER___GIVE_FEEDBACK__STRING = eINSTANCE.getFeedbackWriter__GiveFeedback__String();
+		EOperation FEEDBACK_WRITER___GIVE_FEEDBACK__STRING_INT = eINSTANCE.getFeedbackWriter__GiveFeedback__String_int();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.SupportTicketWriter <em>Support Ticket Writer</em>}' class.

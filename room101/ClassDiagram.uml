@@ -390,6 +390,9 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_9rmfsp3AEeWgH5KZ_xCcgQ" name="feedback">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_qK-hUK4qEeW7pKZwG4gojA" name="rating">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_F1y58J3BEeWgH5KZ_xCcgQ" name="SupportTicketWriter">

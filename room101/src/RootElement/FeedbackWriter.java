@@ -18,9 +18,9 @@ public interface FeedbackWriter extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model feedbackDataType="org.eclipse.uml2.types.String" feedbackRequired="true" feedbackOrdered="false"
+	 * @model feedbackDataType="org.eclipse.uml2.types.String" feedbackRequired="true" feedbackOrdered="false" ratingDataType="org.eclipse.uml2.types.Integer" ratingRequired="true" ratingOrdered="false"
 	 * @generated
 	 */
-	void giveFeedback(String feedback);
+	void giveFeedback(String feedback, int rating);
 
 } // FeedbackWriter

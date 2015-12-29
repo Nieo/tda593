@@ -129,6 +129,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="FeedbackWriter" abstract="true" interface="true">
     <eOperations name="giveFeedback" ordered="false" lowerBound="1">
       <eParameters name="feedback" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="rating" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Feedback">

@@ -466,7 +466,7 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void giveFeedback(String feedback) {
+	public void giveFeedback(String feedback, int rating) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -688,7 +688,7 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == FeedbackWriter.class) {
 			switch (baseOperationID) {
-				case RootElementPackage.FEEDBACK_WRITER___GIVE_FEEDBACK__STRING: return RootElementPackage.GUEST___GIVE_FEEDBACK__STRING;
+				case RootElementPackage.FEEDBACK_WRITER___GIVE_FEEDBACK__STRING_INT: return RootElementPackage.GUEST___GIVE_FEEDBACK__STRING_INT;
 				default: return -1;
 			}
 		}
@@ -717,8 +717,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 			case RootElementPackage.GUEST___NEW_SUPPORT_TICKET__STRING_STRING:
 				newSupportTicket((String)arguments.get(0), (String)arguments.get(1));
 				return null;
-			case RootElementPackage.GUEST___GIVE_FEEDBACK__STRING:
-				giveFeedback((String)arguments.get(0));
+			case RootElementPackage.GUEST___GIVE_FEEDBACK__STRING_INT:
+				giveFeedback((String)arguments.get(0), (Integer)arguments.get(1));
 				return null;
 			case RootElementPackage.GUEST___CREATE_BOOKING:
 				return createBooking();

@@ -138,6 +138,7 @@
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//FeedbackWriter">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//FeedbackWriter/giveFeedback">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//FeedbackWriter/giveFeedback/feedback"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//FeedbackWriter/giveFeedback/rating"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="RootElement.ecore#//Feedback">
