@@ -224,7 +224,7 @@ public class MainCLI{
 		while (input != 0) {
 			System.out.println("\nManager - What do you want to do?");
 			System.out.println("1:\tReception\n2:\tMake or cancel a Booking\n3:\tPayment\n4:\tHandle cleaning\n5:\tHandle Support Tickets\n"
-					+ "6:\tRead feedback\n7:\tHandle rooms\n8:\tHandle room types\n9\t:Handle room attributes\nOr 0 to go back");
+					+ "6:\tRead feedback\n7:\tHandle rooms\n8:\tHandle room types\n9:\tHandle room attributes\nOr 0 to go back");
 			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -276,7 +276,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("\nSystem Administrator - What do you want to do?");
-			System.out.println("1:\tHandle rooms\n2:\tHandle room types\n3:\tHandle room attributes\nOr 0 to go back");
+			System.out.println("1:\tHandle rooms\n2:\tHandle room types\n"
+					+ "3:\tHandle room attributes\n4:\tShow entire room structure\nOr 0 to go back");
 			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -295,6 +296,9 @@ public class MainCLI{
 				break;
 			case 3:
 				handleRoomAttributes(sysAdmin);
+				break;
+			case 4:
+				printRoomStructure(sysAdmin);
 				break;
 			default:
 				System.out.println(input + " is not on the list.\n");
@@ -1425,6 +1429,44 @@ public class MainCLI{
 		}
 	}
 
+	private void printRoomStructure(SysAdmin actor) {
+		System.out.println("Rooms:");
+		EList<Room> rooms = actor.getAllRooms();
+		if (rooms == null || rooms.isEmpty()) {
+			System.out.println("\t<none found>");
+		} else {
+			for (Room r : rooms) {
+				System.out.println("\t" + r.getRoomName() + "\t" + (r.getRoomType()!=null?r.getRoomType().getName():"<null>"));
+			}
+		}
+		
+		System.out.println("Room Types:");
+		EList<RoomType> types = actor.getAllRoomTypes();
+		if (types == null || types.isEmpty()) {
+			System.out.println("\t<none found>");
+		} else {
+			for (RoomType t : types) {
+				System.out.println("\tRoom type: " + t.getName() + "\t" + t.getPrice() + "SEK/day");
+				System.out.println("\t\tAttributes:" + (t.getRoomAttributes().isEmpty()?" None have been added":""));
+				for (int i=0; i < t.getRoomAttributes().size(); i++) {
+					RoomAttribute ra = t.getRoomAttributes().get(i);
+					System.out.println("\t\t\t" + ra.getName());
+				}
+			}
+		}
+		
+		System.out.println("Attributes:");
+		EList<RoomAttribute> attributes = actor.getAllRoomAttributes();
+		if (attributes == null || attributes.isEmpty()) {
+			System.out.println("\t<none found>");
+		} else {
+			for (RoomAttribute a : attributes) {
+				System.out.println("\t" + a.getName() + "\t" + a.getDescription());
+			}
+		}
+		System.out.println();
+	}
+	
 	public static void main(String[] args) {
 		new MainCLI();
 	}
