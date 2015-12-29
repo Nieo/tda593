@@ -1417,7 +1417,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFeedbackWriter__GiveFeedback__String() {
+	public EOperation getFeedbackWriter__GiveFeedback__String_int() {
 		return feedbackWriterEClass.getEOperations().get(0);
 	}
 
@@ -1797,7 +1797,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEAttribute(serviceItemEClass, SERVICE_ITEM__PRICE);
 
 		feedbackWriterEClass = createEClass(FEEDBACK_WRITER);
-		createEOperation(feedbackWriterEClass, FEEDBACK_WRITER___GIVE_FEEDBACK__STRING);
+		createEOperation(feedbackWriterEClass, FEEDBACK_WRITER___GIVE_FEEDBACK__STRING_INT);
 
 		feedbackEClass = createEClass(FEEDBACK);
 		createEAttribute(feedbackEClass, FEEDBACK__FEEDBACK_DESCRIPTION);
@@ -2083,8 +2083,9 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEClass(feedbackWriterEClass, FeedbackWriter.class, "FeedbackWriter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getFeedbackWriter__GiveFeedback__String(), null, "giveFeedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getFeedbackWriter__GiveFeedback__String_int(), null, "giveFeedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "feedback", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "rating", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(feedbackEClass, Feedback.class, "Feedback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFeedback_FeedbackDescription(), theTypesPackage.getString(), "feedbackDescription", null, 1, 1, Feedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

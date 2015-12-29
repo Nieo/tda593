@@ -100,7 +100,7 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void giveFeedback(String feedback) {
+	public void giveFeedback(String feedback, int rating) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -175,7 +175,7 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == FeedbackWriter.class) {
 			switch (baseOperationID) {
-				case RootElementPackage.FEEDBACK_WRITER___GIVE_FEEDBACK__STRING: return RootElementPackage.FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING;
+				case RootElementPackage.FEEDBACK_WRITER___GIVE_FEEDBACK__STRING_INT: return RootElementPackage.FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING_INT;
 				default: return -1;
 			}
 		}
@@ -194,8 +194,8 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 				return getAllFeedback();
 			case RootElementPackage.FEEDBACK_HANDLER___GET_UNREAD_FEEDBACK:
 				return getUnreadFeedback();
-			case RootElementPackage.FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING:
-				giveFeedback((String)arguments.get(0));
+			case RootElementPackage.FEEDBACK_HANDLER___GIVE_FEEDBACK__STRING_INT:
+				giveFeedback((String)arguments.get(0), (Integer)arguments.get(1));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
