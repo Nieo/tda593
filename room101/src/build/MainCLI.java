@@ -65,7 +65,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Login - Who do you want to log in as?");
-			System.out.println("1:\tGuest\n2:\tStaff\n3:\tClerk\n4:\tManager\n5:\tSystem Administrator\nOr 0 to exit\n");
+			System.out.println("1:\tGuest\n2:\tStaff\n3:\tClerk\n4:\tManager\n5:\tSystem Administrator\nOr 0 to exit");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -104,7 +105,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Guest - What do you want to do?");
-			System.out.println("1:\tMake or cancel a Booking\n2:\tWrite a Support Ticket\n3:\tGive Feedback\nOr 0 to go back\n");
+			System.out.println("1:\tMake or cancel a Booking\n2:\tWrite a Support Ticket\n3:\tGive Feedback\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -150,7 +152,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Staff - What do you want to do?");
-			System.out.println("1:\tHandle cleaning\n2:\tHandle Support Tickets\nOr 0 to go back\n");
+			System.out.println("1:\tHandle cleaning\n2:\tHandle Support Tickets\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -180,7 +183,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Clerk - What do you want to do?");
-			System.out.println("1:\tReception\n2:\tMake or cancel a Booking\n3:\tPayment\n4:\tHandle cleaning\n5:\tHandle Support Tickets\nOr 0 to go back\n");
+			System.out.println("1:\tReception\n2:\tMake or cancel a Booking\n3:\tPayment\n4:\tHandle cleaning\n5:\tHandle Support Tickets\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -220,7 +224,8 @@ public class MainCLI{
 		while (input != 0) {
 			System.out.println("Manager - What do you want to do?");
 			System.out.println("1:\tReception\n2:\tMake or cancel a Booking\n3:\tPayment\n4:\tHandle cleaning\n5:\tHandle Support Tickets\n"
-					+ "6:\tRead feedback\n7:\tHandle rooms\n8:\tHandle room types\n9\t:Handle room attributes\nOr 0 to go back\n");
+					+ "6:\tRead feedback\n7:\tHandle rooms\n8:\tHandle room types\n9\t:Handle room attributes\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -271,7 +276,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("System Administrator - What do you want to do?");
-			System.out.println("1:\tHandle rooms\n2:\tHandle room types\n3\t:Handle room attributes\nOr 0 to exit\n");
+			System.out.println("1:\tHandle rooms\n2:\tHandle room types\n3:\tHandle room attributes\nOr 0 to exit");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -300,7 +306,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Bookings - What do you want to do?");
-			System.out.println("1:\tMake a new booking\n2:\tCancel a booking\nOr 0 to exit\n");
+			System.out.println("1:\tMake a new booking\n2:\tCancel a booking\nOr 0 to exit");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -328,7 +335,8 @@ public class MainCLI{
 		while (input != 0) {
 			printBooking(booking);
 			System.out.println("Booking process - What do you want to do?");
-			System.out.println("1:\tSearch for available rooms\n2:\tConfirm the booking\nOr 0 to discard and go back\n");
+			System.out.println("1:\tSearch for available rooms\n2:\tConfirm the booking\nOr 0 to discard and go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -481,7 +489,8 @@ public class MainCLI{
 					roomTypes.add(rt);
 				}
 			}
-			System.out.println("Choose a room below to add it to the booking or 0 to go back\n");
+			System.out.println("Choose a room below to add it to the booking or 0 to go back");
+			System.out.print(">");
 			for (int i=0; i< roomTypes.size(); i++) {
 				System.out.print((i+1) + ":\t");
 				printRoomType(roomTypes.get(i));
@@ -531,7 +540,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Cleaning - What do you want to do?");
-			System.out.println("1:\tList uncleaned rooms\n2:\tCheck if room is cleaned\nOr 0 to go back\n");
+			System.out.println("1:\tList uncleaned rooms\n2:\tCheck if room is cleaned\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -597,7 +607,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Support Tickets - What do you want to do?");
-			System.out.println("1:\tWrite Support Ticket\n2:\tList unfixed Support Tickets\n3:\tShow Support Tickets for a room\nOr 0 to go back\n");
+			System.out.println("1:\tWrite Support Ticket\n2:\tList unfixed Support Tickets\n3:\tShow Support Tickets for a room\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -689,7 +700,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Reception - What do you want to do?");
-			System.out.println("1:\tFind booking by name\n2:\tFind booking by room ID\nOr 0 to discard and go back\n");
+			System.out.println("1:\tFind booking by name\n2:\tFind booking by room ID\nOr 0 to discard and go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -748,7 +760,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Handle Booking - What do you want to do?");
-			System.out.println("1:\tCheck in\n2:\tCheck out\n\t3:Add Service Item\n\t4:Remove Service Item\nOr 0 to go back\n");
+			System.out.println("1:\tCheck in\n2:\tCheck out\n\t3:Add Service Item\n\t4:Remove Service Item\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -917,7 +930,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Payment - What do you want to do?");
-			System.out.println("1:\tVerify a card\n2:\tMake a payment\nOr 0 to go back\n");
+			System.out.println("1:\tVerify a card\n2:\tMake a payment\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -960,7 +974,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Feedback - What do you want to do?");
-			System.out.println("1:\tRead un-read feedback\n2:\tRead all feedback\nOr 0 to exit\n");
+			System.out.println("1:\tRead un-read feedback\n2:\tRead all feedback\nOr 0 to exit");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -998,7 +1013,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Rooms - What do you want to do?");
-			System.out.println("1:\tAdd a room\n2:\tEdit or remove a room type\n3:\tFind a room\nOr 0 to go back\n");
+			System.out.println("1:\tAdd a room\n2:\tEdit or remove a room\n3:\tFind a room\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -1009,15 +1025,15 @@ public class MainCLI{
 			case 0:
 				break;
 			case 1:
-				System.out.print("Please enter the name of the new room type: ");
+				System.out.print("Please enter the name of the new room: ");
 				String name = in.nextLine().trim();
 				System.out.println("Choose a room type for the new room.");
 				RoomType roomType = listAndChooseRoomType(actor.getAllRoomTypes());
 				if (roomType != null) {
 					actor.addRoom(roomType, name);
-					System.out.println("Room attribute successfully added.");
+					System.out.println("Room successfully added.");
 				} else {
-					System.out.println("Failed to add room attribute!");
+					System.out.println("Failed to add room!");
 				}
 				break;
 			case 2:
@@ -1072,7 +1088,6 @@ public class MainCLI{
 	}
 	
 	private void editOrRemoveRoom(Room r, SysAdmin actor) {
-		//TODO Implement
 		int input = -1;
 		while (input != 0) {
 			System.out.println("1:\tEdit name\n2:\tChange room type\n3:\tRemove room\nOr 0 to go back");
@@ -1098,9 +1113,9 @@ public class MainCLI{
 				RoomType roomType = listAndChooseRoomType(actor.getAllRoomTypes());
 				if (roomType != null) {
 					if (actor.editRoom(r, roomType, r.getRoomName())) {
-						System.out.println("Room attribute successfully added.");						
+						System.out.println("Room type successfully changed.");						
 					} else {
-						System.out.println("Failed to add room attribute!");						
+						System.out.println("Failed to change room type!");						
 					}
 				}
 				break;
@@ -1109,7 +1124,7 @@ public class MainCLI{
 					System.out.println("Room successfully removed.");
 					input = 0;
 				} else {
-					System.out.println("Failed to remove type.");
+					System.out.println("Failed to remove.");
 				}
 				break;
 			default:
@@ -1122,7 +1137,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Room Types - What do you want to do?");
-			System.out.println("1:\tAdd a room type\n2:\tEdit or remove a room type\n3:\tFind a room type\nOr 0 to go back\n");
+			System.out.println("1:\tAdd a room type\n2:\tEdit or remove a room type\n3:\tFind a room type\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -1290,7 +1306,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("Room Attributes - What do you want to do?");
-			System.out.println("1:\tAdd an attribute\n2:\tEdit or remove an attribute\n3:\tFind an attribute\nOr 0 to go back\n");
+			System.out.println("1:\tAdd an attribute\n2:\tEdit or remove an attribute\n3:\tFind an attribute\nOr 0 to go back");
+			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
