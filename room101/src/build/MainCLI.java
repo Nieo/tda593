@@ -516,15 +516,12 @@ public class MainCLI{
 	}
 	
 	private void printRoomType(RoomType rt) {
-		System.out.print("Room type:\t\t" + rt.getName()
-				+ "\tPrice per night:\t" + rt.getPrice()
-				+ "\n\tAttributes:");
+		System.out.println("Room type: " + rt.getName()
+				+ "\t" + rt.getPrice() + "SEK/day"
+				+ "\nAttributes:" + (rt.getRoomAttributes().isEmpty()?" None have been added":""));
 		for (int i=0; i < rt.getRoomAttributes().size(); i++) {
 			RoomAttribute ra = rt.getRoomAttributes().get(i);
-			if (i!=0) {
-				System.out.print("\t\t\t");
-			}
-			System.out.println("\t\t" + ra.getName() + ", " + ra.getDescription());
+			System.out.println("\t" + ra.getName());
 		}
 	}
 	
@@ -1082,7 +1079,7 @@ public class MainCLI{
 				}
 			}
 		} else {
-			System.out.println("No rooms exists.");
+			System.out.println("No rooms were found.");
 		}
 		return null;
 	}
@@ -1222,7 +1219,7 @@ public class MainCLI{
 				}
 			}
 		} else {
-			System.out.println("No room types exists.");
+			System.out.println("No room types were found.");
 		}
 		return null;
 	}
@@ -1232,7 +1229,7 @@ public class MainCLI{
 		while (input != 0) {
 			printRoomType(rt);
 			System.out.println("1:\tEdit name\n2:\tEdit price\n3:\tAdd room attribute\n"
-					+ "4:\tRemove room attribute\n5:\tRemove this attribute\nOr 0 to go back");
+					+ "4:\tRemove room attribute\n5:\tRemove this room type\nOr 0 to go back");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
@@ -1352,7 +1349,7 @@ public class MainCLI{
 					RoomAttribute ra = list.get(i);
 					System.out.print((i+1)+ ":\t");
 					System.out.println("Name:\t\t" + ra.getName());
-					System.out.println("\t\t" + (ra.getDescription().length()>60
+					System.out.println("Description:\t" + (ra.getDescription().length()>60
 							? ra.getDescription().substring(0, 60) + "..."
 									: ra.getDescription()));
 				}
@@ -1374,7 +1371,7 @@ public class MainCLI{
 				}
 			}
 		} else {
-			System.out.println("No room attributes exists.");
+			System.out.println("No room attributes were found.");
 		}
 		return null;
 	}
