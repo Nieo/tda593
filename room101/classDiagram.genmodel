@@ -245,6 +245,9 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomAttributeHandling/removeRoomAttribute/roomAttribute"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomAttributeHandling/getAllRoomAttributes"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomAttributeHandling/findRoomAttribute">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomAttributeHandling/findRoomAttribute/id"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//RoomHandling">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomHandling/addRoom">
@@ -255,7 +258,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/removeRoom/roomName"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomHandling/editRoom">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/editRoom/roomName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/editRoom/room"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/editRoom/newRoomType"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomHandling/editRoom/newRoomName"/>
       </genOperations>
@@ -285,6 +288,9 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomTypeHandling/removeAttributeFromRoomType">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/removeAttributeFromRoomType/roomType"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/removeAttributeFromRoomType/roomAttribute"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomTypeHandling/findRoomType">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/findRoomType/name"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//FeedbackReader">

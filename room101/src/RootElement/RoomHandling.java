@@ -36,10 +36,10 @@ public interface RoomHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false" newRoomTypeRequired="true" newRoomTypeOrdered="false" newRoomNameDataType="org.eclipse.uml2.types.String" newRoomNameRequired="true" newRoomNameOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomRequired="true" roomOrdered="false" newRoomTypeRequired="true" newRoomTypeOrdered="false" newRoomNameDataType="org.eclipse.uml2.types.String" newRoomNameRequired="true" newRoomNameOrdered="false"
 	 * @generated
 	 */
-	boolean editRoom(String roomName, RoomType newRoomType, String newRoomName);
+	boolean editRoom(Room room, RoomType newRoomType, String newRoomName);
 
 	/**
 	 * <!-- begin-user-doc -->

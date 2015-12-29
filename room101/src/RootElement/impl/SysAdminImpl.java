@@ -91,8 +91,8 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 	 * Updates the room with the given name with the new parameters.
 	 * @generated NOT
 	 */
-	public boolean editRoom(String roomName, RoomType newRoomType, String newRoomName) {
-		return roomHandling.editRoom(roomName, newRoomType, newRoomName);
+	public boolean editRoom(Room room, RoomType newRoomType, String newRoomName) {
+		return roomHandling.editRoom(room, newRoomType, newRoomName);
 	}
 
 	/**
@@ -163,6 +163,14 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 	}
 
 	/**
+	 * Finds the room type with the given name
+	 * @generated NOT
+	 */
+	public RoomType findRoomType(String name) {
+		return roomTypeHandling.findRoomType(name);
+	}
+
+	/**
 	 * Adds a room attribute with the given properties to the list of available
 	 * room attributes at the current hotel.
 	 * @generated NOT
@@ -197,6 +205,14 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 	}
 
 	/**
+	 * Finds the room attribute with the given ID
+	 * @generated NOT
+	 */
+	public RoomAttribute findRoomAttribute(int id) {
+		return roomAttributeHandling.findRoomAttribute(id);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -217,7 +233,7 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 			switch (baseOperationID) {
 				case RootElementPackage.ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING: return RootElementPackage.SYS_ADMIN___ADD_ROOM__ROOMTYPE_STRING;
 				case RootElementPackage.ROOM_HANDLING___REMOVE_ROOM__STRING: return RootElementPackage.SYS_ADMIN___REMOVE_ROOM__STRING;
-				case RootElementPackage.ROOM_HANDLING___EDIT_ROOM__STRING_ROOMTYPE_STRING: return RootElementPackage.SYS_ADMIN___EDIT_ROOM__STRING_ROOMTYPE_STRING;
+				case RootElementPackage.ROOM_HANDLING___EDIT_ROOM__ROOM_ROOMTYPE_STRING: return RootElementPackage.SYS_ADMIN___EDIT_ROOM__ROOM_ROOMTYPE_STRING;
 				case RootElementPackage.ROOM_HANDLING___FIND_ROOM__STRING: return RootElementPackage.SYS_ADMIN___FIND_ROOM__STRING;
 				case RootElementPackage.ROOM_HANDLING___GET_ALL_ROOMS: return RootElementPackage.SYS_ADMIN___GET_ALL_ROOMS;
 				default: return -1;
@@ -231,6 +247,7 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 				case RootElementPackage.ROOM_TYPE_HANDLING___GET_ALL_ROOM_TYPES: return RootElementPackage.SYS_ADMIN___GET_ALL_ROOM_TYPES;
 				case RootElementPackage.ROOM_TYPE_HANDLING___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE: return RootElementPackage.SYS_ADMIN___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE;
 				case RootElementPackage.ROOM_TYPE_HANDLING___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE: return RootElementPackage.SYS_ADMIN___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE;
+				case RootElementPackage.ROOM_TYPE_HANDLING___FIND_ROOM_TYPE__STRING: return RootElementPackage.SYS_ADMIN___FIND_ROOM_TYPE__STRING;
 				default: return -1;
 			}
 		}
@@ -253,12 +270,14 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 				return removeRoomAttribute((RoomAttribute)arguments.get(0));
 			case RootElementPackage.SYS_ADMIN___GET_ALL_ROOM_ATTRIBUTES:
 				return getAllRoomAttributes();
+			case RootElementPackage.SYS_ADMIN___FIND_ROOM_ATTRIBUTE__INT:
+				return findRoomAttribute((Integer)arguments.get(0));
 			case RootElementPackage.SYS_ADMIN___ADD_ROOM__ROOMTYPE_STRING:
 				return addRoom((RoomType)arguments.get(0), (String)arguments.get(1));
 			case RootElementPackage.SYS_ADMIN___REMOVE_ROOM__STRING:
 				return removeRoom((String)arguments.get(0));
-			case RootElementPackage.SYS_ADMIN___EDIT_ROOM__STRING_ROOMTYPE_STRING:
-				return editRoom((String)arguments.get(0), (RoomType)arguments.get(1), (String)arguments.get(2));
+			case RootElementPackage.SYS_ADMIN___EDIT_ROOM__ROOM_ROOMTYPE_STRING:
+				return editRoom((Room)arguments.get(0), (RoomType)arguments.get(1), (String)arguments.get(2));
 			case RootElementPackage.SYS_ADMIN___FIND_ROOM__STRING:
 				return findRoom((String)arguments.get(0));
 			case RootElementPackage.SYS_ADMIN___GET_ALL_ROOMS:
@@ -275,6 +294,8 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 				return addAttributeToRoomType((RoomType)arguments.get(0), (RoomAttribute)arguments.get(1));
 			case RootElementPackage.SYS_ADMIN___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE:
 				return removeAttributeFromRoomType((RoomType)arguments.get(0), (RoomAttribute)arguments.get(1));
+			case RootElementPackage.SYS_ADMIN___FIND_ROOM_TYPE__STRING:
+				return findRoomType((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

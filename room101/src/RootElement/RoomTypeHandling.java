@@ -65,4 +65,12 @@ public interface RoomTypeHandling extends EObject {
 	 */
 	boolean removeAttributeFromRoomType(RoomType roomType, RoomAttribute roomAttribute);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false"
+	 * @generated
+	 */
+	RoomType findRoomType(String name);
+
 } // RoomTypeHandling

@@ -939,6 +939,9 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_18OD155dEeW2ZrS6EkHJUA"/>
     </children>
     <children xmi:type="notation:BasicCompartment" xmi:id="_18OD2J5dEeW2ZrS6EkHJUA" type="7007">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_82fiEK4mEeWWg9flUJ_5EA" source="PapyrusCSSForceValue">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_82gJIK4mEeWWg9flUJ_5EA" key="collapsed" value="true"/>
+      </eAnnotations>
       <children xmi:type="notation:Shape" xmi:id="_CIcJEJ5eEeW2ZrS6EkHJUA" type="3007">
         <element xmi:type="uml:Operation" href="ClassDiagram.uml#_18DEsZ5dEeW2ZrS6EkHJUA"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_CIcJEZ5eEeW2ZrS6EkHJUA"/>
@@ -962,6 +965,10 @@
       <children xmi:type="notation:Shape" xmi:id="_CM2H8J5eEeW2ZrS6EkHJUA" type="3007">
         <element xmi:type="uml:Operation" href="ClassDiagram.uml#_18DExZ5dEeW2ZrS6EkHJUA"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_CM2H8Z5eEeW2ZrS6EkHJUA"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_6nNnEK4mEeWWg9flUJ_5EA" type="3007">
+        <element xmi:type="uml:Operation" href="ClassDiagram.uml#_6lS7gK4mEeWWg9flUJ_5EA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_6nNnEa4mEeWWg9flUJ_5EA"/>
       </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_18OD2Z5dEeW2ZrS6EkHJUA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_18OD2p5dEeW2ZrS6EkHJUA"/>
@@ -1053,6 +1060,10 @@
       <children xmi:type="notation:Shape" xmi:id="_Io03AKidEeW-M5aCBPQ1Nw" type="3007">
         <element xmi:type="uml:Operation" href="ClassDiagram.uml#_InyVMKidEeW-M5aCBPQ1Nw"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Io03AaidEeW-M5aCBPQ1Nw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_GRtfUK4nEeWWg9flUJ_5EA" type="3007">
+        <element xmi:type="uml:Operation" href="ClassDiagram.uml#_GQn6MK4nEeWWg9flUJ_5EA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_GRtfUa4nEeWWg9flUJ_5EA"/>
       </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_18RHKp5dEeW2ZrS6EkHJUA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_18RHK55dEeW2ZrS6EkHJUA"/>
@@ -1608,8 +1619,8 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_g_ZZsZ5fEeW2ZrS6EkHJUA"/>
     <element xmi:type="uml:InterfaceRealization" href="ClassDiagram.uml#_g-O8EJ5fEeW2ZrS6EkHJUA"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_g_ZZsp5fEeW2ZrS6EkHJUA" points="[0, 0, 0, -140]$[0, 140, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hEIvwJ5fEeW2ZrS6EkHJUA" id="(0.3591549295774648,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hEIvwZ5fEeW2ZrS6EkHJUA" id="(0.43519781718963163,1.0)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hEIvwJ5fEeW2ZrS6EkHJUA" id="(0.31690140845070425,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hEIvwZ5fEeW2ZrS6EkHJUA" id="(0.44752186588921283,1.0)"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_iKukYJ5fEeW2ZrS6EkHJUA" type="4003" source="_tT5t8J2_EeWgH5KZ_xCcgQ" target="_18LnkJ5dEeW2ZrS6EkHJUA">
     <children xmi:type="notation:DecorationNode" xmi:id="_iKukY55fEeW2ZrS6EkHJUA" type="6008">
@@ -1633,7 +1644,7 @@
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_nBthcZ5fEeW2ZrS6EkHJUA"/>
     <element xmi:type="uml:InterfaceRealization" href="ClassDiagram.uml#_nAgnkJ5fEeW2ZrS6EkHJUA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBthcp5fEeW2ZrS6EkHJUA" points="[0, -18, -344, 165]$[354, -18, 10, 165]$[354, -184, 10, -1]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nBthcp5fEeW2ZrS6EkHJUA" points="[-1, -10, -345, 173]$[354, -9, 10, 174]$[354, -184, 10, -1]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nC7pcJ5fEeW2ZrS6EkHJUA" id="(1.0,0.22377622377622378)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nC7pcZ5fEeW2ZrS6EkHJUA" id="(0.10943396226415095,1.0)"/>
   </edges>

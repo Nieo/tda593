@@ -120,8 +120,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * Updates the room with the given name with the new parameters.
 	 * @generated NOT
 	 */
-	public boolean editRoom(String roomName, RoomType newRoomType, String newRoomName) {
-		Room room = findRoom(roomName);
+	public boolean editRoom(Room room, RoomType newRoomType, String newRoomName) {
 		if(room != null){
 			room.setRoomType(newRoomType);
 			room.setRoomName(newRoomName);
@@ -227,6 +226,24 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	}
 
 	/**
+	 * Retrieves the room type with the given name. Returns null if not found.
+	 * @generated NOT
+	 */
+	public RoomType findRoomType(String name) {
+		if(name == null){
+			return null;
+		}
+		
+		for(RoomType type : roomTypes){
+			if(name.equals(type.getName())){
+				return type;
+			}
+		}
+		
+		return null;
+	}
+
+	/**
 	 * Adds a room attribute with the given properties to the list of available
 	 * room attributes at the current hotel.
 	 * @generated NOT
@@ -273,6 +290,20 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	}
 
 	/**
+	 * Retrieves the room attribute with the given ID. Returns null if not found.
+	 * @generated NOT
+	 */
+	public RoomAttribute findRoomAttribute(int id) {
+		for(RoomAttribute attribute : roomAttributes){
+			if(attribute.getId() == id){
+				return attribute;
+			}
+		}
+		
+		return null;
+	}
+
+	/**
 	 * Retrieves all rooms that can be booked, not taking any concern about
 	 * any bookings but just the state of the room (not broken and boookable).
 	 * @generated NOT
@@ -286,7 +317,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 			}
 		}
 		
-		return ECollections.unmodifiableEList(bookableRooms);
+		return bookableRooms;
 	}
 
 	/**
@@ -447,6 +478,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				case RootElementPackage.ROOM_TYPE_HANDLING___GET_ALL_ROOM_TYPES: return RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_TYPES;
 				case RootElementPackage.ROOM_TYPE_HANDLING___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE: return RootElementPackage.ROOM_STRUCTURE___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE;
 				case RootElementPackage.ROOM_TYPE_HANDLING___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE: return RootElementPackage.ROOM_STRUCTURE___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE;
+				case RootElementPackage.ROOM_TYPE_HANDLING___FIND_ROOM_TYPE__STRING: return RootElementPackage.ROOM_STRUCTURE___FIND_ROOM_TYPE__STRING;
 				default: return -1;
 			}
 		}
@@ -456,6 +488,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING: return RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE: return RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE;
 				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES: return RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_ATTRIBUTES;
+				case RootElementPackage.ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__INT: return RootElementPackage.ROOM_STRUCTURE___FIND_ROOM_ATTRIBUTE__INT;
 				default: return -1;
 			}
 		}
@@ -482,8 +515,8 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				return addRoom((RoomType)arguments.get(0), (String)arguments.get(1));
 			case RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM__STRING:
 				return removeRoom((String)arguments.get(0));
-			case RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM__STRING_ROOMTYPE_STRING:
-				return editRoom((String)arguments.get(0), (RoomType)arguments.get(1), (String)arguments.get(2));
+			case RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM__ROOM_ROOMTYPE_STRING:
+				return editRoom((Room)arguments.get(0), (RoomType)arguments.get(1), (String)arguments.get(2));
 			case RootElementPackage.ROOM_STRUCTURE___FIND_ROOM__STRING:
 				return findRoom((String)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOMS:
@@ -500,6 +533,8 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				return addAttributeToRoomType((RoomType)arguments.get(0), (RoomAttribute)arguments.get(1));
 			case RootElementPackage.ROOM_STRUCTURE___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE:
 				return removeAttributeFromRoomType((RoomType)arguments.get(0), (RoomAttribute)arguments.get(1));
+			case RootElementPackage.ROOM_STRUCTURE___FIND_ROOM_TYPE__STRING:
+				return findRoomType((String)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___ADD_ROOM_ATTRIBUTE__STRING_STRING:
 				return addRoomAttribute((String)arguments.get(0), (String)arguments.get(1));
 			case RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING:
@@ -508,6 +543,8 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				return removeRoomAttribute((RoomAttribute)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_ATTRIBUTES:
 				return getAllRoomAttributes();
+			case RootElementPackage.ROOM_STRUCTURE___FIND_ROOM_ATTRIBUTE__INT:
+				return findRoomAttribute((Integer)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___GET_BOOKABLE_ROOMS:
 				return getBookableRooms();
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_CLEANABLE_ROOMS:

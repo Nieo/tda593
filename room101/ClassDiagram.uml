@@ -490,15 +490,13 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_18B2mJ5dEeW2ZrS6EkHJUA" name="editRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_18B2mZ5dEeW2ZrS6EkHJUA" name="roomName">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_18B2mZ5dEeW2ZrS6EkHJUA" name="room" type="_UTJDgJdOEeW0s9Al2d2tiA"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_18B2mp5dEeW2ZrS6EkHJUA" name="newRoomType" type="_xgeMcJdmEeWbKp0h3hoGyg"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_18B2m55dEeW2ZrS6EkHJUA" name="newRoomName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_EOALIKiVEeW-M5aCBPQ1Nw" name="success" direction="return">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_18B2nJ5dEeW2ZrS6EkHJUA" name="findRoom">
@@ -562,6 +560,12 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6lS7gK4mEeWWg9flUJ_5EA" name="findRoomType">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_AmlIgK4nEeWWg9flUJ_5EA" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_EEtcQK4nEeWWg9flUJ_5EA" name="roomType" type="_xgeMcJdmEeWbKp0h3hoGyg" direction="return"/>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_18DrwJ5dEeW2ZrS6EkHJUA" name="RoomAttributeHandling">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_18DrwZ5dEeW2ZrS6EkHJUA" name="addRoomAttribute">
@@ -596,6 +600,12 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R7f8QKidEeW-M5aCBPQ1Nw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R7hKYKidEeW-M5aCBPQ1Nw" value="*"/>
       </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GQn6MK4nEeWWg9flUJ_5EA" name="findRoomAttribute">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_L2gkoK4nEeWWg9flUJ_5EA" name="id">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_NV9lMK4nEeWWg9flUJ_5EA" name="roomAttribute" type="_y2fkMJdmEeWbKp0h3hoGyg" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_f12FwJ5hEeW2ZrS6EkHJUA" name="PaymentHandler">

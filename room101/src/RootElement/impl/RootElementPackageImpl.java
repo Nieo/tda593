@@ -1192,7 +1192,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoomHandling__EditRoom__String_RoomType_String() {
+	public EOperation getRoomHandling__EditRoom__Room_RoomType_String() {
 		return roomHandlingEClass.getEOperations().get(2);
 	}
 
@@ -1282,6 +1282,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getRoomTypeHandling__FindRoomType__String() {
+		return roomTypeHandlingEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRoomAttributeHandling() {
 		return roomAttributeHandlingEClass;
 	}
@@ -1320,6 +1329,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 */
 	public EOperation getRoomAttributeHandling__GetAllRoomAttributes() {
 		return roomAttributeHandlingEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRoomAttributeHandling__FindRoomAttribute__int() {
+		return roomAttributeHandlingEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -1839,11 +1857,12 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___EDIT_ROOM_ATTRIBUTE__ROOMATTRIBUTE_STRING_STRING);
 		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE);
 		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___GET_ALL_ROOM_ATTRIBUTES);
+		createEOperation(roomAttributeHandlingEClass, ROOM_ATTRIBUTE_HANDLING___FIND_ROOM_ATTRIBUTE__INT);
 
 		roomHandlingEClass = createEClass(ROOM_HANDLING);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___ADD_ROOM__ROOMTYPE_STRING);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___REMOVE_ROOM__STRING);
-		createEOperation(roomHandlingEClass, ROOM_HANDLING___EDIT_ROOM__STRING_ROOMTYPE_STRING);
+		createEOperation(roomHandlingEClass, ROOM_HANDLING___EDIT_ROOM__ROOM_ROOMTYPE_STRING);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___FIND_ROOM__STRING);
 		createEOperation(roomHandlingEClass, ROOM_HANDLING___GET_ALL_ROOMS);
 
@@ -1854,6 +1873,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEOperation(roomTypeHandlingEClass, ROOM_TYPE_HANDLING___GET_ALL_ROOM_TYPES);
 		createEOperation(roomTypeHandlingEClass, ROOM_TYPE_HANDLING___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE);
 		createEOperation(roomTypeHandlingEClass, ROOM_TYPE_HANDLING___REMOVE_ATTRIBUTE_FROM_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE);
+		createEOperation(roomTypeHandlingEClass, ROOM_TYPE_HANDLING___FIND_ROOM_TYPE__STRING);
 
 		feedbackReaderEClass = createEClass(FEEDBACK_READER);
 		createEOperation(feedbackReaderEClass, FEEDBACK_READER___GET_ALL_FEEDBACK);
@@ -2168,6 +2188,9 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEOperation(getRoomAttributeHandling__GetAllRoomAttributes(), this.getRoomAttribute(), "getAllRoomAttributes", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
+		op = initEOperation(getRoomAttributeHandling__FindRoomAttribute__int(), this.getRoomAttribute(), "findRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(roomHandlingEClass, RoomHandling.class, "RoomHandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getRoomHandling__AddRoom__RoomType_String(), this.getRoom(), "addRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2177,8 +2200,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		op = initEOperation(getRoomHandling__RemoveRoom__String(), theTypesPackage.getBoolean(), "removeRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getRoomHandling__EditRoom__String_RoomType_String(), ecorePackage.getEBoolean(), "editRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getRoomHandling__EditRoom__Room_RoomType_String(), theTypesPackage.getBoolean(), "editRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomType(), "newRoomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "newRoomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
@@ -2210,6 +2233,9 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		op = initEOperation(getRoomTypeHandling__RemoveAttributeFromRoomType__RoomType_RoomAttribute(), theTypesPackage.getBoolean(), "removeAttributeFromRoomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomType(), "roomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getRoomTypeHandling__FindRoomType__String(), this.getRoomType(), "findRoomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(feedbackReaderEClass, FeedbackReader.class, "FeedbackReader", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

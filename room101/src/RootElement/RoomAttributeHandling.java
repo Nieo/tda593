@@ -48,4 +48,12 @@ public interface RoomAttributeHandling extends EObject {
 	 */
 	EList<RoomAttribute> getAllRoomAttributes();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" idDataType="org.eclipse.uml2.types.Integer" idRequired="true" idOrdered="false"
+	 * @generated
+	 */
+	RoomAttribute findRoomAttribute(int id);
+
 } // RoomAttributeHandling

@@ -247,6 +247,9 @@
       <eParameters name="roomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute"/>
     </eOperations>
     <eOperations name="getAllRoomAttributes" ordered="false" upperBound="-1" eType="#//RoomAttribute"/>
+    <eOperations name="findRoomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute">
+      <eParameters name="id" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomHandling" abstract="true" interface="true">
     <eOperations name="addRoom" ordered="false" lowerBound="1" eType="#//Room">
@@ -256,8 +259,8 @@
     <eOperations name="removeRoom" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eOperations name="editRoom" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eOperations name="editRoom" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
       <eParameters name="newRoomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
       <eParameters name="newRoomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
@@ -288,6 +291,9 @@
         eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
       <eParameters name="roomAttribute" ordered="false" lowerBound="1" eType="#//RoomAttribute"/>
+    </eOperations>
+    <eOperations name="findRoomType" ordered="false" lowerBound="1" eType="#//RoomType">
+      <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeedbackReader" abstract="true" interface="true">
