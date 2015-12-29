@@ -33,6 +33,12 @@ import RootElement.SupportTicketWriter;
 import RootElement.SysAdmin;
 import RootElement.impl.HotelFactory;
 
+/**
+ * A Command Line Interface (CLI) for testing and/or demoing the entire system.
+ * Uses the different actors of the system to access their respective parts.
+ *
+ * @author Patrik Haar
+ */
 public class MainCLI{
 
 	private Scanner in;
@@ -115,8 +121,19 @@ public class MainCLI{
 				makeSupportTicket(guest);
 				break;
 			case 3:
-				System.out.println("Please enter your feedback:");
-				guest.giveFeedback(in.nextLine());
+				System.out.print("Please enter your feedback: ");
+				String feedback = in.nextLine().trim();
+				int rating = 0;
+				while (true) {
+					System.out.print("Please enter the rating: ");
+					try {
+						rating = Integer.parseInt(in.nextLine());
+						break;
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong format! Only an integer number is allowed!");
+					}
+				}
+				guest.giveFeedback(feedback, rating);
 				System.out.println("Feedback has been recorded.");
 				break;
 			default:
@@ -977,23 +994,307 @@ public class MainCLI{
 		}
 	}
 	
-	private void handleRooms(SysAdmin sysAdmin) {
-		//TODO Implement
-	}
-	
-	private void handleRoomTypes(SysAdmin sysAdmin) {
-		//TODO Implement
-	}
-	
-	private void handleRoomAttributes(SysAdmin actor) {
+	private void handleRooms(SysAdmin actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Room Attributes - What do you want to do?");
-			System.out.println("1:\tAdd an attribute\n2:\tEdit or remove an attribute\nOr 0 to go back\n");
+			System.out.println("Rooms - What do you want to do?");
+			System.out.println("1:\tAdd a room\n2:\tEdit or remove a room type\n3:\tFind a room\nOr 0 to go back\n");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
-				System.out.println("Only digits 0-2 is allowed.");
+				System.out.println("Only digits 0-3 is allowed.");
+				continue;
+			}
+			switch (input) {
+			case 0:
+				break;
+			case 1:
+				System.out.print("Please enter the name of the new room type: ");
+				String name = in.nextLine().trim();
+				System.out.println("Choose a room type for the new room.");
+				RoomType roomType = listAndChooseRoomType(actor.getAllRoomTypes());
+				if (roomType != null) {
+					actor.addRoom(roomType, name);
+					System.out.println("Room attribute successfully added.");
+				} else {
+					System.out.println("Failed to add room attribute!");
+				}
+				break;
+			case 2:
+				Room rAll = listAndChooseRoom(actor.getAllRooms());
+				if (rAll != null) {
+					editOrRemoveRoom(rAll, actor);
+				}
+				break;
+			case 3:
+				System.out.print("Please enter the string to search for: ");
+				Room rChoice = listAndChooseRoom(actor.findRoom(in.nextLine().trim()));
+				if (rChoice != null) {
+					editOrRemoveRoom(rChoice, actor);
+				}
+				break;
+			default:
+				System.out.println(input + " is not on the list.\n");
+			}
+		}
+	}
+	
+	private Room listAndChooseRoom(EList<Room> list) {
+		if (list != null && !list.isEmpty()) {
+			int input = -1;
+			while (input != 0) {
+				for (int i=0; i<list.size(); i++) {
+					Room r = list.get(i);
+					System.out.print(i+ ":\t");
+					System.out.println(r.getRoomName() + "\t" + r.getRoomType().getName());
+				}
+				System.out.print("Select a room or 0 to go back: ");
+				try {
+					input = Integer.parseInt(in.nextLine());
+				} catch (NumberFormatException e) {
+					System.out.println("Wrong format! Only integer numbers are allowed!");
+					continue;
+				}
+				if (input == 0) {
+					break;
+				}
+				try {
+					return list.get(input - 1);
+				} catch (ArrayIndexOutOfBoundsException ex) {
+					System.out.println("There are " + list.size()
+								+ " choices, not '" + input + "'... Try again.");
+				}
+			}
+		} else {
+			System.out.println("No rooms exists.");
+		}
+		return null;
+	}
+	
+	private void editOrRemoveRoom(Room r, SysAdmin actor) {
+		//TODO Implement
+		int input = -1;
+		while (input != 0) {
+			System.out.println("1:\tEdit name\n2:\tChange room type\n3:\tRemove room\nOr 0 to go back");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (Exception e) {
+				System.out.println("Only digits 0-3 is allowed.");
+				continue;
+			}
+			switch (input) {
+			case 0:
+				break;
+			case 1:
+				System.out.print("Please enter the new name: ");
+				if (actor.editRoom(r, r.getRoomType(), in.nextLine().trim())) {
+					System.out.println("Name edited.");
+				} else {
+					System.out.println("Name change failed!");
+				}
+				break;
+			case 2:
+				System.out.println("Choose a new room type for the new room.");
+				RoomType roomType = listAndChooseRoomType(actor.getAllRoomTypes());
+				if (roomType != null) {
+					if (actor.editRoom(r, roomType, r.getRoomName())) {
+						System.out.println("Room attribute successfully added.");						
+					} else {
+						System.out.println("Failed to add room attribute!");						
+					}
+				}
+				break;
+			case 3:
+				if (actor.removeRoom(r)) {
+					System.out.println("Room successfully removed.");
+					input = 0;
+				} else {
+					System.out.println("Failed to remove type.");
+				}
+				break;
+			default:
+				System.out.println(input + " is not on the list.\n");
+			}
+		}
+	}
+	
+	private void handleRoomTypes(SysAdmin actor) {
+		int input = -1;
+		while (input != 0) {
+			System.out.println("Room Types - What do you want to do?");
+			System.out.println("1:\tAdd a room type\n2:\tEdit or remove a room type\n3:\tFind a room type\nOr 0 to go back\n");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (Exception e) {
+				System.out.println("Only digits 0-3 is allowed.");
+				continue;
+			}
+			switch (input) {
+			case 0:
+				break;
+			case 1:
+				System.out.print("Please enter the name of the new room type: ");
+				String name = in.nextLine().trim();
+				int cost = 0;
+				while (true) {
+					System.out.print("Please enter the price in SEK: ");
+					try {
+						cost = Integer.parseInt(in.nextLine());
+						break;
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong format! Only an integer number is allowed!");
+					}
+				}
+				RoomType newRoomType = actor.addRoomType(name, cost);
+				System.out.println("Room type added.");
+				while(true) {
+					System.out.print("Do you want to edit the room type now to add attributes? (y/n): ");
+					String choice = in.nextLine().toLowerCase().trim(); 
+					if (choice.equals("y")) {
+						editOrRemoveRoomType(newRoomType, actor);
+						break;
+					} else if (choice.equals("n")) {
+						break;
+					} else {
+						System.out.println("Only 'y' or 'n' are allowed.");
+					}
+				}
+				break;
+			case 2:
+				RoomType rtAll = listAndChooseRoomType(actor.getAllRoomTypes());
+				if (rtAll != null) {
+					editOrRemoveRoomType(rtAll, actor);
+				}
+				break;
+			case 3:
+				System.out.print("Please enter the string to search for: ");
+				RoomType rtChoice = listAndChooseRoomType(actor.findRoomType(in.nextLine().trim()));
+				if (rtChoice != null) {
+					editOrRemoveRoomType(rtChoice, actor);
+				}
+				break;
+			default:
+				System.out.println(input + " is not on the list.\n");
+			}
+		}
+	}
+	
+	private RoomType listAndChooseRoomType(EList<RoomType> list) {
+		if (list != null && !list.isEmpty()) {
+			int input = -1;
+			while (input != 0) {
+				for (int i=0; i<list.size(); i++) {
+					RoomType rt = list.get(i);
+					System.out.print(i+ ":\t");
+					System.out.println(rt.getName() + "\t" + rt.getPrice() + "/day");
+				}
+				System.out.print("Select a room type or 0 to go back: ");
+				try {
+					input = Integer.parseInt(in.nextLine());
+				} catch (NumberFormatException e) {
+					System.out.println("Wrong format! Only integer numbers are allowed!");
+					continue;
+				}
+				if (input == 0) {
+					break;
+				}
+				try {
+					return list.get(input - 1);
+				} catch (ArrayIndexOutOfBoundsException ex) {
+					System.out.println("There are " + list.size()
+								+ " choices, not '" + input + "'... Try again.");
+				}
+			}
+		} else {
+			System.out.println("No room types exists.");
+		}
+		return null;
+	}
+	
+	private void editOrRemoveRoomType(RoomType rt, SysAdmin actor) {
+		int input = -1;
+		while (input != 0) {
+			printRoomType(rt);
+			System.out.println("1:\tEdit name\n2:\tEdit price\n3:\tAdd room attribute\n"
+					+ "4:\tRemove room attribute\n5:\tRemove this attribute\nOr 0 to go back");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (Exception e) {
+				System.out.println("Only digits 0-5 is allowed.");
+				continue;
+			}
+			switch (input) {
+			case 0:
+				break;
+			case 1:
+				System.out.print("Please enter the new name: ");
+				if (actor.editRoomType(rt, in.nextLine().trim(), rt.getPrice())) {
+					System.out.println("Name edited.");
+				} else {
+					System.out.println("Name change failed!");
+				}
+				break;
+			case 2:
+				System.out.print("Please enter the new price: ");
+				int price = 0;
+				while (true) {
+					System.out.print("Please enter the price in SEK: ");
+					try {
+						price = Integer.parseInt(in.nextLine());
+						break;
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong format! Only an integer number is allowed!");
+					}
+				}
+				if (actor.editRoomType(rt, rt.getName(), price)) {
+					System.out.println("Description edited.");
+				} else {
+					System.out.println("Description change failed!");
+				}
+				break;
+			case 3:
+				RoomAttribute raAdd = listAndChooseRoomAttribute(actor.getAllRoomAttributes());
+				if (raAdd != null) {
+					if (actor.addAttributeToRoomType(rt, raAdd)) {
+						System.out.println("Room attribute successfully added.");
+					} else {
+						System.out.println("Failed to add room attribute!");
+					}
+				}
+				break;
+			case 4:
+				RoomAttribute raRemove = listAndChooseRoomAttribute(rt.getRoomAttributes());
+				if (raRemove != null) {
+					if (actor.removeAttributeFromRoomType(rt, raRemove)) {
+						System.out.println("Room attribute successfully removed.");
+					} else {
+						System.out.println("Failed to remove room attribute!");
+					}
+				}
+				break;
+			case 5:
+				if (actor.removeRoomType(rt)) {
+					System.out.println("Room type successfully removed.");
+					input = 0;
+				} else {
+					System.out.println("Failed to remove room type.");
+				}
+				break;
+			default:
+				System.out.println(input + " is not on the list.\n");
+			}
+		}
+	}
+	
+	private void handleRoomAttributes(RoomAttributeHandling actor) {
+		int input = -1;
+		while (input != 0) {
+			System.out.println("Room Attributes - What do you want to do?");
+			System.out.println("1:\tAdd an attribute\n2:\tEdit or remove an attribute\n3:\tFind an attribute\nOr 0 to go back\n");
+			try {
+				input = Integer.parseInt(in.nextLine());
+			} catch (Exception e) {
+				System.out.println("Only digits 0-3 is allowed.");
 				continue;
 			}
 			switch (input) {
@@ -1008,9 +1309,16 @@ public class MainCLI{
 				System.out.println("Room attribute added.");
 				break;
 			case 2:
-				RoomAttribute ra = listAndChooseRoomAttribute(actor);
-				if (ra != null) {
-					editOrRemoveRoomAttribute(ra, actor);
+				RoomAttribute raAll = listAndChooseRoomAttribute(actor.getAllRoomAttributes());
+				if (raAll != null) {
+					editOrRemoveRoomAttribute(raAll, actor);
+				}
+				break;
+			case 3:
+				System.out.print("Please enter the string to search for: ");
+				RoomAttribute raChoice = listAndChooseRoomAttribute(actor.findRoomAttribute(in.nextLine().trim()));
+				if (raChoice != null) {
+					editOrRemoveRoomAttribute(raChoice, actor);
 				}
 				break;
 			default:
@@ -1019,8 +1327,7 @@ public class MainCLI{
 		}
 	}
 	
-	private RoomAttribute listAndChooseRoomAttribute(RoomAttributeHandling actor) {
-		EList<RoomAttribute> list = actor.getAllRoomAttributes();
+	private RoomAttribute listAndChooseRoomAttribute(EList<RoomAttribute> list) {
 		if (list != null && !list.isEmpty()) {
 			int input = -1;
 			while (input != 0) {
