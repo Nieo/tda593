@@ -432,8 +432,8 @@ public class MainCLI{
 	}
 	
 	private void printRoomBooking(RoomBooking rb) {
-		System.out.println(rb.getRoom().getRoomType().getName() + "\tfrom "
-				+ rb.getStartDate() + " to " + rb.getEndDate() + "\t"
+		System.out.println((rb.getRoom().getRoomType()!=null?rb.getRoom().getRoomType().getName():"<null>")
+				+ "\tfrom " + rb.getStartDate() + " to " + rb.getEndDate() + "\t"
 				+ rb.getRoom().getRoomType().getPrice() + "/day\tStatus: "
 				+ rb.getBookingStatus());
 	}
@@ -508,7 +508,7 @@ public class MainCLI{
 				actor.addRoom(booking, allRooms.get(input -1), nbrOfAdults, nbrOfChildren);
 				roomTypes.add(allRooms.get(input - 1));
 				allRooms.remove(input -1);
-			} catch (ArrayIndexOutOfBoundsException ex) {
+			} catch (IndexOutOfBoundsException ex) {
 				System.out.println("There are " + roomTypes.size()
 							+ " choices, not '" + input + "'... Try again.");
 			}
@@ -593,7 +593,7 @@ public class MainCLI{
 			}
 			try {
 				actor.markRoomAsCleaned(list.get(input-1));
-			} catch (ArrayIndexOutOfBoundsException ex) {
+			} catch (IndexOutOfBoundsException ex) {
 				System.out.println("There are " + list.size()
 							+ " choices, not '" + input + "'... Try again.");
 			}
@@ -686,7 +686,7 @@ public class MainCLI{
 						System.out.println(input2 + " is not on the list.\n");
 					}
 				}
-			} catch (ArrayIndexOutOfBoundsException ex) {
+			} catch (IndexOutOfBoundsException ex) {
 				System.out.println("There are " + list.size()
 							+ " choices, not '" + input + "'... Try again.");
 			}
@@ -736,7 +736,7 @@ public class MainCLI{
 							Booking booking = bookings.get(input-1);
 							handleBooking(booking, actor);
 							break;
-						} catch (ArrayIndexOutOfBoundsException ex) {
+						} catch (IndexOutOfBoundsException ex) {
 							System.out.println("There are " + bookings.size()
 										+ " choices, not '" + input + "'... Try again.");
 						}
@@ -855,7 +855,7 @@ public class MainCLI{
 				}
 				try {
 					return list.get(input - 1);
-				} catch (ArrayIndexOutOfBoundsException ex) {
+				} catch (IndexOutOfBoundsException ex) {
 					System.out.println("There are " + list.size()
 								+ " choices, not '" + input + "'... Try again.");
 				}
@@ -916,7 +916,7 @@ public class MainCLI{
 					}
 				}
 				break;
-			} catch (ArrayIndexOutOfBoundsException ex) {
+			} catch (IndexOutOfBoundsException ex) {
 				System.out.println("There are " + list.size()
 							+ " choices, not '" + input + "'... Try again.");
 			}
@@ -1059,7 +1059,7 @@ public class MainCLI{
 				for (int i=0; i<list.size(); i++) {
 					Room r = list.get(i);
 					System.out.print((i+1)+ ":\t");
-					System.out.println(r.getRoomName() + "\t" + r.getRoomType().getName());
+					System.out.println(r.getRoomName() + "\t" + (r.getRoomType()!=null?r.getRoomType().getName():"<null>"));
 				}
 				System.out.print("Select a room or 0 to go back: ");
 				try {
@@ -1073,7 +1073,7 @@ public class MainCLI{
 				}
 				try {
 					return list.get(input - 1);
-				} catch (ArrayIndexOutOfBoundsException ex) {
+				} catch (IndexOutOfBoundsException ex) {
 					System.out.println("There are " + list.size()
 								+ " choices, not '" + input + "'... Try again.");
 				}
@@ -1087,6 +1087,8 @@ public class MainCLI{
 	private void editOrRemoveRoom(Room r, SysAdmin actor) {
 		int input = -1;
 		while (input != 0) {
+			System.out.println("\nName:\t" + r.getRoomName());
+			System.out.println("Room type:\t" + (r.getRoomType()!=null?r.getRoomType().getName():"<null>"));
 			System.out.println("1:\tEdit name\n2:\tChange room type\n3:\tRemove room\nOr 0 to go back");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -1213,7 +1215,7 @@ public class MainCLI{
 				}
 				try {
 					return list.get(input - 1);
-				} catch (ArrayIndexOutOfBoundsException ex) {
+				} catch (IndexOutOfBoundsException ex) {
 					System.out.println("There are " + list.size()
 								+ " choices, not '" + input + "'... Try again.");
 				}
@@ -1227,6 +1229,7 @@ public class MainCLI{
 	private void editOrRemoveRoomType(RoomType rt, SysAdmin actor) {
 		int input = -1;
 		while (input != 0) {
+			System.out.println();
 			printRoomType(rt);
 			System.out.println("1:\tEdit name\n2:\tEdit price\n3:\tAdd room attribute\n"
 					+ "4:\tRemove room attribute\n5:\tRemove this room type\nOr 0 to go back");
@@ -1349,7 +1352,7 @@ public class MainCLI{
 					RoomAttribute ra = list.get(i);
 					System.out.print((i+1)+ ":\t");
 					System.out.println("Name:\t\t" + ra.getName());
-					System.out.println("Description:\t" + (ra.getDescription().length()>60
+					System.out.println("\tDescription:\t" + (ra.getDescription().length()>60
 							? ra.getDescription().substring(0, 60) + "..."
 									: ra.getDescription()));
 				}
@@ -1365,7 +1368,7 @@ public class MainCLI{
 				}
 				try {
 					return list.get(input - 1);
-				} catch (ArrayIndexOutOfBoundsException ex) {
+				} catch (IndexOutOfBoundsException ex) {
 					System.out.println("There are " + list.size()
 								+ " choices, not '" + input + "'... Try again.");
 				}
@@ -1379,7 +1382,7 @@ public class MainCLI{
 	private void editOrRemoveRoomAttribute(RoomAttribute ra, RoomAttributeHandling actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Name:\t" + ra.getName());
+			System.out.println("\nName:\t" + ra.getName());
 			System.out.println("ID:\t" + ra.getId());
 			System.out.println("Description:\t" + ra.getDescription());
 			System.out.println("1:\tEdit name\n2:\tEdit description\n3:\tRemove this attribute\nOr 0 to go back");
