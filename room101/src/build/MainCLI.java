@@ -64,7 +64,7 @@ public class MainCLI{
 	private void loginSelect() {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Login - Who do you want to log in as?");
+			System.out.println("\nLogin - Who do you want to log in as?");
 			System.out.println("1:\tGuest\n2:\tStaff\n3:\tClerk\n4:\tManager\n5:\tSystem Administrator\nOr 0 to exit");
 			System.out.print(">");
 			try {
@@ -104,7 +104,7 @@ public class MainCLI{
 		}
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Guest - What do you want to do?");
+			System.out.println("\nGuest - What do you want to do?");
 			System.out.println("1:\tMake or cancel a Booking\n2:\tWrite a Support Ticket\n3:\tGive Feedback\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -151,7 +151,7 @@ public class MainCLI{
 		}
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Staff - What do you want to do?");
+			System.out.println("\nStaff - What do you want to do?");
 			System.out.println("1:\tHandle cleaning\n2:\tHandle Support Tickets\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -182,7 +182,7 @@ public class MainCLI{
 		}
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Clerk - What do you want to do?");
+			System.out.println("\nClerk - What do you want to do?");
 			System.out.println("1:\tReception\n2:\tMake or cancel a Booking\n3:\tPayment\n4:\tHandle cleaning\n5:\tHandle Support Tickets\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -222,7 +222,7 @@ public class MainCLI{
 		}
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Manager - What do you want to do?");
+			System.out.println("\nManager - What do you want to do?");
 			System.out.println("1:\tReception\n2:\tMake or cancel a Booking\n3:\tPayment\n4:\tHandle cleaning\n5:\tHandle Support Tickets\n"
 					+ "6:\tRead feedback\n7:\tHandle rooms\n8:\tHandle room types\n9\t:Handle room attributes\nOr 0 to go back");
 			System.out.print(">");
@@ -275,7 +275,7 @@ public class MainCLI{
 		}
 		int input = -1;
 		while (input != 0) {
-			System.out.println("System Administrator - What do you want to do?");
+			System.out.println("\nSystem Administrator - What do you want to do?");
 			System.out.println("1:\tHandle rooms\n2:\tHandle room types\n3:\tHandle room attributes\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -305,7 +305,7 @@ public class MainCLI{
 	private void handleNewBooking(MakeBooking actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Bookings - What do you want to do?");
+			System.out.println("\nBookings - What do you want to do?");
 			System.out.println("1:\tMake a new booking\n2:\tCancel a booking\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -334,7 +334,7 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			printBooking(booking);
-			System.out.println("Booking process - What do you want to do?");
+			System.out.println("\nBooking process - What do you want to do?");
 			System.out.println("1:\tSearch for available rooms\n2:\tConfirm the booking\nOr 0 to discard and go back");
 			System.out.print(">");
 			try {
@@ -539,7 +539,7 @@ public class MainCLI{
 	private void handleCleaning(Cleaning actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Cleaning - What do you want to do?");
+			System.out.println("\nCleaning - What do you want to do?");
 			System.out.println("1:\tList uncleaned rooms\n2:\tCheck if room is cleaned\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -606,7 +606,7 @@ public class MainCLI{
 	private void handleSupportTickets(Staff actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Support Tickets - What do you want to do?");
+			System.out.println("\nSupport Tickets - What do you want to do?");
 			System.out.println("1:\tWrite Support Ticket\n2:\tList unfixed Support Tickets\n3:\tShow Support Tickets for a room\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -699,7 +699,7 @@ public class MainCLI{
 	private void reception(Clerk actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Reception - What do you want to do?");
+			System.out.println("\nReception - What do you want to do?");
 			System.out.println("1:\tFind booking by name\n2:\tFind booking by room ID\nOr 0 to discard and go back");
 			System.out.print(">");
 			try {
@@ -759,7 +759,7 @@ public class MainCLI{
 	private void handleBooking(Booking booking, Clerk actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Handle Booking - What do you want to do?");
+			System.out.println("\nHandle Booking - What do you want to do?");
 			System.out.println("1:\tCheck in\n2:\tCheck out\n\t3:Add Service Item\n\t4:Remove Service Item\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -843,7 +843,7 @@ public class MainCLI{
 			int input = -1;
 			while (input != 0) {
 				for (int i=0; i<list.size(); i++) {
-					System.out.print(i+ ":\t");
+					System.out.print((i+1)+ ":\t");
 					printRoomBooking(list.get(i));
 				}
 				System.out.print("Select a room booking or 0 to go back: ");
@@ -929,7 +929,7 @@ public class MainCLI{
 	private void handlePayment(Payment actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Payment - What do you want to do?");
+			System.out.println("\nPayment - What do you want to do?");
 			System.out.println("1:\tVerify a card\n2:\tMake a payment\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -973,7 +973,7 @@ public class MainCLI{
 	private void readFeedback(FeedbackReader actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Feedback - What do you want to do?");
+			System.out.println("\nFeedback - What do you want to do?");
 			System.out.println("1:\tRead un-read feedback\n2:\tRead all feedback\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -1012,7 +1012,7 @@ public class MainCLI{
 	private void handleRooms(SysAdmin actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Rooms - What do you want to do?");
+			System.out.println("\nRooms - What do you want to do?");
 			System.out.println("1:\tAdd a room\n2:\tEdit or remove a room\n3:\tFind a room\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -1061,7 +1061,7 @@ public class MainCLI{
 			while (input != 0) {
 				for (int i=0; i<list.size(); i++) {
 					Room r = list.get(i);
-					System.out.print(i+ ":\t");
+					System.out.print((i+1)+ ":\t");
 					System.out.println(r.getRoomName() + "\t" + r.getRoomType().getName());
 				}
 				System.out.print("Select a room or 0 to go back: ");
@@ -1136,7 +1136,7 @@ public class MainCLI{
 	private void handleRoomTypes(SysAdmin actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Room Types - What do you want to do?");
+			System.out.println("\nRoom Types - What do you want to do?");
 			System.out.println("1:\tAdd a room type\n2:\tEdit or remove a room type\n3:\tFind a room type\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -1201,7 +1201,7 @@ public class MainCLI{
 			while (input != 0) {
 				for (int i=0; i<list.size(); i++) {
 					RoomType rt = list.get(i);
-					System.out.print(i+ ":\t");
+					System.out.print((i+1)+ ":\t");
 					System.out.println(rt.getName() + "\t" + rt.getPrice() + "/day");
 				}
 				System.out.print("Select a room type or 0 to go back: ");
@@ -1305,7 +1305,7 @@ public class MainCLI{
 	private void handleRoomAttributes(RoomAttributeHandling actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("Room Attributes - What do you want to do?");
+			System.out.println("\nRoom Attributes - What do you want to do?");
 			System.out.println("1:\tAdd an attribute\n2:\tEdit or remove an attribute\n3:\tFind an attribute\nOr 0 to go back");
 			System.out.print(">");
 			try {
@@ -1350,7 +1350,7 @@ public class MainCLI{
 			while (input != 0) {
 				for (int i=0; i<list.size(); i++) {
 					RoomAttribute ra = list.get(i);
-					System.out.print(i+ ":\t");
+					System.out.print((i+1)+ ":\t");
 					System.out.println("Name:\t\t" + ra.getName());
 					System.out.println("\t\t" + (ra.getDescription().length()>60
 							? ra.getDescription().substring(0, 60) + "..."
