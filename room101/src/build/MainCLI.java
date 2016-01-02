@@ -436,6 +436,8 @@ public class MainCLI{
 	}
 	
 	private void printRoomBooking(RoomBooking rb) {
+		System.out.println(rb);
+		System.out.println(rb.getRoom());
 		System.out.println((rb.getRoom().getRoomType()!=null?rb.getRoom().getRoomType().getName():"<null>")
 				+ "\tfrom " + rb.getStartDate() + " to " + rb.getEndDate() + "\t"
 				+ rb.getRoom().getRoomType().getPrice() + "/day\tStatus: "
@@ -456,7 +458,7 @@ public class MainCLI{
 			} catch (ParseException e) {
 				System.out.println("Wrong format!");
 			}			
-		} while (startDate != null);
+		} while (startDate == null);
 		do {
 			System.out.print("Please state the end date (yyyy-mm-dd):");
 			try {
@@ -464,7 +466,7 @@ public class MainCLI{
 			} catch (ParseException e) {
 				System.out.println("Wrong format!");
 			}			
-		} while (endDate != null);
+		} while (endDate == null);
 		while (true) {
 			System.out.print("How many adults?: ");
 			try {
@@ -509,7 +511,8 @@ public class MainCLI{
 				break;
 			}
 			try {
-				actor.addRoom(booking, allRooms.get(input -1), nbrOfAdults, nbrOfChildren);
+				//VOLT CHECK THIS PLEASE skrev bara startDate, endDate för att inte få något error vet inte om det är rätt
+				actor.addRoom(booking, allRooms.get(input -1), nbrOfAdults, nbrOfChildren, startDate, endDate);
 				roomTypes.add(allRooms.get(input - 1));
 				allRooms.remove(input -1);
 			} catch (IndexOutOfBoundsException ex) {

@@ -38,10 +38,10 @@ public interface MakeBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" bookingRequired="true" bookingOrdered="false" roomRequired="true" roomOrdered="false" nbrOfAdultsDataType="org.eclipse.uml2.types.Integer" nbrOfAdultsRequired="true" nbrOfAdultsOrdered="false" nbrOfChildrenDataType="org.eclipse.uml2.types.Integer" nbrOfChildrenRequired="true" nbrOfChildrenOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" bookingRequired="true" bookingOrdered="false" roomRequired="true" roomOrdered="false" nbrOfAdultsDataType="org.eclipse.uml2.types.Integer" nbrOfAdultsRequired="true" nbrOfAdultsOrdered="false" nbrOfChildrenDataType="org.eclipse.uml2.types.Integer" nbrOfChildrenRequired="true" nbrOfChildrenOrdered="false" startDateRequired="true" startDateOrdered="false" endDateRequired="true" endDateOrdered="false"
 	 * @generated
 	 */
-	boolean addRoom(Booking booking, RoomType room, int nbrOfAdults, int nbrOfChildren);
+	boolean addRoom(Booking booking, RoomType room, int nbrOfAdults, int nbrOfChildren, Date startDate, Date endDate);
 
 	/**
 	 * <!-- begin-user-doc -->

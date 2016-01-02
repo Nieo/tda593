@@ -468,7 +468,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GUEST___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = SUPPORT_TICKET_WRITER_OPERATION_COUNT + 3;
+	int GUEST___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE = SUPPORT_TICKET_WRITER_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Confirm Booking</em>' operation.
@@ -540,7 +540,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = 2;
+	int MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE = 2;
 
 	/**
 	 * The operation id for the '<em>Confirm Booking</em>' operation.
@@ -1565,7 +1565,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLERK___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = STAFF_OPERATION_COUNT + 9;
+	int CLERK___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE = STAFF_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Confirm Booking</em>' operation.
@@ -2016,7 +2016,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = CLERK___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT;
+	int MANAGER___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE = CLERK___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE;
 
 	/**
 	 * The operation id for the '<em>Confirm Booking</em>' operation.
@@ -2745,7 +2745,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_HANDLER___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = RECEPTION_HANDLING_OPERATION_COUNT + 2;
+	int BOOKING_HANDLER___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE = RECEPTION_HANDLING_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Confirm Booking</em>' operation.
@@ -4295,14 +4295,14 @@ public interface RootElementPackage extends EPackage {
 	EOperation getMakeBooking__GetAvailableRooms__Date_Date_int_int();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.MakeBooking#addRoom(RootElement.Booking, RootElement.RoomType, int, int) <em>Add Room</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.MakeBooking#addRoom(RootElement.Booking, RootElement.RoomType, int, int, java.util.Date, java.util.Date) <em>Add Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Room</em>' operation.
-	 * @see RootElement.MakeBooking#addRoom(RootElement.Booking, RootElement.RoomType, int, int)
+	 * @see RootElement.MakeBooking#addRoom(RootElement.Booking, RootElement.RoomType, int, int, java.util.Date, java.util.Date)
 	 * @generated
 	 */
-	EOperation getMakeBooking__AddRoom__Booking_RoomType_int_int();
+	EOperation getMakeBooking__AddRoom__Booking_RoomType_int_int_Date_Date();
 
 	/**
 	 * Returns the meta object for the '{@link RootElement.MakeBooking#confirmBooking(RootElement.Booking, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String) <em>Confirm Booking</em>}' operation.
@@ -5699,7 +5699,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT = eINSTANCE.getMakeBooking__AddRoom__Booking_RoomType_int_int();
+		EOperation MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE = eINSTANCE.getMakeBooking__AddRoom__Booking_RoomType_int_int_Date_Date();
 
 		/**
 		 * The meta object literal for the '<em><b>Confirm Booking</b></em>' operation.

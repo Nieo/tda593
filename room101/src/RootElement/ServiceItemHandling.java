@@ -2,6 +2,7 @@
  */
 package RootElement;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -34,9 +35,9 @@ public interface ServiceItemHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" bookingRequired="true" bookingOrdered="false"
+	 * @model ordered="false" bookingRequired="true" bookingOrdered="false"
 	 * @generated
 	 */
-	ServiceItem findAllServiceItems(Booking booking);
+	EList<ServiceItem> findAllServiceItems(Booking booking);
 
 } // ServiceItemHandling

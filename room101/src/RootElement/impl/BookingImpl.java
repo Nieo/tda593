@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -98,6 +98,7 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 */
 	protected BookingImpl() {
 		super();
+		serviceitem = ECollections.<ServiceItem>emptyEList();
 	}
 
 	/**
@@ -196,12 +197,17 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public int calculateCost() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		int sum = 0;
+		for(RoomBooking b: roombooking){
+			sum += b.calculateCost();
+		}
+		for(ServiceItem s: serviceitem){
+			sum += s.getPrice();
+		}
+		return sum;
 	}
 
 	/**

@@ -40,6 +40,8 @@
       <eParameters name="room" ordered="false" lowerBound="1" eType="#//RoomType"/>
       <eParameters name="nbrOfAdults" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="nbrOfChildren" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="startDate" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eParameters name="endDate" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
     <eOperations name="confirmBooking" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
@@ -215,7 +217,7 @@
       <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
       <eParameters name="serviceItem" ordered="false" lowerBound="1" eType="#//ServiceItem"/>
     </eOperations>
-    <eOperations name="findAllServiceItems" ordered="false" lowerBound="1" eType="#//ServiceItem">
+    <eOperations name="findAllServiceItems" ordered="false" upperBound="-1" eType="#//ServiceItem">
       <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
     </eOperations>
   </eClassifiers>

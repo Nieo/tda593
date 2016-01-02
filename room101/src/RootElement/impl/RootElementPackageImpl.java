@@ -985,7 +985,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMakeBooking__AddRoom__Booking_RoomType_int_int() {
+	public EOperation getMakeBooking__AddRoom__Booking_RoomType_int_int_Date_Date() {
 		return makeBookingEClass.getEOperations().get(2);
 	}
 
@@ -1754,7 +1754,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		makeBookingEClass = createEClass(MAKE_BOOKING);
 		createEOperation(makeBookingEClass, MAKE_BOOKING___CREATE_BOOKING);
 		createEOperation(makeBookingEClass, MAKE_BOOKING___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT);
-		createEOperation(makeBookingEClass, MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT);
+		createEOperation(makeBookingEClass, MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE);
 		createEOperation(makeBookingEClass, MAKE_BOOKING___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING);
 		createEOperation(makeBookingEClass, MAKE_BOOKING___CANCEL_BOOKING__BOOKING);
 		createEOperation(makeBookingEClass, MAKE_BOOKING___LOOKUP_BOOKING__STRING_STRING);
@@ -2016,11 +2016,13 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		addEParameter(op, theTypesPackage.getInteger(), "nbrOfAdults", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "nbrOfChildren", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getMakeBooking__AddRoom__Booking_RoomType_int_int(), theTypesPackage.getBoolean(), "addRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getMakeBooking__AddRoom__Booking_RoomType_int_int_Date_Date(), theTypesPackage.getBoolean(), "addRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomType(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "nbrOfAdults", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "nbrOfChildren", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "startDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "endDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getMakeBooking__ConfirmBooking__Booking_String_String_String_String_int_String(), theTypesPackage.getBoolean(), "confirmBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2156,7 +2158,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getServiceItem(), "serviceItem", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getServiceItemHandling__FindAllServiceItems__Booking(), this.getServiceItem(), "findAllServiceItems", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getServiceItemHandling__FindAllServiceItems__Booking(), this.getServiceItem(), "findAllServiceItems", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(paymentEClass, Payment.class, "Payment", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

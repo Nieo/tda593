@@ -70,6 +70,8 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//MakeBooking/addRoom/room"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//MakeBooking/addRoom/nbrOfAdults"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//MakeBooking/addRoom/nbrOfChildren"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//MakeBooking/addRoom/startDate"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//MakeBooking/addRoom/endDate"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//MakeBooking/confirmBooking">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//MakeBooking/confirmBooking/booking"/>

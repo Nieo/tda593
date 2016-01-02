@@ -494,9 +494,10 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean addRoom(Booking booking, RoomType room, int nbrOfAdults, int nbrOfChildren) {
-		return makeBooking.addRoom(booking, room, nbrOfAdults, nbrOfChildren);
+	public boolean addRoom(Booking booking, RoomType room, int nbrOfAdults, int nbrOfChildren, Date startDate, Date endDate) {
+		return makeBooking.addRoom(booking, room, nbrOfAdults, nbrOfChildren, startDate, endDate);
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -683,7 +684,7 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 			switch (baseOperationID) {
 				case RootElementPackage.MAKE_BOOKING___CREATE_BOOKING: return RootElementPackage.GUEST___CREATE_BOOKING;
 				case RootElementPackage.MAKE_BOOKING___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT: return RootElementPackage.GUEST___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT;
-				case RootElementPackage.MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT: return RootElementPackage.GUEST___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT;
+				case RootElementPackage.MAKE_BOOKING___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE: return RootElementPackage.GUEST___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE;
 				case RootElementPackage.MAKE_BOOKING___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING: return RootElementPackage.GUEST___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING;
 				case RootElementPackage.MAKE_BOOKING___CANCEL_BOOKING__BOOKING: return RootElementPackage.GUEST___CANCEL_BOOKING__BOOKING;
 				case RootElementPackage.MAKE_BOOKING___LOOKUP_BOOKING__STRING_STRING: return RootElementPackage.GUEST___LOOKUP_BOOKING__STRING_STRING;
@@ -711,8 +712,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 				return createBooking();
 			case RootElementPackage.GUEST___GET_AVAILABLE_ROOMS__DATE_DATE_INT_INT:
 				return getAvailableRooms((Date)arguments.get(0), (Date)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
-			case RootElementPackage.GUEST___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT:
-				return addRoom((Booking)arguments.get(0), (RoomType)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
+			case RootElementPackage.GUEST___ADD_ROOM__BOOKING_ROOMTYPE_INT_INT_DATE_DATE:
+				return addRoom((Booking)arguments.get(0), (RoomType)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3), (Date)arguments.get(4), (Date)arguments.get(5));
 			case RootElementPackage.GUEST___CONFIRM_BOOKING__BOOKING_STRING_STRING_STRING_STRING_INT_STRING:
 				return confirmBooking((Booking)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (Integer)arguments.get(5), (String)arguments.get(6));
 			case RootElementPackage.GUEST___CANCEL_BOOKING__BOOKING:

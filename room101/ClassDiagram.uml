@@ -192,6 +192,12 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_RU1GwZ2NEeWgH5KZ_xCcgQ" name="success" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0-5oLGNEeW10Z9VaeIg1A" name="startDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_nypCALGNEeW10Z9VaeIg1A" name="endDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_RU1Gwp2NEeWgH5KZ_xCcgQ" name="confirmBooking">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_RU1Gw52NEeWgH5KZ_xCcgQ" name="booking" type="_d3V_0JddEeW0s9Al2d2tiA"/>
@@ -699,7 +705,10 @@
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_hJDRYKJDEeW1I_MccVmXPQ" name="findAllServiceItems">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_xcr38KJDEeW1I_MccVmXPQ" name="booking" type="_d3V_0JddEeW0s9Al2d2tiA"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Lg6IKJDEeW1I_MccVmXPQ" name="serviceItems" type="_a7disJ6eEeW2ZrS6EkHJUA" direction="return"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Lg6IKJDEeW1I_MccVmXPQ" name="serviceItems" type="_a7disJ6eEeW2ZrS6EkHJUA" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AeIEULGOEeW10Z9VaeIg1A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AeNj4LGOEeW10Z9VaeIg1A" value="*"/>
+      </ownedParameter>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_TDiD8KMOEeWIQtYXxhAt_g" name="HotelSystem">
