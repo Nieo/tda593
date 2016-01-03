@@ -2,6 +2,7 @@
  */
 package RootElement.impl;
 
+import RootElement.Feedback;
 import RootElement.RootElementPackage;
 import RootElement.SupportTicket;
 import RootElement.SupportTicketHandler;
@@ -10,6 +11,7 @@ import RootElement.SupportTicketWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -49,6 +51,7 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 	 */
 	protected SupportTicketHandlerImpl() {
 		super();
+		this.supportticket = new BasicEList<SupportTicket>();
 	}
 
 	/**
@@ -76,45 +79,54 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<SupportTicket> getUnfixedTickets() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<SupportTicket> unfixedTickets = new BasicEList<SupportTicket>();
+		for(SupportTicket ticket: supportticket){
+			if(!ticket.isFixed()){
+				unfixedTickets.add(ticket);
+			}
+		}
+
+		return unfixedTickets;	
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<SupportTicket> getSupportTicketsForRoom(String roomID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<SupportTicket> tickets = new BasicEList<SupportTicket>();
+		for(SupportTicket ticket: supportticket){
+			if(ticket.getRoomID().equals(roomID)){
+				tickets.add(ticket);
+			}
+		}
+
+		return tickets;	
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void markAsCompleted(SupportTicket supportTicket) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		supportTicket.setFixed(true);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void newSupportTicket(String roomID, String description) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		SupportTicket ticket = new SupportTicketImpl();
+		ticket.setRoomID(roomID);
+		ticket.setProblemDescription(description);
+		supportticket.add(ticket);
 	}
 
 	/**

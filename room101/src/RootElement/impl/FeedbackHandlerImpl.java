@@ -10,6 +10,7 @@ import RootElement.RootElementPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -24,6 +25,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * getAllFeedback()
+ * 
  * </p>
  * <ul>
  *   <li>{@link RootElement.impl.FeedbackHandlerImpl#getFeedback <em>Feedback</em>}</li>
@@ -49,6 +52,7 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 	 */
 	protected FeedbackHandlerImpl() {
 		super();
+		feedback = new BasicEList<Feedback>();
 	}
 
 	/**
@@ -76,34 +80,38 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Feedback> getAllFeedback() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return feedback;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Feedback> getUnreadFeedback() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Feedback> unreadFeedback = new BasicEList<Feedback>();
+		for(Feedback feedback: feedback){
+			if(!feedback.isRead()){
+				unreadFeedback.add(feedback);
+			}
+		}
+
+		return unreadFeedback;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void giveFeedback(String feedback, int rating) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Feedback temp = new FeedbackImpl();
+		temp.setFeedbackDescription(feedback);
+		temp.setRating(rating);
+		this.feedback.add(temp);
 	}
 
 	/**
