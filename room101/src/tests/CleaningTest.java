@@ -1,6 +1,8 @@
 package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -8,6 +10,8 @@ import java.util.NoSuchElementException;
 import org.junit.Before;
 import org.junit.Test;
 
+import RootElement.Booking;
+import RootElement.Clerk;
 import RootElement.HotelSystem;
 import RootElement.Manager;
 import RootElement.Room;
@@ -15,9 +19,6 @@ import RootElement.RoomType;
 import RootElement.Staff;
 import RootElement.SysAdmin;
 import RootElement.impl.HotelFactory;
-import RootElement.Booking;
-import RootElement.Cleaning;
-import RootElement.Clerk;
 /**
  * This test checks if the manager,staff and clerks can use 
  * the following methods successfully:
