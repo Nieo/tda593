@@ -45,23 +45,14 @@ public class ManagerImpl extends ClerkImpl implements Manager {
 	protected FeedbackReader feedbackReader;
 	
 	/**
-	 * Creates a manager user. The manager gets access to the room structure of
-	 * the hotel with the default name, as defined in RoomSetupFactory.
+	 * Creates a manager user. The manager gets access to the room structure
+	 * in the same way as the system administrator
 	 * @generated NOT
 	 */
 	protected ManagerImpl() {
-		this(RoomSetupFactory.DEFAULT_HOTELNAME);
-		feedbackReader = FeedbackHandlerFactory.createFeedbackReader();
-	}
-	
-	/**
-	 * Creates a manager user that gets access to the room structure of
-	 * the hotel with the given name.
-	 * @generated NOT
-	 */
-	protected ManagerImpl(String hotelName){
 		super();
-		sysAdmin = new SysAdminImpl(hotelName);
+		sysAdmin = new SysAdminImpl();
+		feedbackReader = FeedbackHandlerFactory.createFeedbackReader();
 	}
 
 	/**

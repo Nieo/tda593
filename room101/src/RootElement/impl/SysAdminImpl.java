@@ -22,11 +22,6 @@ import RootElement.SysAdmin;
  * The SysAdmin gives access for certain functionality the concrete
  * actor system administrator should be able to do.
  * 
- * For testing purposes, the SysAdmin can gain access to a hotel structure
- * by just providing its name as into the different room entity handlers
- * (RoomHandler, RoomTypeHandler, RoomAttributeHandler). This feature should
- * be turned off before shipping a product for any commercial market.
- * 
  * @author Matz Larsson
  */
 public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdmin {
@@ -50,23 +45,14 @@ public class SysAdminImpl extends MinimalEObjectImpl.Container implements SysAdm
 	
 	/**
 	 * Creates a sysadmin user that gets access to the room structure of
-	 * the hotel with the default name, as defined in RoomSetupFactory.
+	 * the current hotel.
 	 * @generated NOT
 	 */
 	protected SysAdminImpl(){
-		this(RoomSetupFactory.DEFAULT_HOTELNAME);
-	}
-
-	/**
-	 * Creates a sysadmin user that gets access to the room structure of
-	 * the hotel with the given name.
-	 * @generated NOT
-	 */
-	protected SysAdminImpl(String hotelName){
 		super();
-		roomHandling = RoomSetupFactory.createRoomHandling(hotelName);
-		roomTypeHandling = RoomSetupFactory.createRoomTypeHandling(hotelName);
-		roomAttributeHandling = RoomSetupFactory.createRoomAttributeHandling(hotelName);
+		roomHandling = RoomSetupFactory.createRoomHandling();
+		roomTypeHandling = RoomSetupFactory.createRoomTypeHandling();
+		roomAttributeHandling = RoomSetupFactory.createRoomAttributeHandling();
 	}
 
 	/**

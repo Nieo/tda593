@@ -48,7 +48,7 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	 */
 	protected CleaningHandlerImpl() {
 		super();
-		roomFetcher = RoomSetupFactory.createRoomFetcher(RoomSetupFactory.DEFAULT_HOTELNAME);
+		roomFetcher = RoomSetupFactory.createRoomFetcher();
 	}
 
 	/**

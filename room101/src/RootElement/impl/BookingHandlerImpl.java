@@ -76,7 +76,7 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	protected BookingHandlerImpl() {
 		super();
 		booking = ECollections.<Booking>newBasicEList();
-		roomFetcher = RoomSetupFactory.createRoomFetcher(RoomSetupFactory.DEFAULT_HOTELNAME);
+		roomFetcher = RoomSetupFactory.createRoomFetcher();
 	}
 
 	/**
