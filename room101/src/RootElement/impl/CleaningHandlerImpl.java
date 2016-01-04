@@ -3,7 +3,6 @@
 package RootElement.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.eclipse.emf.common.notify.Notification;
