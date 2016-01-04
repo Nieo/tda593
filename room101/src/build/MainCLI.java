@@ -952,7 +952,7 @@ public class MainCLI{
 			case 0:
 				break;
 			case 1:
-				System.out.print("Please enter the card number: ");
+				System.out.print("Please enter the card number (XXXX-XXXX-XXXX-XXXX): ");
 				if (actor.verifyCreditCard(in.nextLine().trim())) {
 					System.out.println("The card is valid.");
 				} else {
@@ -960,7 +960,7 @@ public class MainCLI{
 				}
 				break;
 			case 2:
-				System.out.print("Please enter the card number: ");
+				System.out.print("Please enter the card number  (XXXX-XXXX-XXXX-XXXX): ");
 				String card = in.nextLine().trim();
 				int amount = 0;
 				while (true) {
