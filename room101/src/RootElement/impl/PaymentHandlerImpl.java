@@ -58,9 +58,11 @@ public class PaymentHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated NOT
 	 */
 	public boolean debitCard(String creditCard, int amount) {
-		if(verifyCreditCard(creditCard))
+		//There is no limitation on the value of the amount integer.
+		boolean success = verifyCreditCard(creditCard)/*&& amount >0*/;
+		if(success)
 			System.out.println(amount+" SEK was deducted from credit card:("+creditCard+")");
-		return verifyCreditCard(creditCard) ;
+		return success ;
 	}
 
 	/**
