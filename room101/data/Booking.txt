@@ -1,0 +1,17 @@
+# This file is for adding bookings to the system.
+# To complete a booking you must:
+# 1 - Open the booking with 'newbooking'
+# 2 - Add room bookings with 'addroomtobooking'
+# 3 - Confirm the booking with 'confirmbooking'
+# 'newbooking'
+# 'addroomtobooking $ <room type> $ <start date on form yyyy-mm-dd> $ <end date on form yyyy-mm-dd> $ <nbrOfAdults> $ <nbrOfChildren>'
+# 'confirmbooking $ <name> $ <phone number> $ <mail> $ <nationality> $ <passportNr> $ <nextDestination>'
+# For example:
+# newbooking
+# addroomtobooking $ TV room $ 2015-01-15 $ 2015-01-20 $ 2 $ 1
+# confirmbooking $ Steve Stevenson $ 0123456789 $ steve@stevenet.net $ GB $ 666 $ Saudi Arabia
+# -----------------------------------------------------------
+
+newbooking
+addroomtobooking $ TV room $ 2015-01-15 $ 2015-01-20 $ 2 $ 1
+confirmbooking $ Steve Stevenson $ 0123456789 $ steve@stevenet.net $ GB $ 666 $ Saudi Arabia

@@ -1,0 +1,7 @@
+# This file is for adding feedback on the form
+# 'addfeedback $ <feedback description> $ <rating>'
+# For example:
+# addFeedback $ The room sucked. The window was see-through though which was nice. $ 2
+# -----------------------------------------------------------
+
+addFeedback $ The room sucked. The window was see-through though which was nice. $ 2

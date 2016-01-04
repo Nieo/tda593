@@ -1,0 +1,7 @@
+# This file is for adding support tickets on the form
+# 'addsupportticket $ <room name> $ <description>'
+# For example:
+# addSupportTicket $ 14B $ The toilet has a very... aggressive return policy.
+# -----------------------------------------------------------
+
+addSupportTicket $ 14B $ The toilet has a very... aggressive return policy.
