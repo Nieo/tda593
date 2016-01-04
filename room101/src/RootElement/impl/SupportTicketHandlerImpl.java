@@ -2,7 +2,6 @@
  */
 package RootElement.impl;
 
-import RootElement.Feedback;
 import RootElement.RootElementPackage;
 import RootElement.SupportTicket;
 import RootElement.SupportTicketHandler;

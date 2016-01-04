@@ -1,0 +1,7 @@
+# This file is for adding room types on the form
+# 'addroomtype $ <name of type> $ <price per night> $ <attribute 1> $ <attribute 2> $ ...'
+# For example:
+# addRoomType $ TV room $ 399 $ Television
+# -----------------------------------------------------------
+
+addRoomType $ TV room $ 399 $ Television

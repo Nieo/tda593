@@ -55,6 +55,9 @@ public class MainCLI{
 		hotel = HotelFactory.createHotelSystem();
 		
 		System.out.println("Welcome to the best hotel booking system in the world!");
+		System.out.println("Loading resourses...");
+		HotelSystemInitiator.init(hotel);
+		System.out.println("Load complete.");
 		loginSelect();
 		System.out.println("Exiting the hotel booking system...");
 		
@@ -376,10 +379,10 @@ public class MainCLI{
 		phone = in.nextLine().trim();
 		System.out.println("What's your e-mail? (optional): ");
 		mail = in.nextLine().trim();
-		System.out.println("What's your nationality?: ");
+		System.out.println("What's your nationality? Use the nationality code (e.g SE, GB etc.): ");
 		nationality = in.nextLine().trim();
 		String natLow = nationality.toLowerCase().trim();
-		if (!natLow.equals("sweden") && !natLow.equals("sverige") && !natLow.equals("se")) {
+		if (!natLow.equals("se")) {
 			while (true) {
 				System.out.print("What's your passport number?: ");
 				try {
@@ -388,6 +391,10 @@ public class MainCLI{
 				} catch (NumberFormatException e) {
 					System.out.println("Wrong format! Only an integer number is allowed!");
 				}
+			}
+			while (true) {
+				System.out.print("What's your next destination?: ");
+				nextDest = in.nextLine().trim();
 			}
 		}
 		return actor.confirmBooking(booking, name, phone, mail, nationality, passportNbr, nextDest);
@@ -511,7 +518,6 @@ public class MainCLI{
 				break;
 			}
 			try {
-				//VOLT CHECK THIS PLEASE skrev bara startDate, endDate för att inte få något error vet inte om det är rätt
 				actor.addRoom(booking, allRooms.get(input -1), nbrOfAdults, nbrOfChildren, startDate, endDate);
 				roomTypes.add(allRooms.get(input - 1));
 				allRooms.remove(input -1);
@@ -950,7 +956,7 @@ public class MainCLI{
 				if (actor.verifyCreditCard(in.nextLine().trim())) {
 					System.out.println("The card is valid.");
 				} else {
-					System.out.println("The car is NOT valid.");
+					System.out.println("The card is NOT valid.");
 				}
 				break;
 			case 2:

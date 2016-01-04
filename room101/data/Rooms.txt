@@ -1,0 +1,7 @@
+# This file is for adding rooms on the form
+# 'addroom $ <name of room> $ <room type>'
+# For example:
+# addRoom $ TV room 1 $ TV room
+# -----------------------------------------------------------
+
+addRoom $ TV room 1 $ TV room
