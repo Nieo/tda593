@@ -458,8 +458,8 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void newSupportTicket(String roomID, String description) {
-		supportTicketWriter.newSupportTicket(roomID, description);
+	public void newSupportTicket(String roomName, String description) {
+		supportTicketWriter.newSupportTicket(roomName, description);
 	}
 
 	/**

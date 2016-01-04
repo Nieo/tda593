@@ -18,9 +18,9 @@ public interface SupportTicketWriter extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model roomIDDataType="org.eclipse.uml2.types.String" roomIDRequired="true" roomIDOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false"
+	 * @model roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false"
 	 * @generated
 	 */
-	void newSupportTicket(String roomID, String description);
+	void newSupportTicket(String roomName, String description);
 
 } // SupportTicketWriter

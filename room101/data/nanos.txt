@@ -1,0 +1,9 @@
+addRoomAttribute $ Stupid $ Hurr durr I'm stupid LoL.
+addRoomAttribute $ Help $ I don't know what I'm doing, help!
+addRoomAttribute $ Nanos grej $ I'm swinglish huhu.
+
+addRoomType $ Dumb type $ 9999 $ Stupid
+addRoomType $ Nano $ 19 $ Help $ Nanos grej
+
+addRoom $ Stupid room $ Dumb type
+addRoom $ Nanos room $ Nano

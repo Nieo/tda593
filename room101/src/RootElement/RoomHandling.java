@@ -23,7 +23,7 @@ public interface RoomHandling extends EObject {
 	 * @model required="true" ordered="false" roomTypeRequired="true" roomTypeOrdered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
 	 * @generated
 	 */
-	Room addRoom(RoomType roomType, String roomName);
+	Room addRoom(RoomType roomType, String roomName) throws IllegalArgumentException;
 
 	/**
 	 * <!-- begin-user-doc -->

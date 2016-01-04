@@ -71,7 +71,7 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected BookingHandlerImpl() {
 		super();
@@ -185,11 +185,11 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Booking findActiveBooking(String roomID) {
+	public Booking findActiveBooking(String roomName) {
 		for(Booking b: booking){
 			for(RoomBooking rb: b.getRoombooking()){
 				try{
-				if(rb.getRoom().getRoomName().equals(roomID) && rb.getBookingStatus() == BookingStatus.CHECKED_IN){ 
+				if(rb.getRoom().getName().equals(roomName) && rb.getBookingStatus() == BookingStatus.CHECKED_IN){ 
 					return b;
 				}
 				}catch(NullPointerException e){
@@ -219,11 +219,14 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	public EList<RoomType> getAvailableRooms(Date startDate, Date endDate, int nbrOfAdults, int nbrOfChildren) {
 		//Check how many rooms of each type there are
 		HashMap<RoomType,Integer> types = new HashMap<RoomType, Integer>();
+		int nbrOfPeople = nbrOfAdults+nbrOfChildren;
 		for(Room r: roomFetcher.getBookableRooms()){
-			if(types.containsKey(r.getRoomType())){
-				types.put(r.getRoomType(),types.get(r.getRoomType()) + 1);
-			}else{
-				types.put(r.getRoomType(), 1);
+			if(r.getRoomType() != null && r.getRoomType().getCapacity()>=nbrOfPeople){
+				if(types.containsKey(r.getRoomType())){
+					types.put(r.getRoomType(),types.get(r.getRoomType()) + 1);
+				}else{
+					types.put(r.getRoomType(), 1);
+				}
 			}
 		}
 		//Remove 1 room for each booking in the interval 

@@ -62,7 +62,7 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_nt6QEKJEEeW1I_MccVmXPQ" name="findActiveBooking">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_nt6QEaJEEeW1I_MccVmXPQ" name="roomID">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_nt6QEaJEEeW1I_MccVmXPQ" name="roomName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_nt6QEqJEEeW1I_MccVmXPQ" name="booking" direction="return">
@@ -220,7 +220,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_CboLgJhjEeWMcJhD21JL8g" name="Cleaning">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_VI7_MJhjEeWMcJhD21JL8g" name="checkIfRoomCleaned">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_z3cT4JhjEeWMcJhD21JL8g" name="roomID">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_z3cT4JhjEeWMcJhD21JL8g" name="roomName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_2h_CgJmrEeWYBuYql6Mw0g" name="isCleaned" direction="return">
@@ -273,7 +273,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_Mlg6sJhlEeWMcJhD21JL8g" name="WriteSupportTicket">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_U46UQJhlEeWMcJhD21JL8g" name="newSupportTicket">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_auVPgJhlEeWMcJhD21JL8g" name="roomID">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_auVPgJhlEeWMcJhD21JL8g" name="roomName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_cV7fcJhlEeWMcJhD21JL8g" name="description">
@@ -290,7 +290,7 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_xh0OYJhlEeWMcJhD21JL8g" name="getSupportTicketsForRoom">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_NwVf0JmpEeWYBuYql6Mw0g" name="roomID">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_NwVf0JmpEeWYBuYql6Mw0g" name="roomName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_2dQ0sJhlEeWMcJhD21JL8g" name="supportTicketList" direction="return">

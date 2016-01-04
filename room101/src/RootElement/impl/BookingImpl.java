@@ -94,11 +94,11 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected BookingImpl() {
 		super();
-		serviceitem = ECollections.<ServiceItem>emptyEList();
+		serviceitem = ECollections.<ServiceItem>newBasicEList();
 	}
 
 	/**

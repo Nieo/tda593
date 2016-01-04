@@ -23,7 +23,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SupportTicketWriter" abstract="true"
       interface="true">
     <eOperations name="newSupportTicket" ordered="false" lowerBound="1">
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="description" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>
@@ -91,8 +91,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Room">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOccupied" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roomName" ordered="false"
-        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="needCleaning" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roomType" ordered="false"
@@ -111,6 +111,8 @@
         lowerBound="1" eType="ecore:EDataType types.ecore#//Integer" changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roomAttributes" ordered="false"
         upperBound="-1" eType="#//RoomAttribute" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoomAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
@@ -156,7 +158,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Cleaning" abstract="true" interface="true">
     <eOperations name="checkIfRoomCleaned" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="getListOfUncleanRooms" ordered="false" upperBound="-1" eType="#//Room"/>
     <eOperations name="markRoomAsCleaned" ordered="false" lowerBound="1">
@@ -167,7 +169,7 @@
       interface="true">
     <eOperations name="getUnfixedTickets" ordered="false" upperBound="-1" eType="#//SupportTicket"/>
     <eOperations name="getSupportTicketsForRoom" ordered="false" upperBound="-1" eType="#//SupportTicket">
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="markAsCompleted" ordered="false" lowerBound="1">
       <eParameters name="supportTicket" ordered="false" lowerBound="1" eType="#//SupportTicket"/>
@@ -176,7 +178,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SupportTicket">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="problemDescription" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roomID" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roomName" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" ordered="false"
         lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean" defaultValueLiteral="false"/>
@@ -202,7 +204,7 @@
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="findActiveBooking" ordered="false" lowerBound="1" eType="#//Booking">
-      <eParameters name="roomID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="roomName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceItemHandling" abstract="true"

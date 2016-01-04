@@ -2,22 +2,20 @@
  */
 package RootElement.impl;
 
-import RootElement.Feedback;
-import RootElement.FeedbackHandler;
-import RootElement.FeedbackWriter;
-import RootElement.RootElementPackage;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import RootElement.Feedback;
+import RootElement.FeedbackHandler;
+import RootElement.FeedbackWriter;
+import RootElement.RootElementPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,8 +23,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * getAllFeedback()
- * 
  * </p>
  * <ul>
  *   <li>{@link RootElement.impl.FeedbackHandlerImpl#getFeedback <em>Feedback</em>}</li>
@@ -48,11 +44,11 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected FeedbackHandlerImpl() {
 		super();
-		feedback = new BasicEList<Feedback>();
+		feedback = ECollections.<Feedback>newBasicEList();
 	}
 
 	/**

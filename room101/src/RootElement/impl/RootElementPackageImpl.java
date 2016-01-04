@@ -499,7 +499,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRoom_RoomName() {
+	public EAttribute getRoom_Name() {
 		return (EAttribute)roomEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -555,6 +555,15 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 */
 	public EReference getRoomType_RoomAttributes() {
 		return (EReference)roomTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRoomType_Capacity() {
+		return (EAttribute)roomTypeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -868,7 +877,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSupportTicket_RoomID() {
+	public EAttribute getSupportTicket_RoomName() {
 		return (EAttribute)supportTicketEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1775,7 +1784,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		roomEClass = createEClass(ROOM);
 		createEAttribute(roomEClass, ROOM__IS_OCCUPIED);
-		createEAttribute(roomEClass, ROOM__ROOM_NAME);
+		createEAttribute(roomEClass, ROOM__NAME);
 		createEAttribute(roomEClass, ROOM__NEED_CLEANING);
 		createEReference(roomEClass, ROOM__ROOM_TYPE);
 
@@ -1783,6 +1792,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEAttribute(roomTypeEClass, ROOM_TYPE__NAME);
 		createEAttribute(roomTypeEClass, ROOM_TYPE__PRICE);
 		createEReference(roomTypeEClass, ROOM_TYPE__ROOM_ATTRIBUTES);
+		createEAttribute(roomTypeEClass, ROOM_TYPE__CAPACITY);
 		createEOperation(roomTypeEClass, ROOM_TYPE___ADD_ROOM_ATTRIBUTE__ROOMATTRIBUTE);
 		createEOperation(roomTypeEClass, ROOM_TYPE___REMOVE_ROOM_ATTRIBUTE__ROOMATTRIBUTE);
 
@@ -1823,7 +1833,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		supportTicketEClass = createEClass(SUPPORT_TICKET);
 		createEAttribute(supportTicketEClass, SUPPORT_TICKET__PROBLEM_DESCRIPTION);
-		createEAttribute(supportTicketEClass, SUPPORT_TICKET__ROOM_ID);
+		createEAttribute(supportTicketEClass, SUPPORT_TICKET__ROOM_NAME);
 		createEAttribute(supportTicketEClass, SUPPORT_TICKET__FIXED);
 
 		clerkEClass = createEClass(CLERK);
@@ -2003,7 +2013,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		initEClass(supportTicketWriterEClass, SupportTicketWriter.class, "SupportTicketWriter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		EOperation op = initEOperation(getSupportTicketWriter__NewSupportTicket__String_String(), null, "newSupportTicket", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(makeBookingEClass, MakeBooking.class, "MakeBooking", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2058,7 +2068,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoom_IsOccupied(), theTypesPackage.getBoolean(), "isOccupied", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRoom_RoomName(), theTypesPackage.getString(), "roomName", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoom_Name(), theTypesPackage.getString(), "name", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoom_NeedCleaning(), theTypesPackage.getBoolean(), "needCleaning", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRoom_RoomType(), this.getRoomType(), null, "roomType", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -2066,6 +2076,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		initEAttribute(getRoomType_Name(), theTypesPackage.getString(), "name", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoomType_Price(), theTypesPackage.getInteger(), "price", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRoomType_RoomAttributes(), this.getRoomAttribute(), null, "roomAttributes", null, 0, -1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoomType_Capacity(), theTypesPackage.getInteger(), "capacity", null, 1, 1, RoomType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getRoomType__AddRoomAttribute__RoomAttribute(), ecorePackage.getEBoolean(), "addRoomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomAttribute(), "roomAttribute", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2104,7 +2115,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		initEClass(cleaningEClass, Cleaning.class, "Cleaning", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getCleaning__CheckIfRoomCleaned__String(), theTypesPackage.getBoolean(), "checkIfRoomCleaned", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEOperation(getCleaning__GetListOfUncleanRooms(), this.getRoom(), "getListOfUncleanRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
@@ -2116,14 +2127,14 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		initEOperation(getSupportTicketReader__GetUnfixedTickets(), this.getSupportTicket(), "getUnfixedTickets", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getSupportTicketReader__GetSupportTicketsForRoom__String(), this.getSupportTicket(), "getSupportTicketsForRoom", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getSupportTicketReader__MarkAsCompleted__SupportTicket(), null, "markAsCompleted", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getSupportTicket(), "supportTicket", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(supportTicketEClass, SupportTicket.class, "SupportTicket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSupportTicket_ProblemDescription(), theTypesPackage.getString(), "problemDescription", null, 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getSupportTicket_RoomID(), theTypesPackage.getString(), "roomID", null, 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSupportTicket_RoomName(), theTypesPackage.getString(), "roomName", null, 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSupportTicket_Fixed(), theTypesPackage.getBoolean(), "fixed", "false", 1, 1, SupportTicket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(clerkEClass, Clerk.class, "Clerk", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2144,7 +2155,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getReceptionHandling__FindActiveBooking__String(), this.getBooking(), "findActiveBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(serviceItemHandlingEClass, ServiceItemHandling.class, "ServiceItemHandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -3,7 +3,6 @@
 package RootElement.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -107,15 +106,15 @@ public class CleaningHandlerImpl extends MinimalEObjectImpl.Container implements
 	 * @return true if the room is clean
 	 * <!-- end-user-doc -->
 	 * @generated NOT
-	 * @throws NoSuchElementException if there are no rooms with the roomId
+	 * @throws NoSuchElementException if there are no rooms with the given name
 	 */
-	public boolean checkIfRoomCleaned(String roomID) throws NoSuchElementException {
+	public boolean checkIfRoomCleaned(String roomName) throws NoSuchElementException {
 		for(Room r: roomFetcher.getAllCleanableRooms()){
-			if(r.getRoomName().equals(roomID)){
+			if(r.getName().equals(roomName)){
 				return !r.isNeedCleaning(); 
 			}
 		}
-		throw new NoSuchElementException("No room with the roomID in the hotel"); 
+		throw new NoSuchElementException("No room with the room name in the hotel"); 
 	}
 
 	/**

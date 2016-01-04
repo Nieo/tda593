@@ -100,13 +100,44 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * Adds a room with the given properties to the list of available
-	 * rooms at the current hotel.
+	 * rooms at the current hotel. The room name must be unique for the
+	 * rooms of the current hotel.
+	 * @throws IllegalArgumentException if another room with the same name exists.
 	 * @generated NOT
 	 */
-	public Room addRoom(RoomType roomType, String roomName) {
+	public Room addRoom(RoomType roomType, String roomName) throws IllegalArgumentException{
+		for(Room r : rooms){
+			if(r.getName() != null && r.getName().equals(roomName)){
+				throw new IllegalArgumentException("Invalid name : A Room with that name already exists");
+			}
+		}
+		
 		Room room = createRoom(roomName, roomType);
 		rooms.add(room);
 		return room;
+	}
+
+	/**
+	 * Updates the room with the given name with the new parameters. The given name must be
+	 * unique for the rooms of the current hotel system.
+	 * @generated NOT
+	 */
+	public boolean editRoom(Room room, RoomType newRoomType, String newRoomName) {
+		if(room != null){
+			if(newRoomName != null && (room.getName() == null || !room.getName().equals(newRoomName))){
+				for(Room r : rooms){
+					if(r != room && r.getName() != null && r.getName().equals(newRoomName)){
+						return false;
+					}
+				}
+			}
+			
+			room.setRoomType(newRoomType);
+			room.setName(newRoomName);
+			return true;
+		}
+		
+		return false;
 	}
 
 	/**
@@ -119,20 +150,6 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	}
 
 	/**
-	 * Updates the room with the given name with the new parameters.
-	 * @generated NOT
-	 */
-	public boolean editRoom(Room room, RoomType newRoomType, String newRoomName) {
-		if(room != null){
-			room.setRoomType(newRoomType);
-			room.setRoomName(newRoomName);
-			return true;
-		}
-		
-		return false;
-	}
-
-	/**
 	 * Searches for rooms among the available at the hotel with
 	 * names matching the given argument
 	 * @generated NOT
@@ -142,7 +159,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 		if(roomName != null){
 			roomName = roomName.toLowerCase();
 			for(Room room : rooms){
-				if(room.getRoomName() != null && room.getRoomName().toLowerCase().contains(roomName)){
+				if(room.getName() != null && room.getName().toLowerCase().contains(roomName)){
 					foundRooms.add(room);
 				}
 			}
@@ -161,21 +178,39 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * Adds a room type with the given properties to the list of available
-	 * room types at the current hotel.
+	 * room types at the current hotel. Returns null if name is null.
+	 * @throws IllegalArgumentException if another room type with the same name exists.
 	 * @generated NOT
 	 */
-	public RoomType addRoomType(String name, int cost) {
-		RoomType type = createRoomType(name, cost);
-		roomTypes.add(type);
-		return type;
+	public RoomType addRoomType(String name, int cost) throws IllegalArgumentException{
+		if(name != null){
+			for(RoomType rt : roomTypes){
+				if(rt.getName().equals(name)){
+					throw new IllegalArgumentException("Invalid name : A RoomType with that name already exists");
+				}
+			}
+			
+			RoomType type = createRoomType(name, cost);
+			roomTypes.add(type);
+			return type;
+		}else{
+			return null;
+		}
 	}
 
 	/**
-	 * Updates the given room type with the new parameters.
+	 * Updates the given room type with the new parameters. The newName parameter
+	 * must be unique for the hotel system and non-null.
 	 * @generated NOT
 	 */
 	public boolean editRoomType(RoomType roomType, String newName, int newCost) {
-		if(roomType != null){
+		if(roomType != null && newName != null){
+			for(RoomType rt : roomTypes){
+				if(rt != roomType && rt.getName().equals(newName)){
+					return false;
+				}
+			}
+			
 			roomType.setName(newName);
 			((RoomTypeImpl)roomType).setPrice(newCost);
 			return true;
@@ -258,21 +293,41 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 
 	/**
 	 * Adds a room attribute with the given properties to the list of available
-	 * room attributes at the current hotel.
+	 * room attributes at the current hotel. Return null if name is null
+	 * @throws IllegalArgumentException if a room attribute with the given name already exists
 	 * @generated NOT
 	 */
-	public RoomAttribute addRoomAttribute(String name, String description) {
-		RoomAttribute attribute = createRoomAttribute(name, description);
-		roomAttributes.add(attribute);
-		return attribute;
+	public RoomAttribute addRoomAttribute(String name, String description) throws IllegalArgumentException{
+		if(name != null){
+			for(RoomAttribute attribute : roomAttributes){
+				if(attribute.getName().equals(name)){
+					throw new IllegalArgumentException("Invalid name : A RoomAttribute with that name already exists");
+				}
+			}
+			
+			RoomAttribute attribute = createRoomAttribute(name, description);
+			roomAttributes.add(attribute);
+			return attribute;
+		}else{
+			return null;
+		}
 	}
 
 	/**
-	 * Updates the given room attribute with the new parameters.
+	 * Updates the given room attribute with the new parameters. No other attributes in
+	 * the hotel system should have the name newName. The name should also not be null.
 	 * @generated NOT
 	 */
 	public boolean editRoomAttribute(RoomAttribute roomAttribute, String newName, String newDescription) {
-		if(roomAttribute != null){
+		if(roomAttribute != null && newName != null){
+			if(!roomAttribute.getName().equals(newName)){
+				for(RoomAttribute attribute : roomAttributes){
+					if(attribute != roomAttribute && attribute.getName().equals(newName)){
+						return false;
+					}
+				}
+			}
+			
 			roomAttribute.setName(newName);
 			roomAttribute.setDescription(newDescription);
 			return true;
@@ -337,7 +392,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 		EList<Room> bookableRooms = new EObjectResolvingEList<Room>(Room.class, this, -1); 	//TODO solve how to make the last param more intuitive.
 		ECollections.setEList(bookableRooms, rooms);
 		for(Room room : bookableRooms){
-			if(room.getRoomName() == null || room.getRoomType() == null){
+			if(room.getName() == null || room.getRoomType() == null){
 				bookableRooms.remove(room);
 			}
 		}
@@ -366,9 +421,9 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * Creates a room from the given values and returns the reference
 	 * to the created object.
 	 */
-	private Room createRoom(String roomID, RoomType roomType){
+	private Room createRoom(String roomName, RoomType roomType){
 		Room room = new RoomImpl();
-		room.setRoomName(roomID);
+		room.setName(roomName);
 		room.setRoomType(roomType);
 		return room;
 	}

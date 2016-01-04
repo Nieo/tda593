@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link RootElement.RoomType#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.RoomType#getPrice <em>Price</em>}</li>
  *   <li>{@link RootElement.RoomType#getRoomAttributes <em>Room Attributes</em>}</li>
+ *   <li>{@link RootElement.RoomType#getCapacity <em>Capacity</em>}</li>
  * </ul>
  *
  * @see RootElement.RootElementPackage#getRoomType()
@@ -80,6 +81,32 @@ public interface RoomType extends EObject {
 	 * @generated
 	 */
 	EList<RoomAttribute> getRoomAttributes();
+
+	/**
+	 * Returns the value of the '<em><b>Capacity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Capacity</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Capacity</em>' attribute.
+	 * @see #setCapacity(int)
+	 * @see RootElement.RootElementPackage#getRoomType_Capacity()
+	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
+	 * @generated
+	 */
+	int getCapacity();
+
+	/**
+	 * Sets the value of the '{@link RootElement.RoomType#getCapacity <em>Capacity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Capacity</em>' attribute.
+	 * @see #getCapacity()
+	 * @generated
+	 */
+	void setCapacity(int value);
 
 	/**
 	 * Adds an attribute to this room type

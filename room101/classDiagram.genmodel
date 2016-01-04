@@ -53,7 +53,7 @@
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//SupportTicketWriter">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//SupportTicketWriter/newSupportTicket">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketWriter/newSupportTicket/roomID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketWriter/newSupportTicket/roomName"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketWriter/newSupportTicket/description"/>
       </genOperations>
     </genClasses>
@@ -110,7 +110,7 @@
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="RootElement.ecore#//Room">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//Room/isOccupied"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//Room/roomName"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//Room/name"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//Room/needCleaning"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference RootElement.ecore#//Room/roomType"/>
@@ -120,6 +120,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//RoomType/price"/>
       <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
           createChild="false" ecoreFeature="ecore:EReference RootElement.ecore#//RoomType/roomAttributes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//RoomType/capacity"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomType/addRoomAttribute">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomType/addRoomAttribute/roomAttribute"/>
       </genOperations>
@@ -160,7 +161,7 @@
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//Cleaning">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//Cleaning/checkIfRoomCleaned">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//Cleaning/checkIfRoomCleaned/roomID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//Cleaning/checkIfRoomCleaned/roomName"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//Cleaning/getListOfUncleanRooms"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//Cleaning/markRoomAsCleaned">
@@ -170,7 +171,7 @@
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//SupportTicketReader">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//SupportTicketReader/getUnfixedTickets"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//SupportTicketReader/getSupportTicketsForRoom">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketReader/getSupportTicketsForRoom/roomID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketReader/getSupportTicketsForRoom/roomName"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//SupportTicketReader/markAsCompleted">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//SupportTicketReader/markAsCompleted/supportTicket"/>
@@ -178,7 +179,7 @@
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="RootElement.ecore#//SupportTicket">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//SupportTicket/problemDescription"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//SupportTicket/roomID"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//SupportTicket/roomName"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute RootElement.ecore#//SupportTicket/fixed"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="RootElement.ecore#//Clerk">
@@ -202,7 +203,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ReceptionHandling/findBookings/name"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//ReceptionHandling/findActiveBooking">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ReceptionHandling/findActiveBooking/roomID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//ReceptionHandling/findActiveBooking/roomName"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//ServiceItemHandling">

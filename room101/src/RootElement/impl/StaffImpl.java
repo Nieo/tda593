@@ -291,8 +291,8 @@ public class StaffImpl extends MinimalEObjectImpl.Container implements Staff {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean checkIfRoomCleaned(String roomID) {
-		return cleaning.checkIfRoomCleaned(roomID);
+	public boolean checkIfRoomCleaned(String roomName) {
+		return cleaning.checkIfRoomCleaned(roomName);
 	}
 
 	/**
@@ -318,8 +318,8 @@ public class StaffImpl extends MinimalEObjectImpl.Container implements Staff {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void newSupportTicket(String roomID, String description) {
-		supportTicketWriter.newSupportTicket(roomID, description);
+	public void newSupportTicket(String roomName, String description) {
+		supportTicketWriter.newSupportTicket(roomName, description);
 	}
 
 	/**
@@ -336,8 +336,8 @@ public class StaffImpl extends MinimalEObjectImpl.Container implements Staff {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<SupportTicket> getSupportTicketsForRoom(String roomID) {
-		return supportTicketReader.getSupportTicketsForRoom(roomID);
+	public EList<SupportTicket> getSupportTicketsForRoom(String roomName) {
+		return supportTicketReader.getSupportTicketsForRoom(roomName);
 	}
 
 	/**

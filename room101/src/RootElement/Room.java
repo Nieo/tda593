@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link RootElement.Room#isOccupied <em>Is Occupied</em>}</li>
- *   <li>{@link RootElement.Room#getRoomName <em>Room Name</em>}</li>
+ *   <li>{@link RootElement.Room#getName <em>Name</em>}</li>
  *   <li>{@link RootElement.Room#isNeedCleaning <em>Need Cleaning</em>}</li>
  *   <li>{@link RootElement.Room#getRoomType <em>Room Type</em>}</li>
  * </ul>
@@ -51,30 +51,30 @@ public interface Room extends EObject {
 	void setIsOccupied(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Room Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Room Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Room Name</em>' attribute.
-	 * @see #setRoomName(String)
-	 * @see RootElement.RootElementPackage#getRoom_RoomName()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see RootElement.RootElementPackage#getRoom_Name()
 	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
-	String getRoomName();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link RootElement.Room#getRoomName <em>Room Name</em>}' attribute.
+	 * Sets the value of the '{@link RootElement.Room#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Room Name</em>' attribute.
-	 * @see #getRoomName()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setRoomName(String value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Need Cleaning</b></em>' attribute.

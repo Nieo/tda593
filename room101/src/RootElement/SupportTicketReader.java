@@ -28,10 +28,10 @@ public interface SupportTicketReader extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model ordered="false" roomIDDataType="org.eclipse.uml2.types.String" roomIDRequired="true" roomIDOrdered="false"
+	 * @model ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
 	 * @generated
 	 */
-	EList<SupportTicket> getSupportTicketsForRoom(String roomID);
+	EList<SupportTicket> getSupportTicketsForRoom(String roomName);
 
 	/**
 	 * <!-- begin-user-doc -->

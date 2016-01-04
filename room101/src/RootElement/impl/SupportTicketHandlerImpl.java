@@ -2,22 +2,20 @@
  */
 package RootElement.impl;
 
-import RootElement.RootElementPackage;
-import RootElement.SupportTicket;
-import RootElement.SupportTicketHandler;
-
-import RootElement.SupportTicketWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import RootElement.RootElementPackage;
+import RootElement.SupportTicket;
+import RootElement.SupportTicketHandler;
+import RootElement.SupportTicketWriter;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,11 +44,11 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected SupportTicketHandlerImpl() {
 		super();
-		this.supportticket = new BasicEList<SupportTicket>();
+		supportticket = ECollections.<SupportTicket>newBasicEList();
 	}
 
 	/**
@@ -96,10 +94,10 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<SupportTicket> getSupportTicketsForRoom(String roomID) {
+	public EList<SupportTicket> getSupportTicketsForRoom(String roomName) {
 		EList<SupportTicket> tickets = new BasicEList<SupportTicket>();
 		for(SupportTicket ticket: supportticket){
-			if(ticket.getRoomID().equals(roomID)){
+			if(ticket.getRoomName().equals(roomName)){
 				tickets.add(ticket);
 			}
 		}
@@ -121,9 +119,9 @@ public class SupportTicketHandlerImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void newSupportTicket(String roomID, String description) {
+	public void newSupportTicket(String roomName, String description) {
 		SupportTicket ticket = new SupportTicketImpl();
-		ticket.setRoomID(roomID);
+		ticket.setRoomName(roomName);
 		ticket.setProblemDescription(description);
 		supportticket.add(ticket);
 	}

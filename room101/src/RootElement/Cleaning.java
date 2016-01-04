@@ -20,10 +20,10 @@ public interface Cleaning extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomIDDataType="org.eclipse.uml2.types.String" roomIDRequired="true" roomIDOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomNameDataType="org.eclipse.uml2.types.String" roomNameRequired="true" roomNameOrdered="false"
 	 * @generated
 	 */
-	boolean checkIfRoomCleaned(String roomID);
+	boolean checkIfRoomCleaned(String roomName);
 
 	/**
 	 * <!-- begin-user-doc -->

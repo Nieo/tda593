@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link RootElement.SupportTicket#getProblemDescription <em>Problem Description</em>}</li>
- *   <li>{@link RootElement.SupportTicket#getRoomID <em>Room ID</em>}</li>
+ *   <li>{@link RootElement.SupportTicket#getRoomName <em>Room Name</em>}</li>
  *   <li>{@link RootElement.SupportTicket#isFixed <em>Fixed</em>}</li>
  * </ul>
  *
@@ -50,30 +50,30 @@ public interface SupportTicket extends EObject {
 	void setProblemDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Room ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Room Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Room ID</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Room Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Room ID</em>' attribute.
-	 * @see #setRoomID(String)
-	 * @see RootElement.RootElementPackage#getSupportTicket_RoomID()
+	 * @return the value of the '<em>Room Name</em>' attribute.
+	 * @see #setRoomName(String)
+	 * @see RootElement.RootElementPackage#getSupportTicket_RoomName()
 	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
-	String getRoomID();
+	String getRoomName();
 
 	/**
-	 * Sets the value of the '{@link RootElement.SupportTicket#getRoomID <em>Room ID</em>}' attribute.
+	 * Sets the value of the '{@link RootElement.SupportTicket#getRoomName <em>Room Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Room ID</em>' attribute.
-	 * @see #getRoomID()
+	 * @param value the new value of the '<em>Room Name</em>' attribute.
+	 * @see #getRoomName()
 	 * @generated
 	 */
-	void setRoomID(String value);
+	void setRoomName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Fixed</b></em>' attribute.

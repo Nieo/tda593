@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link RootElement.impl.SupportTicketImpl#getProblemDescription <em>Problem Description</em>}</li>
- *   <li>{@link RootElement.impl.SupportTicketImpl#getRoomID <em>Room ID</em>}</li>
+ *   <li>{@link RootElement.impl.SupportTicketImpl#getRoomName <em>Room Name</em>}</li>
  *   <li>{@link RootElement.impl.SupportTicketImpl#isFixed <em>Fixed</em>}</li>
  * </ul>
  *
@@ -49,24 +49,24 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 	protected String problemDescription = PROBLEM_DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRoomID() <em>Room ID</em>}' attribute.
+	 * The default value of the '{@link #getRoomName() <em>Room Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoomID()
+	 * @see #getRoomName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ROOM_ID_EDEFAULT = null;
+	protected static final String ROOM_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRoomID() <em>Room ID</em>}' attribute.
+	 * The cached value of the '{@link #getRoomName() <em>Room Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoomID()
+	 * @see #getRoomName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String roomID = ROOM_ID_EDEFAULT;
+	protected String roomName = ROOM_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isFixed() <em>Fixed</em>}' attribute.
@@ -133,8 +133,8 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRoomID() {
-		return roomID;
+	public String getRoomName() {
+		return roomName;
 	}
 
 	/**
@@ -142,11 +142,11 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoomID(String newRoomID) {
-		String oldRoomID = roomID;
-		roomID = newRoomID;
+	public void setRoomName(String newRoomName) {
+		String oldRoomName = roomName;
+		roomName = newRoomName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SUPPORT_TICKET__ROOM_ID, oldRoomID, roomID));
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.SUPPORT_TICKET__ROOM_NAME, oldRoomName, roomName));
 	}
 
 	/**
@@ -180,8 +180,8 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 		switch (featureID) {
 			case RootElementPackage.SUPPORT_TICKET__PROBLEM_DESCRIPTION:
 				return getProblemDescription();
-			case RootElementPackage.SUPPORT_TICKET__ROOM_ID:
-				return getRoomID();
+			case RootElementPackage.SUPPORT_TICKET__ROOM_NAME:
+				return getRoomName();
 			case RootElementPackage.SUPPORT_TICKET__FIXED:
 				return isFixed();
 		}
@@ -199,8 +199,8 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 			case RootElementPackage.SUPPORT_TICKET__PROBLEM_DESCRIPTION:
 				setProblemDescription((String)newValue);
 				return;
-			case RootElementPackage.SUPPORT_TICKET__ROOM_ID:
-				setRoomID((String)newValue);
+			case RootElementPackage.SUPPORT_TICKET__ROOM_NAME:
+				setRoomName((String)newValue);
 				return;
 			case RootElementPackage.SUPPORT_TICKET__FIXED:
 				setFixed((Boolean)newValue);
@@ -220,8 +220,8 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 			case RootElementPackage.SUPPORT_TICKET__PROBLEM_DESCRIPTION:
 				setProblemDescription(PROBLEM_DESCRIPTION_EDEFAULT);
 				return;
-			case RootElementPackage.SUPPORT_TICKET__ROOM_ID:
-				setRoomID(ROOM_ID_EDEFAULT);
+			case RootElementPackage.SUPPORT_TICKET__ROOM_NAME:
+				setRoomName(ROOM_NAME_EDEFAULT);
 				return;
 			case RootElementPackage.SUPPORT_TICKET__FIXED:
 				setFixed(FIXED_EDEFAULT);
@@ -240,8 +240,8 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 		switch (featureID) {
 			case RootElementPackage.SUPPORT_TICKET__PROBLEM_DESCRIPTION:
 				return PROBLEM_DESCRIPTION_EDEFAULT == null ? problemDescription != null : !PROBLEM_DESCRIPTION_EDEFAULT.equals(problemDescription);
-			case RootElementPackage.SUPPORT_TICKET__ROOM_ID:
-				return ROOM_ID_EDEFAULT == null ? roomID != null : !ROOM_ID_EDEFAULT.equals(roomID);
+			case RootElementPackage.SUPPORT_TICKET__ROOM_NAME:
+				return ROOM_NAME_EDEFAULT == null ? roomName != null : !ROOM_NAME_EDEFAULT.equals(roomName);
 			case RootElementPackage.SUPPORT_TICKET__FIXED:
 				return fixed != FIXED_EDEFAULT;
 		}
@@ -260,8 +260,8 @@ public class SupportTicketImpl extends MinimalEObjectImpl.Container implements S
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (problemDescription: ");
 		result.append(problemDescription);
-		result.append(", roomID: ");
-		result.append(roomID);
+		result.append(", roomName: ");
+		result.append(roomName);
 		result.append(", fixed: ");
 		result.append(fixed);
 		result.append(')');

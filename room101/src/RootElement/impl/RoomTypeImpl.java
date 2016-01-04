@@ -59,6 +59,20 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	private EList<RoomAttribute> roomAttributes;
 
 	/**
+	 * The default value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int CAPACITY_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
+	 * @generated
+	 * @ordered
+	 */
+	protected int capacity = CAPACITY_EDEFAULT;
+
+	/**
 	 * Creates a basic room type with the default parameters.
 	 * Be sure to call {@link #setName(String)} and {@link #setPrice(int)}
 	 * after gaining access to a room type object to initialize it.
@@ -80,6 +94,7 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	/**
 	 * Sets the name of the room type. The name should not be null
 	 * or empty, otherwise an illegalargumentexception will be thrown
+	 * @throws IllegalArgumentException if name is null or empty
 	 * @generated NOT
 	 */
 	public void setName(String newName) {
@@ -103,12 +118,30 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 	}
 	
 	 /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Retrieves all room attributes that is bound to this room type
 	 * @generated NOT
 	 */
 	public EList<RoomAttribute> getRoomAttributes() {
 		return ECollections.unmodifiableEList(roomAttributes);
+	}
+
+		/**
+	 * Retrieves the max capacity of rooms of this type
+	 * @generated
+	 */
+	public int getCapacity() {
+		return capacity;
+	}
+
+		/**
+	 * Sets the max capacity of of rooms of this type
+	 * @generated
+	 */
+	public void setCapacity(int newCapacity) {
+		int oldCapacity = capacity;
+		capacity = newCapacity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM_TYPE__CAPACITY, oldCapacity, capacity));
 	}
 
 		/**
@@ -172,6 +205,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 				return getPrice();
 			case RootElementPackage.ROOM_TYPE__ROOM_ATTRIBUTES:
 				return getRoomAttributes();
+			case RootElementPackage.ROOM_TYPE__CAPACITY:
+				return getCapacity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -187,6 +222,9 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 			case RootElementPackage.ROOM_TYPE__NAME:
 				setName((String)newValue);
 				return;
+			case RootElementPackage.ROOM_TYPE__CAPACITY:
+				setCapacity((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +239,9 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 		switch (featureID) {
 			case RootElementPackage.ROOM_TYPE__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case RootElementPackage.ROOM_TYPE__CAPACITY:
+				setCapacity(CAPACITY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -220,6 +261,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 				return price != PRICE_EDEFAULT;
 			case RootElementPackage.ROOM_TYPE__ROOM_ATTRIBUTES:
 				return roomAttributes != null && !roomAttributes.isEmpty();
+			case RootElementPackage.ROOM_TYPE__CAPACITY:
+				return capacity != CAPACITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -254,6 +297,8 @@ public class RoomTypeImpl extends MinimalEObjectImpl.Container implements RoomTy
 		result.append(name);
 		result.append(", price: ");
 		result.append(price);
+		result.append(", capacity: ");
+		result.append(capacity);
 		result.append(')');
 		return result.toString();
 	}

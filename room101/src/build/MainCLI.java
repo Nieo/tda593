@@ -539,11 +539,11 @@ public class MainCLI{
 	}
 	
 	private void makeSupportTicket(SupportTicketWriter actor) {
-		System.out.print("Please enter the room ID: ");
-		String roomID = in.nextLine().trim();
+		System.out.print("Please enter the room name: ");
+		String roomName = in.nextLine().trim();
 		System.out.println("Please write a description of the problem:");
 		String description = in.nextLine().trim();
-		actor.newSupportTicket(roomID, description);
+		actor.newSupportTicket(roomName, description);
 	}
 	
 	private void handleCleaning(Cleaning actor) {
@@ -565,7 +565,7 @@ public class MainCLI{
 				cleaningChooser(actor.getListOfUncleanRooms(), actor);
 				break;
 			case 2:
-				System.out.print("Please enter the room ID: ");
+				System.out.print("Please enter the room name: ");
 				try {
 					if (actor.checkIfRoomCleaned(in.nextLine().trim())) {
 						System.out.println("The room is clean.");
@@ -592,7 +592,7 @@ public class MainCLI{
 			for (int i=0; i<list.size(); i++) {
 				Room room = list.get(i);
 				System.out.print((i+1) + ":\t");
-				System.out.println("Room ID: " + room.getRoomName() + "\tStatus: " + (room.isNeedCleaning()?"Not clean":"Clean"));
+				System.out.println("Room name: " + room.getName() + "\tStatus: " + (room.isNeedCleaning()?"Not clean":"Clean"));
 			}
 			System.out.print("Choose a room to mark it as cleaned or 0 to go back: ");
 			try {
@@ -635,7 +635,7 @@ public class MainCLI{
 				supportTicketChooser(actor.getUnfixedTickets(), actor);
 				break;
 			case 3:
-				System.out.print("Please enter the roomID: ");
+				System.out.print("Please enter the room name: ");
 				EList<SupportTicket> list = actor.getSupportTicketsForRoom(in.nextLine());
 				if (list == null || list.isEmpty()) {
 					System.out.println("No tickets where found for that room.");
@@ -659,7 +659,7 @@ public class MainCLI{
 			for (int i=0; i<list.size(); i++) {
 				SupportTicket st = list.get(i);
 				System.out.print((i+1) + ":\t");
-				System.out.println(st.getRoomID() + "\t" + (st.isFixed()?"Fixed":"Not fixed"));
+				System.out.println(st.getRoomName() + "\t" + (st.isFixed()?"Fixed":"Not fixed"));
 				System.out.println("\t" + (st.getProblemDescription().length()>60
 						? st.getProblemDescription().substring(0, 60) + "..."
 								: st.getProblemDescription()));
@@ -676,7 +676,7 @@ public class MainCLI{
 			}
 			try {
 				SupportTicket st = list.get(input-1);
-				System.out.println("Room ID: " + st.getRoomID());
+				System.out.println("Room name: " + st.getRoomName());
 				System.out.println("Status: " + (st.isFixed()?"Fixed":"Not fixed"));
 				System.out.println(st.getProblemDescription() + "\n");
 				System.out.println("1:\tMark as fixed\n\tGo back");
@@ -710,7 +710,7 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("\nReception - What do you want to do?");
-			System.out.println("1:\tFind booking by name\n2:\tFind booking by room ID\nOr 0 to discard and go back");
+			System.out.println("1:\tFind booking by name\n2:\tFind booking by room name\nOr 0 to discard and go back");
 			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -757,7 +757,7 @@ public class MainCLI{
 				}
 				break;
 			case 2:
-				System.out.print("Please enter the room ID: ");
+				System.out.print("Please enter the room name: ");
 				handleBooking(actor.findActiveBooking(in.nextLine().trim()), actor);
 				break;
 			default:
@@ -1072,7 +1072,7 @@ public class MainCLI{
 				for (int i=0; i<list.size(); i++) {
 					Room r = list.get(i);
 					System.out.print((i+1)+ ":\t");
-					System.out.println(r.getRoomName() + "\t" + (r.getRoomType()!=null?r.getRoomType().getName():"<null>"));
+					System.out.println(r.getName() + "\t" + (r.getRoomType()!=null?r.getRoomType().getName():"<null>"));
 				}
 				System.out.print("Select a room or 0 to go back: ");
 				try {
@@ -1100,7 +1100,7 @@ public class MainCLI{
 	private void editOrRemoveRoom(Room r, SysAdmin actor) {
 		int input = -1;
 		while (input != 0) {
-			System.out.println("\nName:\t" + r.getRoomName());
+			System.out.println("\nName:\t" + r.getName());
 			System.out.println("Room type:\t" + (r.getRoomType()!=null?r.getRoomType().getName():"<null>"));
 			System.out.println("1:\tEdit name\n2:\tChange room type\n3:\tRemove room\nOr 0 to go back");
 			try {
@@ -1124,7 +1124,7 @@ public class MainCLI{
 				System.out.println("Choose a new room type for the new room.");
 				RoomType roomType = listAndChooseRoomType(actor.getAllRoomTypes());
 				if (roomType != null) {
-					if (actor.editRoom(r, roomType, r.getRoomName())) {
+					if (actor.editRoom(r, roomType, r.getName())) {
 						System.out.println("Room type successfully changed.");						
 					} else {
 						System.out.println("Failed to change room type!");						
@@ -1445,7 +1445,7 @@ public class MainCLI{
 			System.out.println("\t<none found>");
 		} else {
 			for (Room r : rooms) {
-				System.out.println("\t" + r.getRoomName() + "\t" + (r.getRoomType()!=null?r.getRoomType().getName():"<null>"));
+				System.out.println("\t" + r.getName() + "\t" + (r.getRoomType()!=null?r.getRoomType().getName():"<null>"));
 			}
 		}
 		

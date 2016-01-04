@@ -35,18 +35,24 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	protected boolean isOccupied = IS_OCCUPIED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRoomName() <em>Room Name</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ROOM_NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRoomName() <em>Room Name</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String roomName = ROOM_NAME_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isNeedCleaning() <em>Need Cleaning</em>}' attribute.
@@ -100,11 +106,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	}
 
 	/**
-	 * Retrieves the name of the room
+	 * Retrieves the name of this room
 	 * @generated
 	 */
-	public String getRoomName() {
-		return roomName;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -112,12 +118,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * rooms in one hotel.
 	 * @generated NOT
 	 */
-	public void setRoomName(String newRoomName) {
-		String oldRoomName = roomName;
-		roomName = newRoomName;
-		if (eNotificationRequired()){
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM__ROOM_NAME, oldRoomName, roomName));
-		}
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.ROOM__NAME, oldName, name));
 	}
 
 	/**
@@ -189,8 +194,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 		switch (featureID) {
 			case RootElementPackage.ROOM__IS_OCCUPIED:
 				return isOccupied();
-			case RootElementPackage.ROOM__ROOM_NAME:
-				return getRoomName();
+			case RootElementPackage.ROOM__NAME:
+				return getName();
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				return isNeedCleaning();
 			case RootElementPackage.ROOM__ROOM_TYPE:
@@ -211,8 +216,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case RootElementPackage.ROOM__IS_OCCUPIED:
 				setIsOccupied((Boolean)newValue);
 				return;
-			case RootElementPackage.ROOM__ROOM_NAME:
-				setRoomName((String)newValue);
+			case RootElementPackage.ROOM__NAME:
+				setName((String)newValue);
 				return;
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				setNeedCleaning((Boolean)newValue);
@@ -235,8 +240,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case RootElementPackage.ROOM__IS_OCCUPIED:
 				setIsOccupied(IS_OCCUPIED_EDEFAULT);
 				return;
-			case RootElementPackage.ROOM__ROOM_NAME:
-				setRoomName(ROOM_NAME_EDEFAULT);
+			case RootElementPackage.ROOM__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				setNeedCleaning(NEED_CLEANING_EDEFAULT);
@@ -258,8 +263,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 		switch (featureID) {
 			case RootElementPackage.ROOM__IS_OCCUPIED:
 				return isOccupied != IS_OCCUPIED_EDEFAULT;
-			case RootElementPackage.ROOM__ROOM_NAME:
-				return ROOM_NAME_EDEFAULT == null ? roomName != null : !ROOM_NAME_EDEFAULT.equals(roomName);
+			case RootElementPackage.ROOM__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RootElementPackage.ROOM__NEED_CLEANING:
 				return needCleaning != NEED_CLEANING_EDEFAULT;
 			case RootElementPackage.ROOM__ROOM_TYPE:
@@ -280,8 +285,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (isOccupied: ");
 		result.append(isOccupied);
-		result.append(", roomName: ");
-		result.append(roomName);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", needCleaning: ");
 		result.append(needCleaning);
 		result.append(')');

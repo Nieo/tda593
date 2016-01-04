@@ -794,13 +794,13 @@ public interface RootElementPackage extends EPackage {
 	int ROOM__IS_OCCUPIED = 0;
 
 	/**
-	 * The feature id for the '<em><b>Room Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM__ROOM_NAME = 1;
+	int ROOM__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Need Cleaning</b></em>' attribute.
@@ -866,13 +866,22 @@ public interface RootElementPackage extends EPackage {
 	int ROOM_TYPE__ROOM_ATTRIBUTES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Capacity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_TYPE__CAPACITY = 3;
+
+	/**
 	 * The number of structural features of the '<em>Room Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_TYPE_FEATURE_COUNT = 3;
+	int ROOM_TYPE_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Add Room Attribute</em>' operation.
@@ -1289,13 +1298,13 @@ public interface RootElementPackage extends EPackage {
 	int SUPPORT_TICKET__PROBLEM_DESCRIPTION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Room ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Room Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPORT_TICKET__ROOM_ID = 1;
+	int SUPPORT_TICKET__ROOM_NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Fixed</b></em>' attribute.
@@ -3719,15 +3728,15 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getRoom_IsOccupied();
 
 	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Room#getRoomName <em>Room Name</em>}'.
+	 * Returns the meta object for the attribute '{@link RootElement.Room#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Room Name</em>'.
-	 * @see RootElement.Room#getRoomName()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see RootElement.Room#getName()
 	 * @see #getRoom()
 	 * @generated
 	 */
-	EAttribute getRoom_RoomName();
+	EAttribute getRoom_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link RootElement.Room#isNeedCleaning <em>Need Cleaning</em>}'.
@@ -3793,6 +3802,17 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRoomType_RoomAttributes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link RootElement.RoomType#getCapacity <em>Capacity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Capacity</em>'.
+	 * @see RootElement.RoomType#getCapacity()
+	 * @see #getRoomType()
+	 * @generated
+	 */
+	EAttribute getRoomType_Capacity();
 
 	/**
 	 * Returns the meta object for the '{@link RootElement.RoomType#addRoomAttribute(RootElement.RoomAttribute) <em>Add Room Attribute</em>}' operation.
@@ -4158,15 +4178,15 @@ public interface RootElementPackage extends EPackage {
 	EAttribute getSupportTicket_ProblemDescription();
 
 	/**
-	 * Returns the meta object for the attribute '{@link RootElement.SupportTicket#getRoomID <em>Room ID</em>}'.
+	 * Returns the meta object for the attribute '{@link RootElement.SupportTicket#getRoomName <em>Room Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Room ID</em>'.
-	 * @see RootElement.SupportTicket#getRoomID()
+	 * @return the meta object for the attribute '<em>Room Name</em>'.
+	 * @see RootElement.SupportTicket#getRoomName()
 	 * @see #getSupportTicket()
 	 * @generated
 	 */
-	EAttribute getSupportTicket_RoomID();
+	EAttribute getSupportTicket_RoomName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link RootElement.SupportTicket#isFixed <em>Fixed</em>}'.
@@ -5238,12 +5258,12 @@ public interface RootElementPackage extends EPackage {
 		EAttribute ROOM__IS_OCCUPIED = eINSTANCE.getRoom_IsOccupied();
 
 		/**
-		 * The meta object literal for the '<em><b>Room Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ROOM__ROOM_NAME = eINSTANCE.getRoom_RoomName();
+		EAttribute ROOM__NAME = eINSTANCE.getRoom_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Need Cleaning</b></em>' attribute feature.
@@ -5294,6 +5314,14 @@ public interface RootElementPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROOM_TYPE__ROOM_ATTRIBUTES = eINSTANCE.getRoomType_RoomAttributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Capacity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOM_TYPE__CAPACITY = eINSTANCE.getRoomType_Capacity();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Room Attribute</b></em>' operation.
@@ -5582,12 +5610,12 @@ public interface RootElementPackage extends EPackage {
 		EAttribute SUPPORT_TICKET__PROBLEM_DESCRIPTION = eINSTANCE.getSupportTicket_ProblemDescription();
 
 		/**
-		 * The meta object literal for the '<em><b>Room ID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Room Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SUPPORT_TICKET__ROOM_ID = eINSTANCE.getSupportTicket_RoomID();
+		EAttribute SUPPORT_TICKET__ROOM_NAME = eINSTANCE.getSupportTicket_RoomName();
 
 		/**
 		 * The meta object literal for the '<em><b>Fixed</b></em>' attribute feature.

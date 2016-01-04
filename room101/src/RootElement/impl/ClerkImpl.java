@@ -282,8 +282,8 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Booking findActiveBooking(String roomID) {
-		return receptionHandling.findActiveBooking(roomID);
+	public Booking findActiveBooking(String roomName) {
+		return receptionHandling.findActiveBooking(roomName);
 	}
 
 	/**
