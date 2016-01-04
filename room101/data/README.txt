@@ -36,3 +36,4 @@
 # 3 - Rooms
 # 4 - Bookings (New booking -> Add room bookings -> Confirm booking)
 # Since the latter references the previous ones.
+# Other things are not affected by the order.

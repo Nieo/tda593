@@ -73,6 +73,7 @@ public class HotelSystemInitiator {
 	 * 1 Room attributes
 	 * 2 Room types
 	 * 3 Rooms
+	 * 3 Bookings
 	 * Other things are not affected by the order.
 	 * @param hotel The hotel system to use.
 	 * @param nameOfFile The name of the file to be read.
