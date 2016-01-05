@@ -10,6 +10,7 @@ import java.util.Scanner;
 import org.eclipse.emf.common.util.EList;
 
 import RootElement.Booking;
+import RootElement.BookingHandler;
 import RootElement.Cleaning;
 import RootElement.Clerk;
 import RootElement.Feedback;
@@ -31,6 +32,7 @@ import RootElement.SupportTicket;
 import RootElement.SupportTicketReader;
 import RootElement.SupportTicketWriter;
 import RootElement.SysAdmin;
+import RootElement.impl.BookingHandlerFactory;
 import RootElement.impl.HotelFactory;
 
 /**
@@ -193,7 +195,8 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("\nClerk - What do you want to do?");
-			System.out.println("1:\tReception\n2:\tMake or cancel a Booking\n3:\tPayment\n4:\tHandle cleaning\n5:\tHandle Support Tickets\nOr 0 to go back");
+			System.out.println("1:\tReception\n2:\tMake or cancel a Booking\n3:\tPayment\n4:\tHandle cleaning\n"
+					+ "5:\tHandle Support Tickets\n6:\tList all bookings\nOr 0 to go back");
 			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -218,6 +221,9 @@ public class MainCLI{
 				break;
 			case 5:
 				handleSupportTickets(clerk);
+				break;
+			case 6:
+				printBookingStructure(clerk);
 				break;
 			default:
 				System.out.println(input + " is not on the list.\n");
@@ -404,7 +410,12 @@ public class MainCLI{
 				nextDest = in.nextLine().trim();
 			}
 		}
-		return actor.confirmBooking(booking, name, phone, mail, nationality, passportNbr, nextDest);
+		try {
+			return actor.confirmBooking(booking, name, phone, mail, nationality, passportNbr, nextDest);
+		} catch (IllegalArgumentException ex) {
+			System.out.println("Error: " + ex.getMessage());
+			return false;
+		}
 	}
 	
 	private void cancelBookingProcess(MakeBooking actor) {
@@ -440,8 +451,9 @@ public class MainCLI{
 	}
 	
 	private void printBooking(Booking booking) {
+		System.out.println("\nBookingID: " + booking.getBookingID() + "\tGuest: " + booking.getGuest().getName());
 		if (!booking.getRoombooking().isEmpty()) {
-			System.out.println("\nRooms booked:");
+			System.out.println("Rooms booked:");
 			for (RoomBooking rb : booking.getRoombooking()) {
 				printRoomBooking(rb);
 			}
@@ -450,8 +462,6 @@ public class MainCLI{
 	}
 	
 	private void printRoomBooking(RoomBooking rb) {
-		System.out.println(rb);
-		System.out.println(rb.getRoom());
 		System.out.println((rb.getRoom().getRoomType()!=null?rb.getRoom().getRoomType().getName():"<null>")
 				+ "\tfrom " + rb.getStartDate() + " to " + rb.getEndDate() + "\t"
 				+ rb.getRoom().getRoomType().getPrice() + "/day\tStatus: "
@@ -1515,6 +1525,13 @@ public class MainCLI{
 			}
 		}
 		System.out.println();
+	}
+	
+	private void printBookingStructure(Clerk actor) {
+		EList<Booking> list = ((BookingHandler)BookingHandlerFactory.createReceptionHandling()).getBooking();
+		for (Booking booking : list) {
+			printBooking(booking);
+		}
 	}
 	
 	public static void main(String[] args) {

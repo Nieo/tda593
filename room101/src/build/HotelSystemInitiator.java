@@ -88,8 +88,12 @@ public class HotelSystemInitiator {
 	
 	private static void parseFile(String nameOfFile) {
 		Scanner sc = null;
+		String pathToFile = "data/" + nameOfFile;
+		if (!nameOfFile.endsWith(".txt")) {
+			pathToFile += ".txt";
+		}
 		try {
-			sc = new Scanner(new File("data/" + nameOfFile + ".txt"));
+			sc = new Scanner(new File(pathToFile));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
