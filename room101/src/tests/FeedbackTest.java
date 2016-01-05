@@ -1,5 +1,6 @@
 package tests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -31,8 +32,9 @@ public class FeedbackTest {
 	 */
 	@Test
 	public void test() {
+		int previousFeedbackCounter = manager.getAllFeedback().size();
 		testGiveFeedback();
-		testReadFeedback();
+		testReadFeedback(previousFeedbackCounter);
 		testIncorrectRatingValue();
 	}
 
@@ -66,11 +68,11 @@ public class FeedbackTest {
 		guest.giveFeedback("Should have stayed at home." , 1);
 	}
 
-	private void testReadFeedback(){
+	private void testReadFeedback(int previousFeedbackCounter){
 		// Reads the feedback and checks if the description and rating is correct
-		assertTrue(manager.getAllFeedback().size() == 2);
-		assertTrue(manager.getAllFeedback().get(0).getFeedbackDescription().equals("Nice room, terrible food.. "));
-		assertTrue(manager.getAllFeedback().get(0).getRating() == 6);
+		assertEquals(previousFeedbackCounter+2, manager.getAllFeedback().size());
+		assertTrue(manager.getAllFeedback().get(0+previousFeedbackCounter).getFeedbackDescription().equals("Nice room, terrible food.. "));
+		assertTrue(manager.getAllFeedback().get(0+previousFeedbackCounter).getRating() == 6);
 	}
 
 }

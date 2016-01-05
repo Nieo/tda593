@@ -50,19 +50,22 @@ public class SupportTicketTest {
 	}
 	
 	private void testCreateTicket(){
+		int previouslyUnfixedTickets = clerk.getUnfixedTickets().size();
 		guest.newSupportTicket("5500", "out of coffee!");
 		guest.newSupportTicket("6600", "broken radiator!");
 		clerk.newSupportTicket("6600", "broken table!");
 		assertTrue(clerk.getSupportTicketsForRoom("5500").size() == 1);
 		assertTrue(clerk.getSupportTicketsForRoom("6600").size() == 2);
 		assertTrue(clerk.getSupportTicketsForRoom("7700").size() == 0);
-		assertTrue(clerk.getUnfixedTickets().size() == 3);
+		assertEquals(3+previouslyUnfixedTickets, clerk.getUnfixedTickets().size());
 	}
 	
 	private void testCompleteTicket(){
+		int previouslyUnfixedTickets = clerk.getUnfixedTickets().size();
 		SupportTicket ticketToComplete = clerk.getSupportTicketsForRoom("5500").get(0);
 		clerk.markAsCompleted(ticketToComplete);
-		assertTrue(ticketToComplete.isFixed() == true);
+		assertTrue(ticketToComplete.isFixed());
+		assertEquals(previouslyUnfixedTickets-1, clerk.getUnfixedTickets().size());
 	}
 	
 

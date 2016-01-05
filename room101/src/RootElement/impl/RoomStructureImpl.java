@@ -406,7 +406,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public EList<Room> getAllCleanableRooms() {
-		return getAvailableRooms();
+		return getAllRooms();
 	}
 
 	/**
