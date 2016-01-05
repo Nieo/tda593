@@ -136,6 +136,8 @@ public class MainCLI{
 						break;
 					} catch (NumberFormatException e) {
 						System.out.println("Wrong format! Only an integer number is allowed!");
+					} catch (IllegalArgumentException e) {
+						System.out.println("Rating must be within 1-10");
 					}
 				}
 				guest.giveFeedback(feedback, rating);
@@ -1163,6 +1165,18 @@ public class MainCLI{
 			case 1:
 				System.out.print("Please enter the name of the new room type: ");
 				String name = in.nextLine().trim();
+				int capacity = 0;
+				while (true) {
+					System.out.print("Please enter the capacity: ");
+					try {
+						capacity = Integer.parseInt(in.nextLine());
+						break;
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong format! Only an integer number is allowed!");
+					} catch (IllegalArgumentException e) {
+						System.out.println("Capacity must be higher than 0.");
+					}
+				}
 				int cost = 0;
 				while (true) {
 					System.out.print("Please enter the price in SEK: ");
@@ -1171,9 +1185,11 @@ public class MainCLI{
 						break;
 					} catch (NumberFormatException e) {
 						System.out.println("Wrong format! Only an integer number is allowed!");
+					} catch (IllegalArgumentException e) {
+						System.out.println("Price cannot be negative.");
 					}
 				}
-				RoomType newRoomType = actor.addRoomType(name, cost);
+				RoomType newRoomType = actor.addRoomType(name, capacity, cost);
 				System.out.println("Room type added.");
 				while(true) {
 					System.out.print("Do you want to edit the room type now to add attributes? (y/n): ");
@@ -1244,12 +1260,12 @@ public class MainCLI{
 		while (input != 0) {
 			System.out.println();
 			printRoomType(rt);
-			System.out.println("1:\tEdit name\n2:\tEdit price\n3:\tAdd room attribute\n"
-					+ "4:\tRemove room attribute\n5:\tRemove this room type\nOr 0 to go back");
+			System.out.println("1:\tEdit name\n2:\tEdit capacity\n3:\tEdit price\n4:\tAdd room attribute\n"
+					+ "5:\tRemove room attribute\n6:\tRemove this room type\nOr 0 to go back");
 			try {
 				input = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
-				System.out.println("Only digits 0-5 is allowed.");
+				System.out.println("Only digits 0-6 is allowed.");
 				continue;
 			}
 			switch (input) {
@@ -1257,31 +1273,51 @@ public class MainCLI{
 				break;
 			case 1:
 				System.out.print("Please enter the new name: ");
-				if (actor.editRoomType(rt, in.nextLine().trim(), rt.getPrice())) {
+				if (actor.editRoomType(rt, in.nextLine().trim(), rt.getCapacity(), rt.getPrice())) {
 					System.out.println("Name edited.");
 				} else {
 					System.out.println("Name change failed!");
 				}
 				break;
 			case 2:
-				System.out.print("Please enter the new price: ");
+				int capacity = 0;
+				while (true) {
+					System.out.print("Please enter the new capacity: ");
+					try {
+						capacity = Integer.parseInt(in.nextLine());
+						if (actor.editRoomType(rt, rt.getName(), capacity, rt.getPrice())) {
+							System.out.println("Capacity edited.");
+						} else {
+							System.out.println("Capacity change failed!");
+						}
+						break;
+					} catch (NumberFormatException e) {
+						System.out.println("Wrong format! Only an integer number is allowed!");
+					} catch (IllegalArgumentException e) {
+						System.out.println("Capacity must be higher than 0.");
+					}
+				}
+				break;
+			case 3:
 				int price = 0;
 				while (true) {
 					System.out.print("Please enter the price in SEK: ");
 					try {
 						price = Integer.parseInt(in.nextLine());
+						if (actor.editRoomType(rt, rt.getName(), rt.getCapacity(), price)) {
+							System.out.println("Price edited.");
+						} else {
+							System.out.println("Price change failed!");
+						}
 						break;
 					} catch (NumberFormatException e) {
 						System.out.println("Wrong format! Only an integer number is allowed!");
+					} catch (IllegalArgumentException e) {
+						System.out.println("Price cannot be negative.");
 					}
 				}
-				if (actor.editRoomType(rt, rt.getName(), price)) {
-					System.out.println("Description edited.");
-				} else {
-					System.out.println("Description change failed!");
-				}
 				break;
-			case 3:
+			case 4:
 				RoomAttribute raAdd = listAndChooseRoomAttribute(actor.getAllRoomAttributes());
 				if (raAdd != null) {
 					if (actor.addAttributeToRoomType(rt, raAdd)) {
@@ -1291,7 +1327,7 @@ public class MainCLI{
 					}
 				}
 				break;
-			case 4:
+			case 5:
 				RoomAttribute raRemove = listAndChooseRoomAttribute(rt.getRoomAttributes());
 				if (raRemove != null) {
 					if (actor.removeAttributeFromRoomType(rt, raRemove)) {
@@ -1301,7 +1337,7 @@ public class MainCLI{
 					}
 				}
 				break;
-			case 5:
+			case 6:
 				if (actor.removeRoomType(rt)) {
 					System.out.println("Room type successfully removed.");
 					input = 0;
@@ -1455,7 +1491,7 @@ public class MainCLI{
 			System.out.println("\t<none found>");
 		} else {
 			for (RoomType t : types) {
-				System.out.println("\tRoom type: " + t.getName() + "\t" + t.getPrice() + "SEK/day");
+				System.out.println("\tRoom type: " + t.getName() + "\tCapacity: " + t.getCapacity() + "\t" + t.getPrice() + " SEK/day");
 				System.out.println("\t\tAttributes:" + (t.getRoomAttributes().isEmpty()?" None have been added":""));
 				for (int i=0; i < t.getRoomAttributes().size(); i++) {
 					RoomAttribute ra = t.getRoomAttributes().get(i);

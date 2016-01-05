@@ -6,12 +6,14 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import RootElement.Booking;
 import RootElement.Guest;
 import RootElement.HotelSystem;
 import RootElement.Manager;
+import RootElement.RoomAttribute;
 import RootElement.RoomType;
 
 public class HotelSystemInitiator {
@@ -108,7 +110,7 @@ public class HotelSystemInitiator {
 			addRoom(input[1], input[2]);
 			break;
 		case "addroomtype": 
-			addRoomType(input[1], input[2], (input.length>3?Arrays.copyOfRange(input, 3, input.length):null));
+			addRoomType(input[1], input[2], input[3], (input.length>4?Arrays.copyOfRange(input, 4, input.length):null));
 			break;
 		case "addroomattribute": 
 			addRoomAttribute(input[1], input[2]);
@@ -135,7 +137,11 @@ public class HotelSystemInitiator {
 			break;
 		case "confirmbooking":
 			if (hasActiveBooking) {
-				confirmBooking(input[1], input[2], input[3], input[4], input[5], input[6]);
+				if (input.length == 5) {
+					confirmBooking(input[1], input[2], input[3], input[4]);
+				} else {
+					confirmBooking(input[1], input[2], input[3], input[4], input[5], input[6]);
+				}
 			} else {
 				throw new IllegalStateException("No booking is active");
 			}
@@ -144,14 +150,14 @@ public class HotelSystemInitiator {
 	} 
 	
 	private static void addRoom(String name, String roomType) {
-		manager.addRoom(manager.findRoomType(roomType).get(0), name);
+		manager.addRoom(findRoomType(roomType), name);
 	}
 	
-	private static void addRoomType(String name, String price, String... attributes) {
-		RoomType type = manager.addRoomType(name, Integer.parseInt(price));
+	private static void addRoomType(String name, String capacity, String price, String... attributes) {
+		RoomType type = manager.addRoomType(name, Integer.parseInt(capacity), Integer.parseInt(price));
 		if (attributes != null) {
 			for (String att : attributes) {
-				type.addRoomAttribute(manager.findRoomAttribute(att).get(0));
+				type.addRoomAttribute(findRoomAttribute(att));
 			}			
 		}
 	}
@@ -176,7 +182,7 @@ public class HotelSystemInitiator {
 	private static void addRoomBooking(String roomType, String startDate, String endDate, String nbrOfAdults, String nbrOfChildren) {
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			if (!manager.addRoom(booking, manager.findRoomType(roomType).get(0), Integer.parseInt(nbrOfAdults)
+			if (!manager.addRoom(booking, findRoomType(roomType), Integer.parseInt(nbrOfAdults)
 					, Integer.parseInt(nbrOfChildren), format.parse(startDate), format.parse(endDate))) {
 				throw new IllegalStateException("Failed to add room booking");
 			}
@@ -185,10 +191,32 @@ public class HotelSystemInitiator {
 		}
 	}
 	
+	private static void confirmBooking(String name, String phone, String mail, String nationality) {
+		confirmBooking(name, phone, mail, nationality, "-1", null);
+	}
+	
 	private static void confirmBooking(String name, String phone, String mail, String nationality, String passportNr, String nextDestination) {
 		if (!manager.confirmBooking(booking, name, phone, mail, nationality, Integer.parseInt(passportNr), nextDestination)) {
 			throw new IllegalStateException("Failed to confirm booking");
 		}
 		hasActiveBooking = false;
+	}
+	
+	private static RoomType findRoomType(String name) {
+		for (RoomType rt : manager.findRoomType(name)) {
+			if (rt.getName().equals(name)) {
+				return rt;
+			}
+		}
+		throw new NoSuchElementException("Room type '" + name + "' was not found.");
+	}
+	
+	private static RoomAttribute findRoomAttribute(String name) {
+		for (RoomAttribute ra : manager.findRoomAttribute(name)) {
+			if (ra.getName().equals(name)) {
+				return ra;
+			}
+		}
+		throw new NoSuchElementException("Room attribute '" + name + "' was not found.");
 	}
 }

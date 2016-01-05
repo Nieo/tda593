@@ -5,8 +5,8 @@
 # 'addroomattribute $ <name of attribute> $ <description of the attribute>'
 # For example: addRoomAttribute $ Seaview $ You can see the sea from here
 # -----------------------------------------------------------
-# 'addroomtype $ <name of type> $ <price per night> $ <attribute 1> $ <attribute 2> $ ...'
-# For example: addRoomType $ TV room $ 399 $ Television $ Seaview
+# 'addroomtype $ <name of type> $ <capacity> $ <price per night> $ <attribute 1> $ <attribute 2> $ ...'
+# For example: addRoomType $ TV room $ 10 $ 399 $ Television $ Seaview
 # -----------------------------------------------------------
 # 'addroom $ <name of room> $ <room type>'
 # For example: addRoom $ TV room 1 $ TV room
