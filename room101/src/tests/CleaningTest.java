@@ -36,6 +36,7 @@ public class CleaningTest {
 	Booking booking;
 	@Before
 	public void setUp() throws Exception {
+		HotelNullifier.resetSystem();
 		HotelSystem hs = HotelFactory.createHotelSystem();
 		sysAdmin = hs.getSystemAdministrator();
 		manager = hs.getManager("Manager");
