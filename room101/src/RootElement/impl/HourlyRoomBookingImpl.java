@@ -5,6 +5,8 @@ package RootElement.impl;
 import RootElement.HourlyRoomBooking;
 import RootElement.RootElementPackage;
 
+import java.util.concurrent.TimeUnit;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -22,6 +24,14 @@ public class HourlyRoomBookingImpl extends RoomBookingImpl implements HourlyRoom
 	 */
 	protected HourlyRoomBookingImpl() {
 		super();
+	}
+	
+	/**
+	 * Returns which time unit is used for this kind of booking.
+	 * TimeUnit.HOURS will always be returned.
+	 */
+	protected TimeUnit getTimeUnit(){
+		return TimeUnit.HOURS;
 	}
 
 	/**
