@@ -1,5 +1,9 @@
 package tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Date;
 
 import org.eclipse.emf.common.util.EList;
@@ -37,7 +41,7 @@ public class BookingTest {
 	@Test
 	public void testBooking(){
 		HotelSystem hs = HotelFactory.createHotelSystem();
-		HotelSystemInitiator.initOwnFile(hs, "nanos.txt");
+		HotelSystemInitiator.initOwnFile(hs, "nanos");
 		//Test clerk
 		doTest(hs, hs.getClerk("AwesomeClerk"));
 		//Test guest
@@ -50,35 +54,46 @@ public class BookingTest {
 		int foundRoomsOtherDate = actor.getAvailableRooms(date2, date3, 1, 0).size();
 		int foundRooms = 0;
 		for(RoomType rt : actor.getAvailableRooms(date1, date2, 1, 0)){
-			assert(actor.addRoom(booking, rt, 1, 0, date1, date2));
-			assert(actor.addRoom(booking2, rt, 1, 0, date1, date2));
+			assertTrue(actor.addRoom(booking, rt, 1, 0, date1, date2));
+			assertTrue(actor.addRoom(booking2, rt, 1, 0, date1, date2));
 			foundRooms++;
 		}
-		assert(actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
-		assert(!actor.confirmBooking(booking2, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
-		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
-		assert(actor.getAvailableRooms(date1, date2, 1, 0).size() == 0);
-		assert(actor.getAvailableRooms(date2, date3, 1, 0).size() == foundRoomsOtherDate);
-		assert(actor.cancelBooking(booking));
-		assert(actor.getAvailableRooms(date1, date2, 1, 0).size() == foundRooms);
+		
+		assertNotEquals(0, foundRooms);
+		System.out.println(foundRooms);
+		assertTrue(actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		assertEquals(0, actor.getAvailableRooms(date1, date2, 1, 0).size());
+		assertTrue(!actor.confirmBooking(booking2, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		assertTrue(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		assertEquals(0, actor.getAvailableRooms(date1, date2, 1, 0).size());
+		assertEquals(foundRoomsOtherDate, actor.getAvailableRooms(date2, date3, 1, 0).size());
+		assertTrue(actor.cancelBooking(booking));
+		assertEquals(foundRooms, actor.getAvailableRooms(date1, date2, 1, 0).size());
 		
 		//Check passportNumber & nextDestination is required
 		Booking booking3 = actor.createBooking();
 		for(RoomType rt : actor.getAvailableRooms(date1, date2, 1, 0)){
-			assert(actor.addRoom(booking3, rt, 1, 0, date1, date2));
+			assertTrue(actor.addRoom(booking3, rt, 1, 0, date1, date2));
 			foundRooms++;
 		}
-		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "FR", -1, null));
+		assertTrue(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "FR", -1, null));
 		actor.cancelBooking(booking3);
 		
 		//Check no multiple uses of one and the same room
 		Booking booking4 = actor.createBooking();
 		EList<RoomType> availableRooms = actor.getAvailableRooms(date1, date2, 1, 0);
-		assert(availableRooms.size()>0);
+		assertTrue(availableRooms.size()>0);
 		RoomType rt = availableRooms.get(0);
-		for(int i = 0; i<availableRooms.size()+1; i++){
-			actor.addRoom(booking4, rt, 1, 0, date1, date2);
+		int rtCount = 0;
+		for(RoomType roomType : availableRooms){
+			if(roomType == rt){
+				rtCount++;
+			}
 		}
-		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		
+		for(int i = 0; i<rtCount+1; i++){
+			assertTrue(actor.addRoom(booking4, rt, 1, 0, date1, date2) == (i<rtCount));
+		}
+		assertTrue(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
 	}	
 }

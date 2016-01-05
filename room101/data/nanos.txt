@@ -5,7 +5,7 @@ addRoomAttribute $ Animals allowed $ Various kinds of pets can be brought to thi
 addRoomAttribute $ Smoking allowed $ You may smoke in this room.
 addRoomAttribute $ Free WiFi $ The cost of WiFi is included in the price
 addRoomAttribute $ Extra key $ The guest retrieves an extra key for this room
-addRoomAttribute $ Cleaning included $ Everyday cleaning is included in the price
+addRoomAttribute $ Cleaning $ Everyday cleaning is included in the price
 
 addRoomType $ Standard room $ 4 $ 399 $ Cleaning
 addRoomType $ Suite $ 2 $ 699 $ Sea view $ King sized bed $ FullDaySupport $ Extra key $ Free WiFi $ Cleaning
