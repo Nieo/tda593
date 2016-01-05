@@ -157,6 +157,7 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 			
 			if(concreteRoom != null){
 				booking.setRoom(concreteRoom);
+				concreteRoom.setIsOccupied(true);
 				booking.setBookingStatus(BookingStatus.CHECKED_IN);
 				return concreteRoom;
 			}
@@ -282,7 +283,10 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		//Check validity
 		EList<RoomType> availableRooms = getAvailableRooms(startDate, endDate, nbrOfAdults, nbrOfChildren);
 		for(RoomBooking rb : booking.getRoombooking()){
-			availableRooms.remove(rb.getRoom().getRoomType());
+			//Remove if competing with current room booking
+			if(!(rb.getEndDate().before(startDate) || rb.getEndDate().equals(startDate) || rb.getStartDate().after(endDate) || rb.getStartDate().equals(endDate))){
+				availableRooms.remove(rb.getRoom().getRoomType());
+			}
 		}
 		if(!availableRooms.contains(room)){
 			return false;
