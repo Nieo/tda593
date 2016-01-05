@@ -25,7 +25,8 @@ public class PaymentHandlerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-	paymentHandler = (PaymentHandler) PaymentHandlerFactory.createPayment();	
+		HotelNullifier.resetSystem();
+		paymentHandler = (PaymentHandler) PaymentHandlerFactory.createPayment();	
 	}
 
 	/**

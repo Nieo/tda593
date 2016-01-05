@@ -19,6 +19,7 @@ public class FeedbackTest {
 
 	@Before
 	public void setUp() throws Exception {
+		HotelNullifier.resetSystem();
 		HotelSystem hs = HotelFactory.createHotelSystem();
 		manager = hs.getManager("Manager");
 		guest = hs.getGuest();
@@ -32,9 +33,8 @@ public class FeedbackTest {
 	 */
 	@Test
 	public void test() {
-		int previousFeedbackCounter = manager.getAllFeedback().size();
 		testGiveFeedback();
-		testReadFeedback(previousFeedbackCounter);
+		testReadFeedback();
 		testIncorrectRatingValue();
 	}
 
@@ -68,11 +68,11 @@ public class FeedbackTest {
 		guest.giveFeedback("Should have stayed at home." , 1);
 	}
 
-	private void testReadFeedback(int previousFeedbackCounter){
+	private void testReadFeedback(){
 		// Reads the feedback and checks if the description and rating is correct
-		assertEquals(previousFeedbackCounter+2, manager.getAllFeedback().size());
-		assertTrue(manager.getAllFeedback().get(0+previousFeedbackCounter).getFeedbackDescription().equals("Nice room, terrible food.. "));
-		assertTrue(manager.getAllFeedback().get(0+previousFeedbackCounter).getRating() == 6);
+		assertEquals(2, manager.getAllFeedback().size());
+		assertTrue(manager.getAllFeedback().get(0).getFeedbackDescription().equals("Nice room, terrible food.. "));
+		assertTrue(manager.getAllFeedback().get(0).getRating() == 6);
 	}
 
 }

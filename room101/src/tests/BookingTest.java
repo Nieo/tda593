@@ -1,13 +1,11 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.Date;
 
 import org.eclipse.emf.common.util.EList;
+import org.junit.Before;
 import org.junit.Test;
 
 import RootElement.Booking;
@@ -16,7 +14,6 @@ import RootElement.MakeBooking;
 import RootElement.RoomType;
 import RootElement.impl.HotelFactory;
 import build.HotelSystemInitiator;
-import junit.runner.Version;
 
 public class BookingTest {
 	
@@ -26,6 +23,11 @@ public class BookingTest {
 	private Date date2 = new Date(2016, 01, 11);
 	@SuppressWarnings("deprecation")
 	private Date date3 = new Date(2016, 01, 12);
+	
+	@Before
+	public void initTest(){
+		HotelNullifier.resetSystem();
+	}
 
 	/**
 	 * This test checks the following:
@@ -51,7 +53,6 @@ public class BookingTest {
 	}
 	
 	private void doTest(HotelSystem hs, MakeBooking actor){
-		System.out.println(Version.id());
 		Booking booking = actor.createBooking();
 		Booking booking2 = actor.createBooking();
 		int foundRoomsOtherDate = actor.getAvailableRooms(date2, date3, 1, 0).size();
@@ -63,7 +64,6 @@ public class BookingTest {
 		}
 		
 		assertNotEquals(0, foundRooms);
-		System.out.println(foundRooms);
 		assertTrue(actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
 		assertEquals(0, actor.getAvailableRooms(date1, date2, 1, 0).size());
 		assertTrue(!actor.confirmBooking(booking2, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
@@ -105,5 +105,10 @@ public class BookingTest {
 			assertTrue(actor.addRoom(booking4, rt, 1, 0, date1, date2) == (i<rtCount));
 		}
 		assertEquals(rtCount, booking4.getRoombooking().size());
+		assertTrue(actor.confirmBooking(booking4, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		assertNotNull(booking4.getGuest());
+		assertNotNull(booking4.getGuest().getName());
+		assertTrue(booking4.getGuest().getNationality().equals(hs.getNationality()));
+		assertTrue(actor.cancelBooking(booking4));
 	}	
 }

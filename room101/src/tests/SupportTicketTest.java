@@ -29,6 +29,7 @@ public class SupportTicketTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		HotelNullifier.resetSystem();
 		HotelSystem hs = HotelFactory.createHotelSystem();
 		clerk = hs.getClerk("Clerk");
 		guest = hs.getGuest();
@@ -50,14 +51,13 @@ public class SupportTicketTest {
 	}
 	
 	private void testCreateTicket(){
-		int previouslyUnfixedTickets = clerk.getUnfixedTickets().size();
 		guest.newSupportTicket("5500", "out of coffee!");
 		guest.newSupportTicket("6600", "broken radiator!");
 		clerk.newSupportTicket("6600", "broken table!");
 		assertTrue(clerk.getSupportTicketsForRoom("5500").size() == 1);
 		assertTrue(clerk.getSupportTicketsForRoom("6600").size() == 2);
 		assertTrue(clerk.getSupportTicketsForRoom("7700").size() == 0);
-		assertEquals(3+previouslyUnfixedTickets, clerk.getUnfixedTickets().size());
+		assertEquals(3, clerk.getUnfixedTickets().size());
 	}
 	
 	private void testCompleteTicket(){

@@ -185,7 +185,7 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		if(name != null){
 			name = name.toLowerCase();
 			for(Booking b: booking){
-				if(b.getGuest() != null && b.getGuest().getName() != null && b.getGuest().getName().toLowerCase().equals(name)){
+				if(b.getGuest() != null && b.getGuest().getName() != null && b.getGuest().getName().toLowerCase().contains(name)){
 					bookings.add(b);
 				}
 			}
@@ -318,19 +318,8 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 			throw new IllegalArgumentException("Cannot confirm an already confirmed booking");
 		}
 		
-		Guest guest = new GuestImpl();
-		guest.setName(name);
-		guest.setPhoneNumber(phone);
-		guest.setMail(mail);
-		guest.setNationality(nationality);
-		guest.setSocialSecurityNumber(passportNr+ "");
-		guest.setNextDestination(nextDestination);
-		
-		booking.setGuest(guest);
-		
+		//Check if booking still valid
 		boolean success = true;
-		
-		//Check if there are available room of the selected type for each roomBooking
 		for(RoomBooking roombooking: booking.getRoombooking()){
 			EList<RoomType> a = getAvailableRooms(roombooking.getStartDate(), roombooking.getEndDate(), 1, 0);
 			if(!a.contains(roombooking.getRoom().getRoomType())){
@@ -338,8 +327,18 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 				break;
 			}
 		}
-		//If successful, set all room bookings to booked
+		
+		//If successful, set all data
 		if(success){
+			Guest guest = new GuestImpl();
+			guest.setName(name);
+			guest.setPhoneNumber(phone);
+			guest.setMail(mail);
+			guest.setNationality(nationality);
+			guest.setSocialSecurityNumber(passportNr+ "");
+			guest.setNextDestination(nextDestination);
+			booking.setGuest(guest);
+			
 			for(RoomBooking roombooking: booking.getRoombooking()){
 				roombooking.setBookingStatus(BookingStatus.BOOKED);
 			}
