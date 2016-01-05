@@ -277,11 +277,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="RoomTypeHandling" abstract="true" interface="true">
     <eOperations name="addRoomType" ordered="false" lowerBound="1" eType="#//RoomType">
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="capacity" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="cost" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="editRoomType" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="roomType" ordered="false" lowerBound="1" eType="#//RoomType"/>
       <eParameters name="newName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="newCapacity" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="newCost" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
     <eOperations name="removeRoomType" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">

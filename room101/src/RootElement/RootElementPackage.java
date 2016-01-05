@@ -2169,7 +2169,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___ADD_ROOM_TYPE__STRING_INT = CLERK_OPERATION_COUNT + 10;
+	int MANAGER___ADD_ROOM_TYPE__STRING_INT_INT = CLERK_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Edit Room Type</em>' operation.
@@ -2178,7 +2178,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MANAGER___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = CLERK_OPERATION_COUNT + 11;
+	int MANAGER___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT_INT = CLERK_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Remove Room Type</em>' operation.
@@ -2421,7 +2421,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN___ADD_ROOM_TYPE__STRING_INT = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 5;
+	int SYS_ADMIN___ADD_ROOM_TYPE__STRING_INT_INT = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Edit Room Type</em>' operation.
@@ -2430,7 +2430,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYS_ADMIN___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 6;
+	int SYS_ADMIN___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT_INT = ROOM_ATTRIBUTE_HANDLING_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Remove Room Type</em>' operation.
@@ -2565,7 +2565,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_TYPE_HANDLING___ADD_ROOM_TYPE__STRING_INT = 0;
+	int ROOM_TYPE_HANDLING___ADD_ROOM_TYPE__STRING_INT_INT = 0;
 
 	/**
 	 * The operation id for the '<em>Edit Room Type</em>' operation.
@@ -2574,7 +2574,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_TYPE_HANDLING___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = 1;
+	int ROOM_TYPE_HANDLING___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT_INT = 1;
 
 	/**
 	 * The operation id for the '<em>Remove Room Type</em>' operation.
@@ -2952,7 +2952,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___ADD_ROOM_TYPE__STRING_INT = ROOM_HANDLING_OPERATION_COUNT + 0;
+	int ROOM_STRUCTURE___ADD_ROOM_TYPE__STRING_INT_INT = ROOM_HANDLING_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Edit Room Type</em>' operation.
@@ -2961,7 +2961,7 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_STRUCTURE___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = ROOM_HANDLING_OPERATION_COUNT + 1;
+	int ROOM_STRUCTURE___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT_INT = ROOM_HANDLING_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Remove Room Type</em>' operation.
@@ -4590,24 +4590,24 @@ public interface RootElementPackage extends EPackage {
 	EClass getRoomTypeHandling();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#addRoomType(java.lang.String, int) <em>Add Room Type</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#addRoomType(java.lang.String, int, int) <em>Add Room Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Room Type</em>' operation.
-	 * @see RootElement.RoomTypeHandling#addRoomType(java.lang.String, int)
+	 * @see RootElement.RoomTypeHandling#addRoomType(java.lang.String, int, int)
 	 * @generated
 	 */
-	EOperation getRoomTypeHandling__AddRoomType__String_int();
+	EOperation getRoomTypeHandling__AddRoomType__String_int_int();
 
 	/**
-	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#editRoomType(RootElement.RoomType, java.lang.String, int) <em>Edit Room Type</em>}' operation.
+	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#editRoomType(RootElement.RoomType, java.lang.String, int, int) <em>Edit Room Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Edit Room Type</em>' operation.
-	 * @see RootElement.RoomTypeHandling#editRoomType(RootElement.RoomType, java.lang.String, int)
+	 * @see RootElement.RoomTypeHandling#editRoomType(RootElement.RoomType, java.lang.String, int, int)
 	 * @generated
 	 */
-	EOperation getRoomTypeHandling__EditRoomType__RoomType_String_int();
+	EOperation getRoomTypeHandling__EditRoomType__RoomType_String_int_int();
 
 	/**
 	 * Returns the meta object for the '{@link RootElement.RoomTypeHandling#removeRoomType(RootElement.RoomType) <em>Remove Room Type</em>}' operation.
@@ -5955,7 +5955,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_TYPE_HANDLING___ADD_ROOM_TYPE__STRING_INT = eINSTANCE.getRoomTypeHandling__AddRoomType__String_int();
+		EOperation ROOM_TYPE_HANDLING___ADD_ROOM_TYPE__STRING_INT_INT = eINSTANCE.getRoomTypeHandling__AddRoomType__String_int_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Edit Room Type</b></em>' operation.
@@ -5963,7 +5963,7 @@ public interface RootElementPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM_TYPE_HANDLING___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT = eINSTANCE.getRoomTypeHandling__EditRoomType__RoomType_String_int();
+		EOperation ROOM_TYPE_HANDLING___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT_INT = eINSTANCE.getRoomTypeHandling__EditRoomType__RoomType_String_int_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Room Type</b></em>' operation.

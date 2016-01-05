@@ -20,18 +20,18 @@ public interface RoomTypeHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" costDataType="org.eclipse.uml2.types.Integer" costRequired="true" costOrdered="false"
+	 * @model required="true" ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" capacityDataType="org.eclipse.uml2.types.Integer" capacityRequired="true" capacityOrdered="false" costDataType="org.eclipse.uml2.types.Integer" costRequired="true" costOrdered="false"
 	 * @generated
 	 */
-	RoomType addRoomType(String name, int cost) throws IllegalArgumentException;
+	RoomType addRoomType(String name, int capacity, int cost) throws IllegalArgumentException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomTypeRequired="true" roomTypeOrdered="false" newNameDataType="org.eclipse.uml2.types.String" newNameRequired="true" newNameOrdered="false" newCostDataType="org.eclipse.uml2.types.Integer" newCostRequired="true" newCostOrdered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomTypeRequired="true" roomTypeOrdered="false" newNameDataType="org.eclipse.uml2.types.String" newNameRequired="true" newNameOrdered="false" newCapacityDataType="org.eclipse.uml2.types.Integer" newCapacityRequired="true" newCapacityOrdered="false" newCostDataType="org.eclipse.uml2.types.Integer" newCostRequired="true" newCostOrdered="false"
 	 * @generated
 	 */
-	boolean editRoomType(RoomType roomType, String newName, int newCost);
+	boolean editRoomType(RoomType roomType, String newName, int newCapacity, int newCost);
 
 	/**
 	 * <!-- begin-user-doc -->

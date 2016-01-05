@@ -50,7 +50,7 @@ public class CleaningTest {
 		testMarkRoomAsCleaned();
 	}
 	private void testCheckRoomCleaned(){
-		RoomType roomType = sysAdmin.addRoomType("Queen", 10);
+		RoomType roomType = sysAdmin.addRoomType("Queen", 4, 10);
 		Room room = sysAdmin.addRoom(roomType, "Under Pressure");
 		room.setNeedCleaning(false);
 		try{
@@ -90,7 +90,7 @@ public class CleaningTest {
 		sysAdmin.removeRoomType(roomType);
 	}
 	private void testGetListOfUncleanRoom(){
-		RoomType roomType = sysAdmin.addRoomType("Queen", 10);
+		RoomType roomType = sysAdmin.addRoomType("Queen", 4, 10);
 		Room room = sysAdmin.addRoom(roomType, "Under Pressure");
 		Room room2 = sysAdmin.addRoom(roomType, "Dont stop me now");
 		
@@ -144,7 +144,7 @@ public class CleaningTest {
 		sysAdmin.removeRoomType(roomType);
 	}
 	private void testMarkRoomAsCleaned(){
-		RoomType roomType = sysAdmin.addRoomType("Queen", 10);
+		RoomType roomType = sysAdmin.addRoomType("Queen", 4, 10);
 		Room room = sysAdmin.addRoom(roomType, "Under Pressure");
 		
 		room.setNeedCleaning(false);

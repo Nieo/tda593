@@ -274,11 +274,13 @@
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="RootElement.ecore#//RoomTypeHandling">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomTypeHandling/addRoomType">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/addRoomType/name"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/addRoomType/capacity"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/addRoomType/cost"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomTypeHandling/editRoomType">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/editRoomType/roomType"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/editRoomType/newName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/editRoomType/newCapacity"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="RootElement.ecore#//RoomTypeHandling/editRoomType/newCost"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="RootElement.ecore#//RoomTypeHandling/removeRoomType">

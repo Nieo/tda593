@@ -182,15 +182,15 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @throws IllegalArgumentException if another room type with the same name exists.
 	 * @generated NOT
 	 */
-	public RoomType addRoomType(String name, int cost) throws IllegalArgumentException{
-		if(name != null){
+	public RoomType addRoomType(String name, int capacity, int cost) throws IllegalArgumentException{
+		if(name != null && capacity>0 && cost>=0){
 			for(RoomType rt : roomTypes){
 				if(rt.getName().equals(name)){
 					throw new IllegalArgumentException("Invalid name : A RoomType with that name already exists");
 				}
 			}
 			
-			RoomType type = createRoomType(name, cost);
+			RoomType type = createRoomType(name, capacity, cost);
 			roomTypes.add(type);
 			return type;
 		}else{
@@ -203,8 +203,8 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * must be unique for the hotel system and non-null.
 	 * @generated NOT
 	 */
-	public boolean editRoomType(RoomType roomType, String newName, int newCost) {
-		if(roomType != null && newName != null){
+	public boolean editRoomType(RoomType roomType, String newName, int newCapacity, int newCost) {
+		if(roomType != null && newName != null && newCapacity>0 && newCost>=0){
 			for(RoomType rt : roomTypes){
 				if(rt != roomType && rt.getName().equals(newName)){
 					return false;
@@ -212,6 +212,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 			}
 			
 			roomType.setName(newName);
+			roomType.setCapacity(newCapacity);
 			((RoomTypeImpl)roomType).setPrice(newCost);
 			return true;
 		}
@@ -432,9 +433,10 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * Creates a room type from the given values and returns the reference
 	 * to the created object.
 	 */
-	private RoomType createRoomType(String name, int price){
+	private RoomType createRoomType(String name, int capacity, int price){
 		RoomTypeImpl type = new RoomTypeImpl();
 		type.setName(name);
+		type.setCapacity(capacity);
 		type.setPrice(price);
 		return type;
 	}
@@ -552,8 +554,8 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == RoomTypeHandling.class) {
 			switch (baseOperationID) {
-				case RootElementPackage.ROOM_TYPE_HANDLING___ADD_ROOM_TYPE__STRING_INT: return RootElementPackage.ROOM_STRUCTURE___ADD_ROOM_TYPE__STRING_INT;
-				case RootElementPackage.ROOM_TYPE_HANDLING___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT: return RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT;
+				case RootElementPackage.ROOM_TYPE_HANDLING___ADD_ROOM_TYPE__STRING_INT_INT: return RootElementPackage.ROOM_STRUCTURE___ADD_ROOM_TYPE__STRING_INT_INT;
+				case RootElementPackage.ROOM_TYPE_HANDLING___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT_INT: return RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT_INT;
 				case RootElementPackage.ROOM_TYPE_HANDLING___REMOVE_ROOM_TYPE__ROOMTYPE: return RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM_TYPE__ROOMTYPE;
 				case RootElementPackage.ROOM_TYPE_HANDLING___GET_ALL_ROOM_TYPES: return RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_TYPES;
 				case RootElementPackage.ROOM_TYPE_HANDLING___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE: return RootElementPackage.ROOM_STRUCTURE___ADD_ATTRIBUTE_TO_ROOM_TYPE__ROOMTYPE_ROOMATTRIBUTE;
@@ -601,10 +603,10 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 				return findRoom((String)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOMS:
 				return getAllRooms();
-			case RootElementPackage.ROOM_STRUCTURE___ADD_ROOM_TYPE__STRING_INT:
-				return addRoomType((String)arguments.get(0), (Integer)arguments.get(1));
-			case RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT:
-				return editRoomType((RoomType)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2));
+			case RootElementPackage.ROOM_STRUCTURE___ADD_ROOM_TYPE__STRING_INT_INT:
+				return addRoomType((String)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2));
+			case RootElementPackage.ROOM_STRUCTURE___EDIT_ROOM_TYPE__ROOMTYPE_STRING_INT_INT:
+				return editRoomType((RoomType)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
 			case RootElementPackage.ROOM_STRUCTURE___REMOVE_ROOM_TYPE__ROOMTYPE:
 				return removeRoomType((RoomType)arguments.get(0));
 			case RootElementPackage.ROOM_STRUCTURE___GET_ALL_ROOM_TYPES:

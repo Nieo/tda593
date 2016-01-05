@@ -530,6 +530,9 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_18DEsp5dEeW2ZrS6EkHJUA" name="name">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0qeELOREeWGhoeb0_UHgA" name="capacity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_18DEs55dEeW2ZrS6EkHJUA" name="cost">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
@@ -539,6 +542,9 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_18DEtp5dEeW2ZrS6EkHJUA" name="roomType" type="_xgeMcJdmEeWbKp0h3hoGyg"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_18DEt55dEeW2ZrS6EkHJUA" name="newName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_E6vuILOSEeWGhoeb0_UHgA" name="newCapacity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_18DEuJ5dEeW2ZrS6EkHJUA" name="newCost">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
