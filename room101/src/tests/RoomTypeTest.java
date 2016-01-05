@@ -1,13 +1,13 @@
 package tests;
 
-import org.eclipse.emf.common.util.EList;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.Assert.*;
+import org.eclipse.emf.common.util.EList;
 import org.junit.Before;
 import org.junit.Test;
 
 import RootElement.HotelSystem;
-import RootElement.RoomAttribute;
 import RootElement.RoomType;
 import RootElement.SysAdmin;
 import RootElement.impl.HotelFactory;
@@ -23,6 +23,7 @@ public class RoomTypeTest {
 	
 	@Before
 	public void  setUp() throws Exception {
+		HotelNullifier.resetSystem();
 		HotelSystem hs = HotelFactory.createHotelSystem();
 		sysAdmin = hs.getSystemAdministrator();
 		
