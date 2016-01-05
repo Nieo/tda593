@@ -130,7 +130,7 @@ public class MainCLI{
 				String feedback = in.nextLine().trim();
 				int rating = 0;
 				while (true) {
-					System.out.print("Please enter the rating: ");
+					System.out.print("Please enter the rating (1-10): ");
 					try {
 						rating = Integer.parseInt(in.nextLine());
 						break;
@@ -138,7 +138,12 @@ public class MainCLI{
 						System.out.println("Wrong format! Only an integer number is allowed!");
 					}
 				}
+				try{
 				guest.giveFeedback(feedback, rating);
+				} catch(IllegalArgumentException e){
+					System.out.println("Incorrect rating value! Please use a valid rating (1-10)");
+					break;
+				}
 				System.out.println("Feedback has been recorded.");
 				break;
 			default:
