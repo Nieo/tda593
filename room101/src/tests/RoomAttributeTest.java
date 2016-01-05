@@ -1,12 +1,14 @@
 package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.emf.common.util.EList;
 import org.junit.Before;
 import org.junit.Test;
 
 import RootElement.HotelSystem;
+import RootElement.Manager;
 import RootElement.RoomAttribute;
 import RootElement.RoomType;
 import RootElement.SysAdmin;
@@ -20,20 +22,34 @@ import RootElement.impl.HotelFactory;
 public class RoomAttributeTest {
 
 	private SysAdmin sysAdmin;
-	
+	private Manager manager;
 	@Before
 	public void  setUp() throws Exception {
 		HotelSystem hs = HotelFactory.createHotelSystem();
 		sysAdmin = hs.getSystemAdministrator();
+		manager = hs.getManager("Manager");
+		
 		
 	}	
 
+	@Test 
+	public void test() {
+		testAddRoomAttribute(sysAdmin);
+		testAddRoomAttribute(manager);
+		
+		testRemoveRoomAttribute(sysAdmin);
+		testRemoveRoomAttribute(manager);
+		
+		testRemoveAttributeWhileAttachedToRoomtype(sysAdmin);
+		testRemoveAttributeWhileAttachedToRoomtype(manager);
+		
+	}
 	
-	@Test
-	public void testAddRoomAttribute(){
-		RoomAttribute attribute = sysAdmin.addRoomAttribute("addedAttribute", "descrition");
+	
+	private void testAddRoomAttribute(SysAdmin actor){
+		RoomAttribute attribute = actor.addRoomAttribute("addedAttribute", "descrition");
 		boolean roomAttributeFound = false;
-		EList<RoomAttribute> roomAttributes = sysAdmin.findRoomAttribute("addedAttribute");
+		EList<RoomAttribute> roomAttributes = actor.findRoomAttribute("addedAttribute");
 		for(int i = 0; i < roomAttributes.size(); i++) {
 			if(roomAttributes.get(i).getId() == attribute.getId()){
 				roomAttributeFound = true;
@@ -42,12 +58,12 @@ public class RoomAttributeTest {
 		assertTrue("Attribute couldn't not be created.", roomAttributeFound);
 	}
 	
-	@Test
-	public void testRemoveRoomAttribute() {
-		RoomAttribute attribute = sysAdmin.addRoomAttribute("removeAttribute", "description");
-		sysAdmin.removeRoomAttribute(attribute);
+	
+	private void testRemoveRoomAttribute(SysAdmin actor) {
+		RoomAttribute attribute = actor.addRoomAttribute("removeAttribute", "description");
+		actor.removeRoomAttribute(attribute);
 		
-		EList<RoomAttribute> roomAttributes = sysAdmin.findRoomAttribute("removeAttribute");
+		EList<RoomAttribute> roomAttributes = actor.findRoomAttribute("removeAttribute");
 
 		
 		boolean roomAttributeFound = false;
@@ -60,11 +76,10 @@ public class RoomAttributeTest {
 		
 	}
 		
-	@Test
-	public void testRemoveAttributeWhileAttachedToRoomtype() {
-		RoomAttribute pool = sysAdmin.addRoomAttribute("Pool", "This suite has a pool");
-		RoomType king = sysAdmin.addRoomType("King", 5, 10);
-		sysAdmin.addAttributeToRoomType(king, pool);		
+	private void testRemoveAttributeWhileAttachedToRoomtype(SysAdmin actor) {
+		RoomAttribute pool = actor.addRoomAttribute("Pool", "This suite has a pool");
+		RoomType king = actor.addRoomType("King", 5, 10);
+		actor.addAttributeToRoomType(king, pool);		
 		assertFalse("Room attribute could be removed even if it was attached to a roomtype",sysAdmin.removeRoomAttribute(pool));		
 	}
 	
