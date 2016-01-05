@@ -44,7 +44,7 @@ public class RoomTypeTest {
 	
 	
 	private void testAddRoomtype(SysAdmin actor, String roomTypeName){
-		RoomType singleRoom = actor.addRoomType(roomTypeName, 1, 3);
+		actor.addRoomType(roomTypeName, 1, 3);
 		boolean RoomtypeFound = false;
 		EList<RoomType> roomTypes = actor.findRoomType(roomTypeName);
 		for(int i = 0; i < roomTypes.size(); i++) {
@@ -58,8 +58,8 @@ public class RoomTypeTest {
 	
 	
 	private void testRemoveRoomtype(SysAdmin actor, String roomTypeName) {
-		RoomType doubleRoom = actor.addRoomType(roomTypeName, 2, 3);
-		actor.removeRoomType(doubleRoom);
+		RoomType roomType = actor.addRoomType(roomTypeName, 2, 3);
+		actor.removeRoomType(roomType);
 		
 		boolean RoomtypeFound = false;
 		EList<RoomType> roomTypes = actor.findRoomType(roomTypeName);

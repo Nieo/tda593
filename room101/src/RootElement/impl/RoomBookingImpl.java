@@ -4,6 +4,7 @@ package RootElement.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -230,8 +231,23 @@ public abstract class RoomBookingImpl extends MinimalEObjectImpl.Container imple
 	 * @generated NOT
 	 */
 	public int calculateCost() {
-		return room.getRoomType().getPrice();
+		int price = room.getRoomType().getPrice();
+		return price*getBookingTimeUnits()+price*getOverdueTimeUnits();
 	}
+	
+	private int getBookingTimeUnits(){
+		return (int)getTimeUnit().convert(getEndDate().getTime()-getStartDate().getTime(), TimeUnit.MILLISECONDS);
+	}
+	
+	private int getOverdueTimeUnits(){
+		if(getEndDate().after(new Date())){
+			return 0;
+		}else{
+			return Math.max(0, (int)getTimeUnit().convert(new Date().getTime()-getEndDate().getTime(), TimeUnit.MILLISECONDS));
+		}
+	}
+	
+	protected abstract TimeUnit getTimeUnit();
 
 	/**
 	 * <!-- begin-user-doc -->

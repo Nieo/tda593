@@ -5,6 +5,8 @@ package RootElement.impl;
 import RootElement.DailyRoomBooking;
 import RootElement.RootElementPackage;
 
+import java.util.concurrent.TimeUnit;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -52,6 +54,14 @@ public class DailyRoomBookingImpl extends RoomBookingImpl implements DailyRoomBo
 	 */
 	protected DailyRoomBookingImpl() {
 		super();
+	}
+	
+	/**
+	 * Returns which time unit is used for this kind of booking.
+	 * TimeUnit.DAYS will always be returned.
+	 */
+	protected TimeUnit getTimeUnit(){
+		return TimeUnit.DAYS;
 	}
 
 	/**
