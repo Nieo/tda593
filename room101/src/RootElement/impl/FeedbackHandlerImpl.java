@@ -103,7 +103,11 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void giveFeedback(String feedback, int rating) {
+	public void giveFeedback(String feedback, int rating) throws IllegalArgumentException {
+		if(rating < 1 || rating > 10){
+			throw new IllegalArgumentException("Rating out of bounds(1-10)");
+		}
+		
 		Feedback temp = new FeedbackImpl();
 		temp.setFeedbackDescription(feedback);
 		temp.setRating(rating);
