@@ -405,10 +405,8 @@ public class MainCLI{
 					System.out.println("Wrong format! Only an integer number is allowed!");
 				}
 			}
-			while (true) {
-				System.out.print("What's your next destination?: ");
-				nextDest = in.nextLine().trim();
-			}
+			System.out.print("What's your next destination?: ");
+			nextDest = in.nextLine().trim();
 		}
 		try {
 			return actor.confirmBooking(booking, name, phone, mail, nationality, passportNbr, nextDest);
@@ -451,7 +449,7 @@ public class MainCLI{
 	}
 	
 	private void printBooking(Booking booking) {
-		System.out.println("\nBookingID: " + booking.getBookingID() + "\tGuest: " + booking.getGuest().getName());
+		System.out.println("\nBookingID: " + booking.getBookingID() + "\tGuest: " + (booking.getGuest()!=null?booking.getGuest().getName():"<null>"));
 		if (!booking.getRoombooking().isEmpty()) {
 			System.out.println("Rooms booked:");
 			for (RoomBooking rb : booking.getRoombooking()) {
