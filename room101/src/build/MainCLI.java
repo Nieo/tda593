@@ -451,7 +451,7 @@ public class MainCLI{
 	}
 	
 	private void printBooking(Booking booking) {
-		System.out.println("\nBookingID: " + booking.getBookingID() + "\tGuest: " + booking.getGuest().getName());
+		System.out.println("\nBookingID: " + booking.getBookingID() + "\tGuest: " + (booking.getGuest()!=null?booking.getGuest().getName():"<null>"));
 		if (!booking.getRoombooking().isEmpty()) {
 			System.out.println("Rooms booked:");
 			for (RoomBooking rb : booking.getRoombooking()) {
