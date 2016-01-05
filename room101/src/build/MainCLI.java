@@ -791,8 +791,9 @@ public class MainCLI{
 			case 1:
 				RoomBooking checkInRoom = chooseRoomBooking(booking);
 				if (checkInRoom != null) {
-					if (actor.checkIn(checkInRoom)) {
-						System.out.println("Room has been checked in.");
+					Room room = actor.checkIn(checkInRoom);
+					if (room!=null) {
+						System.out.println("Room has been checked in: "+room.getName());
 					} else {
 						System.out.println("Failed to check in!");
 					}					

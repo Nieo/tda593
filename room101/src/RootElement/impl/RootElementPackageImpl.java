@@ -2061,7 +2061,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		addEParameter(op, theTypesPackage.getString(), "phoneNumber", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(bookingEClass, Booking.class, "Booking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBooking_BookingID(), theTypesPackage.getString(), "bookingID", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBooking_BookingID(), theTypesPackage.getString(), "bookingID", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBooking_Roombooking(), this.getRoomBooking(), null, "roombooking", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBooking_Guest(), this.getGuest(), null, "guest", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBooking_Serviceitem(), this.getServiceItem(), null, "serviceitem", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2155,7 +2155,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEClass(receptionHandlingEClass, ReceptionHandling.class, "ReceptionHandling", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getReceptionHandling__CheckIn__RoomBooking(), theTypesPackage.getBoolean(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceptionHandling__CheckIn__RoomBooking(), this.getRoom(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getReceptionHandling__CheckOut__RoomBooking(), theTypesPackage.getBoolean(), "checkOut", 1, 1, IS_UNIQUE, !IS_ORDERED);

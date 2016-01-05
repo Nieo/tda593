@@ -71,7 +71,7 @@
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_JSEGwKS3EeWGItiBmqI77w" client="_P4uv4JddEeW0s9Al2d2tiA" supplier="_NtMUAJ3BEeWgH5KZ_xCcgQ" contract="_NtMUAJ3BEeWgH5KZ_xCcgQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_d3V_0JddEeW0s9Al2d2tiA" name="Booking">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_d3V_1ZddEeW0s9Al2d2tiA" name="bookingID" visibility="private">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_d3V_1ZddEeW0s9Al2d2tiA" name="bookingID" visibility="private" isReadOnly="true">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_Oyp2IZ2TEeWgH5KZ_xCcgQ" name="roombooking" type="_LeQ0kJ2QEeWgH5KZ_xCcgQ" association="_OyooAJ2TEeWgH5KZ_xCcgQ">
@@ -286,9 +286,7 @@
   <packagedElement xmi:type="uml:Interface" xmi:id="_O_vQEJ24EeWgH5KZ_xCcgQ" name="ReceptionHandling">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_O_vQEZ24EeWgH5KZ_xCcgQ" name="checkIn">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_O_vQEp24EeWgH5KZ_xCcgQ" name="booking" type="_LeQ0kJ2QEeWgH5KZ_xCcgQ"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_O_vQE524EeWgH5KZ_xCcgQ" name="success" direction="return">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_O_vQE524EeWgH5KZ_xCcgQ" name="checkedInRoom" type="_UTJDgJdOEeW0s9Al2d2tiA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_O_vQFJ24EeWgH5KZ_xCcgQ" name="checkOut">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_O_vQFZ24EeWgH5KZ_xCcgQ" name="booking" type="_LeQ0kJ2QEeWgH5KZ_xCcgQ"/>

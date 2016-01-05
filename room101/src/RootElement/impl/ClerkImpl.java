@@ -2,24 +2,26 @@
  */
 package RootElement.impl;
 
-import RootElement.Booking;
-import RootElement.Clerk;
-import RootElement.MakeBooking;
-import RootElement.Payment;
-import RootElement.ReceptionHandling;
-import RootElement.RoomBooking;
-import RootElement.RoomType;
-import RootElement.RootElementPackage;
-
-import RootElement.ServiceItem;
-import RootElement.ServiceItemHandling;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import RootElement.Booking;
+import RootElement.Clerk;
+import RootElement.MakeBooking;
+import RootElement.Payment;
+import RootElement.ReceptionHandling;
+import RootElement.Room;
+import RootElement.RoomBooking;
+import RootElement.RoomType;
+import RootElement.RootElementPackage;
+import RootElement.ServiceItem;
+import RootElement.ServiceItemHandling;
 
 /**
  * <!-- begin-user-doc -->
@@ -255,7 +257,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean checkIn(RoomBooking booking) {
+	public Room checkIn(RoomBooking booking) {
 		return receptionHandling.checkIn(booking);
 	}
 
