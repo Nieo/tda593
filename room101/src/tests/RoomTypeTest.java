@@ -34,21 +34,21 @@ public class RoomTypeTest {
 
 	@Test
 	public void test(){
-		testAddRoomtype(sysAdmin);
-		testAddRoomtype(manager);
+		testAddRoomtype(sysAdmin, "King");
+		testAddRoomtype(manager, "Queen");
 		
-		testRemoveRoomtype(sysAdmin);
-		testRemoveRoomtype(manager);
+		testRemoveRoomtype(sysAdmin, "Single");
+		testRemoveRoomtype(manager, "Double");
 		
 	}
 	
-	@Test
-	public void testAddRoomtype(SysAdmin actor){
-		RoomType singleRoom = actor.addRoomType("Single", 1, 3);
+	
+	private void testAddRoomtype(SysAdmin actor, String roomTypeName){
+		RoomType singleRoom = actor.addRoomType(roomTypeName, 1, 3);
 		boolean RoomtypeFound = false;
-		EList<RoomType> roomTypes = actor.findRoomType("Single");
+		EList<RoomType> roomTypes = actor.findRoomType(roomTypeName);
 		for(int i = 0; i < roomTypes.size(); i++) {
-			if(roomTypes.get(i).getName().equals("Single")){
+			if(roomTypes.get(i).getName().equals(roomTypeName)){
 				RoomtypeFound = true;
 			}
 		}		
@@ -56,15 +56,15 @@ public class RoomTypeTest {
 		
 	}
 	
-	@Test
-	public void testRemoveRoomtype(SysAdmin actor) {
-		RoomType doubleRoom = actor.addRoomType("Double", 2, 3);
+	
+	private void testRemoveRoomtype(SysAdmin actor, String roomTypeName) {
+		RoomType doubleRoom = actor.addRoomType(roomTypeName, 2, 3);
 		actor.removeRoomType(doubleRoom);
 		
 		boolean RoomtypeFound = false;
-		EList<RoomType> roomTypes = actor.findRoomType("Double");
+		EList<RoomType> roomTypes = actor.findRoomType(roomTypeName);
 		for(int i = 0; i < roomTypes.size(); i++) {
-			if(roomTypes.get(i).getName().equals("Double")){
+			if(roomTypes.get(i).getName().equals(roomTypeName)){
 				RoomtypeFound = true;
 			}
 		}

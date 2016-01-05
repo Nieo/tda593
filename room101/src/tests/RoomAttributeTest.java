@@ -35,22 +35,22 @@ public class RoomAttributeTest {
 
 	@Test 
 	public void test() {
-		testAddRoomAttribute(sysAdmin);
-		testAddRoomAttribute(manager);
+		testAddRoomAttribute(sysAdmin, "systemAdminAddedAttribute");
+		testAddRoomAttribute(manager, "managerAddedAttribute");
 		
-		testRemoveRoomAttribute(sysAdmin);
-		testRemoveRoomAttribute(manager);
+		testRemoveRoomAttribute(sysAdmin, "systemAdminRemoveAttribute");
+		testRemoveRoomAttribute(manager, "managerRemoveAttribute");
 		
-		testRemoveAttributeWhileAttachedToRoomtype(sysAdmin);
-		testRemoveAttributeWhileAttachedToRoomtype(manager);
+		testRemoveAttributeWhileAttachedToRoomtype(sysAdmin, "sysAdminRoomType", "sysAdminAttribute");
+		testRemoveAttributeWhileAttachedToRoomtype(manager, "managerRoomType", "managerAttribute");
 		
 	}
 	
 	
-	private void testAddRoomAttribute(SysAdmin actor){
-		RoomAttribute attribute = actor.addRoomAttribute("addedAttribute", "descrition");
+	private void testAddRoomAttribute(SysAdmin actor, String attributeName){
+		RoomAttribute attribute = actor.addRoomAttribute(attributeName, "descrition");
 		boolean roomAttributeFound = false;
-		EList<RoomAttribute> roomAttributes = actor.findRoomAttribute("addedAttribute");
+		EList<RoomAttribute> roomAttributes = actor.findRoomAttribute(attributeName);
 		for(int i = 0; i < roomAttributes.size(); i++) {
 			if(roomAttributes.get(i).getId() == attribute.getId()){
 				roomAttributeFound = true;
@@ -60,11 +60,11 @@ public class RoomAttributeTest {
 	}
 	
 	
-	private void testRemoveRoomAttribute(SysAdmin actor) {
-		RoomAttribute attribute = actor.addRoomAttribute("removeAttribute", "description");
+	private void testRemoveRoomAttribute(SysAdmin actor, String attributeName) {
+		RoomAttribute attribute = actor.addRoomAttribute(attributeName, "description");
 		actor.removeRoomAttribute(attribute);
 		
-		EList<RoomAttribute> roomAttributes = actor.findRoomAttribute("removeAttribute");
+		EList<RoomAttribute> roomAttributes = actor.findRoomAttribute(attributeName);
 
 		
 		boolean roomAttributeFound = false;
@@ -77,11 +77,11 @@ public class RoomAttributeTest {
 		
 	}
 		
-	private void testRemoveAttributeWhileAttachedToRoomtype(SysAdmin actor) {
-		RoomAttribute pool = actor.addRoomAttribute("Pool", "This suite has a pool");
-		RoomType king = actor.addRoomType("King", 5, 10);
-		actor.addAttributeToRoomType(king, pool);		
-		assertFalse("Room attribute could be removed even if it was attached to a roomtype",sysAdmin.removeRoomAttribute(pool));		
+	private void testRemoveAttributeWhileAttachedToRoomtype(SysAdmin actor,String roomTypeName, String attributeName) {
+		RoomAttribute attribute = actor.addRoomAttribute(attributeName, "descrition");
+		RoomType roomType = actor.addRoomType(roomTypeName, 5, 10);
+		actor.addAttributeToRoomType(roomType, attribute);		
+		assertFalse("Room attribute could be removed even if it was attached to a roomtype",sysAdmin.removeRoomAttribute(attribute));		
 	}
 	
 
