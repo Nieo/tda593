@@ -356,9 +356,8 @@
     </eOperations>
     <eOperations name="getSystemAdministrator" ordered="false" lowerBound="1" eType="#//SysAdmin"/>
     <eOperations name="getGuest" ordered="false" lowerBound="1" eType="#//Guest"/>
+    <eOperations name="getName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+    <eOperations name="getNationality" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Hotel" eSuperTypes="#//HotelSystem">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
-        eType="ecore:EDataType types.ecore#//String"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hotel" eSuperTypes="#//HotelSystem"/>
 </ecore:EPackage>

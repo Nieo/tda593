@@ -3496,13 +3496,31 @@ public interface RootElementPackage extends EPackage {
 	int HOTEL_SYSTEM___GET_GUEST = 4;
 
 	/**
+	 * The operation id for the '<em>Get Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL_SYSTEM___GET_NAME = 5;
+
+	/**
+	 * The operation id for the '<em>Get Nationality</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL_SYSTEM___GET_NATIONALITY = 6;
+
+	/**
 	 * The number of operations of the '<em>Hotel System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL_SYSTEM_OPERATION_COUNT = 5;
+	int HOTEL_SYSTEM_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link RootElement.impl.HotelImpl <em>Hotel</em>}' class.
@@ -3515,22 +3533,13 @@ public interface RootElementPackage extends EPackage {
 	int HOTEL = 35;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HOTEL__NAME = HOTEL_SYSTEM_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Hotel</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOTEL_FEATURE_COUNT = HOTEL_SYSTEM_FEATURE_COUNT + 1;
+	int HOTEL_FEATURE_COUNT = HOTEL_SYSTEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Staff</em>' operation.
@@ -3576,6 +3585,24 @@ public interface RootElementPackage extends EPackage {
 	 * @ordered
 	 */
 	int HOTEL___GET_GUEST = HOTEL_SYSTEM___GET_GUEST;
+
+	/**
+	 * The operation id for the '<em>Get Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_NAME = HOTEL_SYSTEM___GET_NAME;
+
+	/**
+	 * The operation id for the '<em>Get Nationality</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOTEL___GET_NATIONALITY = HOTEL_SYSTEM___GET_NATIONALITY;
 
 	/**
 	 * The number of operations of the '<em>Hotel</em>' class.
@@ -5104,6 +5131,26 @@ public interface RootElementPackage extends EPackage {
 	EOperation getHotelSystem__GetGuest();
 
 	/**
+	 * Returns the meta object for the '{@link RootElement.HotelSystem#getName() <em>Get Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Name</em>' operation.
+	 * @see RootElement.HotelSystem#getName()
+	 * @generated
+	 */
+	EOperation getHotelSystem__GetName();
+
+	/**
+	 * Returns the meta object for the '{@link RootElement.HotelSystem#getNationality() <em>Get Nationality</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Nationality</em>' operation.
+	 * @see RootElement.HotelSystem#getNationality()
+	 * @generated
+	 */
+	EOperation getHotelSystem__GetNationality();
+
+	/**
 	 * Returns the meta object for class '{@link RootElement.Hotel <em>Hotel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5112,17 +5159,6 @@ public interface RootElementPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getHotel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link RootElement.Hotel#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see RootElement.Hotel#getName()
-	 * @see #getHotel()
-	 * @generated
-	 */
-	EAttribute getHotel_Name();
 
 	/**
 	 * Returns the meta object for enum '{@link RootElement.BookingStatus <em>Booking Status</em>}'.
@@ -6388,6 +6424,22 @@ public interface RootElementPackage extends EPackage {
 		EOperation HOTEL_SYSTEM___GET_GUEST = eINSTANCE.getHotelSystem__GetGuest();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HOTEL_SYSTEM___GET_NAME = eINSTANCE.getHotelSystem__GetName();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Nationality</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation HOTEL_SYSTEM___GET_NATIONALITY = eINSTANCE.getHotelSystem__GetNationality();
+
+		/**
 		 * The meta object literal for the '{@link RootElement.impl.HotelImpl <em>Hotel</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6396,14 +6448,6 @@ public interface RootElementPackage extends EPackage {
 		 * @generated
 		 */
 		EClass HOTEL = eINSTANCE.getHotel();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HOTEL__NAME = eINSTANCE.getHotel_Name();
 
 		/**
 		 * The meta object literal for the '{@link RootElement.BookingStatus <em>Booking Status</em>}' enum.

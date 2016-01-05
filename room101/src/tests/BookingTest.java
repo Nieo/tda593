@@ -10,6 +10,7 @@ import RootElement.HotelSystem;
 import RootElement.MakeBooking;
 import RootElement.RoomType;
 import RootElement.impl.HotelFactory;
+import build.HotelSystemInitiator;
 
 public class BookingTest {
 	
@@ -36,13 +37,14 @@ public class BookingTest {
 	@Test
 	public void testBooking(){
 		HotelSystem hs = HotelFactory.createHotelSystem();
+		HotelSystemInitiator.initOwnFile(hs, "nanos.txt");
 		//Test clerk
-		doTest(hs.getClerk("AwesomeClerk"));
+		doTest(hs, hs.getClerk("AwesomeClerk"));
 		//Test guest
-		doTest(hs.getGuest());
+		doTest(hs, hs.getGuest());
 	}
 	
-	private void doTest(MakeBooking actor){
+	private void doTest(HotelSystem hs, MakeBooking actor){
 		Booking booking = actor.createBooking();
 		Booking booking2 = actor.createBooking();
 		int foundRoomsOtherDate = actor.getAvailableRooms(date2, date3, 1, 0).size();
@@ -52,9 +54,9 @@ public class BookingTest {
 			assert(actor.addRoom(booking2, rt, 1, 0, date1, date2));
 			foundRooms++;
 		}
-		assert(actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "Sweden", -1, null));
-		assert(!actor.confirmBooking(booking2, "Nano", "000-000000", "mail@me.se", "Sweden", -1, null));
-		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "Sweden", -1, null));
+		assert(actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		assert(!actor.confirmBooking(booking2, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
 		assert(actor.getAvailableRooms(date1, date2, 1, 0).size() == 0);
 		assert(actor.getAvailableRooms(date2, date3, 1, 0).size() == foundRoomsOtherDate);
 		assert(actor.cancelBooking(booking));
@@ -66,7 +68,7 @@ public class BookingTest {
 			assert(actor.addRoom(booking3, rt, 1, 0, date1, date2));
 			foundRooms++;
 		}
-		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "France", -1, null));
+		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "FR", -1, null));
 		actor.cancelBooking(booking3);
 		
 		//Check no multiple uses of one and the same room
@@ -77,6 +79,6 @@ public class BookingTest {
 		for(int i = 0; i<availableRooms.size()+1; i++){
 			actor.addRoom(booking4, rt, 1, 0, date1, date2);
 		}
-		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "Sweden", -1, null));
+		assert(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
 	}	
 }

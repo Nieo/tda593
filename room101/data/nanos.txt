@@ -1,9 +1,37 @@
-addRoomAttribute $ Stupid $ Hurr durr I'm stupid LoL.
-addRoomAttribute $ Help $ I don't know what I'm doing, help!
-addRoomAttribute $ Nanos grej $ I'm swinglish huhu.
+addRoomAttribute $ Sea view $ Nice view of the sea
+addRoomAttribute $ FullDaySupport $ Support 24/7
+addRoomAttribute $ King sized bed $ A very big bed
+addRoomAttribute $ Animals allowed $ Various kinds of pets can be brought to this room
+addRoomAttribute $ Smoking allowed $ You may smoke in this room.
+addRoomAttribute $ Free WiFi $ The cost of WiFi is included in the price
+addRoomAttribute $ Extra key $ The guest retrieves an extra key for this room
+addRoomAttribute $ Cleaning included $ Everyday cleaning is included in the price
 
-addRoomType $ Dumb type $ 9999 $ Stupid
-addRoomType $ Nano $ 19 $ Help $ Nanos grej
+addRoomType $ Standard room $ 4 $ 399 $ Cleaning
+addRoomType $ Suite $ 2 $ 699 $ Sea view $ King sized bed $ FullDaySupport $ Extra key $ Free WiFi $ Cleaning
+addRoomType $ Animal lover $ 3 $ 549 $ Animals allowed $ Cleaning $ Sea view
+addRoomType $ Computer room $ 1 $ 299 $ Cleaning $ Free WiFi $ Extra key
 
-addRoom $ Stupid room $ Dumb type
-addRoom $ Nanos room $ Nano
+addRoom $ 1 $ Standard room
+addRoom $ 2 $ Standard room
+addRoom $ 3 $ Standard room
+addRoom $ 4 $ Standard room
+addRoom $ 5 $ Standard room
+addRoom $ 6 $ Standard room
+addRoom $ 10 $ Suite
+addRoom $ 11 $ Suite
+addRoom $ 20 $ Animal lover
+addRoom $ 21 $ Animal lover
+addRoom $ 1337 $ Computer room
+
+newBooking
+addRoomToBooking $ Standard room $ 2016-01-13 $ 2016-01-15 $ 1 $ 3
+confirmBooking $ Annika Andersson $ 0761-521214 $ annand@telia.se $ SE
+
+addFeedback $ I loved my trip! I will definitely recommend this hotel for all my dog owner friends! $ 10
+addFeedback $ The network was OK. So was the cleaning. The extra key was sort of a nullpointer experience though. $ 7
+addFeedback $ Very expensive for what we got. It is hard to be a family with 2 children with too much energy. Duff. $ 4
+
+addSupportTicket $ 20 $ One pillow needs to be bought. A dog found the old one quite tasty.
+addSupportTicket $ 3 $ The shower does not give any warm water. Needs quick fix!
+addSupportTicket $ 1337 $ I am getting lag on Heartstone. Pls fix network.

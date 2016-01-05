@@ -1696,8 +1696,8 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getHotel() {
-		return hotelEClass;
+	public EOperation getHotelSystem__GetName() {
+		return hotelSystemEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -1705,8 +1705,17 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHotel_Name() {
-		return (EAttribute)hotelEClass.getEStructuralFeatures().get(0);
+	public EOperation getHotelSystem__GetNationality() {
+		return hotelSystemEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHotel() {
+		return hotelEClass;
 	}
 
 	/**
@@ -1925,9 +1934,10 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_MANAGER__STRING);
 		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_SYSTEM_ADMINISTRATOR);
 		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_GUEST);
+		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_NAME);
+		createEOperation(hotelSystemEClass, HOTEL_SYSTEM___GET_NATIONALITY);
 
 		hotelEClass = createEClass(HOTEL);
-		createEAttribute(hotelEClass, HOTEL__NAME);
 
 		// Create enums
 		bookingStatusEEnum = createEEnum(BOOKING_STATUS);
@@ -2307,8 +2317,11 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 
 		initEOperation(getHotelSystem__GetGuest(), this.getGuest(), "getGuest", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
+		initEOperation(getHotelSystem__GetName(), theTypesPackage.getString(), "getName", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getHotelSystem__GetNationality(), theTypesPackage.getString(), "getNationality", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(hotelEClass, Hotel.class, "Hotel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getHotel_Name(), theTypesPackage.getString(), "name", null, 1, 1, Hotel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(bookingStatusEEnum, BookingStatus.class, "BookingStatus");

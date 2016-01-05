@@ -389,7 +389,7 @@ public class MainCLI{
 		System.out.println("What's your nationality? Use the nationality code (e.g SE, GB etc.): ");
 		nationality = in.nextLine().trim();
 		String natLow = nationality.toLowerCase().trim();
-		if (!natLow.equals("se")) {
+		if (!natLow.equals(hotel.getNationality().toLowerCase())) {
 			while (true) {
 				System.out.print("What's your passport number?: ");
 				try {
