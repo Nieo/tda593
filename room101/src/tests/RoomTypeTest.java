@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import RootElement.HotelSystem;
+import RootElement.Manager;
 import RootElement.RoomType;
 import RootElement.SysAdmin;
 import RootElement.impl.HotelFactory;
@@ -20,23 +21,34 @@ import RootElement.impl.HotelFactory;
 public class RoomTypeTest {
 
 	private SysAdmin sysAdmin;
+	private Manager manager;
 	
 	@Before
 	public void  setUp() throws Exception {
 		HotelNullifier.resetSystem();
 		HotelSystem hs = HotelFactory.createHotelSystem();
 		sysAdmin = hs.getSystemAdministrator();
+		manager = hs.getManager("Manager");
 		
 	}	
 
-	
 	@Test
-	public void testAddRoomtype(){
-		RoomType singleRoom = sysAdmin.addRoomType("Single", 1, 3);
+	public void test(){
+		testAddRoomtype(sysAdmin, "King");
+		testAddRoomtype(manager, "Queen");
+		
+		testRemoveRoomtype(sysAdmin, "Single");
+		testRemoveRoomtype(manager, "Double");
+		
+	}
+	
+	
+	private void testAddRoomtype(SysAdmin actor, String roomTypeName){
+		RoomType singleRoom = actor.addRoomType(roomTypeName, 1, 3);
 		boolean RoomtypeFound = false;
-		EList<RoomType> roomTypes = sysAdmin.findRoomType("Single");
+		EList<RoomType> roomTypes = actor.findRoomType(roomTypeName);
 		for(int i = 0; i < roomTypes.size(); i++) {
-			if(roomTypes.get(i).getName().equals("Single")){
+			if(roomTypes.get(i).getName().equals(roomTypeName)){
 				RoomtypeFound = true;
 			}
 		}		
@@ -44,15 +56,15 @@ public class RoomTypeTest {
 		
 	}
 	
-	@Test
-	public void testRemoveRoomtype() {
-		RoomType doubleRoom = sysAdmin.addRoomType("Double", 2, 3);
-		sysAdmin.removeRoomType(doubleRoom);
+	
+	private void testRemoveRoomtype(SysAdmin actor, String roomTypeName) {
+		RoomType doubleRoom = actor.addRoomType(roomTypeName, 2, 3);
+		actor.removeRoomType(doubleRoom);
 		
 		boolean RoomtypeFound = false;
-		EList<RoomType> roomTypes = sysAdmin.findRoomType("Double");
+		EList<RoomType> roomTypes = actor.findRoomType(roomTypeName);
 		for(int i = 0; i < roomTypes.size(); i++) {
-			if(roomTypes.get(i).getName().equals("Double")){
+			if(roomTypes.get(i).getName().equals(roomTypeName)){
 				RoomtypeFound = true;
 			}
 		}
