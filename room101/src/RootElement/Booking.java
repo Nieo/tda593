@@ -34,22 +34,11 @@ public interface Booking extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Booking ID</em>' attribute.
-	 * @see #setBookingID(String)
 	 * @see RootElement.RootElementPackage#getBooking_BookingID()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" required="true" changeable="false" ordered="false"
 	 * @generated
 	 */
 	String getBookingID();
-
-	/**
-	 * Sets the value of the '{@link RootElement.Booking#getBookingID <em>Booking ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Booking ID</em>' attribute.
-	 * @see #getBookingID()
-	 * @generated
-	 */
-	void setBookingID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Roombooking</b></em>' reference list.

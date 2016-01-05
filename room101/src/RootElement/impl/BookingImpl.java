@@ -8,6 +8,8 @@ import RootElement.RoomBooking;
 import RootElement.RootElementPackage;
 
 import RootElement.ServiceItem;
+import RootElement.util.IDGenerator;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -99,6 +101,7 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	protected BookingImpl() {
 		super();
 		serviceitem = ECollections.<ServiceItem>newBasicEList();
+		bookingID = "BKID::"+IDGenerator.getGenerator("booking").getNewID();
 	}
 
 	/**
@@ -118,18 +121,6 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 */
 	public String getBookingID() {
 		return bookingID;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBookingID(String newBookingID) {
-		String oldBookingID = bookingID;
-		bookingID = newBookingID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RootElementPackage.BOOKING__BOOKING_ID, oldBookingID, bookingID));
 	}
 
 	/**
@@ -240,9 +231,6 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RootElementPackage.BOOKING__BOOKING_ID:
-				setBookingID((String)newValue);
-				return;
 			case RootElementPackage.BOOKING__ROOMBOOKING:
 				getRoombooking().clear();
 				getRoombooking().addAll((Collection<? extends RoomBooking>)newValue);
@@ -266,9 +254,6 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RootElementPackage.BOOKING__BOOKING_ID:
-				setBookingID(BOOKING_ID_EDEFAULT);
-				return;
 			case RootElementPackage.BOOKING__ROOMBOOKING:
 				getRoombooking().clear();
 				return;

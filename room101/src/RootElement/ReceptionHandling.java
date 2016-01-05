@@ -20,10 +20,10 @@ public interface ReceptionHandling extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" bookingRequired="true" bookingOrdered="false"
+	 * @model required="true" ordered="false" bookingRequired="true" bookingOrdered="false"
 	 * @generated
 	 */
-	boolean checkIn(RoomBooking booking);
+	Room checkIn(RoomBooking booking);
 
 	/**
 	 * <!-- begin-user-doc -->

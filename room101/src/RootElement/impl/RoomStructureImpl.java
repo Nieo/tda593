@@ -390,7 +390,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public EList<Room> getBookableRooms() {
-		EList<Room> bookableRooms = new EObjectResolvingEList<Room>(Room.class, this, -1); 	//TODO solve how to make the last param more intuitive.
+		EList<Room> bookableRooms = ECollections.<Room>newBasicEList();
 		ECollections.setEList(bookableRooms, rooms);
 		for(Room room : bookableRooms){
 			if(room.getName() == null || room.getRoomType() == null){
@@ -406,7 +406,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public EList<Room> getAllCleanableRooms() {
-		return getAvailableRooms();
+		return getAllRooms();
 	}
 
 	/**
@@ -414,8 +414,15 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * NOTE: Currently you cannot mark a room as broken
 	 * @generated NOT
 	 */
-	public EList<Room> getAvailableRooms() {
-		return getAllRooms();
+	public EList<Room> getAvailableRooms(){
+		EList<Room> availableRooms = ECollections.<Room>newBasicEList();
+		for(Room r : rooms){
+			if(!r.isOccupied() && !r.isNeedCleaning()){
+				availableRooms.add(r);
+			}
+		}
+		
+		return availableRooms;
 	}
 	
 	/**

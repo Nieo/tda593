@@ -3,6 +3,7 @@ package tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.Date;
 
@@ -15,6 +16,7 @@ import RootElement.MakeBooking;
 import RootElement.RoomType;
 import RootElement.impl.HotelFactory;
 import build.HotelSystemInitiator;
+import junit.runner.Version;
 
 public class BookingTest {
 	
@@ -49,6 +51,7 @@ public class BookingTest {
 	}
 	
 	private void doTest(HotelSystem hs, MakeBooking actor){
+		System.out.println(Version.id());
 		Booking booking = actor.createBooking();
 		Booking booking2 = actor.createBooking();
 		int foundRoomsOtherDate = actor.getAvailableRooms(date2, date3, 1, 0).size();
@@ -64,11 +67,15 @@ public class BookingTest {
 		assertTrue(actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
 		assertEquals(0, actor.getAvailableRooms(date1, date2, 1, 0).size());
 		assertTrue(!actor.confirmBooking(booking2, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
-		assertTrue(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		try{			
+			assertTrue(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+			fail("Booking could be confirmed multiple times");
+		}catch(IllegalArgumentException iae){}
 		assertEquals(0, actor.getAvailableRooms(date1, date2, 1, 0).size());
 		assertEquals(foundRoomsOtherDate, actor.getAvailableRooms(date2, date3, 1, 0).size());
 		assertTrue(actor.cancelBooking(booking));
 		assertEquals(foundRooms, actor.getAvailableRooms(date1, date2, 1, 0).size());
+		actor.cancelBooking(booking2);
 		
 		//Check passportNumber & nextDestination is required
 		Booking booking3 = actor.createBooking();
@@ -76,7 +83,10 @@ public class BookingTest {
 			assertTrue(actor.addRoom(booking3, rt, 1, 0, date1, date2));
 			foundRooms++;
 		}
-		assertTrue(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "FR", -1, null));
+		try{
+			assertTrue(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", "FR", -1, null));
+			fail("Did not require passport number of foreign user");
+		}catch(IllegalArgumentException iae){}
 		actor.cancelBooking(booking3);
 		
 		//Check no multiple uses of one and the same room
@@ -91,9 +101,9 @@ public class BookingTest {
 			}
 		}
 		
-		for(int i = 0; i<rtCount+1; i++){
+		for(int i = 0; i<rtCount+5; i++){
 			assertTrue(actor.addRoom(booking4, rt, 1, 0, date1, date2) == (i<rtCount));
 		}
-		assertTrue(!actor.confirmBooking(booking, "Nano", "000-000000", "mail@me.se", hs.getNationality(), -1, null));
+		assertEquals(rtCount, booking4.getRoombooking().size());
 	}	
 }

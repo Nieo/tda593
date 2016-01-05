@@ -2,6 +2,20 @@
  */
 package RootElement.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ECollections;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import RootElement.Booking;
 import RootElement.BookingHandler;
 import RootElement.BookingStatus;
@@ -12,26 +26,8 @@ import RootElement.RoomBooking;
 import RootElement.RoomFetcher;
 import RootElement.RoomType;
 import RootElement.RootElementPackage;
-
 import RootElement.ServiceItem;
 import RootElement.ServiceItemHandling;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-
-import java.util.Date;
-import java.util.HashMap;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ECollections;
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -144,12 +140,24 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean checkIn(RoomBooking booking) {
+	public Room checkIn(RoomBooking booking) {
 		if(booking.getBookingStatus() == BookingStatus.BOOKED){
-			booking.setBookingStatus(BookingStatus.CHECKED_IN);
-			return true;
+			Room concreteRoom = null;
+			for(Room r : roomFetcher.getAvailableRooms()){
+				if(r.getRoomType() == booking.getRoom().getRoomType()){
+					concreteRoom = r;
+					break;
+				}
+			}
+			
+			if(concreteRoom != null){
+				booking.setRoom(concreteRoom);
+				booking.setBookingStatus(BookingStatus.CHECKED_IN);
+				return concreteRoom;
+			}
 		}
-		return false;
+		
+		return null;
 	}
 
 	/**
@@ -160,6 +168,8 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	public boolean checkOut(RoomBooking booking) {
 		if(booking.getBookingStatus() == BookingStatus.CHECKED_IN){
 			booking.setBookingStatus(BookingStatus.CHECKED_OUT);
+			booking.getRoom().setNeedCleaning(true);
+			booking.getRoom().setIsOccupied(false);
 			return true;
 		}
 		return false;
@@ -171,12 +181,16 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated NOT
 	 */
 	public EList<Booking> findBookings(String name) {
-		EList<Booking> bookings =  new EObjectResolvingEList<Booking>(Booking.class, this, RootElementPackage.BOOKING_HANDLER__BOOKING);
-		for(Booking b: booking){
-			if(b.getGuest().getName().equals(name)){
-				bookings.add(b);
+		EList<Booking> bookings =  ECollections.<Booking>newBasicEList();
+		if(name != null){
+			name = name.toLowerCase();
+			for(Booking b: booking){
+				if(b.getGuest() != null && b.getGuest().getName() != null && b.getGuest().getName().toLowerCase().equals(name)){
+					bookings.add(b);
+				}
 			}
 		}
+		
 		return bookings;
 	}
 
@@ -189,9 +203,9 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		for(Booking b: booking){
 			for(RoomBooking rb: b.getRoombooking()){
 				try{
-				if(rb.getRoom().getName().equals(roomName) && rb.getBookingStatus() == BookingStatus.CHECKED_IN){ 
-					return b;
-				}
+					if(rb.getRoom().getName().equals(roomName) && rb.getBookingStatus() == BookingStatus.CHECKED_IN){ 
+						return b;
+					}
 				}catch(NullPointerException e){
 					//If null somewhere its not checked in... #MoreSpagetti
 				}
@@ -207,7 +221,6 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public Booking createBooking() {
 		Booking book = new BookingImpl();
-		booking.add(book);
 		return book;
 	}
 
@@ -232,16 +245,15 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		//Remove 1 room for each booking in the interval 
 		for(Booking book: this.booking){
 			for(RoomBooking b:book.getRoombooking()){
-				if(b.getStartDate().after(startDate) && b.getStartDate().before(endDate) || b.getEndDate().after(startDate) && b.getEndDate().before(endDate)){
+				if(b.getBookingStatus() != BookingStatus.NONE && !(b.getEndDate().before(startDate) || b.getEndDate().equals(startDate) || b.getStartDate().after(endDate) || b.getStartDate().equals(endDate))){
 					types.put(b.getRoom().getRoomType(),types.get(b.getRoom().getRoomType()) - 1);
 				}
-				
 			}
 		}
 		//Add all room types that have at least 1 free room to list 
 		EList<RoomType> freeRooms = ECollections.<RoomType>newBasicEList();
 		for(RoomType rt: types.keySet()){
-			if(types.get(rt) > 0){
+			for(int i = 0; i<types.get(rt); i++){
 				freeRooms.add(rt);
 			}
 		}
@@ -254,6 +266,24 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated NOT
 	 */
 	public boolean addRoom(Booking booking, RoomType room, int nbrOfAdults, int nbrOfChildren, Date startDate, Date endDate) {
+		//Check nbr of people
+		if(nbrOfAdults<=0 || nbrOfChildren<0 || (nbrOfAdults+nbrOfChildren)>room.getCapacity()){
+			throw new IllegalArgumentException("Invalid amount of people");
+		}
+		if(!startDate.before(endDate)){
+			throw new IllegalArgumentException("End date must be after start date");
+		}
+		
+		//Check validity
+		EList<RoomType> availableRooms = getAvailableRooms(startDate, endDate, nbrOfAdults, nbrOfChildren);
+		for(RoomBooking rb : booking.getRoombooking()){
+			availableRooms.remove(rb.getRoom().getRoomType());
+		}
+		if(!availableRooms.contains(room)){
+			return false;
+		}
+		
+		//Validity secured. Add the room.
 		RoomBooking roomBooking = new DailyRoomBookingImpl();
 		roomBooking.setStartDate(startDate);
 		roomBooking.setEndDate(endDate);
@@ -269,6 +299,25 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated NOT
 	 */
 	public boolean confirmBooking(Booking booking, String name, String phone, String mail, String nationality, int passportNr, String nextDestination) {
+		phone = phone.replaceAll("\\s", "");
+		if(!phone.matches("^[0-9]{3,4}[-]*[0-9]{6,7}$")){
+			throw new IllegalArgumentException("Invalid phone number");
+		}
+		if(mail != null && !mail.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
+			//Invalid mail.
+			System.out.println("Invalid mail. Ignoring it.");
+			mail = null;
+		}
+		if(!nationality.equalsIgnoreCase(HotelFactory.createHotelSystem().getNationality()) && (passportNr<0 || nextDestination == null)){
+			throw new IllegalArgumentException("Passport number and next destination required for foreign visitors");
+		}
+		if(booking.getRoombooking().isEmpty()){
+			throw new IllegalArgumentException("Cannot confirm a booking without any rooms");
+		}
+		if(this.booking.contains(booking)){
+			throw new IllegalArgumentException("Cannot confirm an already confirmed booking");
+		}
+		
 		Guest guest = new GuestImpl();
 		guest.setName(name);
 		guest.setPhoneNumber(phone);
@@ -281,22 +330,22 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		
 		boolean success = true;
 		
-		//Check if there are avaliable room of the selected type for each roomBooking
+		//Check if there are available room of the selected type for each roomBooking
 		for(RoomBooking roombooking: booking.getRoombooking()){
 			EList<RoomType> a = getAvailableRooms(roombooking.getStartDate(), roombooking.getEndDate(), 1, 0);
-			if(a.contains(roombooking.getRoom().getRoomType())){
-				roombooking.setBookingStatus(BookingStatus.BOOKED);
-			}else{
+			if(!a.contains(roombooking.getRoom().getRoomType())){
 				success = false;
+				break;
 			}
 		}
-		//If there are no rooms then change all BookingStatus from BOOKED
-		if(!success){
+		//If successful, set all room bookings to booked
+		if(success){
 			for(RoomBooking roombooking: booking.getRoombooking()){
-				roombooking.setBookingStatus(BookingStatus.NONE);
+				roombooking.setBookingStatus(BookingStatus.BOOKED);
 			}
+			
+			this.booking.add(booking);
 		}
-		
 	
 		return success;
 	}
@@ -316,9 +365,17 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated NOT
 	 */
 	public Booking lookupBooking(String name, String phoneNumber) {
+		name = name.toLowerCase();			//Ignore letter case
 		for(Booking b: this.booking){
-			if(b.getGuest().getName().equals(name) || b.getGuest().getPhoneNumber().equals(phoneNumber))
-				return b;
+			if(b.getGuest() != null){
+				String bookingName = b.getGuest().getName();
+				String bookingPhone = b.getGuest().getPhoneNumber();
+				if(bookingName != null && name != null && bookingName.toLowerCase().contains(name.toLowerCase())){
+					return b;
+				}else if(bookingPhone != null && phoneNumber != null && bookingPhone.contains(phoneNumber)){
+					return b;
+				}
+			}
 		}
 		
 		return null;

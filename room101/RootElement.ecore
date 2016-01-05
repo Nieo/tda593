@@ -63,7 +63,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Booking">
     <eOperations name="calculateCost" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bookingID" ordered="false"
-        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String" changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roombooking" ordered="false"
         upperBound="-1" eType="#//RoomBooking"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guest" ordered="false"
@@ -194,7 +194,7 @@
         lowerBound="1" eType="#//Payment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReceptionHandling" abstract="true" interface="true">
-    <eOperations name="checkIn" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+    <eOperations name="checkIn" ordered="false" lowerBound="1" eType="#//Room">
       <eParameters name="booking" ordered="false" lowerBound="1" eType="#//RoomBooking"/>
     </eOperations>
     <eOperations name="checkOut" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
