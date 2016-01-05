@@ -405,10 +405,8 @@ public class MainCLI{
 					System.out.println("Wrong format! Only an integer number is allowed!");
 				}
 			}
-			while (true) {
-				System.out.print("What's your next destination?: ");
-				nextDest = in.nextLine().trim();
-			}
+			System.out.print("What's your next destination?: ");
+			nextDest = in.nextLine().trim();
 		}
 		try {
 			return actor.confirmBooking(booking, name, phone, mail, nationality, passportNbr, nextDest);
