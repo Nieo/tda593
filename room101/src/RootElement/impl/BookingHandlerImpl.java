@@ -185,7 +185,7 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		if(name != null){
 			name = name.toLowerCase();
 			for(Booking b: booking){
-				if(b.getGuest() != null && b.getGuest().getName() != null && b.getGuest().getName().toLowerCase().equals(name)){
+				if(b.getGuest() != null && b.getGuest().getName() != null && b.getGuest().getName().toLowerCase().contains(name)){
 					bookings.add(b);
 				}
 			}
