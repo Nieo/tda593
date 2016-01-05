@@ -3,6 +3,7 @@
 package RootElement.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -141,6 +142,11 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated NOT
 	 */
 	public Room checkIn(RoomBooking booking) {
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
+		if(!fmt.format(booking.getStartDate()).equals(fmt.format(new Date()))){
+			throw new IllegalArgumentException("Can not check in a booking on the wrong day");
+		}
+		
 		if(booking.getBookingStatus() == BookingStatus.BOOKED){
 			Room concreteRoom = null;
 			for(Room r : roomFetcher.getAvailableRooms()){
