@@ -48,7 +48,7 @@ public class PaymentHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated NOT
 	 */
 	public boolean verifyCreditCard(String creditCard) {
-		return creditCard.matches("([0-9]{4}[-]{1}){3,}[0-9]{4}");
+		return creditCard.matches("([0-9]{4}[\\s]{1}){3,}[0-9]{4}");
 	}
 
 	/**
