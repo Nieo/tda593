@@ -13,5 +13,13 @@
 # -----------------------------------------------------------
 
 newbooking
-addroomtobooking $ Cheap $ 2016-01-06 $ 2020-01-20 $ 1 $ 0
-confirmbooking $ Larry Stone $ 0123456789 $ steve@stevenet.net $ GB $ 666 $ North Korea
+addroomtobooking $ TV room $ 2016-01-06 $ 2016-01-20 $ 2 $ 1
+confirmbooking $ Steve Stevenson $ 0123456789 $ steve@stevenet.net $ GB $ 999 $ Saudi Arabia
+
+newbooking
+addroomtobooking $ Cheap $ 2016-01-06 $ 2016-01-20 $ 1 $ 0
+confirmbooking $ Larry Stone $ 0123456789 $ larry@larrynet.com $ GB $ 666 $ North Korea
+
+newbooking
+addroomtobooking $ Cheap $ 2016-01-06 $ 2016-01-11 $ 1 $ 0
+confirmbooking $ Larry Stone $ 0123456789 $ larry@larrynet.com $ GB $ 666 $ North Korea

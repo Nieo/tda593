@@ -4,5 +4,5 @@
 # addRoomType $ TV room $ 10 $ 399 $ Television
 # -----------------------------------------------------------
 
-addRoomType $ TV room $ 10 $ 399 $ Television
+addRoomType $ TV room $ 10 $ 399 $ Television $ Bed
 addRoomType $ Cheap $ 1 $ 100 $ Bed

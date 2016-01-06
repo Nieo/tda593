@@ -60,9 +60,8 @@ public class PaymentHandlerImpl extends MinimalEObjectImpl.Container implements 
 	public boolean debitCard(String creditCard, int amount) {
 		//There is no limitation on the value of the amount integer.
 		boolean success = verifyCreditCard(creditCard)/*&& amount >0*/;
-		if(success)
-			System.out.println(amount+" SEK was deducted from credit card:("+creditCard+")");
-		return success ;
+		/*Debit card was debited*/
+		return success;
 	}
 
 	/**
