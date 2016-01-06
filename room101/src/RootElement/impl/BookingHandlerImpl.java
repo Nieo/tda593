@@ -389,9 +389,9 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 				String bookingName = b.getGuest().getName();
 				String bookingPhone = b.getGuest().getPhoneNumber();
 				if(bookingName != null && name != null && bookingName.toLowerCase().equals(name.toLowerCase())){
-					foundBookings.add(b);
-				}else if(bookingPhone != null && phoneNumber != null && bookingPhone.equals(phoneNumber)){
-					foundBookings.add(b);
+					if(bookingPhone != null && phoneNumber != null && bookingPhone.equals(phoneNumber)){
+						foundBookings.add(b);
+					}
 				}
 			}
 		}
