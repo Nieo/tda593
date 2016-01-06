@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
 
 import RootElement.Booking;
 import RootElement.BookingHandler;
+import RootElement.BookingStatus;
 import RootElement.Cleaning;
 import RootElement.Clerk;
 import RootElement.Feedback;
@@ -761,12 +762,12 @@ public class MainCLI{
 							break;
 						}
 						try {
-							Booking booking = bookings.get(input-1);
+							Booking booking = bookings.get(input2-1);
 							handleBooking(booking, actor);
 							break;
 						} catch (IndexOutOfBoundsException ex) {
 							System.out.println("There are " + bookings.size()
-										+ " choices, not '" + input + "'... Try again.");
+										+ " choices, not '" + input2 + "'... Try again.");
 						}
 					}
 				}
@@ -785,7 +786,7 @@ public class MainCLI{
 		int input = -1;
 		while (input != 0) {
 			System.out.println("\nHandle Booking - What do you want to do?");
-			System.out.println("1:\tCheck in\n2:\tCheck out\n\t3:Add Service Item\n\t4:Remove Service Item\nOr 0 to go back");
+			System.out.println("1:\tCheck in\n2:\tCheck out\n3:\tAdd Service Item\n4:\tRemove Service Item\nOr 0 to go back");
 			System.out.print(">");
 			try {
 				input = Integer.parseInt(in.nextLine());
@@ -809,14 +810,14 @@ public class MainCLI{
 				break;
 			case 2:
 				RoomBooking checkOutRoom = chooseRoomBooking(booking);
-				if (checkOutRoom != null) {
+				if (checkOutRoom != null && checkOutRoom.getBookingStatus()==BookingStatus.CHECKED_IN) {
 					int amount = booking.calculateCost();
 					while(true) {
 						System.out.println("The total cost for the booking is: " + amount);
 						System.out.print("Pay for the booking now? (y/n): ");
 						String choice = in.nextLine().toLowerCase().trim(); 
 						if (choice.equals("y")) {
-							System.out.print("Please enter the credit card: ");
+							System.out.print("Please enter the credit card (XXXX-XXXX-XXXX-XXXX): ");
 							String creditCard = in.nextLine().trim();
 							if (actor.debitCard(creditCard, amount)) {
 								System.out.println("Payment successfull.");
@@ -835,6 +836,8 @@ public class MainCLI{
 					} else {
 						System.out.println("Checkout failed!");
 					}
+				} else {
+					System.out.println("This room is not checked in, cannot check out.");
 				}
 				break;
 			case 3:
