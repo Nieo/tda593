@@ -314,7 +314,7 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		if(!phone.matches("^[0-9]{3,4}[-]*[0-9]{6,7}$")){
 			throw new IllegalArgumentException("Invalid phone number");
 		}
-		if(mail != null && (mail.trim().isEmpty() || !mail.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"))){
+		if(mail != null && !mail.trim().isEmpty() && !mail.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
 			//Invalid mail.
 			System.out.println("Invalid mail. Ignoring it.");
 			mail = null;
