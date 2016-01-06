@@ -5,3 +5,5 @@
 # -----------------------------------------------------------
 
 addRoom $ TV room 1 $ TV room
+
+addRoom $ Budget room 1 $ Cheap

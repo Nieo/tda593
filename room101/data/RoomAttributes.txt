@@ -7,3 +7,4 @@
 addRoomAttribute $ Seaview $ You can see the sea from here
 addRoomAttribute $ Television $ The room has a TV
 addRoomAttribute $ Storage-safe $ The room has a secure safe to store valuables
+addRoomAttribute $ Bed $ The room has a bed

@@ -91,6 +91,7 @@ public class FeedbackHandlerImpl extends MinimalEObjectImpl.Container implements
 		EList<Feedback> unreadFeedback = new BasicEList<Feedback>();
 		for(Feedback feedback: feedback){
 			if(!feedback.isRead()){
+				feedback.setRead(true);
 				unreadFeedback.add(feedback);
 			}
 		}
