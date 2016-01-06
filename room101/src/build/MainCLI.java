@@ -705,25 +705,31 @@ public class MainCLI{
 			}
 			try {
 				SupportTicket st = list.get(input-1);
-				System.out.println("Room name: " + st.getRoomName());
-				System.out.println("Status: " + (st.isFixed()?"Fixed":"Not fixed"));
-				System.out.println(st.getProblemDescription() + "\n");
-				System.out.println("1:\tMark as fixed\nOr 0 to go back");
 				int input2 = -1;
 				while(input2 != 0) {
+					System.out.println("Room name: " + st.getRoomName());
+					System.out.println("Status: " + (st.isFixed()?"Fixed":"Not fixed"));
+					System.out.println(st.getProblemDescription() + "\n");
+					System.out.println("1:\tMark as fixed\nOr 0 to go back");
 					try {
 						input2 = Integer.parseInt(in.nextLine());
 					} catch (NumberFormatException e) {
 						System.out.println("Only digits 0-1 are allowed.");
 						continue;
 					}
+					if (input2 == 0) {
+						break;
+					} else if (input2 == 1) {
+						actor.markAsCompleted(st);
+						System.out.println("Support Ticket marked as fixed.");
+						break;
+					} else {
+						System.out.println("Only 0-1 is allowed.");
+					}
 					switch (input2) {
 					case 0:
 						break;
 					case 1:
-						actor.markAsCompleted(st);
-						System.out.println("Support Ticket marked as fixed.");
-						break;
 					default:
 						System.out.println(input2 + " is not on the list.\n");
 					}
@@ -838,7 +844,7 @@ public class MainCLI{
 							System.out.print("Please enter the credit card (XXXX-XXXX-XXXX-XXXX): ");
 							String creditCard = in.nextLine().trim();
 							if (actor.debitCard(creditCard, amount)) {
-								System.out.println("Payment successfull.");
+								System.out.println("Payment successful.");
 								break;
 							} else {
 								System.out.println("Payment failed!");
@@ -942,27 +948,26 @@ public class MainCLI{
 			}
 			try {
 				ServiceItem si = list.get(input-1);
-				System.out.println("Name: " + si.getName());
-				System.out.println("Price: " + si.getPrice());
-				System.out.println(si.getDescription() + "\n");
-				System.out.println("1:\tDelete this item\nOr 0 to go back");
 				int input2 = -1;
 				while(input2 != 0) {
+					System.out.println("Name: " + si.getName());
+					System.out.println("Price: " + si.getPrice());
+					System.out.println(si.getDescription() + "\n");
+					System.out.println("1:\tDelete this item\nOr 0 to go back");
 					try {
 						input2 = Integer.parseInt(in.nextLine());
 					} catch (NumberFormatException e) {
 						System.out.println("Only digits 0-1 are allowed.");
 						continue;
 					}
-					switch (input2) {
-					case 0:
+					if (input2 == 0) {
 						break;
-					case 1:
+					} else if (input2 == 1) {
 						actor.removeServiceItem(booking, si);
 						System.out.println("Service item has been removed.");
 						break;
-					default:
-						System.out.println(input2 + " is not on the list.\n");
+					} else {
+						System.out.println("Only 0-1 is allowed.");
 					}
 				}
 				break;
