@@ -183,19 +183,25 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public RoomType addRoomType(String name, int capacity, int cost) throws IllegalArgumentException{
-		if(name != null && capacity>0 && cost>=0){
-			for(RoomType rt : roomTypes){
-				if(rt.getName().equals(name)){
-					throw new IllegalArgumentException("Invalid name : A RoomType with that name already exists");
-				}
-			}
-			
-			RoomType type = createRoomType(name, capacity, cost);
-			roomTypes.add(type);
-			return type;
-		}else{
-			return null;
+		if(name != null){
+			throw new IllegalArgumentException("The room type must have a name");
 		}
+		if(capacity<=0){
+			throw new IllegalArgumentException("The capacity of the room must be above 0");
+		}
+		if(cost<0){
+			throw new IllegalArgumentException("The cost cannot be negative");
+		}
+		
+	for(RoomType rt : roomTypes){
+			if(rt.getName().equals(name)){
+				throw new IllegalArgumentException("Invalid name : A RoomType with that name already exists");
+			}
+		}
+		
+		RoomType type = createRoomType(name, capacity, cost);
+		roomTypes.add(type);
+		return type;
 	}
 
 	/**
