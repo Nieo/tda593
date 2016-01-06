@@ -183,7 +183,7 @@ public class RoomStructureImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public RoomType addRoomType(String name, int capacity, int cost) throws IllegalArgumentException{
-		if(name != null){
+		if(name == null){
 			throw new IllegalArgumentException("The room type must have a name");
 		}
 		if(capacity<=0){
