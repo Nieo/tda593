@@ -47,6 +47,8 @@ public class PaymentHandlerTest {
 		assertFalse("Checks for unvalid credit card",paymentHandler.verifyCreditCard("----------------------"));
 		assertFalse("Checks for unvalid credit card",paymentHandler.verifyCreditCard("1234567890"));
 		assertTrue("Checks for a valid credit card",paymentHandler.verifyCreditCard("1234-5678-9101-1121"));
+		assertTrue("Checks for a valid credit card",paymentHandler.verifyCreditCard("1234567891011121"));
+		assertFalse("Checks for a valid credit card",paymentHandler.verifyCreditCard("1234---1121"));
 	}
 
 	/**

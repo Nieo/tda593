@@ -5,5 +5,15 @@
 # -----------------------------------------------------------
 
 addRoom $ TV room 1 $ TV room
+addRoom $ TV room 2 $ TV room
+addRoom $ TV room 3 $ TV room
+addRoom $ TV room 4 $ TV room
+addRoom $ TV room 5 $ TV room
+addRoom $ TV room 6 $ TV room
 
 addRoom $ Budget room 1 $ Cheap
+addRoom $ Budget room 2 $ Cheap
+addRoom $ Budget room 3 $ Cheap
+addRoom $ Budget room 4 $ Cheap
+addRoom $ Budget room 5 $ Cheap
+addRoom $ Budget room 6 $ Cheap
