@@ -449,7 +449,7 @@ public class MainCLI{
 	}
 	
 	private void printBooking(Booking booking) {
-		System.out.println("\nBookingID: " + booking.getBookingID() + "\tGuest: " + (booking.getGuest()!=null?booking.getGuest().getName():"<null>"));
+		System.out.println("\nBookingID: " + booking.getBookingID() + "\tGuest: " + (booking.getGuest()!=null?booking.getGuest().getName():"<Booking not confirmed>"));
 		if (!booking.getRoombooking().isEmpty()) {
 			System.out.println("Rooms booked:");
 			for (RoomBooking rb : booking.getRoombooking()) {
@@ -694,7 +694,7 @@ public class MainCLI{
 				System.out.println("Room name: " + st.getRoomName());
 				System.out.println("Status: " + (st.isFixed()?"Fixed":"Not fixed"));
 				System.out.println(st.getProblemDescription() + "\n");
-				System.out.println("1:\tMark as fixed\n\tGo back");
+				System.out.println("1:\tMark as fixed\nOr 0 to go back");
 				int input2 = -1;
 				while(input2 != 0) {
 					try {
@@ -924,7 +924,7 @@ public class MainCLI{
 				System.out.println("Name: " + si.getName());
 				System.out.println("Price: " + si.getPrice());
 				System.out.println(si.getDescription() + "\n");
-				System.out.println("1:\tDelete this item\n\tGo back");
+				System.out.println("1:\tDelete this item\nOr 0 to go back");
 				int input2 = -1;
 				while(input2 != 0) {
 					try {
@@ -1056,8 +1056,12 @@ public class MainCLI{
 				System.out.println("Choose a room type for the new room.");
 				RoomType roomType = listAndChooseRoomType(actor.getAllRoomTypes());
 				if (roomType != null) {
-					actor.addRoom(roomType, name);
-					System.out.println("Room successfully added.");
+					try {
+						actor.addRoom(roomType, name);
+						System.out.println("Room successfully added.");
+					} catch (IllegalArgumentException ex) {
+						System.out.println("Error: " + ex.getMessage());
+					}
 				} else {
 					System.out.println("Failed to add room!");
 				}
@@ -1130,10 +1134,14 @@ public class MainCLI{
 				break;
 			case 1:
 				System.out.print("Please enter the new name: ");
-				if (actor.editRoom(r, r.getRoomType(), in.nextLine().trim())) {
-					System.out.println("Name edited.");
-				} else {
-					System.out.println("Name change failed!");
+				try {
+					if (actor.editRoom(r, r.getRoomType(), in.nextLine().trim())) {
+						System.out.println("Name edited.");
+					} else {
+						System.out.println("Name change failed!");
+					}
+				} catch (IllegalArgumentException ex) {
+					System.out.println("Error: " + ex.getMessage());
 				}
 				break;
 			case 2:
@@ -1203,19 +1211,24 @@ public class MainCLI{
 						System.out.println("Price cannot be negative.");
 					}
 				}
-				RoomType newRoomType = actor.addRoomType(name, capacity, cost);
-				System.out.println("Room type added.");
-				while(true) {
-					System.out.print("Do you want to edit the room type now to add attributes? (y/n): ");
-					String choice = in.nextLine().toLowerCase().trim(); 
-					if (choice.equals("y")) {
-						editOrRemoveRoomType(newRoomType, actor);
-						break;
-					} else if (choice.equals("n")) {
-						break;
-					} else {
-						System.out.println("Only 'y' or 'n' are allowed.");
+				RoomType newRoomType = null;
+				try {
+					newRoomType = actor.addRoomType(name, capacity, cost);
+					System.out.println("Room type added.");
+					while(true) {
+						System.out.print("Do you want to edit the room type now to add attributes? (y/n): ");
+						String choice = in.nextLine().toLowerCase().trim(); 
+						if (choice.equals("y")) {
+							editOrRemoveRoomType(newRoomType, actor);
+							break;
+						} else if (choice.equals("n")) {
+							break;
+						} else {
+							System.out.println("Only 'y' or 'n' are allowed.");
+						}
 					}
+				} catch (IllegalArgumentException ex) {
+					System.out.println("Error: " + ex.getMessage());
 				}
 				break;
 			case 2:
@@ -1287,10 +1300,14 @@ public class MainCLI{
 				break;
 			case 1:
 				System.out.print("Please enter the new name: ");
-				if (actor.editRoomType(rt, in.nextLine().trim(), rt.getCapacity(), rt.getPrice())) {
-					System.out.println("Name edited.");
-				} else {
-					System.out.println("Name change failed!");
+				try {
+					if (actor.editRoomType(rt, in.nextLine().trim(), rt.getCapacity(), rt.getPrice())) {
+						System.out.println("Name edited.");
+					} else {
+						System.out.println("Name change failed!");
+					}
+				} catch (IllegalArgumentException ex) {
+					System.out.println("Error: " + ex.getMessage());
 				}
 				break;
 			case 2:
@@ -1385,8 +1402,12 @@ public class MainCLI{
 				String name = in.nextLine().trim();
 				System.out.println("Please enter the description: ");
 				String description = in.nextLine().trim();
-				actor.addRoomAttribute(name, description);
-				System.out.println("Room attribute added.");
+				try {
+					actor.addRoomAttribute(name, description);
+					System.out.println("Room attribute added.");
+				} catch (IllegalArgumentException ex) {
+					System.out.println("Error: " +ex.getMessage());
+				}
 				break;
 			case 2:
 				RoomAttribute raAll = listAndChooseRoomAttribute(actor.getAllRoomAttributes());
@@ -1460,10 +1481,14 @@ public class MainCLI{
 				break;
 			case 1:
 				System.out.print("Please enter the new name: ");
-				if (actor.editRoomAttribute(ra, in.nextLine().trim(), ra.getDescription())) {
-					System.out.println("Name edited.");
-				} else {
-					System.out.println("Name change failed!");
+				try {
+					if (actor.editRoomAttribute(ra, in.nextLine().trim(), ra.getDescription())) {
+						System.out.println("Name edited.");
+					} else {
+						System.out.println("Name change failed!");
+					}
+				} catch (IllegalArgumentException ex) {
+					System.out.println("Error: " +ex.getMessage());
 				}
 				break;
 			case 2:
