@@ -8,10 +8,10 @@
 # 'confirmbooking $ <name> $ <phone number> $ <mail> $ <nationality> $ <passportNr> $ <nextDestination>'
 # For example:
 # newbooking
-# addroomtobooking $ TV room $ 2015-01-15 $ 2015-01-20 $ 2 $ 1
+# addroomtobooking $ TV room $ 2015-01-06 $ 2015-01-20 $ 2 $ 1
 # confirmbooking $ Steve Stevenson $ 0123456789 $ steve@stevenet.net $ GB $ 666 $ Saudi Arabia
 # -----------------------------------------------------------
 
 newbooking
-addroomtobooking $ TV room $ 2015-01-15 $ 2015-01-20 $ 2 $ 1
-confirmbooking $ Steve Stevenson $ 0123456789 $ steve@stevenet.net $ GB $ 666 $ Saudi Arabia
+addroomtobooking $ Cheap $ 2016-01-06 $ 2020-01-20 $ 1 $ 0
+confirmbooking $ Larry Stone $ 0123456789 $ steve@stevenet.net $ GB $ 666 $ North Korea

@@ -73,6 +73,8 @@ public class FeedbackTest {
 		assertEquals(2, manager.getAllFeedback().size());
 		assertTrue(manager.getAllFeedback().get(0).getFeedbackDescription().equals("Nice room, terrible food.. "));
 		assertTrue(manager.getAllFeedback().get(0).getRating() == 6);
+		manager.getAllFeedback().get(0).setRead(true);
+		assertTrue(manager.getAllFeedback().get(0).isRead());
 	}
 
 }

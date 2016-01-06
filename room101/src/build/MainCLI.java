@@ -988,7 +988,8 @@ public class MainCLI{
 						System.out.println("Wrong format! Only an integer number is allowed!");
 					}
 				}
-				actor.debitCard(card, amount);
+				if(!actor.debitCard(card, amount))
+					System.out.println("The card is NOT valid.");
 				break;
 			default:
 				System.out.println(input + " is not on the list.\n");

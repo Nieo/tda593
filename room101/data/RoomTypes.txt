@@ -5,3 +5,4 @@
 # -----------------------------------------------------------
 
 addRoomType $ TV room $ 10 $ 399 $ Television
+addRoomType $ Cheap $ 1 $ 100 $ Bed
