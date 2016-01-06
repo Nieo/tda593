@@ -423,29 +423,36 @@ public class MainCLI{
 		name = in.nextLine();
 		System.out.println("Please state your phone number: ");
 		phoneNbr = in.nextLine();
-		Booking booking = actor.lookupBooking(name, phoneNbr);
-		if (booking != null) {
-			System.out.println("Found booking:");
+		EList<Booking> bookings = actor.lookupBooking(name, phoneNbr);
+		if (bookings != null && !bookings.isEmpty()) {
 			while (true) {
-				printBooking(booking);
-				System.out.println("1: Cancel the booking\n0: Go back");
+				for (int i=0; i<bookings.size(); i++) {
+					System.out.println((i+1) + ":");
+					printBooking(bookings.get(i));
+				}
+				System.out.println("Choose a booking to cancel it.\nOr 0 to go back");
 				int input = -1;
 				try {
 					input = Integer.parseInt(in.nextLine());
 				} catch (NumberFormatException e) {
 					System.out.println("Only an integer 0-1 is allowed!");
 				}
-				if (input == 1) {
-					if (actor.cancelBooking(booking)) {
+				if (input == 0) {
+					break;
+				}
+				try {
+					if (actor.cancelBooking(bookings.get(input-1))) {
 						System.out.println("Booking cancelled");						
 					} else {
 						System.out.println("Failed to cancel booking");
 					}
-					break;
-				} else if (input == 0) {
-					break;
+				} catch (IndexOutOfBoundsException ex) {
+					System.out.println("There are " + bookings.size()
+								+ " choices, not '" + input + "'... Try again.");
 				}
 			}
+		} else {
+			System.out.println("No bookings were found.");
 		}
 	}
 	
@@ -471,7 +478,7 @@ public class MainCLI{
 	private void searchAndChooseRoomType(Booking booking, MakeBooking actor) {
 		Date startDate = null, endDate = null;
 		int nbrOfAdults = 0, nbrOfChildren = 0;
-		EList<RoomType> allRooms;
+		EList<RoomType> allRooms = null;
 		ArrayList<RoomType> roomTypes = new ArrayList<>();
 		
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -509,7 +516,12 @@ public class MainCLI{
 				System.out.println("Wrong format! Only an integer number is allowed!");
 			}
 		}
-		allRooms = actor.getAvailableRooms(startDate, endDate, nbrOfAdults, nbrOfChildren);
+		try {
+			allRooms = actor.getAvailableRooms(startDate, endDate, nbrOfAdults, nbrOfChildren);
+		} catch (IllegalArgumentException ex) {
+			System.out.println("Error: " + ex.getMessage());
+			return;
+		}
 		int input = -1;
 		while (input != 0) {
 			printBooking(booking);
