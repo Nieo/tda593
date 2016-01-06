@@ -1,4 +1,0 @@
-66507,Matz Larsson,MA
-1337,Mr. Cleaner,ST
-12345,Bad Password,CL
-  666,Patrik Haar,SA
