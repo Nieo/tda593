@@ -238,9 +238,8 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	public EList<RoomType> getAvailableRooms(Date startDate, Date endDate, int nbrOfAdults, int nbrOfChildren) {
 		//Check how many rooms of each type there are
 		HashMap<RoomType,Integer> types = new HashMap<RoomType, Integer>();
-		int nbrOfPeople = nbrOfAdults+nbrOfChildren;
 		for(Room r: roomFetcher.getBookableRooms()){
-			if(r.getRoomType() != null && r.getRoomType().getCapacity()>=nbrOfPeople){
+			if(r.getRoomType() != null){
 				if(types.containsKey(r.getRoomType())){
 					types.put(r.getRoomType(),types.get(r.getRoomType()) + 1);
 				}else{
@@ -256,11 +255,14 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 				}
 			}
 		}
-		//Add all room types that have at least 1 free room to list 
+		//Add all matching room types that have at least 1 free room to list
+		int nbrOfPeople = nbrOfAdults+nbrOfChildren;
 		EList<RoomType> freeRooms = ECollections.<RoomType>newBasicEList();
 		for(RoomType rt: types.keySet()){
-			for(int i = 0; i<types.get(rt); i++){
-				freeRooms.add(rt);
+			if(rt.getCapacity()>=nbrOfPeople){
+				for(int i = 0; i<types.get(rt); i++){
+					freeRooms.add(rt);
+				}
 			}
 		}
 		return freeRooms;
@@ -312,7 +314,7 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		if(!phone.matches("^[0-9]{3,4}[-]*[0-9]{6,7}$")){
 			throw new IllegalArgumentException("Invalid phone number");
 		}
-		if(mail != null && !mail.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
+		if(mail != null && (mail.trim().isEmpty() || !mail.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"))){
 			//Invalid mail.
 			System.out.println("Invalid mail. Ignoring it.");
 			mail = null;
