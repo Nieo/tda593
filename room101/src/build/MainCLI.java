@@ -446,6 +446,7 @@ public class MainCLI{
 					} else {
 						System.out.println("Failed to cancel booking");
 					}
+					break;
 				} catch (IndexOutOfBoundsException ex) {
 					System.out.println("There are " + bookings.size()
 								+ " choices, not '" + input + "'... Try again.");
