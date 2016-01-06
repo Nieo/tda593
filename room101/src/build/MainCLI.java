@@ -461,8 +461,9 @@ public class MainCLI{
 	}
 	
 	private void printRoomBooking(RoomBooking rb) {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println((rb.getRoom().getRoomType()!=null?rb.getRoom().getRoomType().getName():"<null>")
-				+ "\tfrom " + rb.getStartDate() + " to " + rb.getEndDate() + "\t"
+				+ "\tfrom " + df.format(rb.getStartDate()) + " to " + df.format(rb.getEndDate()) + "\t"
 				+ rb.getRoom().getRoomType().getPrice() + "/day\tStatus: "
 				+ rb.getBookingStatus());
 	}
@@ -519,7 +520,6 @@ public class MainCLI{
 				}
 			}
 			System.out.println("Choose a room below to add it to the booking or 0 to go back");
-			System.out.print(">");
 			for (int i=0; i< roomTypes.size(); i++) {
 				System.out.print((i+1) + ":\t");
 				printRoomType(roomTypes.get(i));
@@ -547,10 +547,10 @@ public class MainCLI{
 	private void printRoomType(RoomType rt) {
 		System.out.println("Room type: " + rt.getName()
 				+ "\t" + rt.getPrice() + "SEK/day"
-				+ "\nAttributes:" + (rt.getRoomAttributes().isEmpty()?" None have been added":""));
+				+ "\n\tAttributes:" + (rt.getRoomAttributes().isEmpty()?" None have been added":""));
 		for (int i=0; i < rt.getRoomAttributes().size(); i++) {
 			RoomAttribute ra = rt.getRoomAttributes().get(i);
-			System.out.println("\t" + ra.getName());
+			System.out.println("\t\t" + ra.getName());
 		}
 	}
 	
@@ -1261,7 +1261,7 @@ public class MainCLI{
 				for (int i=0; i<list.size(); i++) {
 					RoomType rt = list.get(i);
 					System.out.print((i+1)+ ":\t");
-					System.out.println(rt.getName() + "\t" + rt.getPrice() + "/day");
+					System.out.println(rt.getName() + "\tCapacity: " + rt.getCapacity() + "\t" + rt.getPrice() + "/day");
 				}
 				System.out.print("Select a room type or 0 to go back: ");
 				try {
