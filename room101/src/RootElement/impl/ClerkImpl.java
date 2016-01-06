@@ -366,7 +366,7 @@ public class ClerkImpl extends StaffImpl implements Clerk {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Booking lookupBooking(String name, String phoneNumber) {
+	public EList<Booking> lookupBooking(String name, String phoneNumber) {
 		return makeBooking.lookupBooking(name, phoneNumber);
 	}
 

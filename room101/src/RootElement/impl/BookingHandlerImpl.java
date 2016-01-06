@@ -3,6 +3,10 @@
 package RootElement.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -281,6 +285,9 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 		if(!startDate.before(endDate)){
 			throw new IllegalArgumentException("End date must be after start date");
 		}
+		if(startDate.before(Date.from(LocalDateTime.of(LocalDate.now(ZoneId.systemDefault()), LocalTime.MIDNIGHT).atZone(ZoneId.systemDefault()).toInstant()))){
+			throw new IllegalArgumentException("Cannot add booking with start date before today");
+		}
 		
 		//Check validity
 		EList<RoomType> availableRooms = getAvailableRooms(startDate, endDate, nbrOfAdults, nbrOfChildren);
@@ -374,21 +381,22 @@ public class BookingHandlerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Booking lookupBooking(String name, String phoneNumber) {
+	public EList<Booking> lookupBooking(String name, String phoneNumber) {
+		EList<Booking> foundBookings = ECollections.<Booking>newBasicEList();
 		name = name.toLowerCase();			//Ignore letter case
 		for(Booking b: this.booking){
 			if(b.getGuest() != null){
 				String bookingName = b.getGuest().getName();
 				String bookingPhone = b.getGuest().getPhoneNumber();
-				if(bookingName != null && name != null && bookingName.toLowerCase().contains(name.toLowerCase())){
-					return b;
-				}else if(bookingPhone != null && phoneNumber != null && bookingPhone.contains(phoneNumber)){
-					return b;
+				if(bookingName != null && name != null && bookingName.toLowerCase().equals(name.toLowerCase())){
+					foundBookings.add(b);
+				}else if(bookingPhone != null && phoneNumber != null && bookingPhone.equals(phoneNumber)){
+					foundBookings.add(b);
 				}
 			}
 		}
 		
-		return null;
+		return foundBookings;
 	}
 
 	/**

@@ -55,7 +55,7 @@
     <eOperations name="cancelBooking" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
     </eOperations>
-    <eOperations name="lookupBooking" ordered="false" lowerBound="1" eType="#//Booking">
+    <eOperations name="lookupBooking" ordered="false" upperBound="-1" eType="#//Booking">
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="phoneNumber" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>

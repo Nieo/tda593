@@ -62,9 +62,9 @@ public interface MakeBooking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" phoneNumberDataType="org.eclipse.uml2.types.String" phoneNumberRequired="true" phoneNumberOrdered="false"
+	 * @model ordered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" phoneNumberDataType="org.eclipse.uml2.types.String" phoneNumberRequired="true" phoneNumberOrdered="false"
 	 * @generated
 	 */
-	Booking lookupBooking(String name, String phoneNumber);
+	EList<Booking> lookupBooking(String name, String phoneNumber);
 
 } // MakeBooking

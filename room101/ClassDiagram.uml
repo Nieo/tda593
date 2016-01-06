@@ -239,7 +239,10 @@
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_wUn_gKJKEeW1I_MccVmXPQ" name="phoneNumber">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_y7eF8KJKEeW1I_MccVmXPQ" name="booking" type="_d3V_0JddEeW0s9Al2d2tiA" direction="return"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_y7eF8KJKEeW1I_MccVmXPQ" name="booking" type="_d3V_0JddEeW0s9Al2d2tiA" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zwlJsLS5EeWGhoeb0_UHgA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zwr3YLS5EeWGhoeb0_UHgA" value="*"/>
+      </ownedParameter>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_LeQ0kJ2QEeWgH5KZ_xCcgQ" name="RoomBooking" isAbstract="true">

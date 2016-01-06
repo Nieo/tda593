@@ -522,7 +522,7 @@ public class GuestImpl extends MinimalEObjectImpl.Container implements Guest {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Booking lookupBooking(String name, String phoneNumber) {
+	public EList<Booking> lookupBooking(String name, String phoneNumber) {
 		return makeBooking.lookupBooking(name, phoneNumber);
 	}
 

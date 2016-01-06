@@ -2056,7 +2056,7 @@ public class RootElementPackageImpl extends EPackageImpl implements RootElementP
 		op = initEOperation(getMakeBooking__CancelBooking__Booking(), theTypesPackage.getBoolean(), "cancelBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getMakeBooking__LookupBooking__String_String(), this.getBooking(), "lookupBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getMakeBooking__LookupBooking__String_String(), this.getBooking(), "lookupBooking", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "phoneNumber", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
