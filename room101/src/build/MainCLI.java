@@ -813,12 +813,17 @@ public class MainCLI{
 			case 1:
 				RoomBooking checkInRoom = chooseRoomBooking(booking);
 				if (checkInRoom != null) {
-					Room room = actor.checkIn(checkInRoom);
-					if (room!=null) {
-						System.out.println("Room has been checked in: "+room.getName());
+					System.out.print("Please give enter a valid creditcard (XXXX-XXXX-XXXX-XXXX): ");
+					if (actor.verifyCreditCard(in.nextLine().trim())) {
+						Room room = actor.checkIn(checkInRoom);
+						if (room!=null) {
+							System.out.println("Room has been checked in: "+room.getName());
+						} else {
+							System.out.println("Failed to check in!");
+						}					
 					} else {
-						System.out.println("Failed to check in!");
-					}					
+						System.out.println("The card is NOT valid, did not check in.");
+					}
 				}
 				break;
 			case 2:
